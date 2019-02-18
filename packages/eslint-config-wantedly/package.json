@@ -1,0 +1,24 @@
+{
+  "name": "eslint-config-wantedly",
+  "version": "0.0.0",
+  "description": "ESLint configuration for Wantedly",
+  "main": "index.js",
+  "author": "Yuki Yamada <yamada@wantedly.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.0",
+    "jest": "^24.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
