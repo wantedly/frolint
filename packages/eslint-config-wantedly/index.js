@@ -3,11 +3,18 @@ module.exports = {
     browser: true,
     es6: true,
     "jest/globals": true,
+    node: true,
   },
   globals: {
     flushPromises: true,
   },
-  extends: ["airbnb"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    // "prettier",
+    // "prettier/@typescript-eslint",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -16,7 +23,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["react", "jest"],
+  plugins: ["react", "import", "jsx-a11y", "jest", "prettier", "@typescript-eslint"],
   rules: {
     "array-callback-return": "warn",
     "arrow-body-style": ["off"],
@@ -53,27 +60,32 @@ module.exports = {
     "no-shadow": "off",
     "no-undef": "warn",
     "no-underscore-dangle": ["off"],
-    "no-unused-vars": [
-      "error",
-      { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
-    ],
+    "no-unused-vars": ["error", { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }],
     "no-use-before-define": ["warn", { functions: false }],
     "no-useless-constructor": "warn",
     "no-useless-escape": "warn",
     "object-shorthand": "warn",
     "prefer-const": "warn",
     "prefer-template": "warn",
-    "quote-props": "warn",
+    "quote-props": ["warn", "as-needed"],
     "space-before-function-paren": "warn",
     camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
     eqeqeq: "warn",
-    indent: "warn",
+    indent: ["error", 2],
     quotes: ["off"],
     semi: ["error", "always"],
 
     // @typescript-eslint/eslint-plugin rules
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        varsIgnorePattern: "^_",
+        argsIgnorePattern: "^_",
+      },
+    ],
 
     // eslint-plugin-import rules
     "import/extensions": "off",
