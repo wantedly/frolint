@@ -101,6 +101,8 @@ function preCommitHook(args, _config) {
   const unstaged = getUnstagedFiles(rootDir);
   const files = Array.from(new Set([...staged, ...unstaged]));
 
+  module.paths.push(path.resolve(__dirname, "node_modules"));
+
   const isFullyStaged = file => {
     return !unstaged.includes(getRelativePath(rootDir, file));
   };
