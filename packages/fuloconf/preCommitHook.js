@@ -59,7 +59,6 @@ function preCommitHook(args, _config) {
   const report = cli.executeOnFiles(files.filter(isSupportedExtension));
 
   report.results.forEach(result => {
-    // eslint-disable-next-line no-console
     console.log(result);
 
     const { filePath, output } = result;

@@ -1,3 +1,6 @@
 {
-  "extends": ["wantedly"]
+  "extends": ["wantedly"],
+  "rules": {
+    "no-console": "off"
+  }
 }
