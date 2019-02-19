@@ -27,7 +27,7 @@ Object {
   "globals": Object {
     "flushPromises": true,
   },
-  "parser": "/Users/yamadayuki/dev/src/github.com/yamadayuki/eslint-config-wantedly/node_modules/babel-eslint/lib/index.js",
+  "parser": "/Users/yamadayuki/dev/src/github.com/yamadayuki/eslint-config-wantedly/node_modules/@typescript-eslint/parser/dist/parser.js",
   "parserOptions": Object {
     "ecmaFeatures": Object {
       "experimentalObjectRestSpread": true,
@@ -45,6 +45,19 @@ Object {
     "jest",
   ],
   "rules": Object {
+    "@typescript-eslint/explicit-function-return-type": Array [
+      "off",
+    ],
+    "@typescript-eslint/no-explicit-any": Array [
+      "off",
+    ],
+    "@typescript-eslint/no-unused-vars": Array [
+      "error",
+      Object {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+      },
+    ],
     "accessor-pairs": "off",
     "array-bracket-newline": Array [
       "off",
@@ -1227,9 +1240,10 @@ Object {
     ],
     "no-unused-labels": "error",
     "no-unused-vars": Array [
-      "warn",
+      "error",
       Object {
         "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
       },
     ],
     "no-use-before-define": Array [
