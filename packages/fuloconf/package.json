@@ -5,7 +5,9 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "dependencies": {
-    "@yamadayuki/ogh": "^0.1.0"
+    "@yamadayuki/ogh": "^0.1.0",
+    "eslint": "^5.14.1",
+    "eslint-config-wantedly": "^0.0.0"
   },
   "scripts": {
     "postinstall": "node index.js install",
