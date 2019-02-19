@@ -1,6 +1,6 @@
 {
   "name": "frolint",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
@@ -8,12 +8,12 @@
     "@yamadayuki/ogh": "^0.1.0",
     "chalk": "^2.4.2",
     "eslint": "^5.14.1",
+    "eslint-config-wantedly": "^0.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.3.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-config-wantedly": "^0.1.0",
     "execa": "^1.0.0"
   },
   "scripts": {
