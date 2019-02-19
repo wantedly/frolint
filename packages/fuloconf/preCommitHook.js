@@ -62,6 +62,8 @@ function formatResults(results, cwd) {
     });
 }
 
+const { green, red, yellow } = chalk;
+
 function reportToConsole(report, cwd) {
   const { results, errorCount, warningCount } = report;
 
@@ -69,13 +71,22 @@ function reportToConsole(report, cwd) {
     reportNoop();
   } else {
     const reported = formatResults(results, cwd);
-    reported.forEach(r => {
-      console.log(r);
+    reported.forEach(({ filePath, errorCount, warningCount, messages }) => {
+      const colored = `${green(["./", filePath].join(""))}: ${red(
+        errorCount,
+        errorCount === 1 ? "error" : "errors"
+      )}, ${yellow(warningCount, warningCount === 1 ? "warning" : "warnings")} found.`;
+      console.log(colored);
+
+      messages.forEach(({ ruleId, message, line, column }) => {
+        const coloredMessage = `  ./${filePath}:${column}:${line} ${message} (${ruleId})`;
+        console.log(coloredMessage);
+      });
     });
   }
 }
 
-function preCommitHook(args, _config) {
+function preCommitHook(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const staged = getStagedFiles(rootDir);
   const unstaged = getUnstagedFiles(rootDir);
@@ -89,15 +100,13 @@ function preCommitHook(args, _config) {
 
   reportToConsole(report, rootDir);
 
-  const results = formatResults(report.results, rootDir);
-
-  results.forEach(result => {
+  report.results.forEach(result => {
     const { filePath, output } = result;
     if (output) {
       fs.writeFileSync(filePath, output);
 
       if (isFullyStaged(filePath)) {
-        stageFile(args, filePath);
+        stageFile(args, getRelativePath(rootDir, filePath));
       }
     }
   });

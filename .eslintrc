@@ -3,5 +3,10 @@
   "rules": {
     "no-console": "off",
     "@typescript-eslint/no-var-requires": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "16.8.0"
+    }
   }
 }
