@@ -68,7 +68,14 @@ module.exports = {
     "prefer-const": "warn",
     "prefer-template": "warn",
     "quote-props": ["warn", "as-needed"],
-    "space-before-function-paren": "warn",
+    "space-before-function-paren": [
+      "warn",
+      {
+        anonymous: "always",
+        asyncArrow: "always",
+        named: "never",
+      },
+    ],
     camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
     eqeqeq: "warn",
     indent: ["error", 2],
