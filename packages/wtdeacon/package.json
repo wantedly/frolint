@@ -1,0 +1,10 @@
+{
+  "name": "wtdeacon",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Yuki Yamada <yamada@wantedly.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@yamadayuki/ogh": "^0.1.0"
+  }
+}
