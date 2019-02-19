@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-wantedly",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "ESLint configuration for Wantedly",
   "main": "index.js",
   "author": "Yuki Yamada <yamada@wantedly.com>",
