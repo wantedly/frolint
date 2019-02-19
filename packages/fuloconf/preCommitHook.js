@@ -101,7 +101,11 @@ function preCommitHook(args, _config) {
   const unstaged = getUnstagedFiles(rootDir);
   const files = Array.from(new Set([...staged, ...unstaged]));
 
-  module.paths.push(path.resolve(__dirname, "node_modules"));
+  // Enable to resolve the eslint-config-wantedly packages
+  const eslintConfigWantedlyPkg = require(path.resolve(__dirname, "..", "eslint-config-wantedly", "package.json"));
+  Object.keys(eslintConfigWantedlyPkg.dependencies).forEach(key => {
+    module.paths.push(path.resolve(__dirname, "..", key, "node_modules"));
+  });
 
   const isFullyStaged = file => {
     return !unstaged.includes(getRelativePath(rootDir, file));
