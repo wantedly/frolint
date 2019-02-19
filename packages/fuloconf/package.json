@@ -6,5 +6,9 @@
   "license": "MIT",
   "dependencies": {
     "@yamadayuki/ogh": "^0.1.0"
+  },
+  "scripts": {
+    "postinstall": "node index.js install",
+    "preuninstall": "node index.js uninstall"
   }
 }
