@@ -14,5 +14,8 @@
   "scripts": {
     "postinstall": "node index.js install",
     "preuninstall": "node index.js uninstall"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

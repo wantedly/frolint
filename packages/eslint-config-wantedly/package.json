@@ -24,5 +24,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
