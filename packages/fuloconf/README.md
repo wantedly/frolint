@@ -1,14 +1,11 @@
-# fuloconf
-
-> wtd - deacon
-> Deacon for wantedly
+# frolint
 
 ## Installation
 
 ```sh
-npm install --save fuloconf
+npm install --save frolint
 # or
-yarn add fuloconf
+yarn add frolint
 ```
 
 ## Usage

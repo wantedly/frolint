@@ -1,11 +1,12 @@
 {
-  "name": "fuloconf",
+  "name": "frolint",
   "version": "0.0.0",
   "main": "index.js",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "dependencies": {
     "@yamadayuki/ogh": "^0.1.0",
+    "chalk": "^2.4.2",
     "eslint": "^5.14.1",
     "eslint-config-wantedly": "^0.0.0",
     "execa": "^1.0.0"
