@@ -1,9 +1,7 @@
-const { entrypoint } = require("@yamadayuki/ogh");
+const ogh = require("@yamadayuki/ogh");
+const { preCommitHook } = require("./preCommitHook");
 
-const hook = (args, config) => {
-  console.log("hello world");
-};
-
-entrypoint("fuloconf", { scriptPath: "index.js", hooks: ["pre-commit"] })
-  .registerPerformHook(hook)
+ogh
+  .entrypoint("fuloconf", { scriptPath: "index.js", hooks: ["pre-commit"] })
+  .registerPerformHook(preCommitHook)
   .parse(process.argv);
