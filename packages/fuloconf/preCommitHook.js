@@ -5,6 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
+const { green, red, yellow } = chalk;
+
 function getStagedFiles(cwd) {
   const { stdout } = execa.shellSync("git diff --cached --name-only --diff-filter=ACMRTUB", { cwd });
 
@@ -62,31 +64,38 @@ function formatResults(results, cwd) {
     });
 }
 
-const { green, red, yellow } = chalk;
-
 function reportToConsole(report, cwd) {
   const { results, errorCount, warningCount } = report;
 
   if (errorCount === 0 && warningCount === 0) {
     reportNoop();
-  } else {
-    const reported = formatResults(results, cwd);
-    reported.forEach(({ filePath, errorCount, warningCount, messages }) => {
-      const colored = `${green(["./", filePath].join(""))}: ${red(
-        errorCount,
-        errorCount === 1 ? "error" : "errors"
-      )}, ${yellow(warningCount, warningCount === 1 ? "warning" : "warnings")} found.`;
-      console.log(colored);
-
-      messages.forEach(({ ruleId, message, line, column }) => {
-        const coloredMessage = `  ./${filePath}:${column}:${line} ${message} (${ruleId})`;
-        console.log(coloredMessage);
-      });
-    });
+    return [];
   }
+
+  const total = `Detected ${red(errorCount, errorCount === 1 ? "error" : "errors")}, ${yellow(
+    warningCount,
+    warningCount === 1 ? "warning" : "warnings"
+  )}`;
+  console.log(total);
+
+  const reported = formatResults(results, cwd);
+  reported.forEach(({ filePath, errorCount, warningCount, messages }) => {
+    const colored = `${green(["./", filePath].join(""))}: ${red(
+      errorCount,
+      errorCount === 1 ? "error" : "errors"
+    )}, ${yellow(warningCount, warningCount === 1 ? "warning" : "warnings")} found.`;
+    console.log(colored);
+
+    messages.forEach(({ ruleId, message, line, column }) => {
+      const coloredMessage = `  ./${filePath}:${line}:${column} ${message} (${ruleId})`;
+      console.log(coloredMessage);
+    });
+  });
+
+  return reported;
 }
 
-function preCommitHook(args, config) {
+function preCommitHook(args, _config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const staged = getStagedFiles(rootDir);
   const unstaged = getUnstagedFiles(rootDir);
@@ -98,18 +107,26 @@ function preCommitHook(args, config) {
 
   const report = applyEslint(args, files);
 
-  reportToConsole(report, rootDir);
-
   report.results.forEach(result => {
     const { filePath, output } = result;
     if (output) {
       fs.writeFileSync(filePath, output);
 
       if (isFullyStaged(filePath)) {
-        stageFile(args, getRelativePath(rootDir, filePath));
+        stageFile(getRelativePath(rootDir, filePath), rootDir);
       }
     }
   });
+
+  const reported = reportToConsole(report, rootDir);
+  const stagedErrorCount = reported
+    .filter(({ filePath }) => isFullyStaged(filePath))
+    .reduce((acc, { errorCount }) => acc + errorCount, 0);
+
+  if (stagedErrorCount > 0) {
+    console.log("commit canceled with exit status 1. You have to fix ESLint errors.");
+    process.exit(1);
+  }
 }
 
 module.exports = {
