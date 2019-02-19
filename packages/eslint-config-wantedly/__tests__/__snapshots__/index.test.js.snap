@@ -853,13 +853,6 @@ Object {
   "@typescript-eslint/no-explicit-any": Array [
     "off",
   ],
-  "@typescript-eslint/no-unused-vars": Array [
-    "error",
-    Object {
-      "argsIgnorePattern": "^_",
-      "varsIgnorePattern": "^_",
-    },
-  ],
   "accessor-pairs": "off",
   "array-bracket-newline": Array [
     "off",
@@ -1302,7 +1295,6 @@ Object {
       ],
     },
   ],
-  "jsx-a11y/href-no-hash": "warn",
   "jsx-a11y/html-has-lang": "error",
   "jsx-a11y/iframe-has-title": "error",
   "jsx-a11y/img-redundant-alt": "error",

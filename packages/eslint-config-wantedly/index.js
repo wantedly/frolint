@@ -74,10 +74,6 @@ module.exports = {
     // @typescript-eslint/eslint-plugin rules
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
-    ],
 
     // eslint-plugin-import rules
     "import/extensions": "off",
@@ -88,7 +84,6 @@ module.exports = {
 
     // eslint-plugin-jsx-a11y rules
     "jsx-a11y/alt-text": "warn",
-    "jsx-a11y/href-no-hash": "warn",
     "jsx-a11y/label-has-for": "warn",
     "jsx-a11y/no-noninteractive-element-interactions": "warn",
     "jsx-a11y/no-static-element-interactions": "warn",
