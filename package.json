@@ -1,0 +1,12 @@
+{
+  "name": "complect",
+  "private": true,
+  "author": "Yuki Yamada <yamada@wantedly.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.13.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
