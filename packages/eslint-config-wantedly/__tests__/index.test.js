@@ -7,8 +7,30 @@ const engine = new CLIEngine({
   useEslintrc: false,
 });
 
+const normalizePath = path => {
+  return /node_modules/.test(path) ? path.split("node_modules")[1] : path;
+};
+
 describe("eslint-config-wantedly", () => {
-  test("should match snapshot", () => {
-    expect(engine.config.specificConfig).toMatchSnapshot();
+  const config = engine.config.getConfig();
+  const keys = Object.keys(config);
+
+  beforeAll(() => {
+    const normalizeRequiredKeys = ["extends", "parser"];
+    normalizeRequiredKeys.forEach(key => {
+      const newConfig = config[key];
+
+      if (Array.isArray(newConfig)) {
+        config[key] = newConfig.map(normalizePath);
+      } else {
+        config[key] = normalizePath(newConfig);
+      }
+    });
+  });
+
+  keys.forEach(key => {
+    test(`should match snapshot for ${key}`, () => {
+      expect(config[key]).toMatchSnapshot();
+    });
   });
 });
