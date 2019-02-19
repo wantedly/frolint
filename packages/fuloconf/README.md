@@ -1,4 +1,4 @@
-# wtdeacon
+# fuloconf
 
 > wtd - deacon
 > Deacon for wantedly
@@ -6,9 +6,9 @@
 ## Installation
 
 ```sh
-npm install --save wtdeacon
+npm install --save fuloconf
 # or
-yarn add wtdeacon
+yarn add fuloconf
 ```
 
 ## Usage
