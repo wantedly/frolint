@@ -1192,7 +1192,15 @@ Object {
   "react/display-name": 2,
   "react/forbid-prop-types": "off",
   "react/jsx-closing-bracket-location": "warn",
-  "react/jsx-filename-extension": "warn",
+  "react/jsx-filename-extension": Array [
+    "warn",
+    Object {
+      "extensions": Array [
+        ".jsx",
+        ".tsx",
+      ],
+    },
+  ],
   "react/jsx-indent": Array [
     "warn",
     2,
