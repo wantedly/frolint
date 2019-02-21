@@ -141,6 +141,10 @@ function hook(args, config) {
     files = getAllFiles(rootDir, isTypescript ? [".js", ".jsx", ".ts", ".tsx"] : [".js", ".jsx"]);
   }
 
+  if (files.length === 0) {
+    return;
+  }
+
   const eslintConfigPackage = isTypescript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
 
   // Enable to resolve the eslint-config-wantedly packages
