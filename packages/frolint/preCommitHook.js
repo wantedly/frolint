@@ -4,6 +4,7 @@ const eslint = require("eslint");
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
+const arg = require("arg");
 
 const { green, red, yellow } = chalk;
 
@@ -137,12 +138,26 @@ function optionsFromConfig(config) {
   };
 }
 
+function parseArgs(args) {
+  const result = arg(
+    {
+      "--formatter": String,
+    },
+    { argv: args }
+  );
+
+  return {
+    formatter: result["--formatter"],
+  };
+}
+
 /**
  * @param {string[]} args process.argv
  * @param {...Froconf} config a config of froconf
  */
 function hook(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
+  const argResult = parseArgs(args);
   const { isTypescript, formatter } = optionsFromConfig(config);
   const isPreCommit = ogh.extractHookFromArgs(args) === "pre-commit";
 
@@ -181,7 +196,7 @@ function hook(args, config) {
     }
   });
 
-  const reported = reportToConsole(report, rootDir, formatter);
+  const reported = reportToConsole(report, rootDir, argResult.formatter || formatter);
 
   if (isPreCommit) {
     const stagedErrorCount = reported
