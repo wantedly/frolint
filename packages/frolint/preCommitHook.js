@@ -19,6 +19,12 @@ function getUnstagedFiles(cwd) {
   return stdout.split("\n").filter(line => line.length > 0);
 }
 
+function getAllFiles(cwd, extensions) {
+  const { stdout } = execa.shellSync(`git ls-files ${extensions.map(ext => `*${ext}`).join(" ")}`, { cwd });
+
+  return stdout.split("\n").filter(line => line.length > 0);
+}
+
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
 }
@@ -116,12 +122,24 @@ function flagsFromConfig(config) {
  * @param {string[]} args process.argv
  * @param {...Froconf} config a config of froconf
  */
-function preCommitHook(args, config) {
+function hook(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
-  const staged = getStagedFiles(rootDir);
-  const unstaged = getUnstagedFiles(rootDir);
-  const files = Array.from(new Set([...staged, ...unstaged]));
   const { isTypescript } = flagsFromConfig(config);
+  const isPreCommit = ogh.extractHookFromArgs(args) === "pre-commit";
+
+  let files = [];
+  let isFullyStaged = _file => true;
+
+  if (isPreCommit) {
+    const staged = getStagedFiles(rootDir);
+    const unstaged = getUnstagedFiles(rootDir);
+    files = files.concat(Array.from(new Set([...staged, ...unstaged])));
+    isFullyStaged = file => {
+      return !unstaged.includes(getRelativePath(rootDir, file));
+    };
+  } else {
+    files = getAllFiles(rootDir, isTypescript ? [".js", ".jsx", ".ts", ".tsx"] : [".js", ".jsx"]);
+  }
 
   const eslintConfigPackage = isTypescript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
 
@@ -130,10 +148,6 @@ function preCommitHook(args, config) {
   Object.keys(eslintConfigWantedlyPkg.dependencies).forEach(key => {
     module.paths.push(path.resolve(__dirname, "..", key, "node_modules"));
   });
-
-  const isFullyStaged = file => {
-    return !unstaged.includes(getRelativePath(rootDir, file));
-  };
 
   const report = applyEslint(args, files);
 
@@ -149,16 +163,19 @@ function preCommitHook(args, config) {
   });
 
   const reported = reportToConsole(report, rootDir);
-  const stagedErrorCount = reported
-    .filter(({ filePath }) => isFullyStaged(filePath))
-    .reduce((acc, { errorCount }) => acc + errorCount, 0);
 
-  if (stagedErrorCount > 0) {
-    console.log("commit canceled with exit status 1. You have to fix ESLint errors.");
-    process.exit(1);
+  if (isPreCommit) {
+    const stagedErrorCount = reported
+      .filter(({ filePath }) => isFullyStaged(filePath))
+      .reduce((acc, { errorCount }) => acc + errorCount, 0);
+
+    if (stagedErrorCount > 0) {
+      console.log("commit canceled with exit status 1. You have to fix ESLint errors.");
+      process.exit(1);
+    }
   }
 }
 
 module.exports = {
-  preCommitHook,
+  hook,
 };
