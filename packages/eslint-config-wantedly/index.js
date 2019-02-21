@@ -8,14 +8,8 @@ module.exports = {
   globals: {
     flushPromises: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-  ],
-  parser: "@typescript-eslint/parser",
+  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  parser: "babel-eslint",
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -23,7 +17,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["react", "import", "jsx-a11y", "jest", "prettier", "@typescript-eslint"],
+  plugins: ["react", "import", "jsx-a11y", "jest", "prettier"],
   rules: {
     "array-callback-return": "warn",
     "arrow-body-style": ["off"],
@@ -81,18 +75,6 @@ module.exports = {
     indent: ["error", 2],
     quotes: ["off"],
     semi: ["error", "always"],
-
-    // @typescript-eslint/eslint-plugin rules
-    "@typescript-eslint/explicit-function-return-type": ["off"],
-    "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        varsIgnorePattern: "^_",
-        argsIgnorePattern: "^_",
-      },
-    ],
 
     // eslint-plugin-import rules
     "import/extensions": "off",
