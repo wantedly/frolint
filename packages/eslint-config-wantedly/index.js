@@ -110,9 +110,9 @@ module.exports = {
     // eslint-plugin-react rules
     "react/forbid-prop-types": "off",
     "react/jsx-closing-bracket-location": "warn",
-    "react/jsx-filename-extension": "warn",
-    "react/jsx-indent-props": "warn",
-    "react/jsx-indent": "warn",
+    "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".tsx"] }],
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-indent": ["warn", 2],
     "react/jsx-no-bind": "warn",
     "react/jsx-no-duplicate-props": "warn",
     "react/jsx-no-target-blank": "warn",

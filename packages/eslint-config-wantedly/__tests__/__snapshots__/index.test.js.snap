@@ -1192,9 +1192,23 @@ Object {
   "react/display-name": 2,
   "react/forbid-prop-types": "off",
   "react/jsx-closing-bracket-location": "warn",
-  "react/jsx-filename-extension": "warn",
-  "react/jsx-indent": "warn",
-  "react/jsx-indent-props": "warn",
+  "react/jsx-filename-extension": Array [
+    "warn",
+    Object {
+      "extensions": Array [
+        ".jsx",
+        ".tsx",
+      ],
+    },
+  ],
+  "react/jsx-indent": Array [
+    "warn",
+    2,
+  ],
+  "react/jsx-indent-props": Array [
+    "warn",
+    2,
+  ],
   "react/jsx-key": 2,
   "react/jsx-no-bind": "warn",
   "react/jsx-no-comment-textnodes": 2,
