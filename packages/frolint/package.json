@@ -9,6 +9,7 @@
     "chalk": "^2.4.2",
     "eslint": "^5.14.1",
     "eslint-config-wantedly": "^0.1.4",
+    "eslint-config-wantedly-typescript": "^0.1.4",
     "execa": "^1.0.0"
   },
   "scripts": {

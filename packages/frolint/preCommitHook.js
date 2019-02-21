@@ -95,14 +95,38 @@ function reportToConsole(report, cwd) {
   return reported;
 }
 
-function preCommitHook(args, _config) {
+/**
+ * A config of frolint
+ * @typedef {Object} Froconf
+ * @property {boolean} typescript - Indicates whether the eslint config uses @typescript-eslint or not.
+ */
+
+/**
+ * @param {...Froconf} config a config of froconf
+ */
+function flagsFromConfig(config) {
+  const { typescript } = config;
+
+  return {
+    isTypescript: typeof typescript === "boolean" ? typescript : true,
+  };
+}
+
+/**
+ * @param {string[]} args process.argv
+ * @param {...Froconf} config a config of froconf
+ */
+function preCommitHook(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const staged = getStagedFiles(rootDir);
   const unstaged = getUnstagedFiles(rootDir);
   const files = Array.from(new Set([...staged, ...unstaged]));
+  const { isTypescript } = flagsFromConfig(config);
+
+  const eslintConfigPackage = isTypescript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
 
   // Enable to resolve the eslint-config-wantedly packages
-  const eslintConfigWantedlyPkg = require(path.resolve(__dirname, "..", "eslint-config-wantedly", "package.json"));
+  const eslintConfigWantedlyPkg = require(path.resolve(__dirname, "..", eslintConfigPackage, "package.json"));
   Object.keys(eslintConfigWantedlyPkg.dependencies).forEach(key => {
     module.paths.push(path.resolve(__dirname, "..", key, "node_modules"));
   });
