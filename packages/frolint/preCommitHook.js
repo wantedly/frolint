@@ -4,6 +4,7 @@ const eslint = require("eslint");
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
+const arg = require("arg");
 
 const { green, red, yellow } = chalk;
 
@@ -41,18 +42,22 @@ function getRelativePath(cwd, absolutePath) {
   return absolutePath;
 }
 
-function applyEslint(args, files) {
-  const rootDir = ogh.extractGitRootDirFromArgs(args);
-
+function getCli(cwd) {
   const cli = new eslint.CLIEngine({
     baseConfig: {
       extends: ["wantedly"],
     },
     fix: true,
-    cwd: rootDir,
+    cwd,
   });
 
-  return cli.executeOnFiles(files.filter(isSupportedExtension));
+  return cli;
+}
+
+function applyEslint(args, files) {
+  const rootDir = ogh.extractGitRootDirFromArgs(args);
+
+  return getCli(rootDir).executeOnFiles(files.filter(isSupportedExtension));
 }
 
 function reportNoop() {
@@ -70,7 +75,7 @@ function formatResults(results, cwd) {
     });
 }
 
-function reportToConsole(report, cwd) {
+function reportWithFrolintFormat(report, cwd) {
   const { results, errorCount, warningCount } = report;
 
   if (errorCount === 0 && warningCount === 0) {
@@ -101,20 +106,48 @@ function reportToConsole(report, cwd) {
   return reported;
 }
 
+function reportToConsole(report, cwd, formatter) {
+  if (formatter) {
+    const cli = getCli(cwd);
+    const format = cli.getFormatter(formatter);
+
+    console.log(format(report.results));
+
+    return formatResults(report.results, cwd);
+  }
+
+  return reportWithFrolintFormat(report, cwd);
+}
+
 /**
  * A config of frolint
  * @typedef {Object} Froconf
  * @property {boolean} typescript - Indicates whether the eslint config uses @typescript-eslint or not.
+ * @property {string} [formatter] - Indicates the formatter for console
  */
 
 /**
  * @param {...Froconf} config a config of froconf
  */
-function flagsFromConfig(config) {
-  const { typescript } = config;
+function optionsFromConfig(config) {
+  const { typescript, formatter } = config;
 
   return {
     isTypescript: typeof typescript === "boolean" ? typescript : true,
+    formatter,
+  };
+}
+
+function parseArgs(args) {
+  const result = arg(
+    {
+      "--formatter": String,
+    },
+    { argv: args }
+  );
+
+  return {
+    formatter: result["--formatter"],
   };
 }
 
@@ -124,7 +157,8 @@ function flagsFromConfig(config) {
  */
 function hook(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
-  const { isTypescript } = flagsFromConfig(config);
+  const argResult = parseArgs(args);
+  const { isTypescript, formatter } = optionsFromConfig(config);
   const isPreCommit = ogh.extractHookFromArgs(args) === "pre-commit";
 
   let files = [];
@@ -139,10 +173,6 @@ function hook(args, config) {
     };
   } else {
     files = getAllFiles(rootDir, isTypescript ? [".js", ".jsx", ".ts", ".tsx"] : [".js", ".jsx"]);
-  }
-
-  if (files.length === 0) {
-    return;
   }
 
   const eslintConfigPackage = isTypescript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
@@ -166,7 +196,7 @@ function hook(args, config) {
     }
   });
 
-  const reported = reportToConsole(report, rootDir);
+  const reported = reportToConsole(report, rootDir, argResult.formatter || formatter);
 
   if (isPreCommit) {
     const stagedErrorCount = reported
