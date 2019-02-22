@@ -1,7 +1,9 @@
+#!/usr/bin/env node
+
 const ogh = require("@yamadayuki/ogh");
-const { preCommitHook } = require("./preCommitHook");
+const { hook } = require("./preCommitHook");
 
 ogh
   .entrypoint("frolint", { scriptPath: "index.js", hooks: ["pre-commit"] })
-  .registerPerformHook(preCommitHook)
+  .registerPerformHook(hook)
   .parse(process.argv);
