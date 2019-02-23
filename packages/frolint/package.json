@@ -23,6 +23,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "mock-fs": "^4.8.0"
   }
 }

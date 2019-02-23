@@ -78,7 +78,7 @@ module.exports = {
     ],
     camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
     eqeqeq: "warn",
-    indent: ["error", 2],
+    indent: ["error", 2, { SwitchCase: 1 }],
     quotes: ["off"],
     semi: ["error", "always"],
 

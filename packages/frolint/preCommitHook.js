@@ -211,5 +211,6 @@ function hook(args, config) {
 }
 
 module.exports = {
+  getStagedFiles,
   hook,
 };

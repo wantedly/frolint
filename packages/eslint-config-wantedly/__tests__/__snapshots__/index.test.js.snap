@@ -916,6 +916,11 @@ Object {
   "indent": Array [
     "error",
     2,
+    Object {
+      "SwitchCase": 1,
+      "flatTernaryExpressions": false,
+      "ignoreComments": false,
+    },
   ],
   "indent-legacy": "off",
   "init-declarations": "off",
