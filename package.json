@@ -11,5 +11,8 @@
   ],
   "frolint": {
     "typescript": false
+  },
+  "scripts": {
+    "test": "lerna run test"
   }
 }
