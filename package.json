@@ -13,6 +13,7 @@
     "typescript": false
   },
   "scripts": {
-    "test": "lerna run test"
+    "test": "lerna run --parallel test",
+    "test:update": "lerna run --parallel test -- -u"
   }
 }
