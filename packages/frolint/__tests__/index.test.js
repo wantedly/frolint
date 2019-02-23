@@ -1,6 +1,6 @@
 const execa = require("execa");
 const mock = require("mock-fs");
-const { getStagedFiles, getUnstagedFiles } = require("../preCommitHook");
+const { getStagedFiles, getUnstagedFiles, getAllFiles } = require("../preCommitHook");
 
 // Mocks
 jest.mock("execa");
@@ -33,7 +33,7 @@ const mockGit = () => {
       }
       case "ls-files": {
         return {
-          stdout: "./bar.ts\n./baz.js\n./foo.js\n",
+          stdout: args.slice(1).includes("*.ts") ? "./bar.ts\n./baz.js\n./foo.js\n" : "./baz.js\n./foo.js\n",
         };
       }
       default: {
@@ -73,6 +73,27 @@ describe("preCommitHook", () => {
     it("should return only unstaged files", () => {
       mockGit();
       expect(getUnstagedFiles(cwd)).toEqual(["./bar.ts", "./baz.js"]);
+    });
+  });
+
+  describe("getAllFiles", () => {
+    const cwd = "/";
+
+    it("calls `git ls-files ...`", () => {
+      mockGit();
+      getAllFiles(cwd, [".js", ".jsx"]);
+
+      expect(execa.shellSync).toHaveBeenCalledWith("git ls-files *.js *.jsx", { cwd: "/" });
+    });
+
+    it("should return only js files", () => {
+      mockGit();
+      expect(getAllFiles(cwd, [".js", ".jsx"])).toEqual(["./baz.js", "./foo.js"]);
+    });
+
+    it("should return only js files", () => {
+      mockGit();
+      expect(getAllFiles(cwd, [".js", ".jsx", ".ts", ".tsx"])).toEqual(["./bar.ts", "./baz.js", "./foo.js"]);
     });
   });
 });

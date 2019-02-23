@@ -213,5 +213,6 @@ function hook(args, config) {
 module.exports = {
   getStagedFiles,
   getUnstagedFiles,
+  getAllFiles,
   hook,
 };
