@@ -1,6 +1,6 @@
 const execa = require("execa");
 const mock = require("mock-fs");
-const { getStagedFiles } = require("../preCommitHook");
+const { getStagedFiles, getUnstagedFiles } = require("../preCommitHook");
 
 // Mocks
 jest.mock("execa");
@@ -51,12 +51,28 @@ describe("preCommitHook", () => {
       mockGit();
       getStagedFiles(cwd);
 
-      expect(execa.shellSync).toHaveBeenCalledWith("git diff --cached --name-only --diff-filter=ACMRTUB", { cwd });
+      expect(execa.shellSync).toHaveBeenCalledWith("git diff --cached --name-only --diff-filter=ACMRTUB", { cwd: "/" });
     });
 
     it("should return only staged files", () => {
       mockGit();
       expect(getStagedFiles(cwd)).toEqual(["./foo.js"]);
+    });
+  });
+
+  describe("getUnstagedFiles", () => {
+    const cwd = "/";
+
+    it("calls `git diff ...`", () => {
+      mockGit();
+      getUnstagedFiles(cwd);
+
+      expect(execa.shellSync).toHaveBeenCalledWith("git diff --name-only --diff-filter=ACMRTUB", { cwd: "/" });
+    });
+
+    it("should return only unstaged files", () => {
+      mockGit();
+      expect(getUnstagedFiles(cwd)).toEqual(["./bar.ts", "./baz.js"]);
     });
   });
 });
