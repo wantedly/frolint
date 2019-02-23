@@ -1,0 +1,54 @@
+version: 2.1
+
+commands:
+  test-nodejs:
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - v1-yarn-packages-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: v1-yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - node_modules
+
+      - run:
+          name: Run Test
+          command: yarn test
+
+jobs:
+  node-v8:
+    docker:
+      - image: node:8
+    working_directory: ~/repo
+    steps:
+      - test-nodejs
+  node-v10:
+    docker:
+      - image: node:10
+    working_directory: ~/repo
+    steps:
+      - test-nodejs
+  node-v11:
+    docker:
+      - image: node:11
+    working_directory: ~/repo
+    steps:
+      - test-nodejs
+
+workflows:
+  node-multi-build:
+    jobs:
+      - node-v8
+      - node-v10
+      - node-v11
