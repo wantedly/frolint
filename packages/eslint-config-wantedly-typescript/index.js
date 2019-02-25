@@ -111,7 +111,7 @@ module.exports = {
     "valid-typeof": "error",
     camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
     eqeqeq: "warn",
-    indent: ["error", 2],
+    indent: ["error", 2, { ignoredNodes: ["ConditionalExpression"] }],
     quotes: ["off"],
     semi: ["error", "always"],
 

@@ -942,6 +942,14 @@ Object {
   "indent": Array [
     "error",
     2,
+    Object {
+      "SwitchCase": 0,
+      "flatTernaryExpressions": false,
+      "ignoreComments": false,
+      "ignoredNodes": Array [
+        "ConditionalExpression",
+      ],
+    },
   ],
   "indent-legacy": "off",
   "jsx-a11y/alt-text": "warn",
