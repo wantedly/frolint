@@ -1144,7 +1144,7 @@ Object {
     Object {
       "anonymous": "always",
       "asyncArrow": "always",
-      "named": "never",
+      "named": "always",
     },
   ],
   "space-before-function-parentheses": "off",
