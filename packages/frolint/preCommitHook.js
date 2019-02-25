@@ -30,8 +30,6 @@ function getFilesBetweenCurrentAndBranch(cwd, branch) {
   const { stdout: commitHash } = execa.shellSync(`git show-branch --merge-base ${branch} HEAD`, { cwd });
   const { stdout } = execa.shellSync(`git diff --name-only --diff-filter=ACMRTUB ${commitHash}`, { cwd });
 
-  console.log(stdout);
-
   return stdout.split("\n").filter(line => line.length > 0);
 }
 
