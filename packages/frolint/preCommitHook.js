@@ -26,6 +26,15 @@ function getAllFiles(cwd, extensions) {
   return stdout.split("\n").filter(line => line.length > 0);
 }
 
+function getFilesBetweenCurrentAndBranch(cwd, branch) {
+  const { stdout: commitHash } = execa.shellSync(`git show-branch --merge-base ${branch} HEAD`, { cwd });
+  const { stdout } = execa.shellSync(`git diff --name-only --diff-filter=ACMRTUB ${commitHash}`, { cwd });
+
+  console.log(stdout);
+
+  return stdout.split("\n").filter(line => line.length > 0);
+}
+
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
 }
@@ -142,12 +151,16 @@ function parseArgs(args) {
   const result = arg(
     {
       "--formatter": String,
+      "--branch": String,
+      "-v": "--formatter",
+      "-b": "--branch",
     },
     { argv: args }
   );
 
   return {
     formatter: result["--formatter"],
+    branch: result["--branch"],
   };
 }
 
@@ -171,6 +184,8 @@ function hook(args, config) {
     isFullyStaged = file => {
       return !unstaged.includes(getRelativePath(rootDir, file));
     };
+  } else if (argResult.branch) {
+    files = getFilesBetweenCurrentAndBranch(rootDir, argResult.branch);
   } else {
     files = getAllFiles(rootDir, isTypescript ? [".js", ".jsx", ".ts", ".tsx"] : [".js", ".jsx"]);
   }
