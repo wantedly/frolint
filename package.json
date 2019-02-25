@@ -14,6 +14,7 @@
   },
   "scripts": {
     "test": "lerna run --parallel test",
-    "test:update": "lerna run --parallel test -- -u"
+    "test:update": "lerna run --parallel test -- -u",
+    "lint": "frolint --branch=master"
   }
 }
