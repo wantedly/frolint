@@ -1,11 +1,8 @@
 {
   "name": "eslint-config-wantedly",
-  "version": "0.1.5",
   "description": "ESLint configuration for Wantedly",
-  "main": "index.js",
+  "version": "0.1.5",
   "author": "Yuki Yamada <yamada@wantedly.com>",
-  "license": "MIT",
-  "private": false,
   "dependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.14.1",
@@ -19,10 +16,18 @@
   "devDependencies": {
     "jest": "^24.1.0"
   },
-  "scripts": {
-    "test": "jest"
-  },
+  "homepage": "https://github.com/wantedly/frolint",
+  "keywords": [
+    "eslint"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly",
+  "scripts": {
+    "test": "jest"
   }
 }
