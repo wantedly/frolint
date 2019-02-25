@@ -23,6 +23,10 @@ commands:
             - node_modules
 
       - run:
+          name: Run Lint
+          command: yarn lint
+
+      - run:
           name: Run Test
           command: yarn test
 
