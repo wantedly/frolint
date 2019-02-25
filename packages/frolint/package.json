@@ -1,6 +1,6 @@
 {
   "name": "frolint",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "index.js",
   "bin": "index.js",
   "author": "Yuki Yamada <yamada@wantedly.com>",
@@ -10,8 +10,8 @@
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
     "eslint": "^5.14.1",
-    "eslint-config-wantedly": "^0.1.4",
-    "eslint-config-wantedly-typescript": "^0.1.4",
+    "eslint-config-wantedly": "^0.1.5",
+    "eslint-config-wantedly-typescript": "^0.1.5",
     "execa": "^1.0.0"
   },
   "scripts": {
