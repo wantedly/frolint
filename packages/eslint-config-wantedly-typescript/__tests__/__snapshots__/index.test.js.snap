@@ -1142,9 +1142,9 @@ Object {
   "space-before-function-paren": Array [
     "warn",
     Object {
-      "anonymous": "always",
+      "anonymous": "never",
       "asyncArrow": "always",
-      "named": "always",
+      "named": "never",
     },
   ],
   "space-before-function-parentheses": "off",
