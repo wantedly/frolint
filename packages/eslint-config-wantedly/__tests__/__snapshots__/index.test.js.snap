@@ -916,6 +916,11 @@ Object {
   "indent": Array [
     "error",
     2,
+    Object {
+      "SwitchCase": 1,
+      "flatTernaryExpressions": false,
+      "ignoreComments": false,
+    },
   ],
   "indent-legacy": "off",
   "init-declarations": "off",
@@ -1096,7 +1101,13 @@ Object {
   "no-unsafe-negation": "error",
   "no-unused-expressions": "off",
   "no-unused-labels": "error",
-  "no-unused-vars": "off",
+  "no-unused-vars": Array [
+    "error",
+    Object {
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_",
+    },
+  ],
   "no-use-before-define": Array [
     "warn",
     Object {
