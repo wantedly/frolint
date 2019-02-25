@@ -1,4 +1,4 @@
-# frolint
+# frolint [![npm version](https://badge.fury.io/js/frolint.svg)](https://badge.fury.io/js/frolint)
 
 ## Installation
 

@@ -1,4 +1,4 @@
-# eslint-config-wantedly-typescript
+# eslint-config-wantedly-typescript [![npm version](https://badge.fury.io/js/eslint-config-wantedly-typescript.svg)](https://badge.fury.io/js/eslint-config-wantedly-typescript)
 
 ESLint config for Wantedly. It focuses the TypeScript linting.
 

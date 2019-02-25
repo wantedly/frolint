@@ -1,4 +1,4 @@
-# eslint-config-wantedly
+# eslint-config-wantedly [![npm version](https://badge.fury.io/js/eslint-config-wantedly.svg)](https://badge.fury.io/js/eslint-config-wantedly)
 
 ESLint config for Wantedly. It focuses the JavaScript linting.
 
