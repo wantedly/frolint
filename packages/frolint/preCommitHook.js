@@ -150,6 +150,7 @@ function parseArgs(args) {
     {
       "--formatter": String,
       "--branch": String,
+      "--no-stage": Boolean,
       "-v": "--formatter",
       "-b": "--branch",
     },
@@ -159,6 +160,7 @@ function parseArgs(args) {
   return {
     formatter: result["--formatter"],
     branch: result["--branch"],
+    noStage: result["--no-stage"],
   };
 }
 
