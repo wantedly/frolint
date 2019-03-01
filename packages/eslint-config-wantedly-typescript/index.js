@@ -78,7 +78,13 @@ module.exports = {
     "no-invalid-regexp": "error",
     "no-irregular-whitespace": "error",
     "no-lonely-if": "warn",
-    "no-mixed-operators": "warn",
+    "no-mixed-operators": [
+      "warn",
+      {
+        groups: [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]],
+        allowSamePrecedence: true,
+      },
+    ],
     "no-nested-ternary": "warn",
     "no-new-symbol": "error",
     "no-obj-calls": "error",
@@ -111,14 +117,21 @@ module.exports = {
     "valid-typeof": "error",
     camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
     eqeqeq: "warn",
-    indent: ["error", 2, { SwitchCase: 1, ignoredNodes: ["ConditionalExpression"] }],
+    indent: "off",
     quotes: ["off"],
     semi: ["error", "always"],
 
     // @typescript-eslint/eslint-plugin rules
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/indent": [
+      "error",
+      2,
+      {
+        flatTernaryExpressions: false,
+        ignoredNodes: ["CallExpression", "ConditionalExpression", "LogicalExpression", "JSXElement"],
+      },
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -146,7 +159,7 @@ module.exports = {
     "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".tsx"] }],
     "react/jsx-indent-props": ["warn", 2],
     "react/jsx-indent": ["warn", 2],
-    "react/jsx-no-bind": "warn",
+    "react/jsx-no-bind": ["warn", { allowArrowFunctions: true }],
     "react/jsx-no-duplicate-props": "warn",
     "react/jsx-no-target-blank": "warn",
     "react/jsx-uses-vars": "error",
@@ -157,7 +170,7 @@ module.exports = {
     "react/no-multi-comp": "warn",
     "react/no-string-refs": "warn",
     "react/no-unused-prop-types": "warn",
-    "react/prop-types": "warn",
+    "react/prop-types": "off",
     "react/require-default-props": "warn",
   },
 };

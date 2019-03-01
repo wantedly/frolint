@@ -851,6 +851,17 @@ Object {
   "@typescript-eslint/indent": Array [
     "error",
     2,
+    Object {
+      "SwitchCase": 0,
+      "flatTernaryExpressions": false,
+      "ignoreComments": false,
+      "ignoredNodes": Array [
+        "CallExpression",
+        "ConditionalExpression",
+        "LogicalExpression",
+        "JSXElement",
+      ],
+    },
   ],
   "@typescript-eslint/interface-name-prefix": "error",
   "@typescript-eslint/member-delimiter-style": "off",
@@ -939,18 +950,7 @@ Object {
     "off",
   ],
   "import/prefer-default-export": "off",
-  "indent": Array [
-    "error",
-    2,
-    Object {
-      "SwitchCase": 1,
-      "flatTernaryExpressions": false,
-      "ignoreComments": false,
-      "ignoredNodes": Array [
-        "ConditionalExpression",
-      ],
-    },
-  ],
+  "indent": "off",
   "indent-legacy": "off",
   "jsx-a11y/alt-text": "warn",
   "jsx-a11y/label-has-for": "warn",
@@ -1016,7 +1016,27 @@ Object {
   "no-invalid-regexp": "error",
   "no-irregular-whitespace": "error",
   "no-lonely-if": "warn",
-  "no-mixed-operators": "warn",
+  "no-mixed-operators": Array [
+    "warn",
+    Object {
+      "allowSamePrecedence": true,
+      "groups": Array [
+        Array [
+          "&",
+          "|",
+          "^",
+          "~",
+          "<<",
+          ">>",
+          ">>>",
+        ],
+        Array [
+          "&&",
+          "||",
+        ],
+      ],
+    },
+  ],
   "no-mixed-spaces-and-tabs": "off",
   "no-multi-spaces": "off",
   "no-multiple-empty-lines": "off",
@@ -1101,7 +1121,16 @@ Object {
     2,
   ],
   "react/jsx-key": 2,
-  "react/jsx-no-bind": "warn",
+  "react/jsx-no-bind": Array [
+    "warn",
+    Object {
+      "allowArrowFunctions": true,
+      "allowBind": false,
+      "allowFunctions": false,
+      "ignoreDOMComponents": false,
+      "ignoreRefs": false,
+    },
+  ],
   "react/jsx-no-comment-textnodes": 2,
   "react/jsx-no-duplicate-props": "warn",
   "react/jsx-no-target-blank": "warn",
@@ -1124,7 +1153,7 @@ Object {
   "react/no-unknown-property": 2,
   "react/no-unsafe": 0,
   "react/no-unused-prop-types": "warn",
-  "react/prop-types": "warn",
+  "react/prop-types": "off",
   "react/react-in-jsx-scope": 2,
   "react/require-default-props": "warn",
   "react/require-render-return": 2,
