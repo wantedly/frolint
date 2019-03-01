@@ -182,7 +182,8 @@ function hook(args, config) {
     const unstaged = getUnstagedFiles(rootDir);
     files = files.concat(Array.from(new Set([...staged, ...unstaged])));
     isFullyStaged = file => {
-      return !unstaged.includes(getRelativePath(rootDir, file));
+      const relativeFilepath = getRelativePath(rootDir, file);
+      return files.includes(relativeFilepath) && !unstaged.includes(relativeFilepath);
     };
   } else if (argResult.branch) {
     files = getFilesBetweenCurrentAndBranch(rootDir, argResult.branch);
@@ -205,7 +206,7 @@ function hook(args, config) {
     if (output) {
       fs.writeFileSync(filePath, output);
 
-      if (isFullyStaged(filePath)) {
+      if (!argResult.noStage && isFullyStaged(filePath)) {
         stageFile(getRelativePath(rootDir, filePath), rootDir);
       }
     }
