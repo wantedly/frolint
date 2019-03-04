@@ -130,6 +130,7 @@ module.exports = {
       {
         flatTernaryExpressions: false,
         ignoredNodes: ["CallExpression", "ConditionalExpression", "LogicalExpression", "JSXElement"],
+        SwitchCase: 1,
       },
     ],
     "@typescript-eslint/no-unused-vars": [
