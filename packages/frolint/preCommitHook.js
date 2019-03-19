@@ -1,44 +1,22 @@
 const ogh = require("@yamadayuki/ogh");
-const execa = require("execa");
 const eslint = require("eslint");
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 const arg = require("arg");
+const {
+  getStagedFiles,
+  getUnstagedFiles,
+  getAllFiles,
+  getFilesBetweenCurrentAndBranch,
+  stageFile,
+  isInsideGitRepository,
+} = require("./git");
 
 const { green, red, yellow } = chalk;
 
-function getStagedFiles(cwd) {
-  const { stdout } = execa.shellSync("git diff --cached --name-only --diff-filter=ACMRTUB", { cwd });
-
-  return stdout.split("\n").filter(line => line.length > 0);
-}
-
-function getUnstagedFiles(cwd) {
-  const { stdout } = execa.shellSync("git diff --name-only --diff-filter=ACMRTUB", { cwd });
-
-  return stdout.split("\n").filter(line => line.length > 0);
-}
-
-function getAllFiles(cwd, extensions) {
-  const { stdout } = execa.shellSync(`git ls-files ${extensions.map(ext => `*${ext}`).join(" ")}`, { cwd });
-
-  return stdout.split("\n").filter(line => line.length > 0);
-}
-
-function getFilesBetweenCurrentAndBranch(cwd, branch) {
-  const { stdout: commitHash } = execa.shellSync(`git show-branch --merge-base ${branch} HEAD`, { cwd });
-  const { stdout } = execa.shellSync(`git diff --name-only --diff-filter=ACMRTUB ${commitHash}`, { cwd });
-
-  return stdout.split("\n").filter(line => line.length > 0);
-}
-
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
-}
-
-function stageFile(file, cwd) {
-  execa.shellSync(`git add ${file}`, { cwd });
 }
 
 function getRelativePath(cwd, absolutePath) {
@@ -164,11 +142,7 @@ function parseArgs(args) {
   };
 }
 
-/**
- * @param {string[]} args process.argv
- * @param {...Froconf} config a config of froconf
- */
-function hook(args, config) {
+function hookImplementation(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const argResult = parseArgs(args);
   const { isTypescript, formatter } = optionsFromConfig(config);
@@ -223,6 +197,21 @@ function hook(args, config) {
       console.log("commit canceled with exit status 1. You have to fix ESLint errors.");
       process.exit(1);
     }
+  }
+}
+
+/**
+ * @param {string[]} args process.argv
+ * @param {...Froconf} config a config of froconf
+ */
+function hook(args, config) {
+  const rootDir = ogh.extractGitRootDirFromArgs(args);
+  const isGitRepo = isInsideGitRepository(rootDir);
+
+  if (isGitRepo) {
+    hookImplementation(args, config);
+  } else {
+    // noop
   }
 }
 
