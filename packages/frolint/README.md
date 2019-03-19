@@ -29,6 +29,46 @@ Detected 2 errors, 0 warnings
 commit canceled with exit status 1. You have to fix ESLint errors.
 ```
 
+If you want to know the options, `frolint --help` is helpful.
+
+```
+$ yarn frolint --help
+yarn run v1.13.0
+$ /Users/yamadayuki/dev/src/github.com/wantedly/frolint/node_modules/.bin/frolint --help
+
+frolint - FROntend LINT tool integrated into git pre-commit hook
+
+Usage:
+  frolint [flags]
+
+Available Flags:
+  -h, --help        help for frolint
+  -f, --formatter   the ESLint formatter to print lint errors and warnings
+  -b, --branch      target branch to compare the file diff
+      --no-stage    frolint stages the files automatically if auto fixable
+                    errors are found. If you set this option as true,
+                    frolint does not stage the fixed files
+      --no-git      use frolint without git integrations
+```
+
+In non git project, help option provides specific helps as below:
+
+```
+$ yarn frolint --help
+yarn run v1.13.0
+$ /Users/yamadayuki/dev/src/github.com/yamadayuki/sample/node_modules/.bin/frolint --help
+
+frolint - FROntend LINT tool
+
+Usage:
+  frolint [flags]
+
+Available Flags:
+  -h, --help        help for frolint
+  -f, --formatter   the ESLint formatter to print lint errors and warnings
+  -F, --files       pass the files to analyze with ESLint
+```
+
 ### `frolint` as CLI
 
 If you want to check all fiels in the repository, you can use the `frolint` as CLI.

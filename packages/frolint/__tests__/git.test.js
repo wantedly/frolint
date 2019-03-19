@@ -1,6 +1,6 @@
 const execa = require("execa");
 const mock = require("mock-fs");
-const { getStagedFiles, getUnstagedFiles, getAllFiles } = require("../preCommitHook");
+const { getStagedFiles, getUnstagedFiles, getAllFiles } = require("../git");
 
 // Mocks
 jest.mock("execa");
