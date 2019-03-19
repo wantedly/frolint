@@ -3,10 +3,7 @@ const ogh = require("@yamadayuki/ogh");
 const { isInsideGitRepository } = require("./git");
 const { parseArgs, printHelp, printNoGitHelp } = require("./parseArgs");
 const { defaultImplementation } = require("./defaultImplementation");
-
-function noGitImplementation(_args, _config) {
-  // noop
-}
+const { noGitImplementation } = require("./noGitImplementation");
 
 /**
  * @param {string[]} args process.argv
@@ -27,7 +24,7 @@ function hook(args, config) {
     return;
   }
 
-  if (isGitRepo || !argResult.noGit) {
+  if (isGitRepo) {
     defaultImplementation(args, config);
   } else {
     noGitImplementation(args, config);

@@ -9,11 +9,11 @@ function parseArgs(args) {
       "--no-stage": Boolean,
       "--help": Boolean,
       "--no-git": Boolean,
-      "-f": "--formatter",
+      "-v": "--formatter",
       "-b": "--branch",
       "-h": "--help",
     },
-    { argv: args }
+    { argv: args, permissive: true }
   );
 
   return {
@@ -49,11 +49,11 @@ function parseNoGitArgs(args) {
       "--formatter": String,
       "--help": Boolean,
       "--files": [String],
-      "-f": "--formatter",
+      "-v": "--formatter",
       "-h": "--help",
-      "-F": "--files",
+      "-f": "--files",
     },
-    { argv: args }
+    { argv: args, permissive: true }
   );
 
   return {
