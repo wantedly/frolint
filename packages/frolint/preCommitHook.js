@@ -129,8 +129,10 @@ function parseArgs(args) {
       "--formatter": String,
       "--branch": String,
       "--no-stage": Boolean,
-      "-v": "--formatter",
+      "--help": Boolean,
+      "-f": "--formatter",
       "-b": "--branch",
+      "-h": "--help",
     },
     { argv: args }
   );
@@ -139,10 +141,28 @@ function parseArgs(args) {
     formatter: result["--formatter"],
     branch: result["--branch"],
     noStage: result["--no-stage"],
+    help: result["--help"],
   };
 }
 
-function hookImplementation(args, config) {
+function printHelp() {
+  console.log(`
+${chalk.green("frolint - FROntend LINT tool")}
+
+Usage:
+  frolint [git-hook-name] [flags]
+
+Available Flags:
+  -h, --help        help for frolint
+  -f, --formatter   the ESLint formatter to print lint errors and warnings
+  -b, --branch      target branch to compare the file diff
+      --no-stage    frolint stages the files automatically if auto fixable
+                    errors are found. If you set this option as true,
+                    frolint does not stage the fixed files
+`);
+}
+
+function defaultImplementation(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const argResult = parseArgs(args);
   const { isTypescript, formatter } = optionsFromConfig(config);
@@ -200,6 +220,10 @@ function hookImplementation(args, config) {
   }
 }
 
+function noGitImplementation(_args, _config) {
+  // noop
+}
+
 /**
  * @param {string[]} args process.argv
  * @param {...Froconf} config a config of froconf
@@ -207,11 +231,14 @@ function hookImplementation(args, config) {
 function hook(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const isGitRepo = isInsideGitRepository(rootDir);
+  const argResult = parseArgs(args);
 
-  if (isGitRepo) {
-    hookImplementation(args, config);
+  if (argResult.help) {
+    printHelp();
+  } else if (isGitRepo) {
+    defaultImplementation(args, config);
   } else {
-    // noop
+    noGitImplementation(args, config);
   }
 }
 
