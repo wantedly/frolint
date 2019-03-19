@@ -830,10 +830,10 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@yamadayuki/ogh@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@yamadayuki/ogh/-/ogh-0.2.0.tgz#508dd062879ac23f1c7235c2850281e2a5e3b2e4"
-  integrity sha512-J4ORv0/qARBcvL/b3vAj1CCFBa89xRGIxO+XutinfRpvvqugio0UpYBtKob04Dv8ELD2JoWJXI1CWcrDJ9zn8A==
+"@yamadayuki/ogh@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@yamadayuki/ogh/-/ogh-0.3.1.tgz#00bfd59cc13d41f41c73d66442e9bca061f04e0f"
+  integrity sha512-qiA9FlXNtQJs8MZNlYE2x0N3Px6dlvQgyFFxTHBh4xeRtuLtHCuFnbQ5g+jYQn+hIealPpaeB5LRTp5HdSegFA==
   dependencies:
     command-exists "^1.2.8"
     cosmiconfig "^5.0.7"
