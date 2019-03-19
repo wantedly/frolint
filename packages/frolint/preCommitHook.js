@@ -130,6 +130,7 @@ function parseArgs(args) {
       "--branch": String,
       "--no-stage": Boolean,
       "--help": Boolean,
+      "--no-git": Boolean,
       "-f": "--formatter",
       "-b": "--branch",
       "-h": "--help",
@@ -142,15 +143,16 @@ function parseArgs(args) {
     branch: result["--branch"],
     noStage: result["--no-stage"],
     help: result["--help"],
+    noGit: result["--no-git"],
   };
 }
 
 function printHelp() {
   console.log(`
-${chalk.green("frolint - FROntend LINT tool")}
+${green("frolint - FROntend LINT tool integrated into git pre-commit hook")}
 
 Usage:
-  frolint [git-hook-name] [flags]
+  frolint [flags]
 
 Available Flags:
   -h, --help        help for frolint
@@ -159,6 +161,43 @@ Available Flags:
       --no-stage    frolint stages the files automatically if auto fixable
                     errors are found. If you set this option as true,
                     frolint does not stage the fixed files
+      --no-git      use frolint without git integrations
+`);
+}
+
+// eslint-disable-next-line no-unused-vars
+function parseNoGitArgs(args) {
+  const result = arg(
+    {
+      "--formatter": String,
+      "--help": Boolean,
+      "--files": [String],
+      "-f": "--formatter",
+      "-h": "--help",
+      "-F": "--files",
+    },
+    { argv: args }
+  );
+
+  return {
+    formatter: result["--formatter"],
+    help: result["--help"],
+    files: result["--files"],
+    noGit: true,
+  };
+}
+
+function printNoGitHelp() {
+  console.log(`
+${green("frolint - FROntend LINT tool")}
+
+Usage:
+  frolint [flags]
+
+Available Flags:
+  -h, --help        help for frolint
+  -f, --formatter   the ESLint formatter to print lint errors and warnings
+  -F, --files       pass the files to analyze with ESLint
 `);
 }
 
@@ -234,8 +273,16 @@ function hook(args, config) {
   const argResult = parseArgs(args);
 
   if (argResult.help) {
-    printHelp();
-  } else if (isGitRepo) {
+    if (!isGitRepo || argResult.noGit) {
+      printNoGitHelp();
+    } else {
+      printHelp();
+    }
+
+    return;
+  }
+
+  if (isGitRepo || !argResult.noGit) {
     defaultImplementation(args, config);
   } else {
     noGitImplementation(args, config);
