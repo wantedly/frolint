@@ -98,7 +98,14 @@ module.exports = {
     "no-unsafe-finally": "error",
     "no-unsafe-negation": "error",
     "no-unused-labels": "error",
-    "no-unused-vars": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        varsIgnorePattern: "^_",
+        argsIgnorePattern: "^_",
+      },
+    ],
+
     "no-use-before-define": "off",
     "no-useless-constructor": "off",
     "no-useless-escape": "off",
