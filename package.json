@@ -4,7 +4,9 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^3.13.0"
+    "jest": "^24.5.0",
+    "lerna": "^3.13.0",
+    "mock-fs": "^4.8.0"
   },
   "workspaces": [
     "packages/*"
@@ -13,6 +15,7 @@
     "typescript": false
   },
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "test": "lerna run --parallel test",
     "test:update": "lerna run --parallel test -- -u",
     "lint": "frolint --branch=master"

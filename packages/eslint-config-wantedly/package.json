@@ -5,16 +5,13 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.14.1",
-    "eslint-config-prettier": "^4.0.0",
+    "eslint": "^5.15.3",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4"
-  },
-  "devDependencies": {
-    "jest": "^24.1.0"
   },
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
