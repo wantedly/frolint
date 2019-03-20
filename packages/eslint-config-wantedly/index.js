@@ -18,6 +18,11 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "import", "jsx-a11y", "jest", "prettier"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
