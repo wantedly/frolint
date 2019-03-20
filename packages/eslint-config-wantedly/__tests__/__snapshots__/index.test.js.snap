@@ -1149,6 +1149,7 @@ Object {
   "prefer-arrow-callback": 0,
   "prefer-const": "warn",
   "prefer-destructuring": "off",
+  "prefer-named-capture-group": "off",
   "prefer-numeric-literals": "off",
   "prefer-object-spread": "off",
   "prefer-promise-reject-errors": "off",
