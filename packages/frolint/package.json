@@ -8,14 +8,10 @@
     "@yamadayuki/ogh": "^0.3.1",
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
-    "eslint": "^5.14.1",
+    "eslint": "^5.15.3",
     "eslint-config-wantedly": "^0.2.1",
     "eslint-config-wantedly-typescript": "^0.2.1",
     "execa": "^1.0.0"
-  },
-  "devDependencies": {
-    "jest": "^24.1.0",
-    "mock-fs": "^4.8.0"
   },
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
