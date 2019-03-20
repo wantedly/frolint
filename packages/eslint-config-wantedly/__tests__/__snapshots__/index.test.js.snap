@@ -1113,7 +1113,13 @@ Object {
   "no-unsafe-negation": "error",
   "no-unused-expressions": "off",
   "no-unused-labels": "error",
-  "no-unused-vars": "off",
+  "no-unused-vars": Array [
+    "error",
+    Object {
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_",
+    },
+  ],
   "no-use-before-define": "off",
   "no-useless-call": "off",
   "no-useless-catch": "off",
