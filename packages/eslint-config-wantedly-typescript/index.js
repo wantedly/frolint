@@ -18,7 +18,6 @@ module.exports = {
 
     // @typescript-eslint/eslint-plugin rules
     "@typescript-eslint/explicit-function-return-type": ["off"],
-    "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/indent": [
       "error",
       2,
@@ -28,6 +27,7 @@ module.exports = {
         SwitchCase: 1,
       },
     ],
+    "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -35,5 +35,6 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
+    "@typescript-eslint/no-use-before-define": "off",
   },
 };
