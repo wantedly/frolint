@@ -1,0 +1,25 @@
+{
+  "name": "eslint-config-wantedly-base",
+  "description": "Base of ESLint configuration for Wantedly",
+  "version": "0.2.1",
+  "author": "Yuki Yamada <yamada@wantedly.com>",
+  "peerDependencies": {
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4"
+  },
+  "homepage": "https://github.com/wantedly/frolint",
+  "keywords": [
+    "eslint"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
+  "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly-base",
+  "scripts": {
+    "test": "jest"
+  }
+}
