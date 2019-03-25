@@ -55,7 +55,7 @@ module.exports = {
     "max-len": ["off"],
     "new-cap": ["error", { capIsNew: false }],
     "no-alert": "off",
-    "no-array-constructor": "error",
+    "no-array-constructor": "off",
     "no-case-declarations": "error",
     "no-class-assign": "error",
     "no-compare-neg-zero": "error",
@@ -120,31 +120,24 @@ module.exports = {
     "space-before-function-paren": ["warn", { anonymous: "never", asyncArrow: "always", named: "never" }],
     "use-isnan": "error",
     "valid-typeof": "error",
-    camelcase: ["error", { ignoreDestructuring: false, properties: "never" }],
+    camelcase: "off",
     eqeqeq: "error",
     indent: "off",
     quotes: ["off"],
     semi: ["error", "always"],
 
     // @typescript-eslint/eslint-plugin rules
+    "@typescript-eslint/camelcase": ["error", { ignoreDestructuring: true, properties: "never" }],
     "@typescript-eslint/explicit-function-return-type": ["off"],
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-array-constructor": "error",
     "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/indent": [
-      "error",
-      2,
-      {
-        flatTernaryExpressions: false,
-        ignoredNodes: ["CallExpression", "ConditionalExpression", "LogicalExpression", "JSXElement"],
-        SwitchCase: 1,
-      },
-    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
-      {
-        varsIgnorePattern: "^_",
-        argsIgnorePattern: "^_",
-      },
+      { varsIgnorePattern: "^_", argsIgnorePattern: "^_", ignoreRestSiblings: true },
     ],
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-useless-constructor": "off",
 
     // eslint-plugin-import rules
     "import/extensions": "off",
