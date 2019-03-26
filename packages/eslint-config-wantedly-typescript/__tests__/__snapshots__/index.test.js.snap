@@ -1178,11 +1178,3 @@ Object {
   "yield-star-spacing": "off",
 }
 `;
-
-exports[`eslint-config-wantedly-typescript should match snapshot for settings 1`] = `
-Object {
-  "react": Object {
-    "version": "detect",
-  },
-}
-`;

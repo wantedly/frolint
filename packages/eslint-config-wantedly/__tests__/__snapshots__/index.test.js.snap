@@ -1273,11 +1273,3 @@ Object {
   "yoda": "off",
 }
 `;
-
-exports[`eslint-config-wantedly should match snapshot for settings 1`] = `
-Object {
-  "react": Object {
-    "version": "detect",
-  },
-}
-`;
