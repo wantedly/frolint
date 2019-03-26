@@ -12,7 +12,7 @@
     "packages/*"
   ],
   "frolint": {
-    "typescript": true
+    "typescript": false
   },
   "scripts": {
     "postinstall": "lerna bootstrap",

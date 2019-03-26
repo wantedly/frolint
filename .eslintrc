@@ -1,5 +1,5 @@
 {
-  "extends": ["wantedly"],
+  "extends": ["wantedly/without-react"],
   "rules": {
     "no-console": "off",
     "@typescript-eslint/no-var-requires": "off"
