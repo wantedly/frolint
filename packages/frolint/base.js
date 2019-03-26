@@ -28,6 +28,8 @@ function detectReactVersion(cwd) {
 
 function getCli(cwd, eslintConfigPackage) {
   const reactVersion = detectReactVersion(cwd);
+  const isReact = !!reactVersion;
+  const netEslintConfigPackage = eslintConfigPackage.replace("eslint-config-", "") + (isReact ? "" : "/without-react");
 
   const reactSettings = reactVersion
     ? {
@@ -39,7 +41,7 @@ function getCli(cwd, eslintConfigPackage) {
 
   const cli = new eslint.CLIEngine({
     baseConfig: {
-      extends: [eslintConfigPackage.replace("eslint-config-", "")],
+      extends: [netEslintConfigPackage],
       settings: {
         ...reactSettings,
       },
