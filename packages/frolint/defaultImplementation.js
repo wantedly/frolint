@@ -38,7 +38,7 @@ function defaultImplementation(args, config) {
     module.paths.push(path.resolve(__dirname, "..", key, "node_modules"));
   });
 
-  const report = applyEslint(args, files);
+  const report = applyEslint(args, files, eslintConfigPackage);
 
   report.results.forEach(result => {
     const { filePath, output } = result;

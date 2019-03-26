@@ -2,6 +2,7 @@ const ogh = require("@yamadayuki/ogh");
 const { green, red, yellow } = require("chalk");
 const eslint = require("eslint");
 const path = require("path");
+const resolve = require("resolve");
 
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
@@ -15,10 +16,35 @@ function getRelativePath(cwd, absolutePath) {
   return absolutePath;
 }
 
-function getCli(cwd) {
+function detectReactVersion(cwd) {
+  try {
+    const reactPath = resolve.sync("react", { basedir: cwd });
+    const react = require(reactPath);
+    return react.version;
+  } catch (e) {
+    return null;
+  }
+}
+
+function getCli(cwd, eslintConfigPackage) {
+  const reactVersion = detectReactVersion(cwd);
+
+  const reactSettings = reactVersion
+    ? {
+        react: {
+          version: reactVersion,
+        },
+      }
+    : {};
+
+  console.log(reactSettings);
+
   const cli = new eslint.CLIEngine({
     baseConfig: {
-      extends: ["wantedly"],
+      extends: [eslintConfigPackage.replace("eslint-config-", "")],
+      settings: {
+        ...reactSettings,
+      },
     },
     fix: true,
     cwd,
@@ -27,10 +53,10 @@ function getCli(cwd) {
   return cli;
 }
 
-function applyEslint(args, files) {
+function applyEslint(args, files, eslintConfigPackage) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
 
-  return getCli(rootDir).executeOnFiles(files.filter(isSupportedExtension));
+  return getCli(rootDir, eslintConfigPackage).executeOnFiles(files.filter(isSupportedExtension));
 }
 
 function reportNoop() {
