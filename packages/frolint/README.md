@@ -29,6 +29,21 @@ Detected 2 errors, 0 warnings
 commit canceled with exit status 1. You have to fix ESLint errors.
 ```
 
+And now the `frolint` supports Prettier formatter. So this command formats the ESLint auto-fixable errors and then it applies the `prettier`. We uses the `.prettierrc` as below:
+
+```json
+{
+  "printWidth": 120,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "endOfLine": "lf"
+}
+```
+
 If you want to know the options, `frolint --help` is helpful.
 
 ```
@@ -128,4 +143,18 @@ commit canceled with exit status 1. You have to fix ESLint errors.
 $ git commit
 <?xml version="1.0" encoding="utf-8"?><checkstyle version="4.3"><file name="/Users/yamadayuki/dev/src/github.com/wantedly/frolint/foo.js"><error line="1" column="7" severity="error" message="&apos;foo&apos; is assigned a value but never used. Allowed unused vars must match /^_/. (no-unused-vars)" source="eslint.rules.no-unused-vars" /><error line="1" column="13" severity="error" message="&apos;bar&apos; is defined but never used. Allowed unused args must match /^_/. (no-unused-vars)" source="eslint.rules.no-unused-vars" /></file></checkstyle>
 commit canceled with exit status 1. You have to fix ESLint errors.
+```
+
+### `prettier` property
+
+Now, `frolint` supports Prettier. So `frolint` command format the code automatically. If you specify the `frolint.prettier.config` property, you can use your `.prettierrc` to format the code.
+
+```json
+{
+  "frolint": {
+    "prettier": {
+      "config": "./.prettierrc"
+    }
+  }
+}
 ```

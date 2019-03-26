@@ -83,7 +83,9 @@ describe("preCommitHook", () => {
       mockGit();
       getAllFiles(cwd, [".js", ".jsx"]);
 
-      expect(execa.shellSync).toHaveBeenCalledWith("git ls-files *.js *.jsx", { cwd: "/" });
+      expect(execa.shellSync).toHaveBeenCalledWith("git ls-files *.js *.jsx", {
+        cwd: "/",
+      });
     });
 
     it("should return only js files", () => {

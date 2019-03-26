@@ -2,7 +2,12 @@ const ogh = require("@yamadayuki/ogh");
 const { green, red, yellow } = require("chalk");
 const eslint = require("eslint");
 const path = require("path");
+const fs = require("fs");
 const resolve = require("resolve");
+const prettier = require("prettier");
+const { optionsFromConfig } = require("./config");
+
+const SAMPLE_PRETTIER_CONFIG_FILE = path.resolve(__dirname, ".prettierrc");
 
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
@@ -25,6 +30,10 @@ function detectReactVersion(cwd) {
     return null;
   }
 }
+
+/**
+ * ESLint utilities
+ */
 
 function getCli(cwd, eslintConfigPackage) {
   const reactVersion = detectReactVersion(cwd);
@@ -118,10 +127,71 @@ function reportToConsole(report, cwd, formatter) {
   return reportWithFrolintFormat(report, cwd);
 }
 
+/**
+ * Prettier utilities
+ */
+
+const supportedLanguages = [
+  "JavaScript",
+  "Flow",
+  "JSX",
+  "TypeScript",
+  "JSON.stringify",
+  "JSON",
+  "JSON with Comments",
+  "JSON5",
+  "GraphQL",
+];
+
+const supportedExtensions = prettier
+  .getSupportInfo()
+  .languages.filter(lang => supportedLanguages.includes(lang.name))
+  .reduce((acc, lang) => acc.concat(lang.extensions || []), []);
+
+function isPrettierSupported(file) {
+  return supportedExtensions.includes(path.extname(file));
+}
+
+function getInferredParser(file) {
+  return prettier.getFileInfo.sync(file).inferredParser;
+}
+
+function applyPrettier(args, config, files) {
+  const rootDir = ogh.extractGitRootDirFromArgs(args);
+  const { prettierConfig } = optionsFromConfig(config);
+
+  return files
+    .filter(file => isPrettierSupported(file))
+    .map(file => {
+      const filePath = path.resolve(rootDir, file);
+      const prettierOption = prettier.resolveConfig.sync(filePath, {
+        config:
+          prettierConfig && prettierConfig.config
+            ? path.resolve(rootDir, prettierConfig.config)
+            : SAMPLE_PRETTIER_CONFIG_FILE,
+      });
+
+      if (!prettierOption) {
+        return null;
+      }
+
+      const input = fs.readFileSync(filePath, "utf8");
+      const output = prettier.format(input, {
+        parser: getInferredParser(filePath),
+        ...prettierOption,
+        filePath,
+      });
+
+      return { filePath, output };
+    })
+    .filter(Boolean);
+}
+
 module.exports = {
   isSupportedExtension,
   getRelativePath,
   getCli,
   applyEslint,
   reportToConsole,
+  applyPrettier,
 };

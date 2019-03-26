@@ -2,7 +2,7 @@ const ogh = require("@yamadayuki/ogh");
 const fs = require("fs");
 const path = require("path");
 
-const { getRelativePath, applyEslint, reportToConsole } = require("./base");
+const { getRelativePath, applyEslint, reportToConsole, applyPrettier } = require("./base");
 const { optionsFromConfig } = require("./config");
 const { getStagedFiles, getUnstagedFiles, getAllFiles, getFilesBetweenCurrentAndBranch, stageFile } = require("./git");
 const { parseArgs } = require("./parseArgs");
@@ -38,17 +38,43 @@ function defaultImplementation(args, config) {
     module.paths.push(path.resolve(__dirname, "..", key, "node_modules"));
   });
 
-  const report = applyEslint(args, files, eslintConfigPackage);
+  const shouldStageFiles = new Set();
 
+  /**
+   * Apply ESLint step
+   */
+  const report = applyEslint(args, files, eslintConfigPackage);
   report.results.forEach(result => {
     const { filePath, output } = result;
     if (output) {
       fs.writeFileSync(filePath, output);
 
       if (!argResult.noStage && isFullyStaged(filePath)) {
-        stageFile(getRelativePath(rootDir, filePath), rootDir);
+        shouldStageFiles.add(getRelativePath(rootDir, filePath));
+        // stageFile(getRelativePath(rootDir, filePath), rootDir);
       }
     }
+  });
+
+  /**
+   * Apply Prettier step
+   */
+  const results = applyPrettier(args, config, files);
+  results.forEach(({ filePath, output }) => {
+    if (output) {
+      fs.writeFileSync(filePath, output);
+
+      if (!argResult.noStage && isFullyStaged(filePath)) {
+        shouldStageFiles.add(getRelativePath(rootDir, filePath));
+      }
+    }
+  });
+
+  /**
+   * Stage files step
+   */
+  [...shouldStageFiles].forEach(filePath => {
+    stageFile(getRelativePath(rootDir, filePath), rootDir);
   });
 
   const reported = reportToConsole(report, rootDir, argResult.formatter || formatter);
