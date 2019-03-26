@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`eslint-config-wantedly-typescript should match snapshot for env 1`] = `
+exports[`eslint-config-wantedly-typescript/react should match snapshot for env 1`] = `
 Object {
   "browser": true,
   "es6": true,
@@ -9,15 +9,16 @@ Object {
 }
 `;
 
-exports[`eslint-config-wantedly-typescript should match snapshot for extends 1`] = `
+exports[`eslint-config-wantedly-typescript/react should match snapshot for extends 1`] = `
 Array [
   "plugin:@typescript-eslint/recommended",
   "prettier",
   "prettier/@typescript-eslint",
+  "plugin:react/recommended",
 ]
 `;
 
-exports[`eslint-config-wantedly-typescript should match snapshot for globals 1`] = `
+exports[`eslint-config-wantedly-typescript/react should match snapshot for globals 1`] = `
 Object {
   "AbortController": false,
   "AbortSignal": false,
@@ -811,9 +812,9 @@ Object {
 }
 `;
 
-exports[`eslint-config-wantedly-typescript should match snapshot for parser 1`] = `"/@typescript-eslint/parser/dist/parser.js"`;
+exports[`eslint-config-wantedly-typescript/react should match snapshot for parser 1`] = `"/@typescript-eslint/parser/dist/parser.js"`;
 
-exports[`eslint-config-wantedly-typescript should match snapshot for parserOptions 1`] = `
+exports[`eslint-config-wantedly-typescript/react should match snapshot for parserOptions 1`] = `
 Object {
   "ecmaFeatures": Object {
     "experimentalObjectRestSpread": true,
@@ -825,9 +826,10 @@ Object {
 }
 `;
 
-exports[`eslint-config-wantedly-typescript should match snapshot for plugins 1`] = `
+exports[`eslint-config-wantedly-typescript/react should match snapshot for plugins 1`] = `
 Array [
   "@typescript-eslint",
+  "react",
   "import",
   "jsx-a11y",
   "jest",
@@ -835,7 +837,7 @@ Array [
 ]
 `;
 
-exports[`eslint-config-wantedly-typescript should match snapshot for rules 1`] = `
+exports[`eslint-config-wantedly-typescript/react should match snapshot for rules 1`] = `
 Object {
   "@typescript-eslint/adjacent-overload-signatures": "error",
   "@typescript-eslint/array-type": "error",
@@ -1081,6 +1083,63 @@ Object {
   "quotes": Array [
     "off",
   ],
+  "react/display-name": 2,
+  "react/forbid-prop-types": "off",
+  "react/jsx-closing-bracket-location": "warn",
+  "react/jsx-filename-extension": Array [
+    "warn",
+    Object {
+      "extensions": Array [
+        ".jsx",
+        ".tsx",
+      ],
+    },
+  ],
+  "react/jsx-indent": Array [
+    "warn",
+    2,
+  ],
+  "react/jsx-indent-props": Array [
+    "warn",
+    2,
+  ],
+  "react/jsx-key": 2,
+  "react/jsx-no-bind": Array [
+    "warn",
+    Object {
+      "allowArrowFunctions": true,
+      "allowBind": false,
+      "allowFunctions": false,
+      "ignoreDOMComponents": false,
+      "ignoreRefs": false,
+    },
+  ],
+  "react/jsx-no-comment-textnodes": 2,
+  "react/jsx-no-duplicate-props": "error",
+  "react/jsx-no-target-blank": "warn",
+  "react/jsx-no-undef": 2,
+  "react/jsx-uses-react": 2,
+  "react/jsx-uses-vars": "error",
+  "react/jsx-wrap-multilines": "warn",
+  "react/no-array-index-key": "error",
+  "react/no-children-prop": 2,
+  "react/no-danger-with-children": 2,
+  "react/no-deprecated": 2,
+  "react/no-did-update-set-state": "error",
+  "react/no-direct-mutation-state": 2,
+  "react/no-find-dom-node": "error",
+  "react/no-is-mounted": 2,
+  "react/no-multi-comp": "off",
+  "react/no-render-return-value": 2,
+  "react/no-string-refs": "error",
+  "react/no-unescaped-entities": 2,
+  "react/no-unknown-property": 2,
+  "react/no-unsafe": 0,
+  "react/no-unused-prop-types": "off",
+  "react/prop-types": "off",
+  "react/react-in-jsx-scope": 2,
+  "react/require-default-props": "off",
+  "react/require-render-return": 2,
   "require-yield": "error",
   "rest-spread-spacing": "off",
   "semi": Array [
