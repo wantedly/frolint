@@ -139,26 +139,33 @@ function isPrettierSupported(file) {
   return supportedExtensions.includes(path.extname(file));
 }
 
+function getInferredParser(file) {
+  return prettier.getFileInfo.sync(file).inferredParser;
+}
+
 function applyPrettier(args, config, files) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
-  const { isTypescript } = optionsFromConfig(config);
+  const { prettierConfig } = optionsFromConfig(config);
 
   return files
     .filter(file => isPrettierSupported(file))
     .map(file => {
       const filePath = path.resolve(rootDir, file);
-      const prettierConfig = prettier.resolveConfig.sync(filePath, {
-        config: config.prettier && config.prettier.config ? config.prettier.config : SAMPLE_PRETTIER_CONFIG_FILE,
+      const prettierOption = prettier.resolveConfig.sync(filePath, {
+        config:
+          prettierConfig && prettierConfig.config
+            ? path.resolve(rootDir, prettierConfig.config)
+            : SAMPLE_PRETTIER_CONFIG_FILE,
       });
 
-      if (!prettierConfig) {
+      if (!prettierOption) {
         return null;
       }
 
       const input = fs.readFileSync(filePath, "utf8");
       const output = prettier.format(input, {
-        parser: isTypescript ? "typescript" : "babel",
-        ...prettierConfig,
+        parser: getInferredParser(filePath),
+        ...prettierOption,
         filePath,
       });
 
