@@ -29,7 +29,20 @@ Detected 2 errors, 0 warnings
 commit canceled with exit status 1. You have to fix ESLint errors.
 ```
 
-And now the `frolint` supports Prettier formatter. So this command formats the ESLint auto-fixable errors and then it applies the `prettier`.
+And now the `frolint` supports Prettier formatter. So this command formats the ESLint auto-fixable errors and then it applies the `prettier`. We uses the `.prettierrc` as below:
+
+```json
+{
+  "printWidth": 120,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "endOfLine": "lf"
+}
+```
 
 If you want to know the options, `frolint --help` is helpful.
 
