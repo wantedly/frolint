@@ -2,7 +2,12 @@ const ogh = require("@yamadayuki/ogh");
 const { green, red, yellow } = require("chalk");
 const eslint = require("eslint");
 const path = require("path");
+const fs = require("fs");
 const resolve = require("resolve");
+const prettier = require("prettier");
+const { optionsFromConfig } = require("./config");
+
+const SAMPLE_PRETTIER_CONFIG_FILE = path.resolve(__dirname, ".prettierrc");
 
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
@@ -25,6 +30,10 @@ function detectReactVersion(cwd) {
     return null;
   }
 }
+
+/**
+ * ESLint utilities
+ */
 
 function getCli(cwd, eslintConfigPackage) {
   const reactVersion = detectReactVersion(cwd);
@@ -118,10 +127,51 @@ function reportToConsole(report, cwd, formatter) {
   return reportWithFrolintFormat(report, cwd);
 }
 
+/**
+ * Prettier utilities
+ */
+
+const supportedExtensions = prettier
+  .getSupportInfo()
+  .languages.reduce((acc, lang) => acc.concat(lang.extensions || []), []);
+
+function isPrettierSupported(file) {
+  return supportedExtensions.includes(path.extname(file));
+}
+
+function applyPrettier(args, config, files) {
+  const rootDir = ogh.extractGitRootDirFromArgs(args);
+  const { isTypescript } = optionsFromConfig(config);
+
+  return files
+    .filter(file => isPrettierSupported(file))
+    .map(file => {
+      const filePath = path.resolve(rootDir, file);
+      const prettierConfig = prettier.resolveConfig.sync(filePath, {
+        config: config.prettier && config.prettier.config ? config.prettier.config : SAMPLE_PRETTIER_CONFIG_FILE,
+      });
+
+      if (!prettierConfig) {
+        return null;
+      }
+
+      const input = fs.readFileSync(filePath, "utf8");
+      const output = prettier.format(input, {
+        parser: isTypescript ? "typescript" : "babel",
+        ...prettierConfig,
+        filePath,
+      });
+
+      return { filePath, output };
+    })
+    .filter(Boolean);
+}
+
 module.exports = {
   isSupportedExtension,
   getRelativePath,
   getCli,
   applyEslint,
   reportToConsole,
+  applyPrettier,
 };
