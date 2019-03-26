@@ -37,8 +37,6 @@ function getCli(cwd, eslintConfigPackage) {
       }
     : {};
 
-  console.log(reactSettings);
-
   const cli = new eslint.CLIEngine({
     baseConfig: {
       extends: [eslintConfigPackage.replace("eslint-config-", "")],
