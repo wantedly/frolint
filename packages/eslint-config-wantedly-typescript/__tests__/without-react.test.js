@@ -1,7 +1,7 @@
 const path = require("path");
 const CLIEngine = require("eslint").CLIEngine;
 
-const ESLINT_CONFIG_FILE = path.resolve(__dirname, "..", "react.js");
+const ESLINT_CONFIG_FILE = path.resolve(__dirname, "..", "without-react.js");
 const engine = new CLIEngine({
   configFile: ESLINT_CONFIG_FILE,
   useEslintrc: false,
@@ -11,7 +11,7 @@ const normalizePath = path => {
   return /node_modules/.test(path) ? path.split("node_modules")[1] : path;
 };
 
-describe("eslint-config-wantedly/react", () => {
+describe("eslint-config-wantedly-typescript/without-react", () => {
   const config = engine.config.getConfig();
   const keys = Object.keys(config);
 
