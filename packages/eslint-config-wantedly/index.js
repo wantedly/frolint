@@ -8,7 +8,7 @@ module.exports = {
   globals: {
     flushPromises: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  extends: ["eslint:recommended", "prettier"],
   parser: "babel-eslint",
   parserOptions: {
     ecmaFeatures: {
@@ -17,7 +17,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["react", "import", "jsx-a11y", "jest", "prettier"],
+  plugins: ["import", "jsx-a11y", "jest", "prettier"],
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
@@ -135,25 +135,5 @@ module.exports = {
     "jsx-a11y/label-has-for": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "jsx-a11y/no-static-element-interactions": "off",
-
-    // eslint-plugin-react rules
-    "react/forbid-prop-types": "off",
-    "react/jsx-closing-bracket-location": "warn",
-    "react/jsx-filename-extension": ["warn", { extensions: [".jsx", ".tsx"] }],
-    "react/jsx-indent-props": ["warn", 2],
-    "react/jsx-indent": ["warn", 2],
-    "react/jsx-no-bind": ["warn", { allowArrowFunctions: true }],
-    "react/jsx-no-duplicate-props": "error",
-    "react/jsx-no-target-blank": "warn",
-    "react/jsx-uses-vars": "error",
-    "react/jsx-wrap-multilines": "warn",
-    "react/no-array-index-key": "error",
-    "react/no-did-update-set-state": "error",
-    "react/no-find-dom-node": "error",
-    "react/no-multi-comp": "off",
-    "react/no-string-refs": "error",
-    "react/no-unused-prop-types": "off",
-    "react/prop-types": "off",
-    "react/require-default-props": "off",
   },
 };
