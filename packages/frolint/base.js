@@ -131,9 +131,22 @@ function reportToConsole(report, cwd, formatter) {
  * Prettier utilities
  */
 
+const supportedLanguages = [
+  "JavaScript",
+  "Flow",
+  "JSX",
+  "TypeScript",
+  "JSON.stringify",
+  "JSON",
+  "JSON with Comments",
+  "JSON5",
+  "GraphQL",
+];
+
 const supportedExtensions = prettier
   .getSupportInfo()
-  .languages.reduce((acc, lang) => acc.concat(lang.extensions || []), []);
+  .languages.filter(lang => supportedLanguages.includes(lang.name))
+  .reduce((acc, lang) => acc.concat(lang.extensions || []), []);
 
 function isPrettierSupported(file) {
   return supportedExtensions.includes(path.extname(file));
