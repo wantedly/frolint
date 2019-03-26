@@ -12,8 +12,8 @@ Object {
 exports[`eslint-config-wantedly should match snapshot for extends 1`] = `
 Array [
   "eslint:recommended",
-  "plugin:react/recommended",
   "prettier",
+  "plugin:react/recommended",
 ]
 `;
 
