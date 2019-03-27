@@ -94,6 +94,10 @@ No errors and warnings!
 ✨  Done in 2.36s.
 ```
 
+#### `frolint export`
+
+Export the `.prettierrc` config with default config in `frolint`.
+
 ## Configuration
 
 You can configure the `frolint` behaviour. `frolint` uses [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) for configuration file support. We have not tested except the `package.json` but you can configure via below files.
