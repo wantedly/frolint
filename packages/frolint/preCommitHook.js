@@ -24,10 +24,18 @@ function hook(args, config) {
     return;
   }
 
-  if (isGitRepo) {
-    defaultImplementation(args, config);
-  } else {
-    noGitImplementation(args, config);
+  switch (argResult.command) {
+    case "export": {
+      console.log("export!!!");
+      break;
+    }
+    default: {
+      if (isGitRepo) {
+        defaultImplementation(args, config);
+      } else {
+        noGitImplementation(args, config);
+      }
+    }
   }
 }
 
