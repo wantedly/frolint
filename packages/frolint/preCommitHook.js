@@ -4,6 +4,7 @@ const { isInsideGitRepository } = require("./git");
 const { parseArgs, printHelp, printNoGitHelp } = require("./parseArgs");
 const { defaultImplementation } = require("./defaultImplementation");
 const { noGitImplementation } = require("./noGitImplementation");
+const { exportPrettierConfig } = require("./export");
 
 /**
  * @param {string[]} args process.argv
@@ -24,10 +25,18 @@ function hook(args, config) {
     return;
   }
 
-  if (isGitRepo) {
-    defaultImplementation(args, config);
-  } else {
-    noGitImplementation(args, config);
+  switch (argResult.command) {
+    case "export": {
+      exportPrettierConfig(args, config);
+      break;
+    }
+    default: {
+      if (isGitRepo) {
+        defaultImplementation(args, config);
+      } else {
+        noGitImplementation(args, config);
+      }
+    }
   }
 }
 

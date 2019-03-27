@@ -22,6 +22,7 @@ function parseArgs(args) {
     noStage: result["--no-stage"],
     help: result["--help"],
     noGit: result["--no-git"],
+    command: result._.slice(2, 3)[0],
   };
 }
 

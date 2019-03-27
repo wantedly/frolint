@@ -194,4 +194,5 @@ module.exports = {
   applyEslint,
   reportToConsole,
   applyPrettier,
+  SAMPLE_PRETTIER_CONFIG_FILE,
 };
