@@ -4,6 +4,7 @@ const { isInsideGitRepository } = require("./git");
 const { parseArgs, printHelp, printNoGitHelp } = require("./parseArgs");
 const { defaultImplementation } = require("./defaultImplementation");
 const { noGitImplementation } = require("./noGitImplementation");
+const { exportPrettierConfig } = require("./export");
 
 /**
  * @param {string[]} args process.argv
@@ -26,7 +27,7 @@ function hook(args, config) {
 
   switch (argResult.command) {
     case "export": {
-      console.log("export!!!");
+      exportPrettierConfig(args, config);
       break;
     }
     default: {
