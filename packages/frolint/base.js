@@ -35,7 +35,7 @@ function detectReactVersion(cwd) {
  * ESLint utilities
  */
 
-function getCli(cwd, eslintConfigPackage) {
+function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", eslintConfig = {}) {
   const reactVersion = detectReactVersion(cwd);
   const isReact = !!reactVersion;
   const netEslintConfigPackage = eslintConfigPackage.replace("eslint-config-", "") + (isReact ? "" : "/without-react");
@@ -57,15 +57,16 @@ function getCli(cwd, eslintConfigPackage) {
     },
     fix: true,
     cwd,
+    ignorePath: eslintConfig.ignorePath,
   });
 
   return cli;
 }
 
-function applyEslint(args, files, eslintConfigPackage) {
+function applyEslint(args, files, eslintConfigPackage, eslintConfig) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
 
-  return getCli(rootDir, eslintConfigPackage).executeOnFiles(files.filter(isSupportedExtension));
+  return getCli(rootDir, eslintConfigPackage, eslintConfig).executeOnFiles(files.filter(isSupportedExtension));
 }
 
 function reportNoop() {
