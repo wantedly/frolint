@@ -152,12 +152,12 @@ function isPrettierSupported(file) {
   return supportedExtensions.includes(path.extname(file));
 }
 
-function getInferredParser(file) {
-  return prettier.getFileInfo.sync(file).inferredParser;
+function getInferredParser(file, prettierConfig = {}) {
+  return prettier.getFileInfo.sync(file, { ignorePath: prettierConfig.ignorePath }).inferredParser;
 }
 
-function isIgnoredForPrettier(file) {
-  return prettier.getFileInfo.sync(file).ignored;
+function isIgnoredForPrettier(file, prettierConfig = {}) {
+  return prettier.getFileInfo.sync(file, { ignorePath: prettierConfig.ignorePath }).ignored;
 }
 
 function applyPrettier(args, config, files) {
@@ -165,8 +165,8 @@ function applyPrettier(args, config, files) {
   const { prettierConfig } = optionsFromConfig(config);
 
   return files
-    .filter(isPrettierSupported)
-    .filter(isIgnoredForPrettier)
+    .filter(file => isPrettierSupported(file, prettierConfig))
+    .filter(file => isIgnoredForPrettier(file, prettierConfig))
     .map(file => {
       const filePath = path.resolve(rootDir, file);
       const prettierOption = prettier.resolveConfig.sync(filePath, {
