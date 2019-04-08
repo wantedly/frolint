@@ -65,8 +65,9 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
 
 function applyEslint(args, files, eslintConfigPackage, eslintConfig) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
+  const cli = getCli(rootDir, eslintConfigPackage, eslintConfig);
 
-  return getCli(rootDir, eslintConfigPackage, eslintConfig).executeOnFiles(files.filter(isSupportedExtension));
+  return cli.executeOnFiles(files.filter(isSupportedExtension).filter(file => !cli.isPathIgnored(file)));
 }
 
 function reportNoop() {
