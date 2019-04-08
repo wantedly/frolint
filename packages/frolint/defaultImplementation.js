@@ -10,7 +10,7 @@ const { parseArgs } = require("./parseArgs");
 function defaultImplementation(args, config) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const argResult = parseArgs(args);
-  const { isTypescript, formatter } = optionsFromConfig(config);
+  const { isTypescript, formatter, eslintConfig } = optionsFromConfig(config);
   const isPreCommit = ogh.extractHookFromArgs(args) === "pre-commit";
 
   let files = [];
@@ -43,7 +43,7 @@ function defaultImplementation(args, config) {
   /**
    * Apply ESLint step
    */
-  const report = applyEslint(args, files, eslintConfigPackage);
+  const report = applyEslint(args, files, eslintConfigPackage, eslintConfig);
   report.results.forEach(result => {
     const { filePath, output } = result;
     if (output) {

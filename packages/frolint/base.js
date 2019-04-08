@@ -35,7 +35,7 @@ function detectReactVersion(cwd) {
  * ESLint utilities
  */
 
-function getCli(cwd, eslintConfigPackage) {
+function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", eslintConfig = {}) {
   const reactVersion = detectReactVersion(cwd);
   const isReact = !!reactVersion;
   const netEslintConfigPackage = eslintConfigPackage.replace("eslint-config-", "") + (isReact ? "" : "/without-react");
@@ -57,15 +57,17 @@ function getCli(cwd, eslintConfigPackage) {
     },
     fix: true,
     cwd,
+    ignorePath: eslintConfig.ignorePath,
   });
 
   return cli;
 }
 
-function applyEslint(args, files, eslintConfigPackage) {
+function applyEslint(args, files, eslintConfigPackage, eslintConfig) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
+  const cli = getCli(rootDir, eslintConfigPackage, eslintConfig);
 
-  return getCli(rootDir, eslintConfigPackage).executeOnFiles(files.filter(isSupportedExtension));
+  return cli.executeOnFiles(files.filter(isSupportedExtension).filter(file => !cli.isPathIgnored(file)));
 }
 
 function reportNoop() {
@@ -152,8 +154,12 @@ function isPrettierSupported(file) {
   return supportedExtensions.includes(path.extname(file));
 }
 
-function getInferredParser(file) {
-  return prettier.getFileInfo.sync(file).inferredParser;
+function getInferredParser(file, prettierConfig = {}) {
+  return prettier.getFileInfo.sync(file, { ignorePath: prettierConfig.ignorePath }).inferredParser;
+}
+
+function isIgnoredForPrettier(file, prettierConfig = {}) {
+  return prettier.getFileInfo.sync(file, { ignorePath: prettierConfig.ignorePath }).ignored;
 }
 
 function applyPrettier(args, config, files) {
@@ -161,7 +167,8 @@ function applyPrettier(args, config, files) {
   const { prettierConfig } = optionsFromConfig(config);
 
   return files
-    .filter(file => isPrettierSupported(file))
+    .filter(file => isPrettierSupported(file, prettierConfig))
+    .filter(file => !isIgnoredForPrettier(file, prettierConfig))
     .map(file => {
       const filePath = path.resolve(rootDir, file);
       const prettierOption = prettier.resolveConfig.sync(filePath, {
