@@ -156,12 +156,17 @@ function getInferredParser(file) {
   return prettier.getFileInfo.sync(file).inferredParser;
 }
 
+function isIgnoredForPrettier(file) {
+  return prettier.getFileInfo.sync(file).ignored;
+}
+
 function applyPrettier(args, config, files) {
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const { prettierConfig } = optionsFromConfig(config);
 
   return files
-    .filter(file => isPrettierSupported(file))
+    .filter(isPrettierSupported)
+    .filter(isIgnoredForPrettier)
     .map(file => {
       const filePath = path.resolve(rootDir, file);
       const prettierOption = prettier.resolveConfig.sync(filePath, {
