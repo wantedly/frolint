@@ -166,7 +166,7 @@ function applyPrettier(args, config, files) {
 
   return files
     .filter(file => isPrettierSupported(file, prettierConfig))
-    .filter(file => isIgnoredForPrettier(file, prettierConfig))
+    .filter(file => !isIgnoredForPrettier(file, prettierConfig))
     .map(file => {
       const filePath = path.resolve(rootDir, file);
       const prettierOption = prettier.resolveConfig.sync(filePath, {
