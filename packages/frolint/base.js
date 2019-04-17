@@ -5,9 +5,8 @@ const path = require("path");
 const fs = require("fs");
 const resolve = require("resolve");
 const prettier = require("prettier");
+const prettierConfigWantedly = require("prettier-config-wantedly");
 const { optionsFromConfig } = require("./config");
-
-const SAMPLE_PRETTIER_CONFIG_FILE = path.resolve(__dirname, ".prettierrc");
 
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
@@ -49,12 +48,7 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
     : {};
 
   const cli = new eslint.CLIEngine({
-    baseConfig: {
-      extends: [netEslintConfigPackage],
-      settings: {
-        ...reactSettings,
-      },
-    },
+    baseConfig: { extends: [netEslintConfigPackage], settings: { ...reactSettings } },
     fix: true,
     cwd,
     ignorePath: eslintConfig.ignorePath,
@@ -171,12 +165,11 @@ function applyPrettier(args, config, files) {
     .filter(file => !isIgnoredForPrettier(file, prettierConfig))
     .map(file => {
       const filePath = path.resolve(rootDir, file);
-      const prettierOption = prettier.resolveConfig.sync(filePath, {
-        config:
-          prettierConfig && prettierConfig.config
-            ? path.resolve(rootDir, prettierConfig.config)
-            : SAMPLE_PRETTIER_CONFIG_FILE,
-      });
+      const options =
+        prettierConfig && prettierConfig.config
+          ? { config: path.resolve(rootDir, prettierConfig.config) }
+          : prettierConfigWantedly;
+      const prettierOption = prettier.resolveConfig.sync(filePath, options);
 
       if (!prettierOption) {
         return null;
@@ -201,5 +194,4 @@ module.exports = {
   applyEslint,
   reportToConsole,
   applyPrettier,
-  SAMPLE_PRETTIER_CONFIG_FILE,
 };
