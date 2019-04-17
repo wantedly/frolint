@@ -7,6 +7,7 @@
 - [eslint-config-wantedly-typescript](https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly-typescript) [![npm version](https://badge.fury.io/js/eslint-config-wantedly-typescript.svg)](https://badge.fury.io/js/eslint-config-wantedly-typescript)
 - [eslint-config-wantedly](https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly) [![npm version](https://badge.fury.io/js/eslint-config-wantedly.svg)](https://badge.fury.io/js/eslint-config-wantedly)
 - [frolint](https://github.com/wantedly/frolint/tree/master/packages/frolint) [![npm version](https://badge.fury.io/js/frolint.svg)](https://badge.fury.io/js/frolint)
+- [frolint](https://github.com/wantedly/frolint/tree/master/packages/prettier-config-wantedly) [![npm version](https://badge.fury.io/js/prettier-config-wantedly.svg)](https://badge.fury.io/js/prettier-config-wantedly)
 
 ## How to contribute
 
