@@ -8,8 +8,6 @@ const prettier = require("prettier");
 const prettierConfigWantedly = require("prettier-config-wantedly");
 const { optionsFromConfig } = require("./config");
 
-const SAMPLE_PRETTIER_CONFIG_FILE = path.resolve(__dirname, ".prettierrc");
-
 function isSupportedExtension(file) {
   return /(jsx?|tsx?)$/.test(file);
 }
@@ -196,5 +194,4 @@ module.exports = {
   applyEslint,
   reportToConsole,
   applyPrettier,
-  SAMPLE_PRETTIER_CONFIG_FILE,
 };
