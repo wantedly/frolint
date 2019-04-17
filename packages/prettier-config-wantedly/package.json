@@ -1,0 +1,19 @@
+{
+  "name": "prettier-config-wantedly",
+  "version": "0.4.0",
+  "description": "Prettier configuration for Wantedly",
+  "keywords": [
+    "prettier"
+  ],
+  "author": "Yuki Yamada <yamada@wantedly.com>",
+  "homepage": "https://github.com/wantedly/frolint",
+  "license": "MIT",
+  "main": "index.json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/wantedly/frolint/tree/master/packages/prettier-config-wantedly",
+  "scripts": {
+    "test": "#"
+  }
+}
