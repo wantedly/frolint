@@ -12,7 +12,10 @@
     "packages/*"
   ],
   "frolint": {
-    "typescript": false
+    "typescript": false,
+    "prettier": {
+      "config": "./.prettierrc"
+    }
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
