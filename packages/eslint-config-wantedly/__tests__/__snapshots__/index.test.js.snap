@@ -832,6 +832,7 @@ Array [
   "jsx-a11y",
   "jest",
   "prettier",
+  "react-hooks",
 ]
 `;
 
@@ -1165,6 +1166,8 @@ Object {
     "off",
   ],
   "radix": "off",
+  "react-hooks/exhaustive-deps": "warn",
+  "react-hooks/rules-of-hooks": "error",
   "react/display-name": 2,
   "react/forbid-prop-types": "off",
   "react/jsx-closing-bracket-location": "warn",
