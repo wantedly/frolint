@@ -1,5 +1,10 @@
 {
-  "extends": ["wantedly-typescript/without-react"],
+  "extends": ["wantedly-typescript"],
+  "settings": {
+    "react": {
+      "version": "latest"
+    }
+  },
   "rules": {
     "no-console": "off",
     "@typescript-eslint/no-var-requires": "off"

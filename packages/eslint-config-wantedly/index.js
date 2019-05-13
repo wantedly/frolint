@@ -6,7 +6,7 @@ module.exports = {
   extends: [...extendOptions, "plugin:react/recommended"],
   parser,
   parserOptions,
-  plugins: [...plugins, "react"],
+  plugins: [...plugins, "react", "react-hooks"],
   rules: {
     ...rules,
 

@@ -834,6 +834,7 @@ Array [
   "jsx-a11y",
   "jest",
   "prettier",
+  "react-hooks",
 ]
 `;
 
