@@ -856,7 +856,11 @@ Object {
   "@typescript-eslint/explicit-member-accessibility": Array [
     "error",
     Object {
-      "accessibility": "no-public",
+      "overrides": Object {
+        "accessors": "no-public",
+        "constructors": "no-public",
+        "parameterProperties": "no-public",
+      },
     },
   ],
   "@typescript-eslint/indent": "off",
