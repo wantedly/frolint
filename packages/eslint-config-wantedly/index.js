@@ -29,5 +29,9 @@ module.exports = {
     "react/no-unused-prop-types": "off",
     "react/prop-types": "off",
     "react/require-default-props": "off",
+
+    // eslint-plugin-react-hooks rules
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
   },
 };
