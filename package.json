@@ -12,7 +12,6 @@
     "packages/*"
   ],
   "frolint": {
-    "typescript": false,
     "prettier": {
       "config": "./.prettierrc"
     }
