@@ -119,7 +119,16 @@ module.exports = {
     // @typescript-eslint/eslint-plugin rules
     "@typescript-eslint/camelcase": ["error", { ignoreDestructuring: true, properties: "never" }],
     "@typescript-eslint/explicit-function-return-type": ["off"],
-    "@typescript-eslint/explicit-member-accessibility": ["error", { accessibility: "no-public" }],
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      {
+        overrides: {
+          constructors: "no-public",
+          parameterProperties: "no-public",
+          accessors: "no-public",
+        },
+      },
+    ],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-array-constructor": "error",
     "@typescript-eslint/no-explicit-any": ["off"],

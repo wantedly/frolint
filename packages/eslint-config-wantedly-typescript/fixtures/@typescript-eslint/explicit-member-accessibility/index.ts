@@ -5,7 +5,7 @@ class Animal {
     // Parameter property and constructor
     this.animalName = name;
   }
-  animalName: string; // Property
+  public animalName: string; // Property
   get name(): string {
     // get accessor
     return this.animalName;
@@ -14,7 +14,7 @@ class Animal {
     // set accessor
     this.animalName = value;
   }
-  walk() {
+  public walk() {
     // method
   }
 }
