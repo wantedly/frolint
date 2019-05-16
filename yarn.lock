@@ -1075,9 +1075,9 @@
     semver "5.5.0"
 
 "@yamadayuki/ogh@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@yamadayuki/ogh/-/ogh-0.3.1.tgz#00bfd59cc13d41f41c73d66442e9bca061f04e0f"
-  integrity sha512-qiA9FlXNtQJs8MZNlYE2x0N3Px6dlvQgyFFxTHBh4xeRtuLtHCuFnbQ5g+jYQn+hIealPpaeB5LRTp5HdSegFA==
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@yamadayuki/ogh/-/ogh-0.3.2.tgz#f65f2e2096197bc1e70a6a96ffe4071710bd0814"
+  integrity sha512-04/m4e7trVh9XFvbsC67SyiCOStlhUqCbYz+prhTzLN2yPE0PsqdAjg+12AMzR4Nf8a8mytLL0FiHCHnRcUFpA==
   dependencies:
     command-exists "^1.2.8"
     cosmiconfig "^5.0.7"
