@@ -830,6 +830,7 @@ Array [
   "jsx-a11y",
   "jest",
   "prettier",
+  "use-macros",
 ]
 `;
 
@@ -1205,6 +1206,7 @@ Object {
   "template-tag-spacing": "off",
   "unicode-bom": "off",
   "use-isnan": "error",
+  "use-macros/graphql-tag": "error",
   "valid-jsdoc": "off",
   "valid-typeof": "error",
   "vars-on-top": "off",

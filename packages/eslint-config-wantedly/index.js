@@ -33,5 +33,8 @@ module.exports = {
     // eslint-plugin-react-hooks rules
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+
+    // eslint-plugin-use-macros rules
+    "use-macros/styled-components": "error",
   },
 };

@@ -17,7 +17,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["import", "jsx-a11y", "jest", "prettier"],
+  plugins: ["import", "jsx-a11y", "jest", "prettier", "use-macros"],
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
@@ -135,5 +135,8 @@ module.exports = {
     "jsx-a11y/label-has-for": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "jsx-a11y/no-static-element-interactions": "off",
+
+    // eslint-plugin-use-macros rules
+    "use-macros/graphql-tag": "error",
   },
 };
