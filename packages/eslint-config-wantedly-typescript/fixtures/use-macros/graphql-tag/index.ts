@@ -1,4 +1,4 @@
-import gql from "graphql-tag.macro";
+import { gql } from "graphql.macro";
 
 const _QUERY = gql`
   query getProject {
