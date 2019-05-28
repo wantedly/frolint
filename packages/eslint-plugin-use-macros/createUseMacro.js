@@ -1,25 +1,23 @@
 module.exports = function createUseMacro(from, to, context) {
-  function checkBabelPluginMacroInstalled() {
-    try {
-      require.resolve("babel-plugin-macros");
-      return true;
-    } catch (_err) {
-      return false;
-    }
+  let BABEL_PLUGIN_MACROS_INSTALLED = false;
+  let TARGET_LIBRARY_INSTALLED = false;
+
+  try {
+    require.resolve("babel-plugin-macros");
+    BABEL_PLUGIN_MACROS_INSTALLED = true;
+  } catch (_err) {
+    BABEL_PLUGIN_MACROS_INSTALLED = false;
   }
 
-  function checkPackageExists() {
-    try {
-      require.resolve(from);
-      require.resolve(to);
-      return true;
-    } catch (_err) {
-      return false;
-    }
+  try {
+    require.resolve(to);
+    TARGET_LIBRARY_INSTALLED = true;
+  } catch (_err) {
+    TARGET_LIBRARY_INSTALLED = false;
   }
 
   return function(node) {
-    if (!checkBabelPluginMacroInstalled()) {
+    if (!BABEL_PLUGIN_MACROS_INSTALLED) {
       context.report({
         node,
         message: "Please install 'babel-plugin-macro' to use macro",
@@ -30,7 +28,7 @@ module.exports = function createUseMacro(from, to, context) {
     const importName = node.source.value.trim();
 
     if (importName === from) {
-      if (!checkPackageExists()) {
+      if (!TARGET_LIBRARY_INSTALLED) {
         context.report({
           node,
           message: "Please install {{to}} to use macro",

@@ -1,23 +1,21 @@
 const FROM = "graphql-tag";
 const TO = "graphql.macro";
 
-function checkBabelPluginMacroInstalled() {
-  try {
-    require.resolve("babel-plugin-macros");
-    return true;
-  } catch (_err) {
-    return false;
-  }
+let BABEL_PLUGIN_MACROS_INSTALLED = false;
+let GRAPHQL_MACRO_INSTALLED = false;
+
+try {
+  require.resolve("babel-plugin-macros");
+  BABEL_PLUGIN_MACROS_INSTALLED = true;
+} catch (_err) {
+  BABEL_PLUGIN_MACROS_INSTALLED = false;
 }
 
-function checkPackageExists() {
-  try {
-    require.resolve(FROM);
-    require.resolve(TO);
-    return true;
-  } catch (_err) {
-    return false;
-  }
+try {
+  require.resolve(TO);
+  GRAPHQL_MACRO_INSTALLED = true;
+} catch (_err) {
+  GRAPHQL_MACRO_INSTALLED = false;
 }
 
 module.exports = {
@@ -28,7 +26,7 @@ module.exports = {
   create(context) {
     return {
       ImportDeclaration(node) {
-        if (!checkBabelPluginMacroInstalled()) {
+        if (!BABEL_PLUGIN_MACROS_INSTALLED) {
           context.report({
             node,
             message: 'Please install "babel-plugin-macro" to use macro',
@@ -39,7 +37,7 @@ module.exports = {
         const importName = node.source.value.trim();
 
         if (importName === FROM) {
-          if (!checkPackageExists()) {
+          if (!GRAPHQL_MACRO_INSTALLED) {
             context.report({
               node,
               message: 'Please install "graphql.macro" to use macro',
