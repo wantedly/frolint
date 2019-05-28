@@ -834,6 +834,7 @@ Array [
   "jsx-a11y",
   "jest",
   "prettier",
+  "use-macros",
   "react-hooks",
 ]
 `;
@@ -1190,6 +1191,8 @@ Object {
   "template-tag-spacing": "off",
   "unicode-bom": "off",
   "use-isnan": "error",
+  "use-macros/graphql-tag": "error",
+  "use-macros/styled-components": "error",
   "valid-typeof": "error",
   "wrap-iife": "off",
   "wrap-regex": "off",
