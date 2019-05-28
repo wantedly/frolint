@@ -22,6 +22,8 @@
     "babel-plugin-macros": "^2.5.1",
     "eslint": "^5.16.0",
     "eslint-config-wantedly": "^0.5.2",
+    "graphql-tag": "^2.10.1",
+    "graphql-tag.macro": "^2.1.0",
     "styled-components": "^4.2.0"
   }
 }
