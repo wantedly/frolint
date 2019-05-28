@@ -4539,9 +4539,9 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
     minimist "0.0.8"
 
 mock-fs@^4.8.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/mock-fs/-/mock-fs-4.9.0.tgz#7fc0c2f82965050b2776f8eb4eb63ca53a92ff86"
-  integrity sha512-aUj0qIniTNxzGqAC61Bvro7YD37tIBnMw3wpClucUVgNBS7r6YQn/M4wuoH7SGteKz4SvC1OBeDsfpG0MYC+1Q==
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/mock-fs/-/mock-fs-4.10.0.tgz#1d017f797416c9f4879dd58ee9438d8b9323a731"
+  integrity sha512-eBpLEjI6tK4RKK44BbUBQu89lrNh+5WeX3wf2U6Uwo6RtRGAQ77qvKeuuQh3lVXHF1aPndVww9VcjqmLThIdtA==
 
 modify-values@^1.0.0:
   version "1.0.1"
