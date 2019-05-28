@@ -114,34 +114,26 @@ module.exports = {
     eqeqeq: "error",
     indent: "off",
     quotes: ["off"],
-    semi: ["error", "always"],
+    semi: "off",
 
     // @typescript-eslint/eslint-plugin rules
     "@typescript-eslint/camelcase": ["error", { ignoreDestructuring: true, properties: "never" }],
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/explicit-member-accessibility": [
       "error",
-      {
-        overrides: {
-          constructors: "no-public",
-          parameterProperties: "no-public",
-          accessors: "no-public",
-        },
-      },
+      { overrides: { constructors: "no-public", parameterProperties: "no-public", accessors: "no-public" } },
     ],
+    "@typescript-eslint/func-call-spacing": ["error", "never"],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-array-constructor": "error",
     "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/no-unused-vars": [
       "error",
-      {
-        varsIgnorePattern: "^_",
-        argsIgnorePattern: "^_",
-        ignoreRestSiblings: true,
-      },
+      { varsIgnorePattern: "^_", argsIgnorePattern: "^_", ignoreRestSiblings: true },
     ],
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-useless-constructor": "off",
+    "@typescript-eslint/semi": ["error", "always"],
 
     // eslint-plugin-import rules
     "import/extensions": "off",
