@@ -861,6 +861,10 @@ Object {
       },
     },
   ],
+  "@typescript-eslint/func-call-spacing": Array [
+    "error",
+    "never",
+  ],
   "@typescript-eslint/indent": "off",
   "@typescript-eslint/interface-name-prefix": "error",
   "@typescript-eslint/member-delimiter-style": "off",
@@ -891,6 +895,10 @@ Object {
   "@typescript-eslint/no-var-requires": "error",
   "@typescript-eslint/prefer-interface": "error",
   "@typescript-eslint/prefer-namespace-keyword": "error",
+  "@typescript-eslint/semi": Array [
+    "error",
+    "always",
+  ],
   "@typescript-eslint/type-annotation-spacing": "off",
   "array-bracket-newline": "off",
   "array-bracket-spacing": "off",
@@ -1093,10 +1101,7 @@ Object {
   ],
   "require-yield": "error",
   "rest-spread-spacing": "off",
-  "semi": Array [
-    "error",
-    "always",
-  ],
+  "semi": "off",
   "semi-spacing": "off",
   "semi-style": "off",
   "space-after-function-name": "off",
