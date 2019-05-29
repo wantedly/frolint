@@ -17,17 +17,17 @@ module.exports = function createUseMacro(from, to, context) {
   }
 
   return function(node) {
-    if (!BABEL_PLUGIN_MACROS_INSTALLED) {
-      context.report({
-        node,
-        message: "Please install 'babel-plugin-macro' to use macro",
-      });
-      return;
-    }
-
     const importName = node.source.value.trim();
 
     if (importName === from) {
+      if (!BABEL_PLUGIN_MACROS_INSTALLED) {
+        context.report({
+          node,
+          message: "Please install 'babel-plugin-macro' to use macro",
+        });
+        return;
+      }
+
       if (!TARGET_LIBRARY_INSTALLED) {
         context.report({
           node,

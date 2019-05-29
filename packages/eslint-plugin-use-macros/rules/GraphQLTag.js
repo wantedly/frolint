@@ -26,17 +26,17 @@ module.exports = {
   create(context) {
     return {
       ImportDeclaration(node) {
-        if (!BABEL_PLUGIN_MACROS_INSTALLED) {
-          context.report({
-            node,
-            message: 'Please install "babel-plugin-macro" to use macro',
-          });
-          return;
-        }
-
         const importName = node.source.value.trim();
 
         if (importName === FROM) {
+          if (!BABEL_PLUGIN_MACROS_INSTALLED) {
+            context.report({
+              node,
+              message: 'Please install "babel-plugin-macro" to use macro',
+            });
+            return;
+          }
+
           if (!GRAPHQL_MACRO_INSTALLED) {
             context.report({
               node,
