@@ -1552,9 +1552,9 @@ babel-plugin-jest-hoist@^24.6.0:
     "@types/babel__traverse" "^7.0.6"
 
 babel-plugin-macros@^2.5.0, babel-plugin-macros@^2.5.1:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.6.0.tgz#1840d0778f27698e5ceaf1a831293b2a57fc26ae"
-  integrity sha512-6hrXm6NIoSp+JiqhHZ6tUemhClnu//vjx9fAU5tkRCztTKxgiUpFpMDBX4yZiJIco7qkf0CPX2u4Ax3x6GCiUg==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.6.1.tgz#41f7ead616fc36f6a93180e89697f69f51671181"
+  integrity sha512-6W2nwiXme6j1n2erPOnmRiWfObUhWH7Qw1LMi9XZy8cj+KtESu3T6asZvtk5bMQQjX8te35o7CFueiSdL/2NmQ==
   dependencies:
     "@babel/runtime" "^7.4.2"
     cosmiconfig "^5.2.0"
