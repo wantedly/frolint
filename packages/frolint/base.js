@@ -38,7 +38,6 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
   const reactVersion = detectReactVersion(cwd);
   const isReact = !!reactVersion;
   const netEslintConfigPackage = eslintConfigPackage.replace("eslint-config-", "") + (isReact ? "" : "/without-react");
-
   const reactSettings = reactVersion
     ? {
         react: {
@@ -46,12 +45,15 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
         },
       }
     : {};
+  const cacheLocation = path.resolve(cwd, "node_modules", ".eslintcache");
 
   const cli = new eslint.CLIEngine({
     baseConfig: { extends: [netEslintConfigPackage], settings: { ...reactSettings } },
     fix: true,
     cwd,
     ignorePath: eslintConfig.ignorePath,
+    cache: true,
+    cacheLocation,
   });
 
   return cli;
