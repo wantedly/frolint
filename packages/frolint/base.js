@@ -45,7 +45,7 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
         },
       }
     : {};
-  const cacheLocation = path.resolve(cwd, "node_modules", ".eslintcache");
+  const cacheLocation = path.resolve(cwd, "node_modules", ".frolintcache");
 
   const cli = new eslint.CLIEngine({
     baseConfig: { extends: [netEslintConfigPackage], settings: { ...reactSettings } },
@@ -183,6 +183,10 @@ function applyPrettier(args, config, files) {
         ...prettierOption,
         filePath,
       });
+
+      if (input === output) {
+        return null;
+      }
 
       return { filePath, output };
     })
