@@ -6,6 +6,7 @@
   "devDependencies": {
     "jest": "^24.5.0",
     "lerna": "^3.13.0",
+    "lerna-changelog": "^0.8.2",
     "mock-fs": "^4.8.0"
   },
   "workspaces": [
@@ -20,6 +21,17 @@
     "postinstall": "lerna bootstrap",
     "test": "FORCE_COLOR=1 lerna run --parallel test",
     "test:update": "lerna run --parallel test -- -u",
-    "lint": "frolint --branch=master"
+    "lint": "frolint --branch=master",
+    "changelog": "yarn lerna-changelog"
+  },
+  "changelog": {
+    "repo": "wantedly/frolint",
+    "labels": {
+      "dependencies": "Update dependencies",
+      "enhancement": "New feature or improvement",
+      "bug": "Bug fix",
+      "documentation": "Improve documentation"
+    },
+    "cacheDir": ".changelog"
   }
 }
