@@ -1,4 +1,4 @@
-## Unreleased (2019-06-19)
+## v0.6.6 (2019-06-19)
 
 #### Update dependencies
 
