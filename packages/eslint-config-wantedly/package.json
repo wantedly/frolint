@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-wantedly",
   "description": "ESLint configuration for Wantedly",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
     "babel-eslint": "^10.0.1",
