@@ -3,7 +3,7 @@ const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
 const GraphQLTagRule = require("../rules/GraphQLTag");
 
 RuleTester.setDefaultConfig({
-  parser: ESLintConfigWantedly.parser,
+  parser: require.resolve(ESLintConfigWantedly.parser),
   parserOptions: ESLintConfigWantedly.parserOptions,
 });
 

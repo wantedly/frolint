@@ -12,7 +12,7 @@ const normalizePath = path => {
 };
 
 describe("eslint-config-wantedly-typescript/without-react", () => {
-  const config = engine.config.getConfig();
+  const config = engine.getConfigForFile("test.ts");
   const keys = Object.keys(config);
 
   beforeAll(() => {

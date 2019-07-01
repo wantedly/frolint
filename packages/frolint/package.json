@@ -8,7 +8,7 @@
     "@yamadayuki/ogh": "^0.3.1",
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
-    "eslint": "^5.15.3",
+    "eslint": "^6.0.1",
     "eslint-config-wantedly": "^0.6.6",
     "eslint-config-wantedly-typescript": "^0.6.6",
     "execa": "^1.0.0",
