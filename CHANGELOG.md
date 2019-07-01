@@ -1,3 +1,21 @@
+## v0.6.7 (2019-07-01)
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `frolint`
+  - [#107](https://github.com/wantedly/frolint/pull/107) Bump eslint from 5.16.0 to 6.0.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Other
+  - [#100](https://github.com/wantedly/frolint/pull/100) Bump @typescript-eslint/eslint-plugin from 1.10.2 to 1.11.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#99](https://github.com/wantedly/frolint/pull/99) Bump @typescript-eslint/parser from 1.10.2 to 1.11.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#101](https://github.com/wantedly/frolint/pull/101) Bump eslint-plugin-jest from 22.7.0 to 22.7.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#103](https://github.com/wantedly/frolint/pull/103) Bump eslint-plugin-react-hooks from 1.6.0 to 1.6.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#104](https://github.com/wantedly/frolint/pull/104) Bump eslint-plugin-import from 2.17.3 to 2.18.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#106](https://github.com/wantedly/frolint/pull/106) Bump eslint-plugin-react from 7.13.0 to 7.14.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#96](https://github.com/wantedly/frolint/pull/96) Bump styled-components from 4.3.1 to 4.3.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#97](https://github.com/wantedly/frolint/pull/97) Bump eslint-plugin-jest from 22.6.4 to 22.7.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#105](https://github.com/wantedly/frolint/pull/105) Bump eslint-config-prettier from 5.0.0 to 6.0.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.6.6 (2019-06-19)
 
 #### Update dependencies
