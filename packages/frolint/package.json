@@ -11,7 +11,7 @@
     "eslint": "^6.0.1",
     "eslint-config-wantedly": "^0.6.7",
     "eslint-config-wantedly-typescript": "^0.6.7",
-    "execa": "^1.0.0",
+    "execa": "^2.0.1",
     "prettier": "^1.16.4",
     "prettier-config-wantedly": "^0.6.5",
     "resolve": "^1.10.0"
