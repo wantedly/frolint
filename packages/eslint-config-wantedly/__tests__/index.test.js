@@ -12,7 +12,7 @@ const normalizePath = path => {
 };
 
 describe("eslint-config-wantedly", () => {
-  const config = engine.config.getConfig();
+  const config = engine.getConfigForFile("test.js");
   const keys = Object.keys(config);
 
   beforeAll(() => {
