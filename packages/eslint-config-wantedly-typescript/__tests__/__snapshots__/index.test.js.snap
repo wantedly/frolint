@@ -102,6 +102,9 @@ Object {
   "@typescript-eslint/no-extra-parens": Array [
     "off",
   ],
+  "@typescript-eslint/no-floating-promises": Array [
+    "error",
+  ],
   "@typescript-eslint/no-inferrable-types": Array [
     "error",
   ],
