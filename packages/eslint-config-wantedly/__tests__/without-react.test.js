@@ -12,7 +12,7 @@ const normalizePath = path => {
 };
 
 describe("eslint-config-wantedly/without-react", () => {
-  const config = engine.getConfigForFile("test.js");
+  const config = engine.config.getConfig();
   const keys = Object.keys(config);
 
   beforeAll(() => {
