@@ -18,7 +18,7 @@ const mockGit = () => {
     "/baz.js": "baz()",
   });
 
-  execa.shellSync.mockImplementation((commandStr, _options) => {
+  execa.commandSync.mockImplementation((commandStr, _options) => {
     const [command, ...args] = commandStr.split(" ");
 
     if (command !== "git") {
@@ -51,7 +51,10 @@ describe("preCommitHook", () => {
       mockGit();
       getStagedFiles(cwd);
 
-      expect(execa.shellSync).toHaveBeenCalledWith("git diff --cached --name-only --diff-filter=ACMRTUB", { cwd: "/" });
+      expect(execa.commandSync).toHaveBeenCalledWith("git diff --cached --name-only --diff-filter=ACMRTUB", {
+        cwd: "/",
+        shell: true,
+      });
     });
 
     it("should return only staged files", () => {
@@ -67,7 +70,10 @@ describe("preCommitHook", () => {
       mockGit();
       getUnstagedFiles(cwd);
 
-      expect(execa.shellSync).toHaveBeenCalledWith("git diff --name-only --diff-filter=ACMRTUB", { cwd: "/" });
+      expect(execa.commandSync).toHaveBeenCalledWith("git diff --name-only --diff-filter=ACMRTUB", {
+        cwd: "/",
+        shell: true,
+      });
     });
 
     it("should return only unstaged files", () => {
@@ -83,8 +89,9 @@ describe("preCommitHook", () => {
       mockGit();
       getAllFiles(cwd, [".js", ".jsx"]);
 
-      expect(execa.shellSync).toHaveBeenCalledWith("git ls-files *.js *.jsx", {
+      expect(execa.commandSync).toHaveBeenCalledWith("git ls-files *.js *.jsx", {
         cwd: "/",
+        shell: true,
       });
     });
 

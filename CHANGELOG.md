@@ -1,3 +1,10 @@
+## v0.6.8 (2019-07-03)
+
+#### Bug fix
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `frolint`
+  - [#115](https://github.com/wantedly/frolint/pull/115) Revert eslint@^6.0.1 ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.6.7 (2019-07-01)
 
 #### Update dependencies
