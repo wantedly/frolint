@@ -880,6 +880,9 @@ Object {
     "off",
   ],
   "@typescript-eslint/no-extra-parens": "off",
+  "@typescript-eslint/no-floating-promises": Array [
+    "error",
+  ],
   "@typescript-eslint/no-inferrable-types": "error",
   "@typescript-eslint/no-misused-new": "error",
   "@typescript-eslint/no-namespace": "error",
