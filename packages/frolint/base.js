@@ -53,13 +53,10 @@ function getCli(
   const cacheLocation = path.resolve(cwd, "node_modules", ".frolintcache");
   let parserOptions;
 
-  if (isTypescript) {
-    parserOptions =
-      netEslintConfigPackage.indexOf("typescript") > -1
-        ? {
-            project: eslintConfig.project || path.resolve(cwd, "tsconfig.json"),
-          }
-        : undefined;
+  if (isTypescript || netEslintConfigPackage.indexOf("typescript") > -1) {
+    parserOptions = {
+      project: eslintConfig.project || path.resolve(cwd, "tsconfig.json"),
+    };
   }
 
   const cli = new eslint.CLIEngine({
