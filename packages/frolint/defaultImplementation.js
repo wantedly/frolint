@@ -7,7 +7,16 @@ const { optionsFromConfig } = require("./config");
 const { getStagedFiles, getUnstagedFiles, getAllFiles, getFilesBetweenCurrentAndBranch, stageFile } = require("./git");
 const { parseArgs } = require("./parseArgs");
 
+function hasDebugOption(args) {
+  return args.indexOf("--debug") !== -1;
+}
+
 function defaultImplementation(args, config) {
+  const isDebug = hasDebugOption(args);
+  if (isDebug) {
+    console.time("defaultImplementation");
+  }
+
   const rootDir = ogh.extractGitRootDirFromArgs(args);
   const argResult = parseArgs(args);
   const { isTypescript, formatter, eslintConfig } = optionsFromConfig(config);
@@ -40,6 +49,10 @@ function defaultImplementation(args, config) {
 
   const shouldStageFiles = new Set();
 
+  if (isDebug) {
+    console.timeLog("defaultImplementation", "bootstrap");
+  }
+
   /**
    * Apply ESLint step
    */
@@ -56,6 +69,10 @@ function defaultImplementation(args, config) {
     }
   });
 
+  if (isDebug) {
+    console.timeLog("defaultImplementation", "applyEslint - end");
+  }
+
   /**
    * Apply Prettier step
    */
@@ -69,6 +86,10 @@ function defaultImplementation(args, config) {
       }
     }
   });
+
+  if (isDebug) {
+    console.timeLog("defaultImplementation", "applyPrettier - end");
+  }
 
   /**
    * Stage files step
@@ -88,6 +109,10 @@ function defaultImplementation(args, config) {
       console.log("commit canceled with exit status 1. You have to fix ESLint errors.");
       process.exit(1);
     }
+  }
+
+  if (isDebug) {
+    console.timeEnd("defaultImplementation");
   }
 }
 
