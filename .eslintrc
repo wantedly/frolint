@@ -8,5 +8,8 @@
   "rules": {
     "no-console": "off",
     "@typescript-eslint/no-var-requires": "off"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
   }
 }
