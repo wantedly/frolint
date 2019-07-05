@@ -43,7 +43,7 @@ function defaultImplementation(args, config) {
   /**
    * Apply ESLint step
    */
-  const report = applyEslint(args, files, eslintConfigPackage, eslintConfig);
+  const report = applyEslint(args, files, eslintConfigPackage, eslintConfig, isTypescript);
   report.results.forEach(result => {
     const { filePath, output } = result;
     if (output) {

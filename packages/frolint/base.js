@@ -34,7 +34,12 @@ function detectReactVersion(cwd) {
  * ESLint utilities
  */
 
-function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", eslintConfig = {}) {
+function getCli(
+  cwd,
+  eslintConfigPackage = "eslint-config-wantedly-typescript",
+  eslintConfig = {},
+  isTypescript = false
+) {
   const reactVersion = detectReactVersion(cwd);
   const isReact = !!reactVersion;
   const netEslintConfigPackage = eslintConfigPackage.replace("eslint-config-", "") + (isReact ? "" : "/without-react");
@@ -46,12 +51,16 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
       }
     : {};
   const cacheLocation = path.resolve(cwd, "node_modules", ".frolintcache");
-  const parserOptions =
-    netEslintConfigPackage.indexOf("typescript") > -1
-      ? {
-          project: eslintConfig.project || path.resolve(cwd, "tsconfig.json"),
-        }
-      : undefined;
+  let parserOptions;
+
+  if (isTypescript) {
+    parserOptions =
+      netEslintConfigPackage.indexOf("typescript") > -1
+        ? {
+            project: eslintConfig.project || path.resolve(cwd, "tsconfig.json"),
+          }
+        : undefined;
+  }
 
   const cli = new eslint.CLIEngine({
     baseConfig: { extends: [netEslintConfigPackage], settings: { ...reactSettings } },
