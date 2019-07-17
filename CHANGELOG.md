@@ -1,3 +1,35 @@
+## v0.6.9 (2019-07-17)
+
+#### Update dependencies
+
+- Other
+  - [#125](https://github.com/wantedly/frolint/pull/125) Bump @typescript-eslint/eslint-plugin from 1.11.0 to 1.12.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#126](https://github.com/wantedly/frolint/pull/126) Bump @typescript-eslint/parser from 1.11.0 to 1.12.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#129](https://github.com/wantedly/frolint/pull/129) Bump eslint-plugin-jest from 22.7.2 to 22.9.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#127](https://github.com/wantedly/frolint/pull/127) Bump arg from 4.1.0 to 4.1.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#121](https://github.com/wantedly/frolint/pull/121) Bump typescript from 3.5.2 to 3.5.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#123](https://github.com/wantedly/frolint/pull/123) [Security] Bump lodash from 4.17.11 to 4.17.14 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#122](https://github.com/wantedly/frolint/pull/122) [Security] Bump lodash.template from 4.4.0 to 4.5.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#120](https://github.com/wantedly/frolint/pull/120) Bump execa from 2.0.2 to 2.0.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `frolint`
+  - [#124](https://github.com/wantedly/frolint/pull/124) Bump @yamadayuki/ogh from 0.3.2 to 0.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `frolint`
+  - [#117](https://github.com/wantedly/frolint/pull/117) Specify the latest version with caret ([@yamadayuki](https://github.com/yamadayuki))
+
+## v0.6.9-alpha.0 (2019-07-05)
+
+#### Update dependencies
+
+- Other
+  - [#116](https://github.com/wantedly/frolint/pull/116) Bump eslint-plugin-jest from 22.7.1 to 22.7.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `frolint`
+  - [#111](https://github.com/wantedly/frolint/pull/111) Bump execa from 1.0.0 to 2.0.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### New feature or improvement
+
+- `eslint-config-wantedly-typescript`, `frolint`
+  - [#113](https://github.com/wantedly/frolint/pull/113) Add no-floating-promises ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.6.8 (2019-07-03)
 
 #### Bug fix
