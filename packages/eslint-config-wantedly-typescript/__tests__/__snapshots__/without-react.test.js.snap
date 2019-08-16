@@ -43,7 +43,7 @@ Object {
   "@typescript-eslint/adjacent-overload-signatures": Array [
     "error",
   ],
-  "@typescript-eslint/array-type": Array [
+  "@typescript-eslint/ban-ts-ignore": Array [
     "error",
   ],
   "@typescript-eslint/ban-types": Array [
@@ -57,6 +57,9 @@ Object {
     },
   ],
   "@typescript-eslint/class-name-casing": Array [
+    "error",
+  ],
+  "@typescript-eslint/consistent-type-assertions": Array [
     "error",
   ],
   "@typescript-eslint/explicit-function-return-type": Array [
@@ -85,10 +88,10 @@ Object {
   "@typescript-eslint/member-delimiter-style": Array [
     "off",
   ],
-  "@typescript-eslint/no-angle-bracket-type-assertion": Array [
+  "@typescript-eslint/no-array-constructor": Array [
     "error",
   ],
-  "@typescript-eslint/no-array-constructor": Array [
+  "@typescript-eslint/no-empty-function": Array [
     "error",
   ],
   "@typescript-eslint/no-empty-interface": Array [
@@ -113,15 +116,9 @@ Object {
     "error",
   ],
   "@typescript-eslint/no-non-null-assertion": Array [
-    "error",
+    "warn",
   ],
-  "@typescript-eslint/no-object-literal-type-assertion": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-parameter-properties": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-triple-slash-reference": Array [
+  "@typescript-eslint/no-this-alias": Array [
     "error",
   ],
   "@typescript-eslint/no-unused-vars": Array [
@@ -141,15 +138,15 @@ Object {
   "@typescript-eslint/no-var-requires": Array [
     "error",
   ],
-  "@typescript-eslint/prefer-interface": Array [
-    "error",
-  ],
   "@typescript-eslint/prefer-namespace-keyword": Array [
     "error",
   ],
   "@typescript-eslint/semi": Array [
     "error",
     "always",
+  ],
+  "@typescript-eslint/triple-slash-reference": Array [
+    "error",
   ],
   "@typescript-eslint/type-annotation-spacing": Array [
     "off",
@@ -387,6 +384,9 @@ Object {
   "no-empty-character-class": Array [
     "error",
   ],
+  "no-empty-function": Array [
+    "off",
+  ],
   "no-empty-pattern": Array [
     "error",
   ],
@@ -543,6 +543,9 @@ Object {
   "no-useless-escape": Array [
     "off",
   ],
+  "no-var": Array [
+    "error",
+  ],
   "no-whitespace-before-property": Array [
     "off",
   ],
@@ -578,6 +581,12 @@ Object {
   ],
   "prefer-const": Array [
     "warn",
+  ],
+  "prefer-rest-params": Array [
+    "error",
+  ],
+  "prefer-spread": Array [
+    "error",
   ],
   "prefer-template": Array [
     "warn",
