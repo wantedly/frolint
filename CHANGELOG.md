@@ -1,3 +1,17 @@
+## v0.7.1 (2019-08-26)
+
+#### Update dependencies
+
+- Other
+  - [#161](https://github.com/wantedly/frolint/pull/161) Bump babel-eslint from 10.0.2 to 10.0.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#160](https://github.com/wantedly/frolint/pull/160) Bump eslint from 6.2.1 to 6.2.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#159](https://github.com/wantedly/frolint/pull/159) Bump eslint-plugin-jest from 22.15.1 to 22.15.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#154](https://github.com/wantedly/frolint/pull/154) Bump jest from 24.8.0 to 24.9.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#158](https://github.com/wantedly/frolint/pull/158) Bump eslint-plugin-react-hooks from 1.7.0 to 2.0.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#155](https://github.com/wantedly/frolint/pull/155) Bump eslint-config-prettier from 6.0.0 to 6.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#157](https://github.com/wantedly/frolint/pull/157) Bump eslint from 6.1.0 to 6.2.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.7.0 (2019-08-16)
 
 #### Update dependencies
