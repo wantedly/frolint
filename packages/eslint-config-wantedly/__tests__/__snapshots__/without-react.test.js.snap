@@ -123,6 +123,9 @@ Object {
   "func-call-spacing": Array [
     "off",
   ],
+  "function-call-argument-newline": Array [
+    "off",
+  ],
   "function-paren-newline": Array [
     "off",
   ],
