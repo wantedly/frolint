@@ -127,7 +127,6 @@ module.exports = {
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-array-constructor": "error",
     "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/no-floating-promises": ["error"],
     "@typescript-eslint/no-unused-vars": [
       "error",
       { varsIgnorePattern: "^_", argsIgnorePattern: "^_", ignoreRestSiblings: true },
