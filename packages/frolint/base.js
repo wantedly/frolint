@@ -46,12 +46,6 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
       }
     : {};
   const cacheLocation = path.resolve(cwd, "node_modules", ".frolintcache");
-  const parserOptions =
-    netEslintConfigPackage.indexOf("typescript") > -1
-      ? {
-          project: eslintConfig.project || path.resolve(cwd, "tsconfig.json"),
-        }
-      : undefined;
 
   const cli = new eslint.CLIEngine({
     baseConfig: { extends: [netEslintConfigPackage], settings: { ...reactSettings } },
@@ -60,7 +54,6 @@ function getCli(cwd, eslintConfigPackage = "eslint-config-wantedly-typescript", 
     ignorePath: eslintConfig.ignorePath,
     cache: true,
     cacheLocation,
-    parserOptions,
   });
 
   return cli;
