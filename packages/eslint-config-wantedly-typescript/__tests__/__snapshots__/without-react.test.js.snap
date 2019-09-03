@@ -40,6 +40,8 @@ Array [
 ]
 `;
 
+exports[`eslint-config-wantedly-typescript/without-react should match snapshot for reportUnusedDisableDirectives 1`] = `undefined`;
+
 exports[`eslint-config-wantedly-typescript/without-react should match snapshot for rules 1`] = `
 Object {
   "@typescript-eslint/adjacent-overload-signatures": Array [
