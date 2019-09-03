@@ -39,6 +39,8 @@ Array [
 ]
 `;
 
+exports[`eslint-config-wantedly/without-react should match snapshot for reportUnusedDisableDirectives 1`] = `undefined`;
+
 exports[`eslint-config-wantedly/without-react should match snapshot for rules 1`] = `
 Object {
   "array-bracket-newline": Array [
