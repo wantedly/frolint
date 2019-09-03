@@ -1,3 +1,18 @@
+## v0.7.2 (2019-09-03)
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#166](https://github.com/wantedly/frolint/pull/166) Bump eslint from 6.2.2 to 6.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Other
+  - [#169](https://github.com/wantedly/frolint/pull/169) Bump @typescript-eslint/eslint-plugin from 2.0.0 to 2.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#168](https://github.com/wantedly/frolint/pull/168) Bump @typescript-eslint/parser from 2.0.0 to 2.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#165](https://github.com/wantedly/frolint/pull/165) Bump eslint-plugin-jest from 22.15.2 to 22.16.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#164](https://github.com/wantedly/frolint/pull/164) Bump typescript from 3.5.3 to 3.6.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#163](https://github.com/wantedly/frolint/pull/163) [Security] Bump mixin-deep from 1.3.1 to 1.3.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `frolint`
+  - [#170](https://github.com/wantedly/frolint/pull/170) Bump @yamadayuki/ogh from 0.4.0 to 1.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.7.1 (2019-08-26)
 
 #### Update dependencies
