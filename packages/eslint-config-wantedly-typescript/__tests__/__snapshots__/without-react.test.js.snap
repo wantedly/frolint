@@ -145,6 +145,9 @@ Object {
   "@typescript-eslint/prefer-namespace-keyword": Array [
     "error",
   ],
+  "@typescript-eslint/quotes": Array [
+    0,
+  ],
   "@typescript-eslint/semi": Array [
     "error",
     "always",
