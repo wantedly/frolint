@@ -55,6 +55,9 @@ Object {
   "@typescript-eslint/ban-types": Array [
     "error",
   ],
+  "@typescript-eslint/brace-style": Array [
+    "off",
+  ],
   "@typescript-eslint/camelcase": Array [
     "error",
     Object {
