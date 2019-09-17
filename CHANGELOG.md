@@ -1,3 +1,10 @@
+## v0.7.4 (2019-09-17)
+
+#### Bug fix
+
+- `frolint`
+  - [#180](https://github.com/wantedly/frolint/pull/180) Fix ls-files optional argument format ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.7.3 (2019-09-17)
 
 #### Update dependencies
