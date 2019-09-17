@@ -13,7 +13,7 @@ function getUnstagedFiles(cwd) {
 }
 
 function getAllFiles(cwd, extensions) {
-  const { stdout } = execa.commandSync(`git ls-files ${extensions.map(ext => `*${ext}`).join(" ")}`, {
+  const { stdout } = execa.commandSync(`git ls-files ${extensions.map(ext => `"**/*${ext}"`).join(" ")}`, {
     cwd,
     shell: true,
   });
