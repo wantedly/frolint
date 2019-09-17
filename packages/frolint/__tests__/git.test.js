@@ -1,3 +1,5 @@
+// @ts-check
+
 const execa = require("execa");
 const mock = require("mock-fs");
 const { getStagedFiles, getUnstagedFiles, getAllFiles } = require("../git");
@@ -18,7 +20,7 @@ const mockGit = () => {
     "/baz.js": "baz()",
   });
 
-  execa.commandSync.mockImplementation((commandStr, _options) => {
+  execa.commandSync.mockImplementation((/** @type string */ commandStr, _options) => {
     const [command, ...args] = commandStr.split(" ");
 
     if (command !== "git") {
@@ -33,7 +35,7 @@ const mockGit = () => {
       }
       case "ls-files": {
         return {
-          stdout: args.slice(1).includes("*.ts") ? "./bar.ts\n./baz.js\n./foo.js\n" : "./baz.js\n./foo.js\n",
+          stdout: args.slice(1).includes('"**/*.ts"') ? "./bar.ts\n./baz.js\n./foo.js\n" : "./baz.js\n./foo.js\n",
         };
       }
       default: {
@@ -89,7 +91,7 @@ describe("preCommitHook", () => {
       mockGit();
       getAllFiles(cwd, [".js", ".jsx"]);
 
-      expect(execa.commandSync).toHaveBeenCalledWith("git ls-files *.js *.jsx", {
+      expect(execa.commandSync).toHaveBeenCalledWith('git ls-files "**/*.js" "**/*.jsx"', {
         cwd: "/",
         shell: true,
       });
@@ -100,7 +102,7 @@ describe("preCommitHook", () => {
       expect(getAllFiles(cwd, [".js", ".jsx"])).toEqual(["./baz.js", "./foo.js"]);
     });
 
-    it("should return only js files", () => {
+    it("should return js / ts files", () => {
       mockGit();
       expect(getAllFiles(cwd, [".js", ".jsx", ".ts", ".tsx"])).toEqual(["./bar.ts", "./baz.js", "./foo.js"]);
     });
