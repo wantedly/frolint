@@ -1,3 +1,12 @@
+## v0.7.5 (2019-09-24)
+
+#### Update dependencies
+
+- [#182](https://github.com/wantedly/frolint/pull/182) Bump @typescript-eslint/parser from 2.3.0 to 2.3.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#183](https://github.com/wantedly/frolint/pull/183) Bump @typescript-eslint/eslint-plugin from 2.3.0 to 2.3.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#184](https://github.com/wantedly/frolint/pull/184) Bump styled-components from 4.3.2 to 4.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#181](https://github.com/wantedly/frolint/pull/181) Bump eslint-plugin-prettier from 3.1.0 to 3.1.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.7.4 (2019-09-17)
 
 #### Bug fix
