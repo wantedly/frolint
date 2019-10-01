@@ -1,3 +1,12 @@
+## v0.7.6 (2019-10-01)
+
+#### Update dependencies
+
+- [#186](https://github.com/wantedly/frolint/pull/186) Bump @typescript-eslint/parser from 2.3.1 to 2.3.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#188](https://github.com/wantedly/frolint/pull/188) Bump eslint-plugin-react-hooks from 2.0.1 to 2.1.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#187](https://github.com/wantedly/frolint/pull/187) Bump @typescript-eslint/eslint-plugin from 2.3.1 to 2.3.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#185](https://github.com/wantedly/frolint/pull/185) Bump eslint from 6.4.0 to 6.5.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.7.5 (2019-09-24)
 
 #### Update dependencies
