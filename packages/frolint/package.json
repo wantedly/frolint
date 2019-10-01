@@ -1,7 +1,7 @@
 {
   "name": "frolint",
   "description": "git commit hook linter",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "bin": "index.js",
   "dependencies": {
@@ -9,11 +9,11 @@
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
     "eslint": "^6.0.1",
-    "eslint-config-wantedly": "^0.7.5",
-    "eslint-config-wantedly-typescript": "^0.7.5",
+    "eslint-config-wantedly": "^0.7.6",
+    "eslint-config-wantedly-typescript": "^0.7.6",
     "execa": "^2.0.2",
     "prettier": "^1.16.4",
-    "prettier-config-wantedly": "^0.7.5",
+    "prettier-config-wantedly": "^0.7.6",
     "resolve": "^1.10.0"
   },
   "homepage": "https://github.com/wantedly/frolint",
