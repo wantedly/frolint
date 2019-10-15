@@ -1,3 +1,11 @@
+## v0.7.8 (2019-10-15)
+
+#### Update dependencies
+
+- [#199](https://github.com/wantedly/frolint/pull/199) Bump execa from 2.0.5 to 2.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#200](https://github.com/wantedly/frolint/pull/200) Bump lerna from 3.16.5 to 3.17.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#198](https://github.com/wantedly/frolint/pull/198) Bump typescript from 3.6.3 to 3.6.4 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.7.7 (2019-10-08)
 
 #### Update dependencies
