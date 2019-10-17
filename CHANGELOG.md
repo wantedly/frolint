@@ -1,3 +1,15 @@
+## v0.7.9 (2019-10-17)
+
+#### Update dependencies
+
+- Other
+  - [#202](https://github.com/wantedly/frolint/pull/202) Bump @typescript-eslint/eslint-plugin from 2.3.3 to 2.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#203](https://github.com/wantedly/frolint/pull/203) Bump @typescript-eslint/parser from 2.3.3 to 2.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#204](https://github.com/wantedly/frolint/pull/204) Bump eslint-plugin-jest from 22.17.0 to 22.19.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#206](https://github.com/wantedly/frolint/pull/206) Bump lerna from 3.17.0 to 3.18.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `frolint`
+  - [#205](https://github.com/wantedly/frolint/pull/205) Bump execa from 2.1.0 to 3.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.7.8 (2019-10-15)
 
 #### Update dependencies
