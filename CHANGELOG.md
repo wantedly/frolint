@@ -1,3 +1,10 @@
+## v0.7.10 (2019-10-21)
+
+#### Update dependencies
+
+- [#208](https://github.com/wantedly/frolint/pull/208) Bump execa from 3.1.0 to 3.2.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#209](https://github.com/wantedly/frolint/pull/209) Bump mock-fs from 4.10.1 to 4.10.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.7.9 (2019-10-17)
 
 #### Update dependencies
