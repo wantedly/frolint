@@ -30,6 +30,7 @@
   "scripts": {
     "postinstall": "node index.js install",
     "preuninstall": "node index.js uninstall",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc -b ."
   }
 }

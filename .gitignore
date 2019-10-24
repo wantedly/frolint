@@ -88,3 +88,5 @@ typings/
 
 # lerna-changelog cache directory
 .changelog/
+
+packages/frolint/lib

@@ -7,7 +7,8 @@
     "jest": "^24.5.0",
     "lerna": "^3.13.0",
     "lerna-changelog": "^0.8.2",
-    "mock-fs": "^4.8.0"
+    "mock-fs": "^4.8.0",
+    "typescript": "^3.7.0-beta"
   },
   "workspaces": [
     "packages/*"
@@ -22,7 +23,8 @@
     "test": "FORCE_COLOR=1 lerna run --parallel test",
     "test:update": "lerna run --parallel test -- -u",
     "lint": "frolint --branch=master",
-    "changelog": "yarn lerna-changelog"
+    "changelog": "yarn lerna-changelog",
+    "build": "lerna run build --scope frolint"
   },
   "changelog": {
     "repo": "wantedly/frolint",
