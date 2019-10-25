@@ -8,6 +8,8 @@
     "@yamadayuki/ogh": "^1.1.0",
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
+    "clipanion": "^2.1.3",
+    "command-exists": "^1.2.8",
     "eslint": "^6.0.1",
     "eslint-config-wantedly": "^0.7.11",
     "eslint-config-wantedly-typescript": "^0.7.11",
@@ -32,5 +34,8 @@
     "preuninstall": "node index.js uninstall",
     "test": "jest",
     "build": "tsc -b ."
+  },
+  "devDependencies": {
+    "@types/command-exists": "^1.2.0"
   }
 }
