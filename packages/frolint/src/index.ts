@@ -1,5 +1,5 @@
 import { Cli } from "clipanion";
-import { DefaultCommand, HelpCommand, InstallCommand, UninstallCommand } from "./commands";
+import { DefaultCommand, HelpCommand, InstallCommand, UninstallCommand, PreCommitCommand } from "./commands";
 import { FrolintContext } from "./Context";
 const pkg = require("../package.json");
 
@@ -12,6 +12,7 @@ const cli = new Cli<FrolintContext>({
 cli.register(DefaultCommand);
 cli.register(HelpCommand);
 cli.register(InstallCommand);
+cli.register(PreCommitCommand);
 cli.register(UninstallCommand);
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
