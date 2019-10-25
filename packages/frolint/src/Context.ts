@@ -17,4 +17,5 @@ export type FrolintContext = BaseContext & {
   cwd: string;
   config: FrolintConfig;
   preCommit: boolean;
+  version: string;
 };

@@ -1,14 +1,8 @@
 import { Command } from "clipanion";
 import { accessSync, constants, readFileSync, writeFileSync } from "fs";
 import { FrolintContext } from "../Context";
-import {
-  END_COMMENT,
-  getPreCommitHookPath,
-  isGitExist,
-  isInsideGitRepository,
-  isPreCommitHookInstalled,
-  START_COMMENT,
-} from "../utils";
+import { isGitExist, isInsideGitRepository, isPreCommitHookInstalled, getPreCommitHookPath } from "../utils/git";
+import { START_COMMENT, END_COMMENT } from "../utils/constants";
 
 export class UninstallCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({

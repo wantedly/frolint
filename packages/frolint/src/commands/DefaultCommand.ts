@@ -1,9 +1,18 @@
 import { Command } from "clipanion";
-import { FrolintContext } from "../Context";
-import { getGitRootDir, applyEslint, applyPrettier, reportToConsole } from "../utils";
-import { execSync } from "child_process";
-import { resolve, relative } from "path";
 import { writeFileSync } from "fs";
+import { relative, resolve } from "path";
+import { FrolintContext } from "../Context";
+import { applyEslint } from "../utils/eslint";
+import {
+  getAllFiles,
+  getChangedFilesFromBranch,
+  getGitRootDir,
+  getStagedFiles,
+  getUnstagedFiles,
+  stageFiles,
+} from "../utils/git";
+import { applyPrettier } from "../utils/prettier";
+import { reportToConsole } from "../utils/report";
 
 export class DefaultCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
@@ -31,35 +40,17 @@ export class DefaultCommand extends Command<FrolintContext> {
     let isFullyStaged = (_file: string) => true;
 
     if (this.context.preCommit) {
-      const staged = execSync("git diff --cached --name-only --diff-filter=ACMRTUB", { cwd: rootDir })
-        .toString()
-        .trim()
-        .split("\n");
-      const unstaged = execSync("git diff --name-only --diff-filter=ACMRTUB", { cwd: rootDir })
-        .toString()
-        .trim()
-        .split("\n");
+      const staged = getStagedFiles(rootDir);
+      const unstaged = getUnstagedFiles(rootDir);
       files = files.concat(Array.from(new Set([...staged, ...unstaged])));
       isFullyStaged = file => {
         const relativeFilepath = relative(rootDir, file);
         return files.includes(relativeFilepath) && !unstaged.includes(relativeFilepath);
       };
     } else if (this.branch) {
-      const commitHash = execSync(`git show-branch --merge-base ${this.branch} HEAD`, { cwd: rootDir })
-        .toString()
-        .trim();
-      files = execSync(`git diff --name-only --diff-filter=ACMRTUB ${commitHash}`, { cwd: rootDir })
-        .toString()
-        .trim()
-        .split("\n");
+      files = getChangedFilesFromBranch(this.branch, rootDir);
     } else {
-      const extensions = (isTypeScript ? [".js", ".jsx", ".ts", ".tsx"] : [".js", ".jsx"])
-        .map(ext => `"**/*${ext}"`)
-        .join(" ");
-      files = execSync(`git ls-files ${extensions}`, { cwd: rootDir })
-        .toString()
-        .trim()
-        .split("\n");
+      files = getAllFiles(isTypeScript, rootDir);
     }
 
     const eslintConfigPackage = isTypeScript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
@@ -119,9 +110,7 @@ export class DefaultCommand extends Command<FrolintContext> {
     /**
      * Stage files step
      */
-    if (shouldStageFiles.size > 0) {
-      execSync(`git add ${[...shouldStageFiles].join(" ")}`, { cwd: rootDir });
-    }
+    stageFiles([...shouldStageFiles], rootDir);
 
     const reported = reportToConsole(report, rootDir, this.context.config.formatter || this.formatter);
 
