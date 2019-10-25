@@ -3,12 +3,13 @@
 import { Cli } from "clipanion";
 import cosmiconfig from "cosmiconfig";
 import { DefaultCommand } from "./commands/DefaultCommand";
+import { ExportCommand } from "./commands/ExportCommand";
 import { HelpCommand } from "./commands/HelpCommand";
 import { InstallCommand } from "./commands/InstallCommand";
 import { PreCommitCommand } from "./commands/PreCommitCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
-import { FrolintConfig, FrolintContext } from "./Context";
 import { VersionCommand } from "./commands/VersionCommand";
+import { FrolintConfig, FrolintContext } from "./Context";
 const pkg = require("../package.json");
 
 const binaryName = "frolint";
@@ -20,6 +21,7 @@ const cli = new Cli<FrolintContext>({
 });
 
 cli.register(DefaultCommand);
+cli.register(ExportCommand);
 cli.register(HelpCommand);
 cli.register(InstallCommand);
 cli.register(PreCommitCommand);
