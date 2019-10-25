@@ -3,7 +3,7 @@
   "description": "git commit hook linter",
   "version": "0.7.11",
   "author": "Yuki Yamada <yamada@wantedly.com>",
-  "bin": "index.js",
+  "bin": "lib/index.js",
   "dependencies": {
     "@yamadayuki/ogh": "^1.1.0",
     "arg": "^4.1.0",
@@ -34,10 +34,14 @@
     "postinstall": "node index.js install",
     "preuninstall": "node index.js uninstall",
     "test": "jest",
-    "build": "tsc -b ."
+    "build": "tsc -b .",
+    "build:watch": "tsc -b . --watch"
   },
   "devDependencies": {
     "@types/command-exists": "^1.2.0",
-    "@types/cosmiconfig": "^5.0.3"
+    "@types/cosmiconfig": "^5.0.3",
+    "@types/eslint": "^6.1.3",
+    "@types/prettier": "^1.18.3",
+    "@types/resolve": "^0.0.8"
   }
 }

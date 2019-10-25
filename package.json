@@ -8,7 +8,7 @@
     "lerna": "^3.13.0",
     "lerna-changelog": "^0.8.2",
     "mock-fs": "^4.8.0",
-    "typescript": "^3.7.0-beta"
+    "typescript": "^3.6.4"
   },
   "workspaces": [
     "packages/*"
@@ -24,7 +24,8 @@
     "test:update": "lerna run --parallel test -- -u",
     "lint": "frolint --branch=master",
     "changelog": "yarn lerna-changelog",
-    "build": "lerna run build --scope frolint"
+    "build": "lerna run build --scope frolint",
+    "build:watch": "lerna exec npm run build:watch --scope frolint"
   },
   "changelog": {
     "repo": "wantedly/frolint",

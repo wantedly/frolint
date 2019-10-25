@@ -7,6 +7,6 @@ export class PreCommitCommand extends Command<FrolintContext> {
 
   @Command.Path("pre-commit")
   public async execute() {
-    this.context.stdout.write("Hello world");
+    return await this.cli.run([], { preCommit: true });
   }
 }
