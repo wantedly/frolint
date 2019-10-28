@@ -9,6 +9,8 @@ import {
   getGitRootDir,
   getStagedFiles,
   getUnstagedFiles,
+  isGitExist,
+  isInsideGitRepository,
   stageFiles,
 } from "../utils/git";
 import { applyPrettier } from "../utils/prettier";
@@ -31,15 +33,23 @@ export class DefaultCommand extends Command<FrolintContext> {
   @Command.Boolean("--no-stage")
   private noStage = false;
 
+  @Command.Boolean("--no-git")
+  private noGit = false;
+
   @Command.Path()
   public async execute() {
     const rootDir = getGitRootDir(this.context.cwd);
     const isTypeScript = this.context.config.typescript || this.typescript;
+    const noGit = this.noGit || !isGitExist() || !isInsideGitRepository();
+
+    console.log({ rootDir, isTypeScript, noGit });
 
     let files: string[] = [];
     let isFullyStaged = (_file: string) => true;
 
-    if (this.context.preCommit) {
+    if (noGit) {
+      files = getAllFiles(isTypeScript, rootDir);
+    } else if (this.context.preCommit) {
       const staged = getStagedFiles(rootDir);
       const unstaged = getUnstagedFiles(rootDir);
       files = files.concat(Array.from(new Set([...staged, ...unstaged])));
@@ -110,11 +120,13 @@ export class DefaultCommand extends Command<FrolintContext> {
     /**
      * Stage files step
      */
-    stageFiles([...shouldStageFiles], rootDir);
+    if (!noGit) {
+      stageFiles([...shouldStageFiles], rootDir);
+    }
 
     const reported = reportToConsole(report, rootDir, this.context.config.formatter || this.formatter);
 
-    if (this.context.preCommit) {
+    if (!noGit && this.context.preCommit) {
       const stagedErrorCount = reported
         .filter(({ filePath }) => isFullyStaged(filePath))
         .reduce((acc: number, { errorCount }) => acc + errorCount, 0);
