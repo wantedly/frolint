@@ -42,8 +42,6 @@ export class DefaultCommand extends Command<FrolintContext> {
     const isTypeScript = this.context.config.typescript || this.typescript;
     const noGit = this.noGit || !isGitExist() || !isInsideGitRepository();
 
-    console.log({ rootDir, isTypeScript, noGit });
-
     let files: string[] = [];
     let isFullyStaged = (_file: string) => true;
 

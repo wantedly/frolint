@@ -6,11 +6,10 @@ import { END_COMMENT, START_COMMENT } from "./constants";
 
 export function isInsideGitRepository(cwd?: string) {
   try {
-    return Boolean(
-      execSync("git rev-parse --is-inside-work-tree", { cwd })
-        .toString()
-        .trim()
-    );
+    const res = execSync("git rev-parse --is-inside-work-tree", { cwd })
+      .toString()
+      .trim();
+    return res === "true";
   } catch (err) {
     return false;
   }
@@ -20,11 +19,11 @@ export function isGitExist() {
   return commandExistsSync("git");
 }
 
-export function getPreCommitHookPath(): string {
+export function getPreCommitHookPath(cwd?: string): string {
   return resolve(
-    execSync("git rev-parse --git-path hooks")
+    execSync("git rev-parse --git-path hooks", { cwd })
       .toString()
-      .trimRight(),
+      .trim(),
     "pre-commit"
   );
 }
