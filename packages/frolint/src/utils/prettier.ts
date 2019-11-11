@@ -39,10 +39,9 @@ export function applyPrettier(rootDir: string, files: string[], prettierConfig: 
     .filter(file => !isIgnoredForPrettier(file, prettierConfig))
     .map(file => {
       const filePath = resolve(rootDir, file);
-      const options =
-        prettierConfig && prettierConfig.config
-          ? { config: resolve(rootDir, prettierConfig.config) }
-          : prettierConfigWantedly;
+      const options = prettierConfig.config
+        ? { config: resolve(rootDir, prettierConfig.config) }
+        : prettierConfigWantedly;
       const prettierOption = prettier.resolveConfig.sync(filePath, options);
 
       if (!prettierOption) {
