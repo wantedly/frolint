@@ -15,10 +15,30 @@ import {
 } from "../utils/git";
 import { applyPrettier } from "../utils/prettier";
 import { reportToConsole } from "../utils/report";
+import chalk from "chalk";
 
 export class DefaultCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
     description: "apply ESLint and Prettier",
+    details: `
+      Apply ESLint and Prettier. It infers the affected files which are changed from base branch using git.
+
+      ${chalk.bold("Options:")}
+
+      --typescript: Use @typescript-eslint/parser as ESLint parser
+      -b,--branch <branch name>: Find the changed files from the specified branch
+      -f,--formatter <format>: Print the report with specified format
+      --no-stage: Do not stage the files which have the changes made by ESLint and Prettier auto fix functionality
+    `,
+    examples: [
+      ["Default usage", "yarn frolint"],
+      ["Diff with the specified branch", "yarn frolint --branch master"],
+      ["Print report as stylish", "yarn frolint --formatter stylish"],
+      [
+        "Use with reviewdog",
+        'yarn frolint --formatter checkstyle | reviewdog -f=checkstyle -name="lint" -reporter=github-pr-review',
+      ],
+    ],
   });
 
   @Command.Boolean("--typescript")
