@@ -76,7 +76,10 @@ module.exports = {
     "no-mixed-operators": [
       "warn",
       {
-        groups: [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]],
+        groups: [
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["&&", "||"],
+        ],
         allowSamePrecedence: true,
       },
     ],
