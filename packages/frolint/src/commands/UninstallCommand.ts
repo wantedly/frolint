@@ -1,11 +1,12 @@
 import { Command } from "clipanion";
 import { accessSync, constants, readFileSync, writeFileSync } from "fs";
 import { FrolintContext } from "../Context";
-import { END_COMMENT, START_COMMENT } from "../utils/constants";
+import { END_COMMENT, HOOKS_CATEGORY, START_COMMENT } from "../utils/constants";
 import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git";
 
 export class UninstallCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
+    category: HOOKS_CATEGORY,
     description: "uninstall git pre-commit hook for frolint",
     details: `
       This command will remove the pre-commit hook script from .git/hooks/pre-commit.

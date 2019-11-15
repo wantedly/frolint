@@ -1,5 +1,3 @@
-#! /usr/bin/env node
-
 import { Cli } from "clipanion";
 import cosmiconfig from "cosmiconfig";
 import { DefaultCommand } from "./commands/DefaultCommand";

@@ -3,7 +3,7 @@
   "description": "git commit hook linter",
   "version": "0.8.0-beta.0",
   "author": "Yuki Yamada <yamada@wantedly.com>",
-  "bin": "lib/index.js",
+  "bin": "index.js",
   "dependencies": {
     "@yamadayuki/ogh": "^1.1.0",
     "arg": "^4.1.0",
@@ -25,14 +25,13 @@
     "githooks"
   ],
   "license": "MIT",
-  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/frolint",
   "scripts": {
-    "postinstall": "test lib/index.js && node lib/index.js install || true",
-    "preuninstall": "node lib/index.js uninstall",
+    "postinstall": "test lib/index.js && node index.js install || true",
+    "preuninstall": "node index.js uninstall",
     "test": "jest",
     "build": "tsc -b .",
     "build:watch": "tsc -b . --watch"

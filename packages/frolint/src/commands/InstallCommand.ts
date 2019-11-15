@@ -1,11 +1,12 @@
 import { Command } from "clipanion";
 import { accessSync, constants, writeFileSync } from "fs";
 import { FrolintContext } from "../Context";
-import { END_COMMENT, START_COMMENT } from "../utils/constants";
+import { END_COMMENT, HOOKS_CATEGORY, START_COMMENT } from "../utils/constants";
 import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git";
 
 export class InstallCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
+    category: HOOKS_CATEGORY,
     description: "install git pre-commit hook for frolint",
     details: `
       This command will insert the pre-commit hook script into .git/hooks/pre-commit. If there is no .git/hooks/pre-commit, this command will create the script file.
@@ -66,7 +67,7 @@ export class InstallCommand extends Command<FrolintContext> {
 function render({ append }: { append: boolean }) {
   return `${append ? "" : "#!/bin/sh\n"}${START_COMMENT}
 
-scriptPath="node_modules/frolint/lib/index.js"
+scriptPath="node_modules/frolint/index.js"
 hookName="pre-commit"
 gitParams="$*"
 
