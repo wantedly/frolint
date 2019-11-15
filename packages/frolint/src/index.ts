@@ -6,11 +6,11 @@ import { DefaultCommand } from "./commands/DefaultCommand";
 import { ExportCommand } from "./commands/ExportCommand";
 import { HelpCommand } from "./commands/HelpCommand";
 import { InstallCommand } from "./commands/InstallCommand";
+import { MigrateCommand } from "./commands/MigrateCommand";
 import { PreCommitCommand } from "./commands/PreCommitCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
 import { FrolintConfig, FrolintContext } from "./Context";
-import { MigrateCommand } from "./commands/MigrateCommand";
 const pkg = require("../package.json");
 
 const binaryName = "frolint";
