@@ -11,14 +11,14 @@ import { PreCommitCommand } from "./commands/PreCommitCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
 import { FrolintConfig, FrolintContext } from "./Context";
-const pkg = require("../package.json");
+const { version } = require("../package.json");
 
 const binaryName = "frolint";
 
 const cli = new Cli<FrolintContext>({
   binaryLabel: "FROntend LINt Tool",
   binaryName,
-  binaryVersion: pkg.version,
+  binaryVersion: version,
 });
 
 cli.register(DefaultCommand);
@@ -53,5 +53,5 @@ cli.runExit(process.argv.slice(2), {
   cwd: process.cwd(),
   config,
   preCommit: false,
-  version: pkg.version,
+  version,
 });
