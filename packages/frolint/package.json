@@ -31,7 +31,7 @@
   },
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/frolint",
   "scripts": {
-    "postinstall": "node lib/index.js install",
+    "postinstall": "test lib/index.js && node lib/index.js install || true",
     "preuninstall": "node lib/index.js uninstall",
     "test": "jest",
     "build": "tsc -b .",
