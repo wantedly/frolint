@@ -23,6 +23,12 @@ commands:
             - node_modules
 
       - run:
+          name: Setup frolint project
+          command: |
+            yarn run build
+            yarn install --force --frozen-lockfile
+
+      - run:
           name: Run Lint
           command: yarn lint
 
