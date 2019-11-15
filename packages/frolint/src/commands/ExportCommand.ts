@@ -1,5 +1,5 @@
 import { Command } from "clipanion";
-import { writeFileSync, accessSync, constants } from "fs";
+import { accessSync, constants, writeFileSync } from "fs";
 import { resolve } from "path";
 import { FrolintContext } from "../Context";
 import { getGitRootDir } from "../utils/git";

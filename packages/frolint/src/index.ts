@@ -10,6 +10,7 @@ import { PreCommitCommand } from "./commands/PreCommitCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
 import { FrolintConfig, FrolintContext } from "./Context";
+import { MigrateCommand } from "./commands/MigrateCommand";
 const pkg = require("../package.json");
 
 const binaryName = "frolint";
@@ -24,6 +25,7 @@ cli.register(DefaultCommand);
 cli.register(ExportCommand);
 cli.register(HelpCommand);
 cli.register(InstallCommand);
+cli.register(MigrateCommand);
 cli.register(PreCommitCommand);
 cli.register(UninstallCommand);
 cli.register(VersionCommand);

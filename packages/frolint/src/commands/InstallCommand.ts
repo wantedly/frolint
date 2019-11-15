@@ -1,8 +1,8 @@
 import { Command } from "clipanion";
 import { accessSync, constants, writeFileSync } from "fs";
 import { FrolintContext } from "../Context";
-import { isGitExist, isInsideGitRepository, isPreCommitHookInstalled, getPreCommitHookPath } from "../utils/git";
-import { START_COMMENT, END_COMMENT } from "../utils/constants";
+import { END_COMMENT, START_COMMENT } from "../utils/constants";
+import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git";
 
 export class InstallCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
