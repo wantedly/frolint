@@ -4,10 +4,13 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^24.5.0",
+    "@types/jest": "^24.0.21",
+    "jest": "^24.9.0",
     "lerna": "^3.13.0",
     "lerna-changelog": "^0.8.2",
-    "mock-fs": "^4.8.0"
+    "mock-fs": "^4.8.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
   },
   "workspaces": [
     "packages/*"
@@ -20,9 +23,15 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "test": "FORCE_COLOR=1 lerna run --parallel test",
+    "test:watch": "FORCE_COLOR=1 lerna exec --parallel -- npm run test -- --watch",
+    "test:watch:frolint": "lerna exec \"npm run test -- --watch\" --scope frolint",
     "test:update": "lerna run --parallel test -- -u",
-    "lint": "frolint --branch=master",
-    "changelog": "yarn lerna-changelog"
+    "lint": "frolint --branch master",
+    "changelog": "yarn lerna-changelog",
+    "build": "lerna run build --scope frolint",
+    "build:watch": "lerna exec npm run build:watch --scope frolint",
+    "prerelease": "yarn run build",
+    "release": "lerna publish --force-publish --preid beta --pre-dist-tag beta"
   },
   "changelog": {
     "repo": "wantedly/frolint",

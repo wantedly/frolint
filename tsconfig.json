@@ -2,10 +2,12 @@
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": true,
     "moduleResolution": "node",
-    "strict": false,
-    "allowJs": true,
-    "noEmit": true
-  },
-  "include": ["packages/**/*"]
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true
+  }
 }

@@ -1,19 +1,19 @@
 {
   "name": "frolint",
   "description": "git commit hook linter",
-  "version": "0.7.12",
+  "version": "0.8.0-beta.3",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "bin": "index.js",
   "dependencies": {
-    "@yamadayuki/ogh": "^1.1.0",
-    "arg": "^4.1.0",
     "chalk": "^3.0.0",
+    "clipanion": "^2.1.3",
+    "command-exists": "^1.2.8",
+    "cosmiconfig": "^5.2.1",
     "eslint": "^6.0.1",
-    "eslint-config-wantedly": "^0.7.12",
-    "eslint-config-wantedly-typescript": "^0.7.12",
-    "execa": "^3.1.0",
-    "prettier": "^1.16.4",
-    "prettier-config-wantedly": "^0.7.12",
+    "eslint-config-wantedly": "^0.8.0-beta.3",
+    "eslint-config-wantedly-typescript": "^0.8.0-beta.3",
+    "prettier": "^1.19.1",
+    "prettier-config-wantedly": "^0.8.0-beta.3",
     "resolve": "^1.10.0"
   },
   "homepage": "https://github.com/wantedly/frolint",
@@ -22,14 +22,41 @@
     "githooks"
   ],
   "license": "MIT",
-  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/frolint",
   "scripts": {
-    "postinstall": "node index.js install",
+    "postinstall": "test lib/index.js && node index.js install || true",
     "preuninstall": "node index.js uninstall",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc -b .",
+    "build:watch": "tsc -b . --watch"
+  },
+  "devDependencies": {
+    "@types/command-exists": "^1.2.0",
+    "@types/cosmiconfig": "^5.0.3",
+    "@types/eslint": "^6.1.3",
+    "@types/mock-fs": "^4.10.0",
+    "@types/prettier": "^1.18.3",
+    "@types/resolve": "^0.0.8"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testEnvironment": "node"
   }
 }
