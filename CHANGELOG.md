@@ -1,3 +1,10 @@
+## v0.7.0 (2019-11-18)
+
+#### New feature or improvement
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `frolint`, `prettier-config-wantedly`
+  - [#235](https://github.com/wantedly/frolint/pull/235) Reconstruct frolint cli implementation ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.7.11 (2019-10-23)
 
 #### Update dependencies
