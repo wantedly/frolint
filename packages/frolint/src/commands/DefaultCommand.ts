@@ -53,7 +53,7 @@ export class DefaultCommand extends Command<FrolintContext> {
   @Command.Boolean("--no-stage")
   private noStage = false;
 
-  @Command.Boolean("--no-git")
+  @Command.Boolean("--no-git", { hidden: true })
   private noGit = false;
 
   @Command.Path()
