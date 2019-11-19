@@ -30,7 +30,7 @@
     "changelog": "yarn lerna-changelog",
     "build": "lerna run build --scope frolint",
     "build:watch": "lerna exec npm run build:watch --scope frolint",
-    "prerelease": "yarn run build",
+    "prerelease": "yarn install --force && yarn run build",
     "release": "lerna publish --force-publish --preid beta --pre-dist-tag beta"
   },
   "changelog": {
