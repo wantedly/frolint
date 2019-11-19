@@ -1,4 +1,18 @@
-## v0.7.0 (2019-11-18)
+## v0.8.1 (2019-11-19)
+
+#### Update dependencies
+
+- `frolint`
+  - [#241](https://github.com/wantedly/frolint/pull/241) Bump cosmiconfig from 5.2.1 to 6.0.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Other
+  - [#244](https://github.com/wantedly/frolint/pull/244) Bump eslint-config-prettier from 6.5.0 to 6.6.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#239](https://github.com/wantedly/frolint/pull/239) Bump clipanion from 2.1.3 to 2.1.4 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#242](https://github.com/wantedly/frolint/pull/242) Bump @typescript-eslint/eslint-plugin from 2.7.0 to 2.8.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#245](https://github.com/wantedly/frolint/pull/245) Bump @typescript-eslint/parser from 2.7.0 to 2.8.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#243](https://github.com/wantedly/frolint/pull/243) Bump @types/jest from 24.0.21 to 24.0.23 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#238](https://github.com/wantedly/frolint/pull/238) [Security] Bump https-proxy-agent from 2.2.1 to 2.2.4 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## v0.8.0 (2019-11-18)
 
 #### New feature or improvement
 
