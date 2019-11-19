@@ -1,5 +1,5 @@
 import { Cli } from "clipanion";
-import cosmiconfig from "cosmiconfig";
+import { cosmiconfigSync } from "cosmiconfig";
 import { DefaultCommand } from "./commands/DefaultCommand";
 import { ExportCommand } from "./commands/ExportCommand";
 import { HelpCommand } from "./commands/HelpCommand";
@@ -26,7 +26,7 @@ cli.register(PreCommitCommand);
 cli.register(UninstallCommand);
 cli.register(VersionCommand);
 
-const result = cosmiconfig(binaryName).searchSync();
+const result = cosmiconfigSync(binaryName).search();
 
 let config: FrolintConfig = {
   typescript: true,
