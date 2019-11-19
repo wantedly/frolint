@@ -1,7 +1,6 @@
 import { BaseContext } from "clipanion";
-import { Config } from "cosmiconfig";
 
-export type FrolintConfig = Config & {
+export type FrolintConfig = {
   typescript: boolean;
   formatter?: string;
   eslint: {
