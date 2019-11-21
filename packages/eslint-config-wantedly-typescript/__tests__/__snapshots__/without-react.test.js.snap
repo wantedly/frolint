@@ -155,6 +155,9 @@ Object {
     "error",
     "always",
   ],
+  "@typescript-eslint/space-before-function-paren": Array [
+    "off",
+  ],
   "@typescript-eslint/triple-slash-reference": Array [
     "error",
   ],
