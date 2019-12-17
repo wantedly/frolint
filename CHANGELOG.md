@@ -1,3 +1,12 @@
+## v0.8.4 (2019-12-17)
+
+#### Update dependencies
+
+- [#273](https://github.com/wantedly/frolint/pull/273) Bump @typescript-eslint/parser from 2.11.0 to 2.12.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#274](https://github.com/wantedly/frolint/pull/274) Bump @typescript-eslint/eslint-plugin from 2.11.0 to 2.12.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#275](https://github.com/wantedly/frolint/pull/275) Bump lerna-changelog from 0.8.3 to 1.0.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#276](https://github.com/wantedly/frolint/pull/276) Bump eslint-plugin-prettier from 3.1.1 to 3.1.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.8.3 (2019-12-10)
 
 #### Update dependencies
