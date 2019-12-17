@@ -7,7 +7,7 @@
     "@types/jest": "^24.0.21",
     "jest": "^24.9.0",
     "lerna": "^3.13.0",
-    "lerna-changelog": "^0.8.2",
+    "lerna-changelog": "^1.0.0",
     "mock-fs": "^4.8.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.7.2"
