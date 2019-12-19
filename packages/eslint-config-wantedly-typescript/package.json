@@ -14,8 +14,10 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^2.0.1",
-    "eslint-plugin-use-macros": "^0.8.4",
-    "typescript": "^3.3.4000"
+    "eslint-plugin-use-macros": "^0.8.4"
+  },
+  "peerDependencies": {
+    "typescript": "^3.7.3"
   },
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
