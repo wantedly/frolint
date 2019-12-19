@@ -1,3 +1,13 @@
+## v0.8.5 (2019-12-19)
+
+#### Update dependencies
+
+- Other
+  - [#277](https://github.com/wantedly/frolint/pull/277) Bump resolve from 1.13.1 to 1.14.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#278](https://github.com/wantedly/frolint/pull/278) Bump @types/jest from 24.0.23 to 24.0.24 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`
+  - [#279](https://github.com/wantedly/frolint/pull/279) Move TypeScript to peerDependencies in wantedly-typescript ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.8.4 (2019-12-17)
 
 #### Update dependencies
