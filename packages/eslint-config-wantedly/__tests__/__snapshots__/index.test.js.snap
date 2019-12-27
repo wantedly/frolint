@@ -635,9 +635,6 @@ Object {
   "react/require-render-return": Array [
     2,
   ],
-  "require-atomic-updates": Array [
-    "error",
-  ],
   "require-yield": Array [
     "error",
   ],
