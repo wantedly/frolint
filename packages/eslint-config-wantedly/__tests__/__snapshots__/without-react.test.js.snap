@@ -510,9 +510,6 @@ Object {
   "quotes": Array [
     "off",
   ],
-  "require-atomic-updates": Array [
-    "error",
-  ],
   "require-yield": Array [
     "error",
   ],
