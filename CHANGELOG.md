@@ -1,3 +1,12 @@
+## v0.8.8 (2020-01-10)
+
+#### Update dependencies
+
+- [#296](https://github.com/wantedly/frolint/pull/296) Bump @typescript-eslint/eslint-plugin from 2.14.0 to 2.15.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#297](https://github.com/wantedly/frolint/pull/297) Bump @typescript-eslint/parser from 2.14.0 to 2.15.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#299](https://github.com/wantedly/frolint/pull/299) Bump ts-jest from 24.2.0 to 24.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#298](https://github.com/wantedly/frolint/pull/298) Bump resolve from 1.14.1 to 1.14.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.8.7 (2020-01-06)
 
 #### Update dependencies
