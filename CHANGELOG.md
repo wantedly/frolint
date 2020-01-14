@@ -1,3 +1,15 @@
+## v0.8.9 (2020-01-14)
+
+#### Update dependencies
+
+- [#305](https://github.com/wantedly/frolint/pull/305) Bump eslint-plugin-import from 2.19.1 to 2.20.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#303](https://github.com/wantedly/frolint/pull/303) Bump @typescript-eslint/parser from 2.15.0 to 2.16.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#304](https://github.com/wantedly/frolint/pull/304) Bump eslint-plugin-jest from 23.4.0 to 23.6.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#302](https://github.com/wantedly/frolint/pull/302) Bump @typescript-eslint/eslint-plugin from 2.15.0 to 2.16.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#301](https://github.com/wantedly/frolint/pull/301) Bump clipanion from 2.1.5 to 2.1.6 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#300](https://github.com/wantedly/frolint/pull/300) Bump eslint-plugin-jest from 23.3.0 to 23.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#295](https://github.com/wantedly/frolint/pull/295) Bump eslint-plugin-jest from 23.2.0 to 23.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.8.8 (2020-01-10)
 
 #### Update dependencies
