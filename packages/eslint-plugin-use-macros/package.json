@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-use-macros",
   "description": "ESLint rules for libraries which supports the babel-macros",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
