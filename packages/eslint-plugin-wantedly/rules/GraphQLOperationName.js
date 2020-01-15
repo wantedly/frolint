@@ -22,6 +22,7 @@ module.exports = {
 
     return {
       TaggedTemplateExpression(node) {
+        // We assume that the tag name is gql which is originated from 'graphql-tag' or 'graphql.macro'
         if (node.tag.type !== "Identifier" || node.tag.name !== "gql") {
           return;
         }
@@ -30,8 +31,30 @@ module.exports = {
           return;
         }
 
-        const quasis = node.quasi.quasis;
-        const cooked = quasis.map(quasi => quasi.value.cooked).join("");
+        const chunks = [];
+
+        const invalid = node.quasi.quasis.some((elem, i) => {
+          const chunk = elem.value.cooked;
+          const value = node.quasi.expressions[i];
+
+          chunks.push(chunk);
+
+          if (chunk.split("{").length !== chunk.split("}").length) {
+            context.report({
+              node: value,
+              message: "Interpolation must occur outside of the brackets",
+            });
+            return true;
+          }
+
+          return false;
+        });
+
+        if (invalid) {
+          return;
+        }
+
+        const cooked = chunks.join("");
         const parsed = graphql.parse(cooked);
 
         graphql.visit(parsed, {

@@ -19,6 +19,16 @@ gql\`
 \`;
 `,
     },
+    {
+      code: `
+gql\`
+  query GetProject {
+    ...ProjectFragment
+  }
+  \$\{projectFragment\}
+\`;
+`,
+    },
   ],
   invalid: [
     {
@@ -50,6 +60,17 @@ gql\`
 \`;
 `,
       errors: ["Specify the operation name for mutation"],
+    },
+    {
+      code: `
+gql\`
+  query GetProject {
+    ...ProjectFragment
+    \$\{projectFragment\}
+  }
+\`;
+`,
+      errors: ["Interpolation must occur outside of the brackets"],
     },
   ],
 });
