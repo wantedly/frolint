@@ -113,6 +113,9 @@ Object {
   "@typescript-eslint/no-extra-parens": Array [
     "off",
   ],
+  "@typescript-eslint/no-extra-semi": Array [
+    "off",
+  ],
   "@typescript-eslint/no-floating-promises": Array [
     "error",
   ],
