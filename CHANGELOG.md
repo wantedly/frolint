@@ -1,3 +1,17 @@
+## v0.8.10 (2020-01-22)
+
+#### Update dependencies
+
+- [#310](https://github.com/wantedly/frolint/pull/310) Bump @typescript-eslint/parser from 2.16.0 to 2.17.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#307](https://github.com/wantedly/frolint/pull/307) Bump eslint-plugin-react from 7.17.0 to 7.18.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#309](https://github.com/wantedly/frolint/pull/309) Bump @typescript-eslint/eslint-plugin from 2.16.0 to 2.17.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#308](https://github.com/wantedly/frolint/pull/308) Bump typescript from 3.7.4 to 3.7.5 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#306](https://github.com/wantedly/frolint/pull/306) Bump @types/jest from 24.0.25 to 24.9.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Committers: 1
+
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v0.8.9 (2020-01-14)
 
 #### Update dependencies
