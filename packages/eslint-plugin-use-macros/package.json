@@ -23,6 +23,6 @@
     "eslint": "^6.0.1",
     "graphql-tag": "^2.10.1",
     "graphql.macro": "^1.4.2",
-    "styled-components": "^4.2.0"
+    "styled-components": "^5.0.0"
   }
 }
