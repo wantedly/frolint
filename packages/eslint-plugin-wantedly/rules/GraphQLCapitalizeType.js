@@ -3,7 +3,7 @@ const { Linter } = require("eslint");
 const { getAutofixEnabledFromContext } = require("./utils");
 
 const linter = new Linter();
-const RULE_NAME = "graphql-operation-name";
+const RULE_NAME = "graphql-capitalize-type";
 
 let GRAPHQL_INSTALLED = false;
 
@@ -12,6 +12,32 @@ try {
   GRAPHQL_INSTALLED = true;
 } catch (_err) {
   GRAPHQL_INSTALLED = false;
+}
+
+function createGraphQLCapitalizeTypeRule({ context, node, message, autofixEnabled }) {
+  return function visitor(definition) {
+    const typeName = definition.name.value;
+    const pascalCased = pascalCase(typeName);
+
+    if (typeName !== pascalCased) {
+      context.report({
+        node,
+        message,
+        data: {
+          typeName,
+        },
+        fix(fixer) {
+          if (autofixEnabled) {
+            const nameLocation = definition.name.loc;
+            const [start] = node.quasi.range;
+            const errorRange = [start + nameLocation.start + 1, start + nameLocation.start + typeName.length + 1];
+
+            return fixer.replaceTextRange(errorRange, pascalCased);
+          }
+        },
+      });
+    }
+  };
 }
 
 linter.defineRule(RULE_NAME, {
@@ -75,54 +101,26 @@ linter.defineRule(RULE_NAME, {
         const parsed = graphql.parse(cooked);
 
         graphql.visit(parsed, {
-          OperationDefinition(operationDefinition) {
-            /**
-             * Check the operation name existence to forbid no name operation
-             * - OK
-             *   - query GetProject {  }
-             *   - mutation UpdateProject {  }
-             * - NG
-             *   - query {  }
-             *   - mutation {  }
-             */
-            if (!operationDefinition.name || operationDefinition.name.value === "") {
-              context.report({
-                node,
-                message: "Specify the operation name for {{ operation }}",
-                data: {
-                  operation: operationDefinition.operation,
-                },
-              });
-              return;
-            }
+          InterfaceTypeDefinition: createGraphQLCapitalizeTypeRule({
+            context,
+            node,
+            autofixEnabled,
+            message: "The interface type {{ typeName }} should be PascalCase",
+          }),
 
-            const operationName = operationDefinition.name.value;
-            const pascalCased = pascalCase(operationName);
+          ObjectTypeDefinition: createGraphQLCapitalizeTypeRule({
+            context,
+            node,
+            autofixEnabled,
+            message: "The object type {{ typeName }} should be PascalCase",
+          }),
 
-            if (operationName === pascalCased) {
-              return;
-            }
-
-            context.report({
-              node,
-              message: "The operation name {{ operationName }} should be PascalCase",
-              data: {
-                operationName,
-              },
-              fix(fixer) {
-                if (autofixEnabled) {
-                  const nameLocation = operationDefinition.name.loc;
-                  const [start] = node.quasi.range;
-                  const errorRange = [
-                    start + nameLocation.start + 1,
-                    start + nameLocation.start + operationName.length + 1,
-                  ];
-
-                  return fixer.replaceTextRange(errorRange, pascalCased);
-                }
-              },
-            });
-          },
+          FragmentDefinition: createGraphQLCapitalizeTypeRule({
+            context,
+            node,
+            autofixEnabled,
+            message: "The fragment {{ typeName }} should be PascalCase",
+          }),
         });
       },
     };

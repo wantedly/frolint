@@ -1,6 +1,6 @@
 const RuleTester = require("eslint").RuleTester;
 const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const GraphQLOperationName = require("../rules/GraphQLOperationName");
+const GraphQLOperationName = require("../GraphQLOperationName");
 
 RuleTester.setDefaultConfig({
   parser: require.resolve(ESLintConfigWantedly.parser),
@@ -8,7 +8,7 @@ RuleTester.setDefaultConfig({
 });
 
 const ruleTester = new RuleTester();
-ruleTester.run("wantedly/graphql-operation-name", GraphQLOperationName, {
+ruleTester.run("wantedly/graphql-operation-name", GraphQLOperationName.RULE, {
   valid: [
     {
       code: `
@@ -39,7 +39,27 @@ gql\`
   }
 \`;
 `,
-      errors: ["Use PascalCase for operation name: getProject -> GetProject"],
+      errors: ["The operation name getProject should be PascalCase"],
+    },
+    {
+      code: `gql\`
+  query getProject {
+    id
+  }
+\`;`,
+      output: `gql\`
+  query GetProject {
+    id
+  }
+\`;`,
+      errors: ["The operation name getProject should be PascalCase"],
+      settings: {
+        wantedly: {
+          autofix: {
+            [GraphQLOperationName.RULE_NAME]: true,
+          },
+        },
+      },
     },
     {
       code: `
