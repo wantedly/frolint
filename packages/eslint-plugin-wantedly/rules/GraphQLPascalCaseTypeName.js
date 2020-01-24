@@ -3,7 +3,7 @@ const { Linter } = require("eslint");
 const { getOptionWithDefault } = require("./utils");
 
 const linter = new Linter();
-const RULE_NAME = "graphql-capitalize-type";
+const RULE_NAME = "graphql-pascal-case-type-name";
 
 let GRAPHQL_INSTALLED = false;
 

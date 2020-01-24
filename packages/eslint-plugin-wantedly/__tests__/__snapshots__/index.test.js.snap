@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+Object {
+  "rules": Object {
+    "graphql-operation-name": Object {
+      "create": [Function],
+      "meta": Object {
+        "fixable": "code",
+        "type": "suggestion",
+      },
+    },
+    "graphql-pascal-case-type-name": Object {
+      "create": [Function],
+      "meta": Object {
+        "fixable": "code",
+        "type": "suggestion",
+      },
+    },
+    "nexus-pascal-case-type-name": Object {
+      "create": [Function],
+      "meta": Object {
+        "fixable": "code",
+        "type": "suggestion",
+      },
+    },
+  },
+}
+`;

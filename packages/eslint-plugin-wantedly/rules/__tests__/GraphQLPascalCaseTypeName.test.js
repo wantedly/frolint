@@ -1,6 +1,6 @@
 const RuleTester = require("eslint").RuleTester;
 const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const GraphQLCapitalizeType = require("../GraphQLCapitalizeType");
+const GraphQLPascalCaseTypeName = require("../GraphQLPascalCaseTypeName");
 
 RuleTester.setDefaultConfig({
   parser: require.resolve(ESLintConfigWantedly.parser),
@@ -8,7 +8,7 @@ RuleTester.setDefaultConfig({
 });
 
 const ruleTester = new RuleTester();
-ruleTester.run(GraphQLCapitalizeType.RULE_NAME, GraphQLCapitalizeType.RULE, {
+ruleTester.run(GraphQLPascalCaseTypeName.RULE_NAME, GraphQLPascalCaseTypeName.RULE, {
   valid: [
     {
       code: `gql\`
