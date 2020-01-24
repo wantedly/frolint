@@ -9,7 +9,7 @@
     "lerna": "^3.13.0",
     "lerna-changelog": "^1.0.0",
     "mock-fs": "^4.8.0",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "^25.0.0",
     "typescript": "^3.7.3"
   },
   "workspaces": [
