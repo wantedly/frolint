@@ -2,15 +2,13 @@
 
 /**
  * @param {*} context
- * @param {string} ruleName
- * @returns {boolean}
+ * @param {Record<string, any>} defaultOption
+ * @returns {Record<string, any>}
  */
-function getAutofixEnabledFromContext(context, ruleName) {
-  return context.settings.wantedly && context.settings.wantedly.autofix
-    ? context.settings.wantedly.autofix[ruleName]
-    : false;
+function getOptionWithDefault(context, defaultOption) {
+  return context.options.reduce((acc, obj) => ({ ...acc, ...obj }), defaultOption);
 }
 
 module.exports = {
-  getAutofixEnabledFromContext,
+  getOptionWithDefault,
 };

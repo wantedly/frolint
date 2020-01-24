@@ -1,6 +1,6 @@
 const { pascalCase } = require("pascal-case");
 const { Linter } = require("eslint");
-const { getAutofixEnabledFromContext } = require("./utils");
+const { getOptionWithDefault } = require("./utils");
 
 const linter = new Linter();
 const RULE_NAME = "graphql-capitalize-type";
@@ -14,25 +14,38 @@ try {
   GRAPHQL_INSTALLED = false;
 }
 
+// Represents the default option and schema for graphql-operation-name option
+const DEFAULT_OPTION = {
+  autofix: false,
+};
+
 function createGraphQLCapitalizeTypeRule({ context, node, message, autofixEnabled }) {
   return function visitor(definition) {
     const typeName = definition.name.value;
     const pascalCased = pascalCase(typeName);
 
     if (typeName !== pascalCased) {
+      const nameLocation = definition.name.loc;
+      const [start] = node.quasi.range;
+      const errorStart = start + nameLocation.start + 1;
+      const errorEnd = start + nameLocation.start + typeName.length + 1;
+      const sourceCode = context.getSourceCode();
+      const locStart = sourceCode.getLocFromIndex(errorStart);
+      const locEnd = sourceCode.getLocFromIndex(errorEnd);
+
       context.report({
         node,
+        loc: {
+          start: locStart,
+          end: locEnd,
+        },
         message,
         data: {
           typeName,
         },
         fix(fixer) {
           if (autofixEnabled) {
-            const nameLocation = definition.name.loc;
-            const [start] = node.quasi.range;
-            const errorRange = [start + nameLocation.start + 1, start + nameLocation.start + typeName.length + 1];
-
-            return fixer.replaceTextRange(errorRange, pascalCased);
+            return fixer.replaceTextRange([errorStart, errorEnd], pascalCased);
           }
         },
       });
@@ -50,7 +63,8 @@ linter.defineRule(RULE_NAME, {
       return {};
     }
 
-    const autofixEnabled = getAutofixEnabledFromContext(context, RULE_NAME);
+    const option = getOptionWithDefault(context, DEFAULT_OPTION);
+    const autofixEnabled = option.autofix;
     const graphql = require("graphql");
 
     return {

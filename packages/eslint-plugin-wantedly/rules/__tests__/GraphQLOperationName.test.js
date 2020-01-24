@@ -53,13 +53,7 @@ gql\`
   }
 \`;`,
       errors: ["The operation name getProject should be PascalCase"],
-      settings: {
-        wantedly: {
-          autofix: {
-            [GraphQLOperationName.RULE_NAME]: true,
-          },
-        },
-      },
+      options: [{ autofix: true }],
     },
     {
       code: `

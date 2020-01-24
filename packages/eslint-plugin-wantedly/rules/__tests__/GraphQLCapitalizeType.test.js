@@ -72,13 +72,7 @@ ruleTester.run(GraphQLCapitalizeType.RULE_NAME, GraphQLCapitalizeType.RULE, {
   }
 \`;`,
       errors: ["The interface type node should be PascalCase"],
-      settings: {
-        wantedly: {
-          autofix: {
-            [GraphQLCapitalizeType.RULE_NAME]: true,
-          },
-        },
-      },
+      options: [{ autofix: true }],
     },
     {
       code: `gql\`
@@ -94,13 +88,7 @@ ruleTester.run(GraphQLCapitalizeType.RULE_NAME, GraphQLCapitalizeType.RULE, {
   }
 \`;`,
       errors: ["The object type foo should be PascalCase"],
-      settings: {
-        wantedly: {
-          autofix: {
-            [GraphQLCapitalizeType.RULE_NAME]: true,
-          },
-        },
-      },
+      options: [{ autofix: true }],
     },
     {
       code: `gql\`
@@ -114,13 +102,7 @@ ruleTester.run(GraphQLCapitalizeType.RULE_NAME, GraphQLCapitalizeType.RULE, {
   }
 \`;`,
       errors: ["The fragment fooFragment should be PascalCase"],
-      settings: {
-        wantedly: {
-          autofix: {
-            [GraphQLCapitalizeType.RULE_NAME]: true,
-          },
-        },
-      },
+      options: [{ autofix: true }],
     },
     {
       code: `gql\`
@@ -136,13 +118,7 @@ ruleTester.run(GraphQLCapitalizeType.RULE_NAME, GraphQLCapitalizeType.RULE, {
   \$\{BarFragment\}
 \`;`,
       errors: ["The fragment fooFragment should be PascalCase"],
-      settings: {
-        wantedly: {
-          autofix: {
-            [GraphQLCapitalizeType.RULE_NAME]: true,
-          },
-        },
-      },
+      options: [{ autofix: true }],
     },
     {
       code: `gql\`
@@ -158,13 +134,7 @@ ruleTester.run(GraphQLCapitalizeType.RULE_NAME, GraphQLCapitalizeType.RULE, {
   }
 \`;`,
       errors: ["The fragment fooFragment should be PascalCase"],
-      settings: {
-        wantedly: {
-          autofix: {
-            [GraphQLCapitalizeType.RULE_NAME]: true,
-          },
-        },
-      },
+      options: [{ autofix: true }],
     },
   ],
 });

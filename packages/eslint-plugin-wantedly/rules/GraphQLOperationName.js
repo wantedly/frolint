@@ -1,6 +1,6 @@
 const { pascalCase } = require("pascal-case");
 const { Linter } = require("eslint");
-const { getAutofixEnabledFromContext } = require("./utils");
+const { getOptionWithDefault } = require("./utils");
 
 const linter = new Linter();
 const RULE_NAME = "graphql-operation-name";
@@ -14,6 +14,11 @@ try {
   GRAPHQL_INSTALLED = false;
 }
 
+// Represents the default option and schema for graphql-operation-name option
+const DEFAULT_OPTION = {
+  autofix: false,
+};
+
 linter.defineRule(RULE_NAME, {
   meta: {
     type: "suggestion",
@@ -24,7 +29,8 @@ linter.defineRule(RULE_NAME, {
       return {};
     }
 
-    const autofixEnabled = getAutofixEnabledFromContext(context, RULE_NAME);
+    const option = getOptionWithDefault(context, DEFAULT_OPTION);
+    const autofixEnabled = option.autofix;
     const graphql = require("graphql");
 
     return {
@@ -103,22 +109,27 @@ linter.defineRule(RULE_NAME, {
               return;
             }
 
+            const nameLocation = operationDefinition.name.loc;
+            const [start] = node.quasi.range;
+            const errorStart = start + nameLocation.start + 1;
+            const errorEnd = start + nameLocation.start + operationName.length + 1;
+            const sourceCode = context.getSourceCode();
+            const locStart = sourceCode.getLocFromIndex(errorStart);
+            const locEnd = sourceCode.getLocFromIndex(errorEnd);
+
             context.report({
               node,
+              loc: {
+                start: locStart,
+                end: locEnd,
+              },
               message: "The operation name {{ operationName }} should be PascalCase",
               data: {
                 operationName,
               },
               fix(fixer) {
                 if (autofixEnabled) {
-                  const nameLocation = operationDefinition.name.loc;
-                  const [start] = node.quasi.range;
-                  const errorRange = [
-                    start + nameLocation.start + 1,
-                    start + nameLocation.start + operationName.length + 1,
-                  ];
-
-                  return fixer.replaceTextRange(errorRange, pascalCased);
+                  return fixer.replaceTextRange([errorStart, errorEnd], pascalCased);
                 }
               },
             });
