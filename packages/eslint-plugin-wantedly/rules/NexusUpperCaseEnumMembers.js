@@ -1,3 +1,4 @@
+const { snakeCase } = require("snake-case");
 const { Linter } = require("eslint");
 const { getOptionWithDefault } = require("./utils");
 
@@ -47,7 +48,7 @@ linter.defineRule(RULE_NAME, {
             }
 
             const value = elem.value || "";
-            const upperCased = value.toUpperCase();
+            const upperCased = snakeCase(value).toUpperCase();
 
             if (value !== upperCased) {
               context.report({
@@ -71,7 +72,7 @@ linter.defineRule(RULE_NAME, {
           const properties = node.value.properties;
           properties.forEach(property => {
             const keyName = property.key.name || "";
-            const upperCased = keyName.toUpperCase();
+            const upperCased = snakeCase(keyName).toUpperCase();
 
             if (keyName !== upperCased) {
               context.report({
@@ -128,7 +129,7 @@ linter.defineRule(RULE_NAME, {
               }
 
               const value = elem.value || "";
-              const upperCased = value.toUpperCase();
+              const upperCased = snakeCase(value).toUpperCase();
 
               if (value !== upperCased) {
                 context.report({
@@ -151,7 +152,7 @@ linter.defineRule(RULE_NAME, {
             const properties = parent.init.properties;
             properties.forEach(property => {
               const keyName = property.key.name || "";
-              const upperCased = keyName.toUpperCase();
+              const upperCased = snakeCase(keyName).toUpperCase();
 
               if (keyName !== upperCased) {
                 context.report({

@@ -27,15 +27,15 @@ const Episode = enumType({
       code: `import { enumType } from "nexus";
 const Episode = enumType({
   name: "Episode",
-  members: ["newhope", "empire", "jedi"],
+  members: ["newHope", "empire", "jedi"],
 });`,
       output: `import { enumType } from "nexus";
 const Episode = enumType({
   name: "Episode",
-  members: ["NEWHOPE", "EMPIRE", "JEDI"],
+  members: ["NEW_HOPE", "EMPIRE", "JEDI"],
 });`,
       errors: [
-        "The enum member `newhope` should be UPPER_CASE",
+        "The enum member `newHope` should be UPPER_CASE",
         "The enum member `empire` should be UPPER_CASE",
         "The enum member `jedi` should be UPPER_CASE",
       ],
