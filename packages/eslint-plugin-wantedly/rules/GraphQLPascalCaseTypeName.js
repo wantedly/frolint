@@ -35,10 +35,7 @@ function createGraphQLCapitalizeTypeRule({ context, node, message, autofixEnable
 
       context.report({
         node,
-        loc: {
-          start: locStart,
-          end: locEnd,
-        },
+        loc: { start: locStart, end: locEnd },
         message,
         data: {
           typeName,

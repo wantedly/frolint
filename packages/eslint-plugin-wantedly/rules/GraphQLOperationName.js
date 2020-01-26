@@ -119,10 +119,7 @@ linter.defineRule(RULE_NAME, {
 
             context.report({
               node,
-              loc: {
-                start: locStart,
-                end: locEnd,
-              },
+              loc: { start: locStart, end: locEnd },
               message: "The operation name {{ operationName }} should be PascalCase",
               data: {
                 operationName,
