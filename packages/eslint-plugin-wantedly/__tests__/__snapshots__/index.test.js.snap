@@ -43,6 +43,13 @@ Object {
         "type": "suggestion",
       },
     },
+    "nexus-upper-case-enum-members": Object {
+      "create": [Function],
+      "meta": Object {
+        "fixable": "code",
+        "type": "suggestion",
+      },
+    },
   },
 }
 `;
