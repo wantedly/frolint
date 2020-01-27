@@ -1,0 +1,33 @@
+{
+  "name": "eslint-plugin-wantedly",
+  "description": "Opinionated ESLint plugin for Wantedly",
+  "version": "0.8.10",
+  "author": "Yuki Yamada <yamada@wantedly.com>",
+  "homepage": "https://github.com/wantedly/frolint",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "camel-case": "^4.1.1",
+    "pascal-case": "^3.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "graphql": "^14.5.8"
+  },
+  "peerDependencies": {
+    "eslint": "^6.0.0",
+    "graphql": "^14.5.0"
+  }
+}
