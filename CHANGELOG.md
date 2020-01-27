@@ -1,3 +1,25 @@
+## v0.9.0 (2020-01-27)
+
+#### Update dependencies
+
+- Other
+  - [#320](https://github.com/wantedly/frolint/pull/320) Bump graphql from 14.5.8 to 14.6.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#319](https://github.com/wantedly/frolint/pull/319) Bump @types/eslint from 6.1.6 to 6.1.7 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#315](https://github.com/wantedly/frolint/pull/315) Bump ts-jest from 24.3.0 to 25.0.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#316](https://github.com/wantedly/frolint/pull/316) Bump @types/eslint from 6.1.5 to 6.1.6 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#314](https://github.com/wantedly/frolint/pull/314) Bump @types/jest from 24.9.0 to 24.9.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#311](https://github.com/wantedly/frolint/pull/311) Bump resolve from 1.14.2 to 1.15.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#312](https://github.com/wantedly/frolint/pull/312) Bump @types/eslint from 6.1.3 to 6.1.5 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-plugin-use-macros`
+  - [#313](https://github.com/wantedly/frolint/pull/313) Upgrade jest and styled-components in devDependencies ([@yamadayuki](https://github.com/yamadayuki))
+
+#### New feature or improvement
+
+- `eslint-plugin-wantedly`
+  - [#321](https://github.com/wantedly/frolint/pull/321) Create `nexus-type-description` rule ([@yamadayuki](https://github.com/yamadayuki))
+  - [#318](https://github.com/wantedly/frolint/pull/318) Add `nexus-upper-case-enum-members` rule ([@yamadayuki](https://github.com/yamadayuki))
+  - [#317](https://github.com/wantedly/frolint/pull/317) Create `eslint-plugin-wantedly` package ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.8.10 (2020-01-22)
 
 #### Update dependencies
