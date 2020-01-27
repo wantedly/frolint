@@ -43,6 +43,16 @@ Object {
         "type": "suggestion",
       },
     },
+    "nexus-upper-case-enum-members": Object {
+      "create": [Function],
+      "meta": Object {
+        "docs": Object {
+          "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-upper-case-enum-members.md",
+        },
+        "fixable": "code",
+        "type": "suggestion",
+      },
+    },
   },
 }
 `;

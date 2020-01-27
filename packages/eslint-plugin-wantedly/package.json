@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "camel-case": "^4.1.1",
-    "pascal-case": "^3.1.1"
+    "pascal-case": "^3.1.1",
+    "snake-case": "^3.0.3"
   },
   "devDependencies": {
     "eslint": "^6.0.1",
