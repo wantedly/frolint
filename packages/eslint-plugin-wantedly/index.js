@@ -3,6 +3,7 @@ const GraphQLPascalCaseTypeName = require("./rules/GraphQLPascalCaseTypeName");
 const NexusCamelCaseFieldName = require("./rules/NexusCamelCaseFieldName");
 const NexusPascalCaseTypeName = require("./rules/NexusPascalCaseTypeName");
 const NexusUpperCaseEnumMembers = require("./rules/NexusUpperCaseEnumMembers");
+const nexusTypeDescription = require("./rules/nexus-type-description");
 
 module.exports = {
   rules: {
@@ -11,5 +12,6 @@ module.exports = {
     [NexusCamelCaseFieldName.RULE_NAME]: NexusCamelCaseFieldName.RULE,
     [NexusPascalCaseTypeName.RULE_NAME]: NexusPascalCaseTypeName.RULE,
     [NexusUpperCaseEnumMembers.RULE_NAME]: NexusUpperCaseEnumMembers.RULE,
+    [nexusTypeDescription.RULE_NAME]: nexusTypeDescription.RULE,
   },
 };
