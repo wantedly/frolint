@@ -20,3 +20,5 @@ This plugin provides the opinionated rules in Wantedly.
   - Check the field name which is camelCase if the code using `nexus`
 - [`wantedly/nexus-pascal-case-type-name`](./docs/rules/nexus-pascal-case-type-name.md)
   - Check the type name which is PascalCase if the code using `nexus`
+- [`wantedly/nexus-upper-case-enum-members`](./docs/rules/nexus-upper-case-enum-members.md)
+  - Check the enum members are UPPER_CASE if the code using `nexus`
