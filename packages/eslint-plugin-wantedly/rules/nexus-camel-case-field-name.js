@@ -8,7 +8,7 @@ const RULE_NAME = "nexus-camel-case-field-name";
 const WHITELIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
 const FIELD_DEFINITION_METHODS = ["string", "int", "boolean", "id", "float", "field"];
 
-// Represents the default option and schema for graphql-operation-name option
+// Represents the default option and schema for nexus-camel-case-field-name option
 const DEFAULT_OPTION = {
   autofix: false,
 };
@@ -34,6 +34,8 @@ linter.defineRule(RULE_NAME, {
           importDeclaration.source.value === "nexus"
         ) {
           isNexusUsed = true;
+        } else {
+          return;
         }
       },
 
@@ -68,7 +70,7 @@ linter.defineRule(RULE_NAME, {
 
           if (fieldName && camelCased && fieldName !== camelCased) {
             const [start, end] = fieldNameNode.range;
-            context.report({
+            return context.report({
               node: fieldNameNode,
               message: "The field {{ fieldName }} should be camelCase",
               data: {

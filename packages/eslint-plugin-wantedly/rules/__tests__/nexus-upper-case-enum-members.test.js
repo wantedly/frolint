@@ -1,6 +1,6 @@
 const RuleTester = require("eslint").RuleTester;
 const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const rule = require("../NexusUpperCaseEnumMembers");
+const rule = require("../nexus-upper-case-enum-members");
 
 RuleTester.setDefaultConfig({
   parser: require.resolve(ESLintConfigWantedly.parser),
