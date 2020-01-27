@@ -12,8 +12,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/wantedly/frolint/tree/master/packages/prettier-config-wantedly",
-  "scripts": {
-    "test": "#"
-  }
+  "repository": "https://github.com/wantedly/frolint/tree/master/packages/prettier-config-wantedly"
 }
