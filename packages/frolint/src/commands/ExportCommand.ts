@@ -19,11 +19,12 @@ export class ExportCommand extends Command<FrolintContext> {
       accessSync(eslintrcPath, constants.R_OK);
     } catch (err) {
       if (err && (err as NodeJS.ErrnoException).code === "ENOENT") {
-        const eslintrcContent = `
-        {
-          "extends": ["wantedly-typescript"],
-        }
-        `;
+        const eslintrcContent = `{
+  "extends": ["wantedly-typescript"],
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  }
+}`;
 
         writeFileSync(eslintrcPath, eslintrcContent);
       }
