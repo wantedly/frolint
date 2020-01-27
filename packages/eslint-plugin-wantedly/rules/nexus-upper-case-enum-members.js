@@ -5,7 +5,7 @@ const { getOptionWithDefault, docsUrl } = require("./utils");
 const linter = new Linter();
 const RULE_NAME = "nexus-upper-case-enum-members";
 
-// Represents the default option and schema for graphql-operation-name option
+// Represents the default option and schema for nexus-upper-case-enum-members option
 const DEFAULT_OPTION = {
   autofix: false,
 };

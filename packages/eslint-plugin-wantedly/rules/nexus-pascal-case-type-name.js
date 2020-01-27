@@ -7,7 +7,7 @@ const RULE_NAME = "nexus-pascal-case-type-name";
 
 const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
 
-// Represents the default option and schema for graphql-operation-name option
+// Represents the default option and schema for nexus-pascal-case-type-name option
 const DEFAULT_OPTION = {
   autofix: false,
 };

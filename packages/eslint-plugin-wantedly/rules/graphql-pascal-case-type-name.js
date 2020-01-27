@@ -14,7 +14,7 @@ try {
   GRAPHQL_INSTALLED = false;
 }
 
-// Represents the default option and schema for graphql-operation-name option
+// Represents the default option and schema for graphql-pascal-case-type-name option
 const DEFAULT_OPTION = {
   autofix: false,
 };

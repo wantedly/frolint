@@ -1,6 +1,6 @@
 const RuleTester = require("eslint").RuleTester;
 const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const GraphQLPascalCaseTypeName = require("../GraphQLPascalCaseTypeName");
+const rule = require("../graphql-pascal-case-type-name");
 
 RuleTester.setDefaultConfig({
   parser: require.resolve(ESLintConfigWantedly.parser),
@@ -8,7 +8,7 @@ RuleTester.setDefaultConfig({
 });
 
 const ruleTester = new RuleTester();
-ruleTester.run(GraphQLPascalCaseTypeName.RULE_NAME, GraphQLPascalCaseTypeName.RULE, {
+ruleTester.run(rule.RULE_NAME, rule.RULE, {
   valid: [
     {
       code: `gql\`

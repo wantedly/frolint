@@ -1,6 +1,6 @@
 const RuleTester = require("eslint").RuleTester;
 const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const GraphQLOperationName = require("../GraphQLOperationName");
+const rule = require("../graphql-operation-name");
 
 RuleTester.setDefaultConfig({
   parser: require.resolve(ESLintConfigWantedly.parser),
@@ -8,7 +8,7 @@ RuleTester.setDefaultConfig({
 });
 
 const ruleTester = new RuleTester();
-ruleTester.run("wantedly/graphql-operation-name", GraphQLOperationName.RULE, {
+ruleTester.run(rule.RULE_NAME, rule.RULE, {
   valid: [
     {
       code: `

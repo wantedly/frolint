@@ -1,6 +1,6 @@
 const RuleTester = require("eslint").RuleTester;
 const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const NexusCamelCaseFieldName = require("../NexusCamelCaseFieldName");
+const rule = require("../nexus-camel-case-field-name");
 
 RuleTester.setDefaultConfig({
   parser: require.resolve(ESLintConfigWantedly.parser),
@@ -8,7 +8,7 @@ RuleTester.setDefaultConfig({
 });
 
 const ruleTester = new RuleTester();
-ruleTester.run(NexusCamelCaseFieldName.RULE_NAME, NexusCamelCaseFieldName.RULE, {
+ruleTester.run(rule.RULE_NAME, rule.RULE, {
   valid: [],
   invalid: [
     {
