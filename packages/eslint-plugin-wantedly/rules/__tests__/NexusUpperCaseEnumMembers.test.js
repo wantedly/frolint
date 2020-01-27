@@ -18,9 +18,9 @@ const Episode = enumType({
   members: ["newhope", "empire", "jedi"],
 });`,
       errors: [
-        "The enum member `newhope` should be UPPER_CASE",
-        "The enum member `empire` should be UPPER_CASE",
-        "The enum member `jedi` should be UPPER_CASE",
+        "The enum member `Episode.newhope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
     },
     {
@@ -35,9 +35,9 @@ const Episode = enumType({
   members: ["NEW_HOPE", "EMPIRE", "JEDI"],
 });`,
       errors: [
-        "The enum member `newHope` should be UPPER_CASE",
-        "The enum member `empire` should be UPPER_CASE",
-        "The enum member `jedi` should be UPPER_CASE",
+        "The enum member `Episode.newHope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
       options: [{ autofix: true }],
     },
@@ -49,9 +49,9 @@ const Episode = enumType({
   members: { newhope: 1, empire: 2, jedi: 3 },
 });`,
       errors: [
-        "The enum member `newhope` should be UPPER_CASE",
-        "The enum member `empire` should be UPPER_CASE",
-        "The enum member `jedi` should be UPPER_CASE",
+        "The enum member `Episode.newhope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
     },
     {
@@ -66,9 +66,9 @@ const Episode = enumType({
   members: { NEWHOPE: 1, EMPIRE: 2, JEDI: 3 },
 });`,
       errors: [
-        "The enum member `newhope` should be UPPER_CASE",
-        "The enum member `empire` should be UPPER_CASE",
-        "The enum member `jedi` should be UPPER_CASE",
+        "The enum member `Episode.newhope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
       options: [{ autofix: true }],
     },
@@ -81,9 +81,9 @@ const Episode = enumType({
   members,
 });`,
       errors: [
-        "The enum member `newhope` should be UPPER_CASE",
-        "The enum member `empire` should be UPPER_CASE",
-        "The enum member `jedi` should be UPPER_CASE",
+        "The enum member `Episode.newhope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
     },
 
@@ -95,9 +95,9 @@ const Episode = enumType({
   members,
 });`,
       errors: [
-        "The enum member `newhope` should be UPPER_CASE",
-        "The enum member `empire` should be UPPER_CASE",
-        "The enum member `jedi` should be UPPER_CASE",
+        "The enum member `Episode.newhope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
     },
   ],

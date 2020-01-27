@@ -43,6 +43,15 @@ linter.defineRule(RULE_NAME, {
           return;
         }
 
+        let enumName;
+        if (node.parent) {
+          const nameProperty = node.parent.properties.find(property => property.key.name === "name");
+
+          if (nameProperty) {
+            enumName = nameProperty.value.value;
+          }
+        }
+
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
           elements.forEach(elem => {
@@ -56,9 +65,13 @@ linter.defineRule(RULE_NAME, {
             if (value !== upperCased) {
               context.report({
                 node: elem,
-                message: "The enum member `{{value}}` should be UPPER_CASE",
+                message:
+                  typeof enumName === "string"
+                    ? "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE"
+                    : "The enum member `{{value}}` should be UPPER_CASE",
                 data: {
                   value,
+                  enumName,
                 },
                 fix(fixer) {
                   if (autofixEnabled) {
@@ -69,6 +82,8 @@ linter.defineRule(RULE_NAME, {
               });
             }
           });
+
+          return;
         }
 
         if (node.value.type === "ObjectExpression") {
@@ -80,9 +95,13 @@ linter.defineRule(RULE_NAME, {
             if (keyName !== upperCased) {
               context.report({
                 node: property.key,
-                message: "The enum member `{{keyName}}` should be UPPER_CASE",
+                message:
+                  typeof enumName === "string"
+                    ? "The enum member `{{enumName}}.{{keyName}}` should be UPPER_CASE"
+                    : "The enum member `{{keyName}}` should be UPPER_CASE",
                 data: {
                   keyName,
+                  enumName,
                 },
                 fix(fixer) {
                   if (autofixEnabled) {
@@ -93,6 +112,8 @@ linter.defineRule(RULE_NAME, {
               });
             }
           });
+
+          return;
         }
 
         if (node.value.type === "Identifier") {
@@ -110,7 +131,8 @@ linter.defineRule(RULE_NAME, {
             return;
           }
 
-          const maybeNode = sourceCode.getNodeByRangeIndex(maybeToken.start);
+          const tokenStartIndex = maybeToken.start || maybeToken.range[0];
+          const maybeNode = sourceCode.getNodeByRangeIndex(tokenStartIndex);
           if (!maybeNode) {
             return;
           }
@@ -137,9 +159,13 @@ linter.defineRule(RULE_NAME, {
               if (value !== upperCased) {
                 context.report({
                   node: elem,
-                  message: "The enum member `{{value}}` should be UPPER_CASE",
+                  message:
+                    typeof enumName === "string"
+                      ? "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE"
+                      : "The enum member `{{value}}` should be UPPER_CASE",
                   data: {
                     value,
+                    enumName,
                   },
                   // In this situation, we should not fix the issue automatically.
                   // We cannot know the variable is used or not in other file.
@@ -160,9 +186,13 @@ linter.defineRule(RULE_NAME, {
               if (keyName !== upperCased) {
                 context.report({
                   node: property,
-                  message: "The enum member `{{keyName}}` should be UPPER_CASE",
+                  message:
+                    typeof enumName === "string"
+                      ? "The enum member `{{enumName}}.{{keyName}}` should be UPPER_CASE"
+                      : "The enum member `{{keyName}}` should be UPPER_CASE",
                   data: {
                     keyName,
+                    enumName,
                   },
                   // In this situation, we should not fix the issue automatically.
                   // We cannot know the variable is used or not in other file.
@@ -171,6 +201,8 @@ linter.defineRule(RULE_NAME, {
               }
             });
           }
+
+          return;
         }
       },
     };
