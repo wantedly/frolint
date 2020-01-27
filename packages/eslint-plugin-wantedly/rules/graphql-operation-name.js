@@ -95,14 +95,13 @@ linter.defineRule(RULE_NAME, {
              *   - mutation {  }
              */
             if (!operationDefinition.name || operationDefinition.name.value === "") {
-              context.report({
+              return context.report({
                 node,
                 message: "Specify the operation name for {{ operation }}",
                 data: {
                   operation: operationDefinition.operation,
                 },
               });
-              return;
             }
 
             const operationName = operationDefinition.name.value;
@@ -120,7 +119,7 @@ linter.defineRule(RULE_NAME, {
             const locStart = sourceCode.getLocFromIndex(errorStart);
             const locEnd = sourceCode.getLocFromIndex(errorEnd);
 
-            context.report({
+            return context.report({
               node,
               loc: { start: locStart, end: locEnd },
               message: "The operation name {{ operationName }} should be PascalCase",

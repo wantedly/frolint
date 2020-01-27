@@ -34,6 +34,8 @@ linter.defineRule(RULE_NAME, {
           importDeclaration.source.value === "nexus"
         ) {
           isNexusUsed = true;
+        } else {
+          return;
         }
       },
 
@@ -68,7 +70,7 @@ linter.defineRule(RULE_NAME, {
 
           if (fieldName && camelCased && fieldName !== camelCased) {
             const [start, end] = fieldNameNode.range;
-            context.report({
+            return context.report({
               node: fieldNameNode,
               message: "The field {{ fieldName }} should be camelCase",
               data: {

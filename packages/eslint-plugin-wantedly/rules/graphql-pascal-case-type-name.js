@@ -24,29 +24,31 @@ function createGraphQLCapitalizeTypeRule({ context, node, message, autofixEnable
     const typeName = definition.name.value;
     const pascalCased = pascalCase(typeName);
 
-    if (typeName !== pascalCased) {
-      const nameLocation = definition.name.loc;
-      const [start] = node.quasi.range;
-      const errorStart = start + nameLocation.start + 1;
-      const errorEnd = start + nameLocation.start + typeName.length + 1;
-      const sourceCode = context.getSourceCode();
-      const locStart = sourceCode.getLocFromIndex(errorStart);
-      const locEnd = sourceCode.getLocFromIndex(errorEnd);
-
-      context.report({
-        node,
-        loc: { start: locStart, end: locEnd },
-        message,
-        data: {
-          typeName,
-        },
-        fix(fixer) {
-          if (autofixEnabled) {
-            return fixer.replaceTextRange([errorStart, errorEnd], pascalCased);
-          }
-        },
-      });
+    if (typeName === pascalCased) {
+      return;
     }
+
+    const nameLocation = definition.name.loc;
+    const [start] = node.quasi.range;
+    const errorStart = start + nameLocation.start + 1;
+    const errorEnd = start + nameLocation.start + typeName.length + 1;
+    const sourceCode = context.getSourceCode();
+    const locStart = sourceCode.getLocFromIndex(errorStart);
+    const locEnd = sourceCode.getLocFromIndex(errorEnd);
+
+    return context.report({
+      node,
+      loc: { start: locStart, end: locEnd },
+      message,
+      data: {
+        typeName,
+      },
+      fix(fixer) {
+        if (autofixEnabled) {
+          return fixer.replaceTextRange([errorStart, errorEnd], pascalCased);
+        }
+      },
+    });
   };
 }
 

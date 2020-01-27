@@ -31,6 +31,8 @@ linter.defineRule(RULE_NAME, {
           importDeclaration.source.value === "nexus"
         ) {
           isNexusUsed = true;
+        } else {
+          return;
         }
       },
 
@@ -43,14 +45,15 @@ linter.defineRule(RULE_NAME, {
           return;
         }
 
-        let enumName;
-        if (node.parent) {
-          const nameProperty = node.parent.properties.find(property => property.key.name === "name");
-
-          if (nameProperty) {
-            enumName = nameProperty.value.value;
-          }
+        if (!node.parent) {
+          return;
         }
+
+        const nameProperty = node.parent.properties.find(property => property.key.name === "name");
+        if (!nameProperty) {
+          return;
+        }
+        const enumName = nameProperty.value.value;
 
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
@@ -62,25 +65,24 @@ linter.defineRule(RULE_NAME, {
             const value = elem.value || "";
             const upperCased = snakeCase(value).toUpperCase();
 
-            if (value !== upperCased) {
-              context.report({
-                node: elem,
-                message:
-                  typeof enumName === "string"
-                    ? "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE"
-                    : "The enum member `{{value}}` should be UPPER_CASE",
-                data: {
-                  value,
-                  enumName,
-                },
-                fix(fixer) {
-                  if (autofixEnabled) {
-                    const [start, end] = elem.range;
-                    return fixer.replaceTextRange([start + 1, end - 1], upperCased);
-                  }
-                },
-              });
+            if (value === upperCased) {
+              return;
             }
+
+            context.report({
+              node: elem,
+              message: "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE",
+              data: {
+                value,
+                enumName,
+              },
+              fix(fixer) {
+                if (autofixEnabled) {
+                  const [start, end] = elem.range;
+                  return fixer.replaceTextRange([start + 1, end - 1], upperCased);
+                }
+              },
+            });
           });
 
           return;
@@ -92,25 +94,27 @@ linter.defineRule(RULE_NAME, {
             const keyName = property.key.name || "";
             const upperCased = snakeCase(keyName).toUpperCase();
 
-            if (keyName !== upperCased) {
-              context.report({
-                node: property.key,
-                message:
-                  typeof enumName === "string"
-                    ? "The enum member `{{enumName}}.{{keyName}}` should be UPPER_CASE"
-                    : "The enum member `{{keyName}}` should be UPPER_CASE",
-                data: {
-                  keyName,
-                  enumName,
-                },
-                fix(fixer) {
-                  if (autofixEnabled) {
-                    const [start, end] = property.key.range;
-                    return fixer.replaceTextRange([start, end], upperCased);
-                  }
-                },
-              });
+            if (keyName === upperCased) {
+              return;
             }
+
+            return context.report({
+              node: property.key,
+              message:
+                typeof enumName === "string"
+                  ? "The enum member `{{enumName}}.{{keyName}}` should be UPPER_CASE"
+                  : "The enum member `{{keyName}}` should be UPPER_CASE",
+              data: {
+                keyName,
+                enumName,
+              },
+              fix(fixer) {
+                if (autofixEnabled) {
+                  const [start, end] = property.key.range;
+                  return fixer.replaceTextRange([start, end], upperCased);
+                }
+              },
+            });
           });
 
           return;
@@ -156,22 +160,24 @@ linter.defineRule(RULE_NAME, {
               const value = elem.value || "";
               const upperCased = snakeCase(value).toUpperCase();
 
-              if (value !== upperCased) {
-                context.report({
-                  node: elem,
-                  message:
-                    typeof enumName === "string"
-                      ? "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE"
-                      : "The enum member `{{value}}` should be UPPER_CASE",
-                  data: {
-                    value,
-                    enumName,
-                  },
-                  // In this situation, we should not fix the issue automatically.
-                  // We cannot know the variable is used or not in other file.
-                  // fix(fixer) {},
-                });
+              if (value === upperCased) {
+                return;
               }
+
+              return context.report({
+                node: elem,
+                message:
+                  typeof enumName === "string"
+                    ? "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE"
+                    : "The enum member `{{value}}` should be UPPER_CASE",
+                data: {
+                  value,
+                  enumName,
+                },
+                // In this situation, we should not fix the issue automatically.
+                // We cannot know the variable is used or not in other file.
+                // fix(fixer) {},
+              });
             });
           } else if (parent.init.type === "ObjectExpression") {
             /**
@@ -183,22 +189,24 @@ linter.defineRule(RULE_NAME, {
               const keyName = property.key.name || "";
               const upperCased = snakeCase(keyName).toUpperCase();
 
-              if (keyName !== upperCased) {
-                context.report({
-                  node: property,
-                  message:
-                    typeof enumName === "string"
-                      ? "The enum member `{{enumName}}.{{keyName}}` should be UPPER_CASE"
-                      : "The enum member `{{keyName}}` should be UPPER_CASE",
-                  data: {
-                    keyName,
-                    enumName,
-                  },
-                  // In this situation, we should not fix the issue automatically.
-                  // We cannot know the variable is used or not in other file.
-                  // fix(fixer) {},
-                });
+              if (keyName === upperCased) {
+                return;
               }
+
+              return context.report({
+                node: property,
+                message:
+                  typeof enumName === "string"
+                    ? "The enum member `{{enumName}}.{{keyName}}` should be UPPER_CASE"
+                    : "The enum member `{{keyName}}` should be UPPER_CASE",
+                data: {
+                  keyName,
+                  enumName,
+                },
+                // In this situation, we should not fix the issue automatically.
+                // We cannot know the variable is used or not in other file.
+                // fix(fixer) {},
+              });
             });
           }
 

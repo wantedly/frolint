@@ -24,6 +24,8 @@ linter.defineRule(RULE_NAME, {
           importDeclaration.source.value === "nexus"
         ) {
           isNexusUsed = true;
+        } else {
+          return;
         }
       },
 
