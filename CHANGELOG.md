@@ -1,3 +1,10 @@
+## v0.9.1 (2020-01-27)
+
+#### Bug fix
+
+- `frolint`
+  - [#323](https://github.com/wantedly/frolint/pull/323) Fix exported eslintrc content ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.0 (2020-01-27)
 
 #### Update dependencies
