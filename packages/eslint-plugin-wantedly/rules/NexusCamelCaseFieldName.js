@@ -1,22 +1,25 @@
 const { camelCase } = require("camel-case");
 const { Linter } = require("eslint");
-const { getOptionWithDefault } = require("./utils");
+const { getOptionWithDefault, docsUrl } = require("./utils");
 
 const linter = new Linter();
 const RULE_NAME = "nexus-camel-case-field-name";
+
+const WHITELIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
+const FIELD_DEFINITION_METHODS = ["string", "int", "boolean", "id", "float", "field"];
 
 // Represents the default option and schema for graphql-operation-name option
 const DEFAULT_OPTION = {
   autofix: false,
 };
 
-const WHITELIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
-const FIELD_DEFINITION_METHODS = ["string", "int", "boolean", "id", "float", "field"];
-
 linter.defineRule(RULE_NAME, {
   meta: {
     type: "suggestion",
     fixable: "code",
+    docs: {
+      url: docsUrl(RULE_NAME),
+    },
   },
   create(context) {
     let isNexusUsed = false;

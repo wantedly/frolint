@@ -1,6 +1,6 @@
 const { pascalCase } = require("pascal-case");
 const { Linter } = require("eslint");
-const { getOptionWithDefault } = require("./utils");
+const { getOptionWithDefault, docsUrl } = require("./utils");
 
 const linter = new Linter();
 const RULE_NAME = "graphql-operation-name";
@@ -23,6 +23,9 @@ linter.defineRule(RULE_NAME, {
   meta: {
     type: "suggestion",
     fixable: "code",
+    docs: {
+      url: docsUrl(RULE_NAME),
+    },
   },
   create(context) {
     if (!GRAPHQL_INSTALLED) {
