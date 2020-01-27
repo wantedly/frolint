@@ -6,6 +6,9 @@ Object {
     "graphql-operation-name": Object {
       "create": [Function],
       "meta": Object {
+        "docs": Object {
+          "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/graphql-operation-name.md",
+        },
         "fixable": "code",
         "type": "suggestion",
       },
@@ -13,6 +16,9 @@ Object {
     "graphql-pascal-case-type-name": Object {
       "create": [Function],
       "meta": Object {
+        "docs": Object {
+          "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/graphql-pascal-case-type-name.md",
+        },
         "fixable": "code",
         "type": "suggestion",
       },
@@ -20,6 +26,9 @@ Object {
     "nexus-camel-case-field-name": Object {
       "create": [Function],
       "meta": Object {
+        "docs": Object {
+          "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-camel-case-field-name.md",
+        },
         "fixable": "code",
         "type": "suggestion",
       },
@@ -27,6 +36,9 @@ Object {
     "nexus-pascal-case-type-name": Object {
       "create": [Function],
       "meta": Object {
+        "docs": Object {
+          "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-pascal-case-type-name.md",
+        },
         "fixable": "code",
         "type": "suggestion",
       },
