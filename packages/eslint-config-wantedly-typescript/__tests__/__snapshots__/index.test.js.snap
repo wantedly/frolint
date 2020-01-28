@@ -71,6 +71,9 @@ Object {
   "@typescript-eslint/class-name-casing": Array [
     "error",
   ],
+  "@typescript-eslint/comma-spacing": Array [
+    "off",
+  ],
   "@typescript-eslint/consistent-type-assertions": Array [
     "error",
   ],
