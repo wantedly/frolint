@@ -9,6 +9,7 @@
     "lerna": "^3.20.2",
     "lerna-changelog": "^1.0.0",
     "mock-fs": "^4.10.4",
+    "scaffdog": "^0.2.0",
     "ts-jest": "^25.0.0",
     "typescript": "^3.7.5"
   },
