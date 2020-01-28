@@ -31,7 +31,7 @@ const Foo = objectType({
   },
   description: ""
 });`,
-      errors: ["The objectType Foo is missing a description"],
+      errors: ["The object type Foo should have a description"],
     },
     {
       code: `import { objectType } from "nexus";
@@ -41,7 +41,7 @@ const Foo = objectType({
     t.string("foo", { nullable: true });
   },
 });`,
-      errors: ["The objectType Foo is missing a description"],
+      errors: ["The object type Foo should have a description"],
     },
     {
       code: `import { objectType } from "nexus";
@@ -49,7 +49,7 @@ const Foo = objectType({
   name: "Foo",
   definition(t) { t.string("foo", { nullable: true }); },
 });`,
-      errors: ["The objectType Foo is missing a description"],
+      errors: ["The object type Foo should have a description"],
     },
 
     {
@@ -58,7 +58,7 @@ const Foo = unionType({
   name: "Foo",
   definition(t) { t.members("Bar", "Baz"); },
 });`,
-      errors: ["The unionType Foo is missing a description"],
+      errors: ["The union type Foo should have a description"],
     },
 
     {
@@ -67,7 +67,7 @@ const Foo = scalarType({
   name: "Foo",
   serialize(v) { return v; },
 });`,
-      errors: ["The scalarType Foo is missing a description"],
+      errors: ["The scalar type Foo should have a description"],
     },
 
     {
@@ -76,7 +76,7 @@ const Foo = interfaceType({
   name: "Foo",
   definition(t) { t.string("foo", { nullable: true }); },
 });`,
-      errors: ["The interfaceType Foo is missing a description"],
+      errors: ["The interface type Foo should have a description"],
     },
 
     {
@@ -85,7 +85,7 @@ const Foo = inputObjectType({
   name: "Foo",
   definition(t) { t.string("foo", { nullable: true }); },
 });`,
-      errors: ["The inputObjectType Foo is missing a description"],
+      errors: ["The input object type Foo should have a description"],
     },
 
     {
@@ -94,7 +94,7 @@ const Foo = enumType({
   name: "Foo",
   members: ["BAR", "BAZ"],
 });`,
-      errors: ["The enumType Foo is missing a description"],
+      errors: ["The enum type Foo should have a description"],
     },
   ],
 });
