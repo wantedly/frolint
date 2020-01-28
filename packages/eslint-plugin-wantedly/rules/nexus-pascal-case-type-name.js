@@ -1,4 +1,5 @@
 const { pascalCase } = require("pascal-case");
+const { snakeCase } = require("snake-case");
 const { Linter } = require("eslint");
 const { getOptionWithDefault, docsUrl } = require("./utils");
 
@@ -63,7 +64,7 @@ linter.defineRule(RULE_NAME, {
           node: targetNode,
           message: "The {{ functionName }} name {{ typeName }} should be PascalCase",
           data: {
-            functionName,
+            functionName: snakeCase(functionName).replace(/_/g, " "),
             typeName,
           },
           fix(fixer) {

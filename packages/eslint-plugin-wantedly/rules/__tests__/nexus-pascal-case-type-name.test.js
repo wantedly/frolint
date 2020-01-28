@@ -26,7 +26,7 @@ const Foo = objectType({
     t.string("foo", { nullable: true });
   },
 });`,
-      errors: ["The objectType name foo should be PascalCase"],
+      errors: ["The object type name foo should be PascalCase"],
       options: [{ autofix: true }],
     },
     {
@@ -48,7 +48,7 @@ const MediaType = unionType({
     t.resolveType((item) => item.name);
   },
 });`,
-      errors: ["The unionType name mediaType should be PascalCase"],
+      errors: ["The union type name mediaType should be PascalCase"],
       options: [{ autofix: true }],
     },
     {
@@ -80,7 +80,7 @@ const DateScalar = scalarType({
     return null;
   },
 });`,
-      errors: ["The scalarType name date should be PascalCase"],
+      errors: ["The scalar type name date should be PascalCase"],
       options: [{ autofix: true }],
     },
     {
@@ -98,7 +98,7 @@ const Node = interfaceType({
     t.id("id", { description: "GUID for a resource" });
   },
 });`,
-      errors: ["The interfaceType name node should be PascalCase"],
+      errors: ["The interface type name node should be PascalCase"],
       options: [{ autofix: true }],
     },
     {
@@ -118,7 +118,7 @@ export const InputType = inputObjectType({
     t.int("answer");
   },
 });`,
-      errors: ["The inputObjectType name inputType should be PascalCase"],
+      errors: ["The input object type name inputType should be PascalCase"],
       options: [{ autofix: true }],
     },
     {
@@ -134,7 +134,7 @@ const Episode = enumType({
   members: ["NEWHOPE", "EMPIRE", "JEDI"],
   description: "The first Star Wars episodes released",
 });`,
-      errors: ["The enumType name episode should be PascalCase"],
+      errors: ["The enum type name episode should be PascalCase"],
       options: [{ autofix: true }],
     },
   ],

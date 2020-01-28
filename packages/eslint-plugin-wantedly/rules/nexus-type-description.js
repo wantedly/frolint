@@ -1,3 +1,4 @@
+const { snakeCase } = require("snake-case");
 const { Linter } = require("eslint");
 const { docsUrl } = require("./utils");
 
@@ -55,9 +56,9 @@ linter.defineRule(RULE_NAME, {
         if (!descriptionProperty) {
           return context.report({
             node: callExpression,
-            message: "The {{functionName}} {{typeName}} is missing a description",
+            message: "The {{functionName}} {{typeName}} should have a description",
             data: {
-              functionName,
+              functionName: snakeCase(functionName).replace(/_/g, " "),
               typeName,
             },
           });
@@ -72,9 +73,9 @@ linter.defineRule(RULE_NAME, {
         if (descriptionValue && descriptionValue.value.trim().length === 0) {
           return context.report({
             node: callExpression,
-            message: "The {{functionName}} {{typeName}} is missing a description",
+            message: "The {{functionName}} {{typeName}} should have a description",
             data: {
-              functionName,
+              functionName: snakeCase(functionName).replace(/_/g, " "),
               typeName,
             },
           });
