@@ -69,7 +69,7 @@ linter.defineRule(RULE_NAME, {
         }
 
         const descriptionValue = descriptionProperty.value;
-        if (descriptionValue && descriptionValue.value.length === 0) {
+        if (descriptionValue && descriptionValue.value.trim().length === 0) {
           return context.report({
             node: callExpression,
             message: "The {{functionName}} {{typeName}} is missing a description",
