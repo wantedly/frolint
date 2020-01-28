@@ -1,4 +1,4 @@
-# Enforce the each of the enum members has description (`wantedly/nexus-enum-values-description`)
+# Enforce each of the enum members has description (`wantedly/nexus-enum-values-description`)
 
 ## Rule Details
 
