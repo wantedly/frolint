@@ -1,3 +1,20 @@
+## v0.9.2 (2020-01-29)
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`
+  - [#328](https://github.com/wantedly/frolint/pull/328) Bump eslint-config-prettier from 6.9.0 to 6.10.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Other
+  - [#325](https://github.com/wantedly/frolint/pull/325) Introduce scaffdog ([@yamadayuki](https://github.com/yamadayuki))
+
+#### New feature or improvement
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`, `prettier-config-wantedly`
+  - [#329](https://github.com/wantedly/frolint/pull/329) Add .npmignore to reduce unpacked size ([@yamadayuki](https://github.com/yamadayuki))
+- `eslint-plugin-wantedly`
+  - [#327](https://github.com/wantedly/frolint/pull/327) Tweak lint error messages ([@yamadayuki](https://github.com/yamadayuki))
+  - [#326](https://github.com/wantedly/frolint/pull/326) Create `nexus-enum-values-description` rule ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.1 (2020-01-27)
 
 #### Bug fix
