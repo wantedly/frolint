@@ -31,6 +31,7 @@ linter.defineRule(RULE_NAME, {
   },
   create(context) {
     // Code fun !!
+    return {};
   },
 });
 

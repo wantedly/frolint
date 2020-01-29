@@ -43,6 +43,16 @@ Object {
         "type": "suggestion",
       },
     },
+    "nexus-field-description": Object {
+      "create": [Function],
+      "meta": Object {
+        "docs": Object {
+          "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-field-description.md",
+        },
+        "fixable": "code",
+        "type": "suggestion",
+      },
+    },
     "nexus-pascal-case-type-name": Object {
       "create": [Function],
       "meta": Object {
