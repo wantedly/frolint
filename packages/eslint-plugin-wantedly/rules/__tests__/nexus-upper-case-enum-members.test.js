@@ -46,6 +46,49 @@ const Episode = enumType({
       code: `import { enumType } from "nexus";
 const Episode = enumType({
   name: "Episode",
+  members: [
+    { name: "newhope" },
+    { name: "empire" },
+    { name: "jedi" },
+  ],
+});`,
+      errors: [
+        "The enum member `Episode.newhope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
+      ],
+    },
+    {
+      code: `import { enumType } from "nexus";
+const Episode = enumType({
+  name: "Episode",
+  members: [
+    { name: "newHope" },
+    { name: "empire" },
+    { name: "jedi" },
+  ],
+});`,
+      output: `import { enumType } from "nexus";
+const Episode = enumType({
+  name: "Episode",
+  members: [
+    { name: "NEW_HOPE" },
+    { name: "EMPIRE" },
+    { name: "JEDI" },
+  ],
+});`,
+      errors: [
+        "The enum member `Episode.newHope` should be UPPER_CASE",
+        "The enum member `Episode.empire` should be UPPER_CASE",
+        "The enum member `Episode.jedi` should be UPPER_CASE",
+      ],
+      options: [{ autofix: true }],
+    },
+
+    {
+      code: `import { enumType } from "nexus";
+const Episode = enumType({
+  name: "Episode",
   members: { newhope: 1, empire: 2, jedi: 3 },
 });`,
       errors: [

@@ -58,31 +58,59 @@ linter.defineRule(RULE_NAME, {
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
           elements.forEach(elem => {
-            if (elem.type !== "Literal") {
-              return;
+            if (elem.type === "Literal") {
+              const value = elem.value || "";
+              const upperCased = snakeCase(value).toUpperCase();
+
+              if (value === upperCased) {
+                return;
+              }
+
+              return context.report({
+                node: elem,
+                message: "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE",
+                data: {
+                  value,
+                  enumName,
+                },
+                fix(fixer) {
+                  if (autofixEnabled) {
+                    const [start, end] = elem.range;
+                    return fixer.replaceTextRange([start + 1, end - 1], upperCased);
+                  }
+                },
+              });
             }
 
-            const value = elem.value || "";
-            const upperCased = snakeCase(value).toUpperCase();
+            if (elem.type === "ObjectExpression") {
+              const properties = elem.properties;
+              const nameProperty = properties.find(property => property.key.name === "name");
+              if (!nameProperty || nameProperty.value.type !== "Literal") {
+                return;
+              }
 
-            if (value === upperCased) {
-              return;
+              const value = nameProperty.value.value || "";
+              const upperCased = snakeCase(value).toUpperCase();
+
+              if (value === upperCased) {
+                return;
+              }
+
+              return context.report({
+                node: nameProperty.value,
+                message: "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE",
+                data: {
+                  value,
+                  enumName,
+                },
+                fix(fixer) {
+                  if (autofixEnabled) {
+                    const [start, end] = nameProperty.value.range;
+                    return fixer.replaceTextRange([start + 1, end - 1], upperCased);
+                  }
+                },
+              });
             }
-
-            context.report({
-              node: elem,
-              message: "The enum member `{{enumName}}.{{value}}` should be UPPER_CASE",
-              data: {
-                value,
-                enumName,
-              },
-              fix(fixer) {
-                if (autofixEnabled) {
-                  const [start, end] = elem.range;
-                  return fixer.replaceTextRange([start + 1, end - 1], upperCased);
-                }
-              },
-            });
           });
 
           return;
