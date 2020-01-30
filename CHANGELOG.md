@@ -1,3 +1,10 @@
+## v0.9.4 (2020-01-30)
+
+#### Bug fix
+
+- `eslint-plugin-wantedly`
+  - [#332](https://github.com/wantedly/frolint/pull/332) Fix lint error node to locate the report ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.3 (2020-01-30)
 
 #### New feature or improvement
