@@ -65,7 +65,7 @@ linter.defineRule(RULE_NAME, {
           const fieldConfigNode = expressionStatement.expression.arguments[1]; // ObjectExpression
           if (!fieldConfigNode) {
             return context.report({
-              node: callExpression,
+              node: expressionStatement.expression,
               message: "The field {{fieldName}} should have a description",
               data: {
                 fieldName,
@@ -78,7 +78,7 @@ linter.defineRule(RULE_NAME, {
           );
           if (!descriptionProperty) {
             return context.report({
-              node: callExpression,
+              node: fieldConfigNode,
               message: "The field {{fieldName}} should have a description",
               data: {
                 fieldName,
@@ -94,7 +94,7 @@ linter.defineRule(RULE_NAME, {
           const descriptionValue = descriptionProperty.value;
           if (descriptionValue && descriptionValue.value.trim().length === 0) {
             return context.report({
-              node: callExpression,
+              node: descriptionProperty,
               message: "The field {{fieldName}} should have a description",
               data: {
                 fieldName,
