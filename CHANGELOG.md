@@ -1,3 +1,11 @@
+## v0.9.3 (2020-01-30)
+
+#### New feature or improvement
+
+- `eslint-plugin-wantedly`
+  - [#331](https://github.com/wantedly/frolint/pull/331) Consider ObjectExpression in nexus-upper-case-enum-members rule ([@yamadayuki](https://github.com/yamadayuki))
+  - [#330](https://github.com/wantedly/frolint/pull/330) Create nexus-field-description rule ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.2 (2020-01-29)
 
 #### Update dependencies
