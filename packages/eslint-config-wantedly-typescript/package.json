@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-wantedly-typescript",
   "description": "ESLint configuration for Wantedly with TypeScript",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^2.18.0",
@@ -14,7 +14,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^2.3.0",
-    "eslint-plugin-use-macros": "^0.9.3"
+    "eslint-plugin-use-macros": "^0.9.4"
   },
   "peerDependencies": {
     "typescript": "^3.7.3"
