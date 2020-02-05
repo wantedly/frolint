@@ -1,3 +1,24 @@
+## v0.9.5 (2020-02-05)
+
+#### Update dependencies
+
+- [#339](https://github.com/wantedly/frolint/pull/339) Bump @typescript-eslint/eslint-plugin from 2.18.0 to 2.19.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-pr
+  eview))
+- [#341](https://github.com/wantedly/frolint/pull/341) Bump styled-components from 5.0.0 to 5.0.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#342](https://github.com/wantedly/frolint/pull/342) Bump @types/eslint from 6.1.7 to 6.1.8 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#340](https://github.com/wantedly/frolint/pull/340) Bump graphql-tag from 2.10.1 to 2.10.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#337](https://github.com/wantedly/frolint/pull/337) Bump @typescript-eslint/parser from 2.18.0 to 2.19.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#338](https://github.com/wantedly/frolint/pull/338) Bump eslint-plugin-react from 7.18.0 to 7.18.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#336](https://github.com/wantedly/frolint/pull/336) Bump eslint-plugin-import from 2.20.0 to 2.20.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#335](https://github.com/wantedly/frolint/pull/335) Bump ts-jest from 25.1.0 to 25.2.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#334](https://github.com/wantedly/frolint/pull/334) Bump @types/jest from 25.1.0 to 25.1.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#333](https://github.com/wantedly/frolint/pull/333) Bump ts-jest from 25.0.0 to 25.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Bug fix
+
+- `frolint`
+  - [#343](https://github.com/wantedly/frolint/pull/343) Add TSX into supportedLanguages to format `.tsx` file ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.4 (2020-01-30)
 
 #### Bug fix
