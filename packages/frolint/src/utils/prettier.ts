@@ -9,6 +9,7 @@ const supportedLanguages = [
   "Flow",
   "JSX",
   "TypeScript",
+  "TSX",
   "JSON.stringify",
   "JSON",
   "JSON with Comments",
