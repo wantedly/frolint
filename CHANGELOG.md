@@ -1,3 +1,16 @@
+## v0.9.6 (2020-02-12)
+
+#### Update dependencies
+
+- [#347](https://github.com/wantedly/frolint/pull/347) Bump eslint-plugin-jest from 23.6.0 to 23.7.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#351](https://github.com/wantedly/frolint/pull/351) Bump @typescript-eslint/eslint-plugin from 2.19.1 to 2.19.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#350](https://github.com/wantedly/frolint/pull/350) Bump @typescript-eslint/parser from 2.19.1 to 2.19.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#349](https://github.com/wantedly/frolint/pull/349) Bump @typescript-eslint/eslint-plugin from 2.19.0 to 2.19.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#348](https://github.com/wantedly/frolint/pull/348) Bump @typescript-eslint/parser from 2.19.0 to 2.19.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#346](https://github.com/wantedly/frolint/pull/346) Bump resolve from 1.15.0 to 1.15.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#345](https://github.com/wantedly/frolint/pull/345) Bump @types/jest from 25.1.1 to 25.1.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#344](https://github.com/wantedly/frolint/pull/344) Bump graphql-tag from 2.10.2 to 2.10.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.9.5 (2020-02-05)
 
 #### Update dependencies
