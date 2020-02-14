@@ -1,3 +1,10 @@
+## v0.9.7 (2020-02-14)
+
+#### Bug fix
+
+- `frolint`
+  - [#352](https://github.com/wantedly/frolint/pull/352) Do not use `**/*` ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.6 (2020-02-12)
 
 #### Update dependencies
