@@ -96,9 +96,7 @@ export function getAllFiles(isTypeScript: boolean, rootDir: string) {
     return [];
   }
 
-  const extensions = (isTypeScript ? [".js", ".jsx", ".ts", ".tsx"] : [".js", ".jsx"])
-    .map(ext => `"**/*${ext}"`)
-    .join(" ");
+  const extensions = (isTypeScript ? ["*.js", "*.jsx", "*.ts", "*.tsx"] : ["*.js", "*.jsx"]).join(" ");
 
   return execSync(`git ls-files ${extensions}`, { cwd: rootDir })
     .toString()
