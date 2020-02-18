@@ -1,3 +1,15 @@
+## v0.9.8 (2020-02-18)
+
+#### Update dependencies
+
+- [#354](https://github.com/wantedly/frolint/pull/354) Bump @typescript-eslint/parser from 2.19.2 to 2.20.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#353](https://github.com/wantedly/frolint/pull/353) Bump @typescript-eslint/eslint-plugin from 2.19.2 to 2.20.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Bug fix
+
+- `eslint-plugin-wantedly`
+  - [#355](https://github.com/wantedly/frolint/pull/355) Check the existence ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.7 (2020-02-14)
 
 #### Bug fix
