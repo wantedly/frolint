@@ -60,12 +60,29 @@ linter.defineRule(RULE_NAME, {
         const definitions = definitionProperty.value.body.body;
 
         definitions.forEach(expressionStatement => {
+          if (
+            !expressionStatement.expression ||
+            !expressionStatement.expression.callee ||
+            !expressionStatement.expression.callee.property ||
+            !expressionStatement.expression.callee.property.name
+          ) {
+            return;
+          }
           if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) {
+            return;
+          }
+          if (!expressionStatement.expression || expressionStatement.expression.arguments.length === 0) {
             return;
           }
 
           const fieldNameNode = expressionStatement.expression.arguments[0];
+          if (!fieldNameNode) {
+            return;
+          }
           const fieldName = fieldNameNode.value;
+          if (!fieldName) {
+            return;
+          }
           const camelCased = camelCase(fieldName);
 
           if (fieldName && camelCased && fieldName !== camelCased) {
