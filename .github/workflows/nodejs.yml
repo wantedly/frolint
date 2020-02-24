@@ -26,5 +26,4 @@ jobs:
           yarn install --frozen-lockfile
           yarn build
           yarn install --force --frozen-lockfile
-          yarn lint
           yarn test
