@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import { extname, resolve } from "path";
-import prettier, { BuiltInParserName } from "prettier";
+import prettier, { BuiltInParserName, ResolveConfigOptions } from "prettier";
 import prettierConfigWantedly from "prettier-config-wantedly";
 import { FrolintConfig } from "../Context";
 
@@ -42,7 +42,7 @@ export function applyPrettier(rootDir: string, files: string[], prettierConfig: 
       const filePath = resolve(rootDir, file);
       const options = prettierConfig.config
         ? { config: resolve(rootDir, prettierConfig.config) }
-        : prettierConfigWantedly;
+        : (prettierConfigWantedly as ResolveConfigOptions);
       const prettierOption = prettier.resolveConfig.sync(filePath, options);
 
       if (!prettierOption) {
