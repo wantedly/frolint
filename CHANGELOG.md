@@ -1,3 +1,18 @@
+## v0.9.9 (2020-02-24)
+
+#### Update dependencies
+
+- Other
+  - [#363](https://github.com/wantedly/frolint/pull/363) Invoke yarn upgrade ([@yamadayuki](https://github.com/yamadayuki))
+  - [#361](https://github.com/wantedly/frolint/pull/361) Bump @typescript-eslint/parser from 2.20.0 to 2.21.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#362](https://github.com/wantedly/frolint/pull/362) Bump @typescript-eslint/eslint-plugin from 2.20.0 to 2.21.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#360](https://github.com/wantedly/frolint/pull/360) Bump eslint-plugin-jest from 23.7.0 to 23.8.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#358](https://github.com/wantedly/frolint/pull/358) Bump ts-jest from 25.2.0 to 25.2.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#357](https://github.com/wantedly/frolint/pull/357) Bump @types/jest from 25.1.2 to 25.1.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#356](https://github.com/wantedly/frolint/pull/356) Bump eslint-plugin-react-hooks from 2.3.0 to 2.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `frolint`
+  - [#359](https://github.com/wantedly/frolint/pull/359) Bump typescript from 3.7.5 to 3.8.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v0.9.8 (2020-02-18)
 
 #### Update dependencies
