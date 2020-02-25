@@ -12,17 +12,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install deps, Build and Test
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
-          yarn lint:ci
-          yarn test
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint:ci
+
+      - name: Test
+        run: yarn test
