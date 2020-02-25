@@ -1,6 +1,6 @@
 # frolint
 
-[![CircleCI](https://circleci.com/gh/wantedly/frolint/tree/master.svg?style=svg)](https://circleci.com/gh/wantedly/frolint/tree/master)
+![Node CI](https://github.com/wantedly/frolint/workflows/Node%20CI/badge.svg)
 
 ## Packages
 

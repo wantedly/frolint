@@ -28,6 +28,7 @@
     "test:watch:frolint": "lerna exec \"npm run test -- --watch\" --scope frolint",
     "test:update": "lerna run --parallel test -- -u",
     "lint": "frolint --branch master",
+    "lint:ci": "frolint",
     "changelog": "yarn lerna-changelog",
     "build": "lerna run build --scope frolint",
     "build:watch": "lerna exec npm run build:watch --scope frolint",
