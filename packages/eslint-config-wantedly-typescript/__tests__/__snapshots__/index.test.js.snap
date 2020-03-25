@@ -192,7 +192,7 @@ Object {
   ],
   "arrow-parens": Array [
     "warn",
-    "as-needed",
+    "always",
   ],
   "arrow-spacing": Array [
     "off",
