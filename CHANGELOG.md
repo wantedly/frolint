@@ -1,3 +1,10 @@
+## v0.9.12 (2020-03-25)
+
+#### Bug fix
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#389](https://github.com/wantedly/frolint/pull/389) Use `arrow-parens` rule option as `always` ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.11 (2020-03-25)
 
 #### Update dependencies
