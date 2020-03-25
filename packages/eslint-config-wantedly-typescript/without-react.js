@@ -21,7 +21,7 @@ module.exports = {
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
-    "arrow-parens": ["warn", "as-needed"],
+    "arrow-parens": ["warn", "always"],
     "class-methods-use-this": "off",
     "comma-dangle": [
       "error",
