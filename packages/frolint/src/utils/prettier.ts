@@ -19,7 +19,7 @@ const supportedLanguages = [
 
 const supportedExtensions = prettier
   .getSupportInfo()
-  .languages.filter(lang => supportedLanguages.includes(lang.name))
+  .languages.filter((lang) => supportedLanguages.includes(lang.name))
   .reduce((acc, lang) => acc.concat(lang.extensions || []), [] as string[]);
 
 function isPrettierSupported(file: string) {
@@ -36,9 +36,9 @@ function isIgnoredForPrettier(file: string, prettierConfig: FrolintConfig["prett
 
 export function applyPrettier(rootDir: string, files: string[], prettierConfig: FrolintConfig["prettier"]) {
   return files
-    .filter(file => isPrettierSupported(file))
-    .filter(file => !isIgnoredForPrettier(file, prettierConfig))
-    .map(file => {
+    .filter((file) => isPrettierSupported(file))
+    .filter((file) => !isIgnoredForPrettier(file, prettierConfig))
+    .map((file) => {
       const filePath = resolve(rootDir, file);
       const options = prettierConfig.config
         ? { config: resolve(rootDir, prettierConfig.config) }

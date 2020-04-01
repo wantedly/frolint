@@ -6,9 +6,7 @@ import { END_COMMENT, START_COMMENT } from "./constants";
 
 export function isInsideGitRepository(cwd?: string) {
   try {
-    const res = execSync("git rev-parse --is-inside-work-tree", { cwd })
-      .toString()
-      .trim();
+    const res = execSync("git rev-parse --is-inside-work-tree", { cwd }).toString().trim();
     return res === "true";
   } catch (err) {
     return false;
@@ -20,12 +18,7 @@ export function isGitExist() {
 }
 
 export function getPreCommitHookPath(cwd?: string): string {
-  return resolve(
-    execSync("git rev-parse --git-path hooks", { cwd })
-      .toString()
-      .trim(),
-    "pre-commit"
-  );
+  return resolve(execSync("git rev-parse --git-path hooks", { cwd }).toString().trim(), "pre-commit");
 }
 
 export function isPreCommitHookInstalled() {
@@ -43,12 +36,7 @@ export function getGitRootDir(cwd: string) {
   }
 
   try {
-    return resolve(
-      cwd,
-      execSync("git rev-parse --show-cdup")
-        .toString()
-        .trimRight()
-    );
+    return resolve(cwd, execSync("git rev-parse --show-cdup").toString().trimRight());
   } catch (err) {
     return cwd;
   }
@@ -70,10 +58,7 @@ export function getUnstagedFiles(rootDir: string) {
     return [];
   }
 
-  return execSync("git diff --name-only --diff-filter=ACMRTUB", { cwd: rootDir })
-    .toString()
-    .trim()
-    .split("\n");
+  return execSync("git diff --name-only --diff-filter=ACMRTUB", { cwd: rootDir }).toString().trim().split("\n");
 }
 
 export function getChangedFilesFromBranch(branch: string, rootDir: string) {
@@ -81,9 +66,7 @@ export function getChangedFilesFromBranch(branch: string, rootDir: string) {
     return [];
   }
 
-  const commitHash = execSync(`git show-branch --merge-base ${branch} HEAD`, { cwd: rootDir })
-    .toString()
-    .trim();
+  const commitHash = execSync(`git show-branch --merge-base ${branch} HEAD`, { cwd: rootDir }).toString().trim();
 
   return execSync(`git diff --name-only --diff-filter=ACMRTUB ${commitHash}`, { cwd: rootDir })
     .toString()
@@ -98,10 +81,7 @@ export function getAllFiles(isTypeScript: boolean, rootDir: string) {
 
   const extensions = (isTypeScript ? ["*.js", "*.jsx", "*.ts", "*.tsx"] : ["*.js", "*.jsx"]).join(" ");
 
-  return execSync(`git ls-files ${extensions}`, { cwd: rootDir })
-    .toString()
-    .trim()
-    .split("\n");
+  return execSync(`git ls-files ${extensions}`, { cwd: rootDir }).toString().trim().split("\n");
 }
 
 export function stageFiles(files: string[], rootDir: string) {

@@ -16,7 +16,7 @@ module.exports = function createUseMacro(from, to, context) {
     TARGET_LIBRARY_INSTALLED = false;
   }
 
-  return function(node) {
+  return function (node) {
     const importName = node.source.value.trim();
 
     if (importName === from) {

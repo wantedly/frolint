@@ -45,13 +45,13 @@ linter.defineRule(RULE_NAME, {
           return;
         }
 
-        const nameProperty = argumentDef.properties.find(property => property.key.name === "name");
+        const nameProperty = argumentDef.properties.find((property) => property.key.name === "name");
         if (!nameProperty) {
           return;
         }
 
         const typeName = nameProperty.value.value;
-        const descriptionProperty = argumentDef.properties.find(property => property.key.name === "description");
+        const descriptionProperty = argumentDef.properties.find((property) => property.key.name === "description");
 
         if (!descriptionProperty) {
           return context.report({

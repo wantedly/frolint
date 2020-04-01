@@ -49,7 +49,7 @@ linter.defineRule(RULE_NAME, {
           return;
         }
 
-        const nameProperty = node.parent.properties.find(property => property.key.name === "name");
+        const nameProperty = node.parent.properties.find((property) => property.key.name === "name");
         if (!nameProperty) {
           return;
         }
@@ -57,7 +57,7 @@ linter.defineRule(RULE_NAME, {
 
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
-          elements.forEach(elem => {
+          elements.forEach((elem) => {
             if (elem.type === "Literal") {
               const value = elem.value || "";
               const upperCased = snakeCase(value).toUpperCase();
@@ -84,7 +84,7 @@ linter.defineRule(RULE_NAME, {
 
             if (elem.type === "ObjectExpression") {
               const properties = elem.properties;
-              const nameProperty = properties.find(property => property.key.name === "name");
+              const nameProperty = properties.find((property) => property.key.name === "name");
               if (!nameProperty || nameProperty.value.type !== "Literal") {
                 return;
               }
@@ -118,7 +118,7 @@ linter.defineRule(RULE_NAME, {
 
         if (node.value.type === "ObjectExpression") {
           const properties = node.value.properties;
-          properties.forEach(property => {
+          properties.forEach((property) => {
             const keyName = property.key.name || "";
             const upperCased = snakeCase(keyName).toUpperCase();
 
@@ -157,7 +157,7 @@ linter.defineRule(RULE_NAME, {
           }
 
           const maybeToken = tokensAndComments.find(
-            token => token.type === "Identifier" && token.value === membersVariableName
+            (token) => token.type === "Identifier" && token.value === membersVariableName
           );
           if (!maybeToken) {
             return;
@@ -180,7 +180,7 @@ linter.defineRule(RULE_NAME, {
              * e.g. const members = ["foo", "bar"]
              */
             const elements = parent.init.elements;
-            elements.forEach(elem => {
+            elements.forEach((elem) => {
               if (elem.type !== "Literal") {
                 return;
               }
@@ -213,7 +213,7 @@ linter.defineRule(RULE_NAME, {
              * e.g. const members = { foo: 1, bar: 2 }
              */
             const properties = parent.init.properties;
-            properties.forEach(property => {
+            properties.forEach((property) => {
               const keyName = property.key.name || "";
               const upperCased = snakeCase(keyName).toUpperCase();
 

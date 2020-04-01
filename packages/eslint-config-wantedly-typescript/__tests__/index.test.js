@@ -7,7 +7,7 @@ const engine = new CLIEngine({
   useEslintrc: false,
 });
 
-const normalizePath = path => {
+const normalizePath = (path) => {
   return /node_modules/.test(path) ? path.split("node_modules")[1] : path;
 };
 
@@ -17,7 +17,7 @@ describe("eslint-config-wantedly-typescript", () => {
 
   beforeAll(() => {
     const normalizeRequiredKeys = ["extends", "parser"];
-    normalizeRequiredKeys.forEach(key => {
+    normalizeRequiredKeys.forEach((key) => {
       const newConfig = config[key];
 
       if (Array.isArray(newConfig)) {
@@ -28,7 +28,7 @@ describe("eslint-config-wantedly-typescript", () => {
     });
   });
 
-  keys.forEach(key => {
+  keys.forEach((key) => {
     test(`should match snapshot for ${key}`, () => {
       expect(config[key]).toMatchSnapshot();
     });

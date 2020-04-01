@@ -50,7 +50,7 @@ linter.defineRule(RULE_NAME, {
         }
 
         const argumentDef = callExpression.arguments[0];
-        const targetNode = argumentDef.properties.find(property => property.key.name === "name").value;
+        const targetNode = argumentDef.properties.find((property) => property.key.name === "name").value;
         // If the value is template literal string, this line raises error
         const typeName = targetNode.value;
         const pascalCased = pascalCase(typeName);

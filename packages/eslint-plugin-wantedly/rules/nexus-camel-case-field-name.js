@@ -55,11 +55,11 @@ linter.defineRule(RULE_NAME, {
         }
 
         const definitionProperty = argument.properties.find(
-          property => property.key && property.key.type === "Identifier" && property.key.name === "definition"
+          (property) => property.key && property.key.type === "Identifier" && property.key.name === "definition"
         );
         const definitions = definitionProperty.value.body.body;
 
-        definitions.forEach(expressionStatement => {
+        definitions.forEach((expressionStatement) => {
           if (
             !expressionStatement.expression ||
             !expressionStatement.expression.callee ||
