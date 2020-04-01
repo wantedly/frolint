@@ -1,3 +1,14 @@
+## v1.0.0 (2020-04-01)
+
+#### Update dependencies
+
+- [#399](https://github.com/wantedly/frolint/pull/399) Bump @types/eslint from 6.1.8 to 6.1.9 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### New feature or improvement
+
+- `frolint`
+  - [#400](https://github.com/wantedly/frolint/pull/400) Add `--bail` option ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v0.9.13 (2020-03-31)
 
 #### Update dependencies
