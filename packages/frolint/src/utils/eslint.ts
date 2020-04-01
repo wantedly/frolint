@@ -53,5 +53,5 @@ export function applyEslint(
   eslintConfig: FrolintConfig["eslint"]
 ) {
   const cli = getCLI(rootDir, eslintConfigPackage, eslintConfig);
-  return cli.executeOnFiles(files.filter(isSupportedExtension).filter(file => !cli.isPathIgnored(file)));
+  return cli.executeOnFiles(files.filter(isSupportedExtension).filter((file) => !cli.isPathIgnored(file)));
 }

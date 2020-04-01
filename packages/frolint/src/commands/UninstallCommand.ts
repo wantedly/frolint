@@ -36,7 +36,7 @@ export class UninstallCommand extends Command<FrolintContext> {
       const newContent: string[] = [];
       const lines = content.split("\n");
       let ignore = false;
-      lines.forEach(line => {
+      lines.forEach((line) => {
         if (line === START_COMMENT) {
           ignore = true;
         }

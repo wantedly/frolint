@@ -41,7 +41,7 @@ linter.defineRule(RULE_NAME, {
           return;
         }
 
-        const nameProperty = node.parent.properties.find(property => property.key.name === "name");
+        const nameProperty = node.parent.properties.find((property) => property.key.name === "name");
         if (!nameProperty) {
           return;
         }
@@ -49,7 +49,7 @@ linter.defineRule(RULE_NAME, {
 
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
-          elements.forEach(elem => {
+          elements.forEach((elem) => {
             if (elem.type === "Literal") {
               if (!elem.value) {
                 return;
@@ -67,12 +67,12 @@ linter.defineRule(RULE_NAME, {
 
             if (elem.type === "ObjectExpression") {
               const properties = elem.properties;
-              const nameProperty = properties.find(property => property.key.name === "name");
+              const nameProperty = properties.find((property) => property.key.name === "name");
               if (!nameProperty) {
                 return;
               }
 
-              const descriptionProperty = properties.find(property => property.key.name === "description");
+              const descriptionProperty = properties.find((property) => property.key.name === "description");
               if (!descriptionProperty) {
                 return context.report({
                   node: elem,
@@ -130,7 +130,7 @@ linter.defineRule(RULE_NAME, {
           }
 
           const maybeToken = tokensAndComments.find(
-            token => token.type === "Identifier" && token.value === membersVariableName
+            (token) => token.type === "Identifier" && token.value === membersVariableName
           );
           if (!maybeToken) {
             return;
@@ -153,7 +153,7 @@ linter.defineRule(RULE_NAME, {
              * e.g. const members = ["foo", "bar"]
              */
             const elements = parent.init.elements;
-            elements.forEach(elem => {
+            elements.forEach((elem) => {
               if (elem.type === "Literal") {
                 if (!elem.value) {
                   return;
@@ -171,12 +171,12 @@ linter.defineRule(RULE_NAME, {
 
               if (elem.type === "ObjectExpression") {
                 const properties = elem.properties;
-                const nameProperty = properties.find(property => property.key.name === "name");
+                const nameProperty = properties.find((property) => property.key.name === "name");
                 if (!nameProperty) {
                   return;
                 }
 
-                const descriptionProperty = properties.find(property => property.key.name === "description");
+                const descriptionProperty = properties.find((property) => property.key.name === "description");
                 if (!descriptionProperty) {
                   return context.report({
                     node: elem,

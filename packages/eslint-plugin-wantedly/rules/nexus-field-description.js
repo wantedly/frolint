@@ -47,11 +47,11 @@ linter.defineRule(RULE_NAME, {
         }
 
         const definitionProperty = argument.properties.find(
-          property => property.key && property.key.type === "Identifier" && property.key.name === "definition"
+          (property) => property.key && property.key.type === "Identifier" && property.key.name === "definition"
         );
         const definitions = definitionProperty.value.body.body;
 
-        definitions.forEach(expressionStatement => {
+        definitions.forEach((expressionStatement) => {
           if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) {
             return;
           }
@@ -74,7 +74,7 @@ linter.defineRule(RULE_NAME, {
           }
 
           const descriptionProperty = fieldConfigNode.properties.find(
-            property => property.key && property.key.type === "Identifier" && property.key.name === "description"
+            (property) => property.key && property.key.type === "Identifier" && property.key.name === "description"
           );
           if (!descriptionProperty) {
             return context.report({
