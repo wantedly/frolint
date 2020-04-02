@@ -38,7 +38,7 @@
     "@types/cosmiconfig": "^6.0.0",
     "@types/eslint": "^6.1.7",
     "@types/mock-fs": "^4.10.0",
-    "@types/prettier": "^1.19.0",
+    "@types/prettier": "^2.0.0",
     "@types/resolve": "^1.14.0"
   },
   "jest": {
