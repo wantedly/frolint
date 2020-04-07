@@ -1,3 +1,14 @@
+## v1.0.2 (2020-04-07)
+
+#### Update dependencies
+
+- [#411](https://github.com/wantedly/frolint/pull/411) Bump styled-components from 5.0.1 to 5.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Bug fix
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#412](https://github.com/wantedly/frolint/pull/412) Fix space before function paren option ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v1.0.1 (2020-04-07)
 
 #### Update dependencies
