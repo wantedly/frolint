@@ -538,7 +538,7 @@ Object {
   "space-before-function-paren": Array [
     "warn",
     Object {
-      "anonymous": "never",
+      "anonymous": "always",
       "asyncArrow": "always",
       "named": "never",
     },
