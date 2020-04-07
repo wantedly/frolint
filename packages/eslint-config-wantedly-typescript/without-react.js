@@ -110,7 +110,7 @@ module.exports = {
     "prefer-template": "warn",
     "quote-props": ["warn", "as-needed"],
     "require-yield": "error",
-    "space-before-function-paren": ["warn", { anonymous: "never", asyncArrow: "always", named: "never" }],
+    "space-before-function-paren": ["warn", { anonymous: "always", asyncArrow: "always", named: "never" }],
     "use-isnan": "error",
     "valid-typeof": "error",
     camelcase: "off",
