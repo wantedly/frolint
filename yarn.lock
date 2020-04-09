@@ -8029,9 +8029,9 @@ saxes@^3.1.9:
     xmlchars "^2.1.1"
 
 scaffdog@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/scaffdog/-/scaffdog-0.2.0.tgz#f7cbb9cf7842e2b285f46a69cfc9f56722dd9323"
-  integrity sha512-7uud3cgg94SDHXASK0Ogh4JkUdsu+kK9MoXfTKVGOYctYul8QdVFeSM21ZbqvDAWAcpARADscdpoia/5wD2RgQ==
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/scaffdog/-/scaffdog-0.2.1.tgz#c927ca158593c8434586f4995e0b3f5e929f3b09"
+  integrity sha512-wW9H0tcus4J2hhj9pTVmhOZjzUSwcoiT8iQtLCdl6hc/MliB9hr1YTuL0XbHus41CN9PMUANN5tf7DDDA0Uz/w==
   dependencies:
     "@types/node" "^12.12.15"
     chalk "^3.0.0"
