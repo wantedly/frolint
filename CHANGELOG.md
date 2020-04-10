@@ -1,3 +1,13 @@
+## v1.0.3 (2020-04-10)
+
+#### Update dependencies
+
+- `frolint`
+  - [#415](https://github.com/wantedly/frolint/pull/415) Bump chalk from 3.0.0 to 4.0.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Other
+  - [#414](https://github.com/wantedly/frolint/pull/414) Bump scaffdog from 0.2.0 to 0.2.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#413](https://github.com/wantedly/frolint/pull/413) Bump jest from 25.2.7 to 25.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v1.0.2 (2020-04-07)
 
 #### Update dependencies
