@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import { Command } from "clipanion";
 import { writeFileSync } from "fs";
 import { relative, resolve } from "path";
@@ -15,7 +16,6 @@ import {
 } from "../utils/git";
 import { applyPrettier } from "../utils/prettier";
 import { reportToConsole } from "../utils/report";
-import chalk from "chalk";
 
 export class DefaultCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
