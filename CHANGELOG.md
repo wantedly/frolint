@@ -1,3 +1,14 @@
+## v1.0.4 (2020-04-16)
+
+#### Update dependencies
+
+- [#421](https://github.com/wantedly/frolint/pull/421) Bump command-exists from 1.2.8 to 1.2.9 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#420](https://github.com/wantedly/frolint/pull/420) Bump scaffdog from 0.2.2 to 0.2.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#416](https://github.com/wantedly/frolint/pull/416) Bump @typescript-eslint/eslint-plugin from 2.27.0 to 2.28.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#417](https://github.com/wantedly/frolint/pull/417) Bump scaffdog from 0.2.1 to 0.2.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#418](https://github.com/wantedly/frolint/pull/418) Bump @typescript-eslint/parser from 2.27.0 to 2.28.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#419](https://github.com/wantedly/frolint/pull/419) Bump eslint-plugin-prettier from 3.1.2 to 3.1.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v1.0.3 (2020-04-10)
 
 #### Update dependencies
