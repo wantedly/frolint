@@ -6,15 +6,15 @@
   "bin": "index.js",
   "dependencies": {
     "chalk": "^4.0.0",
-    "clipanion": "^2.1.6",
-    "command-exists": "^1.2.8",
+    "clipanion": "^2.3.0",
+    "command-exists": "^1.2.9",
     "cosmiconfig": "^6.0.0",
     "eslint": "^6.8.0",
     "eslint-config-wantedly": "^1.0.3",
     "eslint-config-wantedly-typescript": "^1.0.3",
-    "prettier": "^2.0.2",
+    "prettier": "^2.0.4",
     "prettier-config-wantedly": "^1.0.3",
-    "resolve": "^1.15.0"
+    "resolve": "^1.16.0"
   },
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
