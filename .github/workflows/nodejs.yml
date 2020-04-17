@@ -36,6 +36,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Debug git operation
+        run: git diff-index --name-only HEAD
+
       - name: Lint
         run: yarn lint:ci
 
