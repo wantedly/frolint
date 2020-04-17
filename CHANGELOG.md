@@ -1,3 +1,10 @@
+## v1.0.5 (2020-04-17)
+
+#### New feature or improvement
+
+- `frolint`
+  - [#422](https://github.com/wantedly/frolint/pull/422) Add `--expect-no-diff` option ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v1.0.4 (2020-04-16)
 
 #### Update dependencies
