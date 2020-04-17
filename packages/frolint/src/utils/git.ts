@@ -99,7 +99,11 @@ export function getChangedFiles(rootDir: string) {
     return [];
   }
 
-  return execSync("git diff-index --name-only HEAD", { cwd: rootDir }).toString().trim().split("\n");
+  return execSync("git diff-index --name-only HEAD", { cwd: rootDir })
+    .toString()
+    .trim()
+    .split("\n")
+    .filter((filename) => filename.length > 0);
 }
 
 export function hasChangedFiles(rootDir: string) {
