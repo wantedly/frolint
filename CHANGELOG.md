@@ -1,3 +1,10 @@
+## v1.0.6 (2020-04-17)
+
+#### Bug fix
+
+- `frolint`
+  - [#423](https://github.com/wantedly/frolint/pull/423) Check the filename has length in `--expect-no-diff` option ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v1.0.5 (2020-04-17)
 
 #### New feature or improvement
