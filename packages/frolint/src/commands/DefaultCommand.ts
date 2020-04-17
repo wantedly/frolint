@@ -10,6 +10,7 @@ import {
   getGitRootDir,
   getStagedFiles,
   getUnstagedFiles,
+  hasChangedFiles,
   isGitExist,
   isInsideGitRepository,
   stageFiles,
@@ -50,6 +51,9 @@ export class DefaultCommand extends Command<FrolintContext> {
 
   @Command.String("-b,--branch")
   private branch?: string;
+
+  @Command.Boolean("--expect-no-diff")
+  private expectNoDiff = false;
 
   @Command.String("-f,--formatter")
   private formatter?: string;
@@ -161,7 +165,15 @@ export class DefaultCommand extends Command<FrolintContext> {
 
     if (this.bail) {
       const errors = reported.reduce((acc, { errorCount }) => acc + errorCount, 0);
-      return errors > 0 ? 1 : 0;
+      if (errors > 0) {
+        return 1;
+      }
+    }
+
+    if (this.expectNoDiff && hasChangedFiles(this.context.cwd)) {
+      console.log(chalk.red(`You specified \`--expect-no-diff\` option but you have some changed files.`));
+
+      return 1;
     }
 
     return 0;

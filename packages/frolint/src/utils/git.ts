@@ -93,3 +93,19 @@ export function stageFiles(files: string[], rootDir: string) {
     execSync(`git add ${files.join(" ")}`, { cwd: rootDir });
   }
 }
+
+export function getChangedFiles(rootDir: string) {
+  if (!isGitExist()) {
+    return [];
+  }
+
+  return execSync("git diff-index --name-only HEAD", { cwd: rootDir }).toString().trim().split("\n");
+}
+
+export function hasChangedFiles(rootDir: string) {
+  if (!isGitExist()) {
+    return false;
+  }
+
+  return getChangedFiles(rootDir).length > 0;
+}
