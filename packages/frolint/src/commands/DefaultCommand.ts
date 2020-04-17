@@ -27,8 +27,9 @@ export class DefaultCommand extends Command<FrolintContext> {
       ${chalk.bold("Options:")}
 
       --typescript: Use @typescript-eslint/parser as ESLint parser
-      --bail: Fail out on the error instead of tolerating it
       -b,--branch <branch name>: Find the changed files from the specified branch
+      --expect-no-diff: Fail when the changed files exist
+      --expect-no-errors: Fail out on the error instead of tolerating it (previously --bail option)
       -f,--formatter <format>: Print the report with specified format
       --no-stage: Do not stage the files which have the changes made by ESLint and Prettier auto fix functionality
     `,
@@ -46,14 +47,14 @@ export class DefaultCommand extends Command<FrolintContext> {
   @Command.Boolean("--typescript")
   private typescript = true;
 
-  @Command.Boolean("--bail")
-  private bail = false;
-
   @Command.String("-b,--branch")
   private branch?: string;
 
   @Command.Boolean("--expect-no-diff")
   private expectNoDiff = false;
+
+  @Command.Boolean("--expect-no-errors,--bail")
+  private expectNoErrors = false;
 
   @Command.String("-f,--formatter")
   private formatter?: string;
@@ -163,7 +164,7 @@ export class DefaultCommand extends Command<FrolintContext> {
       }
     }
 
-    if (this.bail) {
+    if (this.expectNoErrors) {
       const errors = reported.reduce((acc, { errorCount }) => acc + errorCount, 0);
       if (errors > 0) {
         return 1;
