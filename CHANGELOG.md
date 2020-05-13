@@ -1,3 +1,43 @@
+## v1.0.7 (2020-05-13)
+
+#### Update dependencies
+
+- Other
+  - [#461](https://github.com/wantedly/frolint/pull/461) Bump eslint-plugin-react from 7.19.0 to 7.20.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#455](https://github.com/wantedly/frolint/pull/455) Bump @typescript-eslint/parser from 2.32.0 to 2.33.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#460](https://github.com/wantedly/frolint/pull/460) Bump @typescript-eslint/eslint-plugin from 2.32.0 to 2.33.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#459](https://github.com/wantedly/frolint/pull/459) Bump @types/jest from 25.2.1 to 25.2.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#458](https://github.com/wantedly/frolint/pull/458) Bump eslint-plugin-react-hooks from 4.0.1 to 4.0.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#457](https://github.com/wantedly/frolint/pull/457) Bump lerna from 3.20.2 to 3.21.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#456](https://github.com/wantedly/frolint/pull/456) Bump typescript from 3.8.3 to 3.9.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#454](https://github.com/wantedly/frolint/pull/454) Bump @types/resolve from 1.17.0 to 1.17.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#449](https://github.com/wantedly/frolint/pull/449) Bump @typescript-eslint/eslint-plugin from 2.30.0 to 2.32.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#450](https://github.com/wantedly/frolint/pull/450) Bump @typescript-eslint/parser from 2.30.0 to 2.32.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#452](https://github.com/wantedly/frolint/pull/452) Bump eslint-plugin-jest from 23.8.2 to 23.11.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#451](https://github.com/wantedly/frolint/pull/451) Bump ts-jest from 25.5.0 to 25.5.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#447](https://github.com/wantedly/frolint/pull/447) Bump ts-jest from 25.4.0 to 25.5.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#446](https://github.com/wantedly/frolint/pull/446) Bump @types/resolve from 1.14.0 to 1.17.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#443](https://github.com/wantedly/frolint/pull/443) Bump jest from 25.5.3 to 25.5.4 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#441](https://github.com/wantedly/frolint/pull/441) Bump jest from 25.5.2 to 25.5.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#439](https://github.com/wantedly/frolint/pull/439) Bump jest from 25.5.1 to 25.5.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#438](https://github.com/wantedly/frolint/pull/438) Bump jest from 25.5.0 to 25.5.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#437](https://github.com/wantedly/frolint/pull/437) Bump jest from 25.4.0 to 25.5.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#433](https://github.com/wantedly/frolint/pull/433) Bump resolve from 1.16.1 to 1.17.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#435](https://github.com/wantedly/frolint/pull/435) Bump @typescript-eslint/eslint-plugin from 2.29.0 to 2.30.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#436](https://github.com/wantedly/frolint/pull/436) Bump @typescript-eslint/parser from 2.29.0 to 2.30.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#434](https://github.com/wantedly/frolint/pull/434) Bump mock-fs from 4.11.0 to 4.12.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#428](https://github.com/wantedly/frolint/pull/428) Bump @typescript-eslint/eslint-plugin from 2.28.0 to 2.29.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#429](https://github.com/wantedly/frolint/pull/429) Bump @typescript-eslint/parser from 2.28.0 to 2.29.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#431](https://github.com/wantedly/frolint/pull/431) Bump prettier from 2.0.4 to 2.0.5 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#430](https://github.com/wantedly/frolint/pull/430) Bump resolve from 1.16.0 to 1.16.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#427](https://github.com/wantedly/frolint/pull/427) Bump jest from 25.3.0 to 25.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#426](https://github.com/wantedly/frolint/pull/426) Bump ts-jest from 25.3.1 to 25.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#425](https://github.com/wantedly/frolint/pull/425) Bump clipanion from 2.3.0 to 2.3.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#453](https://github.com/wantedly/frolint/pull/453) Bump eslint-plugin-react-hooks from 3.0.0 to 4.0.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `frolint`
+  - [#432](https://github.com/wantedly/frolint/pull/432) Bump eslint-config-prettier from 6.10.1 to 6.11.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## v1.0.6 (2020-04-17)
 
 #### Bug fix
