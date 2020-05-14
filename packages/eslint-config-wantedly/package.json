@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-wantedly",
   "description": "ESLint configuration for Wantedly",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
     "babel-eslint": "^10.1.0",
@@ -13,7 +13,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.2",
-    "eslint-plugin-use-macros": "^1.0.6"
+    "eslint-plugin-use-macros": "^1.0.7"
   },
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
