@@ -276,6 +276,9 @@ Object {
   "no-dupe-class-members": Array [
     "error",
   ],
+  "no-dupe-else-if": Array [
+    "error",
+  ],
   "no-dupe-keys": Array [
     "error",
   ],
@@ -316,6 +319,9 @@ Object {
     "error",
   ],
   "no-global-assign": Array [
+    "error",
+  ],
+  "no-import-assign": Array [
     "error",
   ],
   "no-inner-declarations": Array [
@@ -397,6 +403,9 @@ Object {
     "off",
   ],
   "no-self-assign": Array [
+    "error",
+  ],
+  "no-setter-return": Array [
     "error",
   ],
   "no-shadow": Array [
