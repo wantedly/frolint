@@ -9,7 +9,7 @@
     "clipanion": "^2.3.1",
     "command-exists": "^1.2.9",
     "cosmiconfig": "^6.0.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-config-wantedly": "^1.0.7",
     "eslint-config-wantedly-typescript": "^1.0.7",
     "prettier": "^2.0.5",

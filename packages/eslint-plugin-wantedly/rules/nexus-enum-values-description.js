@@ -136,7 +136,7 @@ linter.defineRule(RULE_NAME, {
             return;
           }
 
-          const tokenStartIndex = maybeToken.start || maybeToken.range[0];
+          const tokenStartIndex = maybeToken.range[0];
           const maybeNode = sourceCode.getNodeByRangeIndex(tokenStartIndex);
           if (!maybeNode) {
             return;
