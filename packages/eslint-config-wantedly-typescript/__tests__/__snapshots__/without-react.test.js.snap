@@ -58,13 +58,6 @@ Object {
   "@typescript-eslint/brace-style": Array [
     "off",
   ],
-  "@typescript-eslint/camelcase": Array [
-    "error",
-    Object {
-      "ignoreDestructuring": true,
-      "properties": "never",
-    },
-  ],
   "@typescript-eslint/comma-spacing": Array [
     "off",
   ],
@@ -82,7 +75,7 @@ Object {
     },
   ],
   "@typescript-eslint/explicit-module-boundary-types": Array [
-    "warn",
+    "off",
   ],
   "@typescript-eslint/func-call-spacing": Array [
     "error",
@@ -207,7 +200,12 @@ Object {
     "off",
   ],
   "camelcase": Array [
-    "off",
+    "error",
+    Object {
+      "ignoreDestructuring": true,
+      "ignoreImports": false,
+      "properties": "never",
+    },
   ],
   "class-methods-use-this": Array [
     "off",
