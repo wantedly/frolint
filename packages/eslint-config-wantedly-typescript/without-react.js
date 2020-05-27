@@ -113,19 +113,19 @@ module.exports = {
     "space-before-function-paren": ["warn", { anonymous: "always", asyncArrow: "always", named: "never" }],
     "use-isnan": "error",
     "valid-typeof": "error",
-    camelcase: "off",
+    camelcase: ["error", { ignoreDestructuring: true, properties: "never" }],
     eqeqeq: "error",
     indent: "off",
     quotes: ["off"],
     semi: "off",
 
     // @typescript-eslint/eslint-plugin rules
-    "@typescript-eslint/camelcase": ["error", { ignoreDestructuring: true, properties: "never" }],
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/explicit-member-accessibility": [
       "error",
       { overrides: { constructors: "no-public", parameterProperties: "no-public", accessors: "no-public" } },
     ],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
     "@typescript-eslint/func-call-spacing": ["error", "never"],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-array-constructor": "error",
