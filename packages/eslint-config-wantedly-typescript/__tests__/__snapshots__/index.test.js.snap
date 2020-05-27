@@ -51,7 +51,7 @@ Object {
   "@typescript-eslint/adjacent-overload-signatures": Array [
     "error",
   ],
-  "@typescript-eslint/ban-ts-ignore": Array [
+  "@typescript-eslint/ban-ts-comment": Array [
     "error",
   ],
   "@typescript-eslint/ban-types": Array [
@@ -64,18 +64,11 @@ Object {
     "error",
     Object {
       "ignoreDestructuring": true,
-      "ignoreImports": false,
       "properties": "never",
     },
   ],
-  "@typescript-eslint/class-name-casing": Array [
-    "error",
-  ],
   "@typescript-eslint/comma-spacing": Array [
     "off",
-  ],
-  "@typescript-eslint/consistent-type-assertions": Array [
-    "error",
   ],
   "@typescript-eslint/explicit-function-return-type": Array [
     "off",
@@ -90,15 +83,15 @@ Object {
       },
     },
   ],
+  "@typescript-eslint/explicit-module-boundary-types": Array [
+    "warn",
+  ],
   "@typescript-eslint/func-call-spacing": Array [
     "error",
     "never",
   ],
   "@typescript-eslint/indent": Array [
     "off",
-  ],
-  "@typescript-eslint/interface-name-prefix": Array [
-    "error",
   ],
   "@typescript-eslint/keyword-spacing": Array [
     "off",
@@ -118,6 +111,9 @@ Object {
   "@typescript-eslint/no-explicit-any": Array [
     "off",
   ],
+  "@typescript-eslint/no-extra-non-null-assertion": Array [
+    "error",
+  ],
   "@typescript-eslint/no-extra-parens": Array [
     "off",
   ],
@@ -134,6 +130,9 @@ Object {
     "error",
   ],
   "@typescript-eslint/no-namespace": Array [
+    "error",
+  ],
+  "@typescript-eslint/no-non-null-asserted-optional-chain": Array [
     "error",
   ],
   "@typescript-eslint/no-non-null-assertion": Array [
@@ -157,6 +156,9 @@ Object {
     "off",
   ],
   "@typescript-eslint/no-var-requires": Array [
+    "error",
+  ],
+  "@typescript-eslint/prefer-as-const": Array [
     "error",
   ],
   "@typescript-eslint/prefer-namespace-keyword": Array [
@@ -444,6 +446,9 @@ Object {
   "no-global-assign": Array [
     "error",
   ],
+  "no-import-assign": Array [
+    "off",
+  ],
   "no-inner-declarations": Array [
     "error",
   ],
@@ -518,6 +523,9 @@ Object {
   ],
   "no-self-assign": Array [
     "error",
+  ],
+  "no-setter-return": Array [
+    "off",
   ],
   "no-shadow": Array [
     "off",
