@@ -1,3 +1,13 @@
+## 2.0.1 (2020-05-27)
+
+#### Update dependencies
+* `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  * [#478](https://github.com/wantedly/frolint/pull/478) Update versions in dependencies and devDependencies ([@yamadayuki](https://github.com/yamadayuki))
+
+#### New feature or improvement
+* `frolint`
+  * [#479](https://github.com/wantedly/frolint/pull/479) Introduce print-config subcommand ([@yamadayuki](https://github.com/yamadayuki))
+
 ## 2.0.0 (2020-05-27)
 
 **This version including breaking changes.** Because the `@typescript-eslint/parser` and `@typescript-eslint/eslint-plugin` are bumped up to 3.x.
