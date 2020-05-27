@@ -5,6 +5,7 @@ import { ExportCommand } from "./commands/ExportCommand";
 import { HelpCommand } from "./commands/HelpCommand";
 import { InstallCommand } from "./commands/InstallCommand";
 import { PreCommitCommand } from "./commands/PreCommitCommand";
+import { PrintConfigCommand } from "./commands/PrintConfigCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
 import { FrolintConfig, FrolintContext } from "./Context";
@@ -23,6 +24,7 @@ cli.register(ExportCommand);
 cli.register(HelpCommand);
 cli.register(InstallCommand);
 cli.register(PreCommitCommand);
+cli.register(PrintConfigCommand);
 cli.register(UninstallCommand);
 cli.register(VersionCommand);
 
