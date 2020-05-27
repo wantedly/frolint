@@ -4,14 +4,15 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^25.1.0",
-    "jest": "^25.1.0",
-    "lerna": "^3.20.2",
-    "lerna-changelog": "^1.0.0",
-    "mock-fs": "^4.10.4",
-    "scaffdog": "^0.2.0",
-    "ts-jest": "^25.0.0",
-    "typescript": "^3.7.5"
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "lerna": "^3.22.0",
+    "lerna-changelog": "^1.0.1",
+    "mock-fs": "^4.12.0",
+    "pacote": "^11.1.10",
+    "scaffdog": "^0.2.3",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
   },
   "workspaces": [
     "packages/*"
