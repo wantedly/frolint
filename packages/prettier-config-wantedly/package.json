@@ -1,6 +1,6 @@
 {
   "name": "prettier-config-wantedly",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Prettier configuration for Wantedly",
   "keywords": [
     "prettier"
