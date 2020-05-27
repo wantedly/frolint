@@ -19,7 +19,7 @@ exports[`eslint-config-wantedly-typescript should match snapshot for ignorePatte
 
 exports[`eslint-config-wantedly-typescript should match snapshot for noInlineConfig 1`] = `undefined`;
 
-exports[`eslint-config-wantedly-typescript should match snapshot for parser 1`] = `"/@typescript-eslint/parser/dist/parser.js"`;
+exports[`eslint-config-wantedly-typescript should match snapshot for parser 1`] = `"/@typescript-eslint/parser/dist/index.js"`;
 
 exports[`eslint-config-wantedly-typescript should match snapshot for parserOptions 1`] = `
 Object {
