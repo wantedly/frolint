@@ -24,8 +24,8 @@
     "snake-case": "^3.0.3"
   },
   "devDependencies": {
-    "eslint": "^7.0.0",
-    "graphql": "^14.6.0"
+    "eslint": "^7.1.0",
+    "graphql": "^15.0.0"
   },
   "peerDependencies": {
     "eslint": "^6.0.0",
