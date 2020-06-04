@@ -17,3 +17,4 @@ And then, you use it in Prettier configraiton.
 ```
 "prettier-config-wantedly"
 ```
+ 

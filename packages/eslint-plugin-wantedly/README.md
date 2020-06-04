@@ -24,3 +24,4 @@ This plugin provides the opinionated rules in Wantedly.
   - Check the enum members are UPPER_CASE if the code using `nexus`
 - [`wantedly/nexus-type-description`](./docs/rules/nexus-type-description.md)
   - Validate that the types have descriptions if the code using `nexus`
+ 

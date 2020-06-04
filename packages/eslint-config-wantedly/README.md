@@ -23,3 +23,4 @@ Using `babel-eslint`
 ### Rules
 
 See [index.js](https://github.com/wantedly/frolint/blob/master/packages/eslint-config-wantedly/index.js#L21-L117)
+ 
