@@ -1,5 +1,5 @@
 repo:
-- any: ["./**/*", "!packages/**/*"]
+  - any: ["!packages/**/*"]
 
 eslint-config-wantedly-typescript:
   - packages/eslint-config-wantedly-typescript/**/*
