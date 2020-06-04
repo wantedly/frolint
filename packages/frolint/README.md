@@ -162,4 +162,3 @@ Now, `frolint` supports Prettier. So `frolint` command format the code automatic
   }
 }
 ```
- 

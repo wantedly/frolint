@@ -25,4 +25,3 @@ Using `@typescript-eslint/parser`
 ### Rules
 
 See [index.js](https://github.com/wantedly/frolint/blob/master/packages/eslint-config-wantedly-typescript/index.js#L26-L162)
- 

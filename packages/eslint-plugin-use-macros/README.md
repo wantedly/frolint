@@ -44,4 +44,3 @@ const QUERY = gql`
   }
 `;
 ```
- 
