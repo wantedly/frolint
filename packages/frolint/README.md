@@ -48,22 +48,76 @@ If you want to know the options, `frolint --help` is helpful.
 
 ```
 $ yarn frolint --help
-yarn run v1.13.0
+yarn run v1.22.4
 $ /Users/yamadayuki/dev/src/github.com/wantedly/frolint/node_modules/.bin/frolint --help
+FROntend LINt Tool - 2.0.1
 
-frolint - FROntend LINT tool integrated into git pre-commit hook
+  $ frolint <command>
+
+Where <command> is one of:
+
+  frolint --version
+    print version
+
+  frolint [--typescript] [-b,--branch #0] [--expect-no-diff] [--expect-no-errors,--bail] [-f,--formatter #0] [--no-stage]
+    apply ESLint and Prettier
+
+  frolint export
+    export config files when the files are not exist
+
+  frolint print-config <filepath>
+    Print the configuration for the given file
+
+Around .git/hooks/pre-commit:
+
+  frolint install
+    install git pre-commit hook for frolint
+
+  frolint uninstall
+    uninstall git pre-commit hook for frolint
+
+You can also print more details about any of these commands by calling them
+after adding the `-h,--help` flag right after the command name.
+Apply ESLint and Prettier
 
 Usage:
-  frolint [flags]
 
-Available Flags:
-  -h, --help        help for frolint
-  -f, --formatter   the ESLint formatter to print lint errors and warnings
-  -b, --branch      target branch to compare the file diff
-      --no-stage    frolint stages the files automatically if auto fixable
-                    errors are found. If you set this option as true,
-                    frolint does not stage the fixed files
-      --no-git      use frolint without git integrations
+$ frolint [--typescript] [-b,--branch #0] [--expect-no-diff] [--expect-no-errors,--bail] [-f,--formatter #0] [--no-stage]
+
+Details:
+
+Apply ESLint and Prettier. It infers the affected files which are changed from
+base branch using git.
+
+Options:
+
+--typescript: Use @typescript-eslint/parser as ESLint parser
+
+-b,--branch <branch name>: Find the changed files from the specified branch
+
+--expect-no-diff: Fail when the changed files exist
+
+--expect-no-errors: Fail out on the error instead of tolerating it (previously
+--bail option)
+
+-f,--formatter <format>: Print the report with specified format
+
+--no-stage: Do not stage the files which have the changes made by ESLint and
+Prettier auto fix functionality
+
+Examples:
+
+Default usage
+  $ yarn frolint
+
+Diff with the specified branch
+  $ yarn frolint --branch master
+
+Print report as stylish
+  $ yarn frolint --formatter stylish
+
+Use with reviewdog
+  $ yarn frolint --formatter checkstyle | reviewdog -f=checkstyle -name="lint" -reporter=github-pr-review
 ```
 
 In non git project, help option provides specific helps as below:
