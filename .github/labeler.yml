@@ -1,0 +1,20 @@
+repo:
+  - any: ["./**/*", "!packages/**/*"]
+
+eslint-config-wantedly-typescript:
+  - packages/eslint-config-wantedly-typescript/**/*
+
+eslint-config-wantedly:
+  - packages/eslint-config-wantedly/**/*
+
+eslint-plugin-use-macros:
+  - packages/eslint-plugin-use-macros/**/*
+
+eslint-plugin-wantedly:
+  - packages/eslint-plugin-wantedly/**/*
+
+frolint:
+  - packages/frolint/**/*
+
+prettier-config-wantedly:
+  - packages/prettier-config-wantedly/**/*
