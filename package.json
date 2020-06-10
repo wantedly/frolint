@@ -6,13 +6,13 @@
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "jest": "^26.0.1",
-    "lerna": "^3.22.0",
+    "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
     "mock-fs": "^4.12.0",
     "pacote": "^11.1.10",
     "scaffdog": "^0.2.3",
-    "ts-jest": "^26.0.0",
-    "typescript": "^3.9.3"
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
   },
   "workspaces": [
     "packages/*"
