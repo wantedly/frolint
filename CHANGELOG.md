@@ -1,12 +1,33 @@
+## 2.0.2 (2020-06-10)
+
+#### Update dependencies
+
+- [#492](https://github.com/wantedly/frolint/pull/492) Bump @types/jest from 25.2.3 to 26.0.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#489](https://github.com/wantedly/frolint/pull/489) Bump @typescript-eslint/parser from 3.1.0 to 3.2.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#493](https://github.com/wantedly/frolint/pull/493) Bump chalk from 4.0.0 to 4.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#494](https://github.com/wantedly/frolint/pull/494) Bump lerna from 3.22.0 to 3.22.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#491](https://github.com/wantedly/frolint/pull/491) Bump @typescript-eslint/eslint-plugin from 3.1.0 to 3.2.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#490](https://github.com/wantedly/frolint/pull/490) Bump eslint-plugin-import from 2.21.0 to 2.21.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#487](https://github.com/wantedly/frolint/pull/487) Bump eslint-plugin-import from 2.20.2 to 2.21.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#488](https://github.com/wantedly/frolint/pull/488) Bump eslint from 7.1.0 to 7.2.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#486](https://github.com/wantedly/frolint/pull/486) Bump graphql from 15.0.0 to 15.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#485](https://github.com/wantedly/frolint/pull/485) Bump typescript from 3.9.3 to 3.9.5 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#481](https://github.com/wantedly/frolint/pull/481) Bump @typescript-eslint/eslint-plugin from 3.0.2 to 3.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#483](https://github.com/wantedly/frolint/pull/483) Bump @typescript-eslint/parser from 3.0.2 to 3.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#482](https://github.com/wantedly/frolint/pull/482) Bump ts-jest from 26.0.0 to 26.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#480](https://github.com/wantedly/frolint/pull/480) Bump clipanion from 2.3.1 to 2.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## 2.0.1 (2020-05-27)
 
 #### Update dependencies
-* `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
-  * [#478](https://github.com/wantedly/frolint/pull/478) Update versions in dependencies and devDependencies ([@yamadayuki](https://github.com/yamadayuki))
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#478](https://github.com/wantedly/frolint/pull/478) Update versions in dependencies and devDependencies ([@yamadayuki](https://github.com/yamadayuki))
 
 #### New feature or improvement
-* `frolint`
-  * [#479](https://github.com/wantedly/frolint/pull/479) Introduce print-config subcommand ([@yamadayuki](https://github.com/yamadayuki))
+
+- `frolint`
+  - [#479](https://github.com/wantedly/frolint/pull/479) Introduce print-config subcommand ([@yamadayuki](https://github.com/yamadayuki))
 
 ## 2.0.0 (2020-05-27)
 
