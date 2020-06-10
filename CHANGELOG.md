@@ -1,4 +1,4 @@
-## 2.0.2 (2020-06-10)
+## v2.0.2 (2020-06-10)
 
 #### Update dependencies
 
@@ -17,7 +17,7 @@
 - [#482](https://github.com/wantedly/frolint/pull/482) Bump ts-jest from 26.0.0 to 26.1.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - [#480](https://github.com/wantedly/frolint/pull/480) Bump clipanion from 2.3.1 to 2.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
-## 2.0.1 (2020-05-27)
+## v2.0.1 (2020-05-27)
 
 #### Update dependencies
 
@@ -29,7 +29,7 @@
 - `frolint`
   - [#479](https://github.com/wantedly/frolint/pull/479) Introduce print-config subcommand ([@yamadayuki](https://github.com/yamadayuki))
 
-## 2.0.0 (2020-05-27)
+## v2.0.0 (2020-05-27)
 
 **This version including breaking changes.** Because the `@typescript-eslint/parser` and `@typescript-eslint/eslint-plugin` are bumped up to 3.x.
 
