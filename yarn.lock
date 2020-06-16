@@ -2856,9 +2856,9 @@ cli-width@^2.0.0:
   integrity sha512-GRMWDxpOB6Dgk2E5Uo+3eEBvtOOlimMmpbFiKuLFnQzYDavtLFY3K5ona41jgN/WdRZtG7utuVSVTL4HbZHGkw==
 
 clipanion@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/clipanion/-/clipanion-2.4.0.tgz#a913051f6b1e1ffa89d2d0a94d7f2ee3065f1b29"
-  integrity sha512-NECITAPR1B0RfBHfvEIHret7l3ItZf9zl8a98Afh0fvxQFnlvVB2OY1LR0wMHuAljCpE700blz4THOGgCgxtCw==
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/clipanion/-/clipanion-2.4.2.tgz#2dfd52f7eb3cd472752c35d868dd4eb47cb98145"
+  integrity sha512-kBCYtQKI4/R/zjierdwoDAsNUSvoh4pX2tseYxgLYQcKIpdPsHZrFWiQOfbe2Scd/btsqJEc4q6g55q0p5DZAw==
 
 cliui@^5.0.0:
   version "5.0.0"
