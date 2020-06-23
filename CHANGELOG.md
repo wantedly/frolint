@@ -1,3 +1,27 @@
+## v2.0.3 (2020-06-23)
+
+#### Update dependencies
+
+- Other
+  - [#506](https://github.com/wantedly/frolint/pull/506) Bump eslint-plugin-jest from 23.13.2 to 23.16.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#504](https://github.com/wantedly/frolint/pull/504) Bump @typescript-eslint/parser from 3.3.0 to 3.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#508](https://github.com/wantedly/frolint/pull/508) Bump @typescript-eslint/eslint-plugin from 3.3.0 to 3.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#509](https://github.com/wantedly/frolint/pull/509) Bump ts-jest from 26.1.0 to 26.1.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#507](https://github.com/wantedly/frolint/pull/507) Bump eslint-plugin-jsx-a11y from 6.3.0 to 6.3.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#505](https://github.com/wantedly/frolint/pull/505) Bump eslint from 7.3.0 to 7.3.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#503](https://github.com/wantedly/frolint/pull/503) Bump eslint from 7.2.0 to 7.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#498](https://github.com/wantedly/frolint/pull/498) Bump @typescript-eslint/parser from 3.2.0 to 3.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#502](https://github.com/wantedly/frolint/pull/502) Bump eslint-plugin-jsx-a11y from 6.2.3 to 6.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#500](https://github.com/wantedly/frolint/pull/500) Bump @typescript-eslint/eslint-plugin from 3.2.0 to 3.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#501](https://github.com/wantedly/frolint/pull/501) Bump eslint-plugin-prettier from 3.1.3 to 3.1.4 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#499](https://github.com/wantedly/frolint/pull/499) Bump clipanion from 2.4.0 to 2.4.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `frolint`
+  - [#497](https://github.com/wantedly/frolint/pull/497) Bump @types/eslint from 6.8.1 to 7.2.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Committers: 1
+
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v2.0.2 (2020-06-10)
 
 #### Update dependencies

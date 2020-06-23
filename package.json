@@ -30,7 +30,7 @@
     "test:update": "lerna run --parallel test -- -u",
     "lint": "frolint --branch master",
     "lint:ci": "frolint --expect-no-errors",
-    "changelog": "yarn lerna-changelog",
+    "changelog": "yarn --silent lerna-changelog | cat - CHANGELOG.md | yarn --silent prettier --stdin-filepath CHANGELOG.md > CHANGELOG_BACKUP.md; mv CHANGELOG_BACKUP.md CHANGELOG.md",
     "build": "lerna run build --scope frolint",
     "build:watch": "lerna exec npm run build:watch --scope frolint",
     "prerelease": "yarn install --force && yarn run build",
