@@ -11,7 +11,7 @@
     "mock-fs": "^4.12.0",
     "pacote": "^11.1.10",
     "scaffdog": "^0.2.3",
-    "ts-jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.5"
   },
   "workspaces": [
