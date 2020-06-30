@@ -1,3 +1,20 @@
+## 2.1.0 (2020-06-30)
+
+#### Update dependencies
+
+- [#520](https://github.com/wantedly/frolint/pull/520) Bump eslint-plugin-react-hooks from 4.0.4 to 4.0.5 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#519](https://github.com/wantedly/frolint/pull/519) Bump eslint-plugin-react from 7.20.2 to 7.20.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Bug fix
+
+- `frolint`
+  - [#521](https://github.com/wantedly/frolint/pull/521) Wrap with quotes ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Committers: 2
+
+- Yuki Yamada ([@yamadayuki](https://github.com/yamadayuki))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v2.0.4 (2020-06-29)
 
 #### Update dependencies
