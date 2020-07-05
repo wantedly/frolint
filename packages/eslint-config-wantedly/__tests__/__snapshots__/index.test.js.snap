@@ -79,6 +79,7 @@ Object {
     "error",
     Object {
       "ignoreDestructuring": false,
+      "ignoreGlobals": false,
       "ignoreImports": false,
       "properties": "never",
     },
