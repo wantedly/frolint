@@ -203,6 +203,7 @@ Object {
     "error",
     Object {
       "ignoreDestructuring": true,
+      "ignoreGlobals": false,
       "ignoreImports": false,
       "properties": "never",
     },
