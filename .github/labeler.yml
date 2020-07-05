@@ -1,5 +1,7 @@
 repo:
   - "!packages/**/*"
+  - "!package.json"
+  - "!yarn.lock"
 
 eslint-config-wantedly-typescript:
   - packages/eslint-config-wantedly-typescript/**/*
