@@ -1,4 +1,19 @@
-## 2.1.0 (2020-06-30)
+## v2.1.1 (2020-07-05)
+
+#### Update dependencies
+
+- Other
+  - [#525](https://github.com/wantedly/frolint/pull/525) Bump eslint-plugin-jest from 23.17.1 to 23.18.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#524](https://github.com/wantedly/frolint/pull/524) Bump graphql from 15.2.0 to 15.3.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#522](https://github.com/wantedly/frolint/pull/522) Bump typescript from 3.9.5 to 3.9.6 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#523](https://github.com/wantedly/frolint/pull/523) Bump eslint from 7.3.1 to 7.4.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Committers: 1
+
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
+## v2.1.0 (2020-06-30)
 
 #### Update dependencies
 
