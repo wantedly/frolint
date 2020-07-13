@@ -1,3 +1,19 @@
+## v2.1.2 (2020-07-13)
+
+#### Update dependencies
+
+- [#532](https://github.com/wantedly/frolint/pull/532) Bump eslint-plugin-react-hooks from 4.0.6 to 4.0.7 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#531](https://github.com/wantedly/frolint/pull/531) Bump graphql-tag from 2.10.3 to 2.10.4 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#530](https://github.com/wantedly/frolint/pull/530) Bump eslint-plugin-react-hooks from 4.0.5 to 4.0.6 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#527](https://github.com/wantedly/frolint/pull/527) Bump @typescript-eslint/eslint-plugin from 3.5.0 to 3.6.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#529](https://github.com/wantedly/frolint/pull/529) Bump @typescript-eslint/parser from 3.5.0 to 3.6.0 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#528](https://github.com/wantedly/frolint/pull/528) Bump @types/prettier from 2.0.1 to 2.0.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- [#526](https://github.com/wantedly/frolint/pull/526) Bump @types/jest from 26.0.3 to 26.0.4 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+#### Committers: 1
+
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v2.1.1 (2020-07-05)
 
 #### Update dependencies
