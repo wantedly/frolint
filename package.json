@@ -24,10 +24,10 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
-    "test": "FORCE_COLOR=1 lerna run --parallel test",
-    "test:watch": "FORCE_COLOR=1 lerna exec --parallel -- npm run test -- --watch",
+    "test": "FORCE_COLOR=1 lerna run --stream test",
+    "test:watch": "FORCE_COLOR=1 lerna exec --stream -- npm run test -- --watch",
     "test:watch:frolint": "lerna exec \"npm run test -- --watch\" --scope frolint",
-    "test:update": "lerna run --parallel test -- -u",
+    "test:update": "lerna run --stream test -- -u",
     "lint": "frolint --branch master",
     "lint:ci": "frolint --expect-no-errors",
     "changelog": "yarn --silent lerna-changelog | cat - CHANGELOG.md | yarn --silent prettier --stdin-filepath CHANGELOG.md > CHANGELOG_BACKUP.md; mv CHANGELOG_BACKUP.md CHANGELOG.md",
