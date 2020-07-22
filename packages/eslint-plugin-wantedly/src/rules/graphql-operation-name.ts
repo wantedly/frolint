@@ -1,9 +1,9 @@
-const { pascalCase } = require("pascal-case");
-const { Linter } = require("eslint");
-const { getOptionWithDefault, docsUrl } = require("./utils");
+import { Linter, Rule } from "eslint";
+import { pascalCase } from "pascal-case";
+import { docsUrl, getOptionWithDefault } from "./utils";
 
 const linter = new Linter();
-const RULE_NAME = "graphql-operation-name";
+export const RULE_NAME = "graphql-operation-name";
 
 let GRAPHQL_INSTALLED = false;
 
@@ -34,24 +34,20 @@ linter.defineRule(RULE_NAME, {
 
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
     const autofixEnabled = option.autofix;
-    const graphql = require("graphql");
+    const graphql = require("graphql") as typeof import("graphql");
 
     return {
       TaggedTemplateExpression(node) {
+        if (node.type !== "TaggedTemplateExpression") return;
+
         // We assume that the tag name is gql which is originated from 'graphql-tag' or 'graphql.macro'
-        if (node.tag.type !== "Identifier" || node.tag.name !== "gql") {
-          return;
-        }
+        if (node.tag.type !== "Identifier" || node.tag.name !== "gql") return;
 
-        if (!(node.quasi.quasis.length > 0)) {
-          return;
-        }
+        if (!(node.quasi.quasis.length > 0)) return;
 
-        /** @type {string[]} */
-        const chunks = [];
+        const chunks: string[] = [];
 
         const invalid = node.quasi.quasis.some((elem, i) => {
-          /** @type {string} */
           let chunk = elem.value.cooked;
           const value = node.quasi.expressions[i];
 
@@ -59,7 +55,7 @@ linter.defineRule(RULE_NAME, {
            * If the tagged template literal includes the interpolations,
            * we should preserve the interpolation position with whitespaces for the GraphQL token location.
            */
-          if (value && value.name && value.name.length > 0) {
+          if (value && value.type === "Identifier" && value.name && value.name.length > 0) {
             chunk = chunk.concat(" ".repeat(value.name.length + 3));
           }
 
@@ -112,9 +108,9 @@ linter.defineRule(RULE_NAME, {
             }
 
             const nameLocation = operationDefinition.name.loc;
-            const [start] = node.quasi.range;
-            const errorStart = start + nameLocation.start + 1;
-            const errorEnd = start + nameLocation.start + operationName.length + 1;
+            const start = node.quasi.range?.[0];
+            const errorStart = (start ?? 0) + (nameLocation?.start ?? 0) + 1;
+            const errorEnd = (start ?? 0) + (nameLocation?.start ?? 0) + operationName.length + 1;
             const sourceCode = context.getSourceCode();
             const locStart = sourceCode.getLocFromIndex(errorStart);
             const locEnd = sourceCode.getLocFromIndex(errorEnd);
@@ -130,6 +126,7 @@ linter.defineRule(RULE_NAME, {
                 if (autofixEnabled) {
                   return fixer.replaceTextRange([errorStart, errorEnd], pascalCased);
                 }
+                return null;
               },
             });
           },
@@ -139,7 +136,4 @@ linter.defineRule(RULE_NAME, {
   },
 });
 
-module.exports = {
-  RULE_NAME,
-  RULE: linter.getRules().get(RULE_NAME),
-};
+export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;

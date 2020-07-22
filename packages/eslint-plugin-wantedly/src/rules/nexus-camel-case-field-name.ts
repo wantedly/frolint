@@ -1,9 +1,10 @@
-const { camelCase } = require("camel-case");
-const { Linter } = require("eslint");
-const { getOptionWithDefault, docsUrl } = require("./utils");
+import { camelCase } from "camel-case";
+import { Linter, Rule } from "eslint";
+import type { Property } from "estree";
+import { docsUrl, getOptionWithDefault } from "./utils";
 
 const linter = new Linter();
-const RULE_NAME = "nexus-camel-case-field-name";
+export const RULE_NAME = "nexus-camel-case-field-name";
 
 const WHITELIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
 const FIELD_DEFINITION_METHODS = ["string", "int", "boolean", "id", "float", "field"];
@@ -28,6 +29,8 @@ linter.defineRule(RULE_NAME, {
 
     return {
       ImportDeclaration(importDeclaration) {
+        if (importDeclaration.type !== "ImportDeclaration") return;
+
         if (
           importDeclaration.source &&
           importDeclaration.source.type === "Literal" &&
@@ -40,9 +43,8 @@ linter.defineRule(RULE_NAME, {
       },
 
       CallExpression(callExpression) {
-        if (!isNexusUsed) {
-          return;
-        }
+        if (!isNexusUsed) return;
+        if (callExpression.type !== "CallExpression") return;
 
         const callee = callExpression.callee;
         if (callee.type !== "Identifier" || !WHITELIST_FOR_TYPE_DEFINITION.includes(callee.name)) {
@@ -55,38 +57,41 @@ linter.defineRule(RULE_NAME, {
         }
 
         const definitionProperty = argument.properties.find(
-          (property) => property.key && property.key.type === "Identifier" && property.key.name === "definition"
+          (property): property is Property =>
+            property.type === "Property" &&
+            property.key &&
+            property.key.type === "Identifier" &&
+            property.key.name === "definition"
         );
+        if (!definitionProperty) return;
+        if (definitionProperty.value.type !== "FunctionExpression") return;
+
         const definitions = definitionProperty.value.body.body;
 
         definitions.forEach((expressionStatement) => {
           if (
+            expressionStatement.type !== "ExpressionStatement" ||
             !expressionStatement.expression ||
+            expressionStatement.expression.type !== "CallExpression" ||
             !expressionStatement.expression.callee ||
+            expressionStatement.expression.callee.type !== "MemberExpression" ||
             !expressionStatement.expression.callee.property ||
+            expressionStatement.expression.callee.property.type !== "Identifier" ||
             !expressionStatement.expression.callee.property.name
           ) {
             return;
           }
-          if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) {
-            return;
-          }
-          if (!expressionStatement.expression || expressionStatement.expression.arguments.length === 0) {
-            return;
-          }
+          if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) return;
+          if (!expressionStatement.expression || expressionStatement.expression.arguments.length === 0) return;
 
           const fieldNameNode = expressionStatement.expression.arguments[0];
-          if (!fieldNameNode) {
-            return;
-          }
+          if (!fieldNameNode || fieldNameNode.type !== "Literal") return;
           const fieldName = fieldNameNode.value;
-          if (!fieldName) {
-            return;
-          }
+          if (!fieldName || typeof fieldName !== "string") return;
           const camelCased = camelCase(fieldName);
 
           if (fieldName && camelCased && fieldName !== camelCased) {
-            const [start, end] = fieldNameNode.range;
+            const [start, end] = fieldNameNode.range ?? [0, 0];
             return context.report({
               node: fieldNameNode,
               message: "The field {{ fieldName }} should be camelCase",
@@ -97,6 +102,7 @@ linter.defineRule(RULE_NAME, {
                 if (autofixEnabled) {
                   return fixer.replaceTextRange([start + 1, end - 1], camelCased);
                 }
+                return null;
               },
             });
           }
@@ -106,7 +112,4 @@ linter.defineRule(RULE_NAME, {
   },
 });
 
-module.exports = {
-  RULE_NAME,
-  RULE: linter.getRules().get(RULE_NAME),
-};
+export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;

@@ -16,7 +16,9 @@
   },
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc -b .",
+    "build:watch": "tsc -b . --watch"
   },
   "dependencies": {
     "camel-case": "^4.1.1",
@@ -30,5 +32,23 @@
   "peerDependencies": {
     "eslint": "^6.0.0",
     "graphql": "^14.6.0"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testEnvironment": "node"
   }
 }
