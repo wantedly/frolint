@@ -1,3 +1,42 @@
+## Unreleased (2020-07-27)
+
+#### Update dependencies
+
+- Other
+  - [#549](https://github.com/wantedly/frolint/pull/549) Bump @types/jest from 26.0.5 to 26.0.7 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#545](https://github.com/wantedly/frolint/pull/545) Bump actions/setup-node from v2.1.0 to v2.1.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#547](https://github.com/wantedly/frolint/pull/547) Bump pacote from 11.1.10 to 11.1.11 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#542](https://github.com/wantedly/frolint/pull/542) Bump @types/jest from 26.0.4 to 26.0.5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#540](https://github.com/wantedly/frolint/pull/540) Bump actions/setup-node from v1 to v2.1.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#539](https://github.com/wantedly/frolint/pull/539) Create Dependabot config file ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#538](https://github.com/wantedly/frolint/pull/538) Bump ts-jest from 26.1.2 to 26.1.3 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#537](https://github.com/wantedly/frolint/pull/537) Bump typescript from 3.9.6 to 3.9.7 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#536](https://github.com/wantedly/frolint/pull/536) Bump ts-jest from 26.1.1 to 26.1.2 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#535](https://github.com/wantedly/frolint/pull/535) Bump @typescript-eslint/eslint-plugin from 3.6.0 to 3.6.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#534](https://github.com/wantedly/frolint/pull/534) Bump eslint-plugin-react-hooks from 4.0.7 to 4.0.8 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+  - [#533](https://github.com/wantedly/frolint/pull/533) Bump @typescript-eslint/parser from 3.6.0 to 3.6.1 ([@dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#550](https://github.com/wantedly/frolint/pull/550) Bump eslint-plugin-jest from 23.18.0 to 23.18.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#546](https://github.com/wantedly/frolint/pull/546) Bump eslint from 7.4.0 to 7.5.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`
+  - [#541](https://github.com/wantedly/frolint/pull/541) Bump @typescript-eslint/eslint-plugin from 3.6.1 to 3.7.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#544](https://github.com/wantedly/frolint/pull/544) Bump @typescript-eslint/parser from 3.6.1 to 3.7.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### New feature or improvement
+
+- [#543](https://github.com/wantedly/frolint/pull/543) Drop 13 add 14 ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Bug fix
+
+- `frolint`
+  - [#551](https://github.com/wantedly/frolint/pull/551) Do not depend on package.json ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Committers: 2
+
+- Yuki Yamada ([@yamadayuki](https://github.com/yamadayuki))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v2.1.2 (2020-07-13)
 
 #### Update dependencies
