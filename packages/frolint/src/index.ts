@@ -9,14 +9,14 @@ import { PrintConfigCommand } from "./commands/PrintConfigCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
 import { FrolintConfig, FrolintContext } from "./Context";
-const { version } = require("../package.json");
 
 const binaryName = "frolint";
+const binaryVersion = "2.1.3";
 
 const cli = new Cli<FrolintContext>({
   binaryLabel: "FROntend LINt Tool",
   binaryName,
-  binaryVersion: version,
+  binaryVersion,
 });
 
 cli.register(DefaultCommand);
@@ -51,5 +51,5 @@ cli.runExit(process.argv.slice(2), {
   cwd: process.cwd(),
   config,
   preCommit: false,
-  version,
+  version: binaryVersion,
 });
