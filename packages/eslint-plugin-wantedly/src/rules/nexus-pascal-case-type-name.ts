@@ -1,10 +1,11 @@
-const { pascalCase } = require("pascal-case");
-const { snakeCase } = require("snake-case");
-const { Linter } = require("eslint");
-const { getOptionWithDefault, docsUrl } = require("./utils");
+import { Linter, Rule } from "eslint";
+import { Property } from "estree";
+import { pascalCase } from "pascal-case";
+import { snakeCase } from "snake-case";
+import { docsUrl, getOptionWithDefault } from "./utils";
 
 const linter = new Linter();
-const RULE_NAME = "nexus-pascal-case-type-name";
+export const RULE_NAME = "nexus-pascal-case-type-name";
 
 const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
 
@@ -28,38 +29,36 @@ linter.defineRule(RULE_NAME, {
 
     return {
       ImportDeclaration(importDeclaration) {
-        if (
-          importDeclaration.source &&
-          importDeclaration.source.type === "Literal" &&
-          importDeclaration.source.value === "nexus"
-        ) {
-          isNexusUsed = true;
-        } else {
-          return;
-        }
+        if (importDeclaration.type !== "ImportDeclaration") return;
+        if (importDeclaration.source.value !== "nexus") return;
+
+        isNexusUsed = true;
       },
 
       CallExpression(callExpression) {
-        if (!isNexusUsed) {
-          return;
-        }
+        if (!isNexusUsed) return;
+        if (callExpression.type !== "CallExpression") return;
+        if (callExpression.callee.type !== "Identifier") return;
 
         const functionName = callExpression.callee.name;
-        if (!FUNCTION_WHITELIST.includes(functionName)) {
-          return;
-        }
+        if (!FUNCTION_WHITELIST.includes(functionName)) return;
 
         const argumentDef = callExpression.arguments[0];
-        const targetNode = argumentDef.properties.find((property) => property.key.name === "name").value;
-        // If the value is template literal string, this line raises error
-        const typeName = targetNode.value;
+        if (argumentDef.type !== "ObjectExpression") return;
+
+        const targetNode = argumentDef.properties.find(
+          (property): property is Property =>
+            property.type === "Property" && property.key.type === "Identifier" && property.key.name === "name"
+        )?.value;
+        if (!targetNode) return;
+        if (targetNode.type !== "Literal") return;
+
+        const typeName = targetNode.value as string;
         const pascalCased = pascalCase(typeName);
 
-        if (!typeName || !pascalCased || typeName === pascalCased) {
-          return;
-        }
+        if (!typeName || !pascalCased || typeName === pascalCased) return;
 
-        const [start, end] = targetNode.range;
+        const [start, end] = targetNode.range ?? [0, 0];
         return context.report({
           node: targetNode,
           message: "The {{ functionName }} name {{ typeName }} should be PascalCase",
@@ -71,6 +70,7 @@ linter.defineRule(RULE_NAME, {
             if (autofixEnabled) {
               return fixer.replaceTextRange([start + 1, end - 1], pascalCased);
             }
+            return null;
           },
         });
       },
@@ -78,7 +78,4 @@ linter.defineRule(RULE_NAME, {
   },
 });
 
-module.exports = {
-  RULE_NAME,
-  RULE: linter.getRules().get(RULE_NAME),
-};
+export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
