@@ -1,7 +1,7 @@
 {
   "name": "frolint",
   "description": "git commit hook linter",
-  "version": "2.1.4",
+  "version": "2.2.0",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "bin": "index.js",
   "dependencies": {
@@ -10,10 +10,10 @@
     "command-exists": "^1.2.9",
     "cosmiconfig": "^7.0.0",
     "eslint": "^7.6.0",
-    "eslint-config-wantedly": "^2.1.4",
-    "eslint-config-wantedly-typescript": "^2.1.4",
+    "eslint-config-wantedly": "^2.2.0",
+    "eslint-config-wantedly-typescript": "^2.2.0",
     "prettier": "^2.0.5",
-    "prettier-config-wantedly": "^2.1.4",
+    "prettier-config-wantedly": "^2.2.0",
     "resolve": "^1.17.0"
   },
   "homepage": "https://github.com/wantedly/frolint",

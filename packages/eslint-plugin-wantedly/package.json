@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-wantedly",
   "description": "Opinionated ESLint plugin for Wantedly",
-  "version": "2.1.4",
+  "version": "2.2.0",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
