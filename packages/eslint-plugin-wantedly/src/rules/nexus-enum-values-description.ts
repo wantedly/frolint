@@ -129,7 +129,9 @@ linter.defineRule(RULE_NAME, {
         if (node.value.type === "Identifier") {
           const membersVariableName = node.value.name;
           const sourceCode = context.getSourceCode();
-          if (!Array.isArray(allIdentifierTokens)) return;
+          if (!Array.isArray(allIdentifierTokens)) {
+            return;
+          }
 
           const maybeToken = allIdentifierTokens.find(
             (token) => token.type === "Identifier" && token.value === membersVariableName
