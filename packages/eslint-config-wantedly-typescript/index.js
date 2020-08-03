@@ -6,7 +6,7 @@ module.exports = {
   extends: [...extendOptions, "plugin:react/recommended"],
   parser,
   parserOptions,
-  plugins: [...plugins, "react", "react-hooks"],
+  plugins: [...plugins, "react", "react-hooks", "wantedly"],
   rules: {
     ...rules,
 
@@ -36,5 +36,8 @@ module.exports = {
 
     // eslint-plugin-use-macros rules
     "use-macros/styled-components": "error",
+
+    // eslint-plugin-wantedly rules
+    "wantedly/graphql-operation-name": ["warn"],
   },
 };

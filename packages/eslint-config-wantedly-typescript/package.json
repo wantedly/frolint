@@ -14,7 +14,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
-    "eslint-plugin-use-macros": "^2.1.4"
+    "eslint-plugin-use-macros": "^2.1.4",
+    "eslint-plugin-wantedly": "^2.1.4"
   },
   "peerDependencies": {
     "typescript": "^3.8.3"

@@ -1,14 +1,13 @@
-const RuleTester = require("eslint").RuleTester;
-const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const rule = require("../nexus-field-description");
+import { RuleTester } from "eslint";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import ESLintConfigWantedly from "eslint-config-wantedly/without-react";
+import { RULE, RULE_NAME } from "../nexus-field-description";
 
-RuleTester.setDefaultConfig({
+new RuleTester({
   parser: require.resolve(ESLintConfigWantedly.parser),
   parserOptions: ESLintConfigWantedly.parserOptions,
-});
-
-const ruleTester = new RuleTester();
-ruleTester.run(rule.RULE_NAME, rule.RULE, {
+}).run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {

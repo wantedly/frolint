@@ -1,9 +1,10 @@
-const { snakeCase } = require("snake-case");
-const { Linter } = require("eslint");
-const { docsUrl } = require("./utils");
+import { Linter, Rule } from "eslint";
+import { Property } from "estree";
+import { snakeCase } from "snake-case";
+import { docsUrl } from "./utils";
 
 const linter = new Linter();
-const RULE_NAME = "nexus-type-description";
+export const RULE_NAME = "nexus-type-description";
 
 const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
 
@@ -20,6 +21,7 @@ linter.defineRule(RULE_NAME, {
     return {
       ImportDeclaration(importDeclaration) {
         if (
+          importDeclaration.type === "ImportDeclaration" &&
           importDeclaration.source &&
           importDeclaration.source.type === "Literal" &&
           importDeclaration.source.value === "nexus"
@@ -35,23 +37,33 @@ linter.defineRule(RULE_NAME, {
           return;
         }
 
+        if (callExpression.type !== "CallExpression" || callExpression.callee.type !== "Identifier") {
+          return;
+        }
+
         const functionName = callExpression.callee.name;
         if (!FUNCTION_WHITELIST.includes(functionName)) {
           return;
         }
 
         const argumentDef = callExpression.arguments[0];
-        if (!argumentDef) {
+        if (!argumentDef || argumentDef.type !== "ObjectExpression") {
           return;
         }
 
-        const nameProperty = argumentDef.properties.find((property) => property.key.name === "name");
-        if (!nameProperty) {
+        const nameProperty = argumentDef.properties.find(
+          (property): property is Property =>
+            property.type === "Property" && property.key.type === "Identifier" && property.key.name === "name"
+        );
+        if (!nameProperty || nameProperty.value.type !== "Literal") {
           return;
         }
 
-        const typeName = nameProperty.value.value;
-        const descriptionProperty = argumentDef.properties.find((property) => property.key.name === "description");
+        const typeName = nameProperty.value.value as string;
+        const descriptionProperty = argumentDef.properties.find(
+          (property): property is Property =>
+            property.type === "Property" && property.key.type === "Identifier" && property.key.name === "description"
+        );
 
         if (!descriptionProperty) {
           return context.report({
@@ -70,6 +82,10 @@ linter.defineRule(RULE_NAME, {
         }
 
         const descriptionValue = descriptionProperty.value;
+        if (typeof descriptionValue.value !== "string") {
+          return;
+        }
+
         if (descriptionValue && descriptionValue.value.trim().length === 0) {
           return context.report({
             node: callExpression,
@@ -85,7 +101,4 @@ linter.defineRule(RULE_NAME, {
   },
 });
 
-module.exports = {
-  RULE_NAME,
-  RULE: linter.getRules().get(RULE_NAME),
-};
+export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;

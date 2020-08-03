@@ -1,9 +1,10 @@
-const { snakeCase } = require("snake-case");
-const { Linter } = require("eslint");
-const { getOptionWithDefault, docsUrl } = require("./utils");
+import { AST, Linter, Rule } from "eslint";
+import { Node, ObjectExpression, Property } from "estree";
+import { snakeCase } from "snake-case";
+import { docsUrl, getOptionWithDefault } from "./utils";
 
 const linter = new Linter();
-const RULE_NAME = "nexus-upper-case-enum-members";
+export const RULE_NAME = "nexus-upper-case-enum-members";
 
 // Represents the default option and schema for nexus-upper-case-enum-members option
 const DEFAULT_OPTION = {
@@ -22,10 +23,19 @@ linter.defineRule(RULE_NAME, {
     let isNexusUsed = false;
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
     const autofixEnabled = option.autofix;
+    let allIdentifierTokens: AST.Token[] = [];
 
     return {
+      Program(node) {
+        allIdentifierTokens = context
+          .getSourceCode()
+          .getTokens(node)
+          .filter((token) => token.type === "Identifier");
+      },
+
       ImportDeclaration(importDeclaration) {
         if (
+          importDeclaration.type === "ImportDeclaration" &&
           importDeclaration.source &&
           importDeclaration.source.type === "Literal" &&
           importDeclaration.source.value === "nexus"
@@ -41,16 +51,31 @@ linter.defineRule(RULE_NAME, {
           return;
         }
 
+        if (node.type !== "Property") {
+          return;
+        }
+
+        if (node.key.type !== "Identifier") {
+          return;
+        }
+
         if (node.key.name !== "members") {
           return;
         }
 
-        if (!node.parent) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const parent: ObjectExpression = node.parent;
+
+        if (!parent) {
           return;
         }
 
-        const nameProperty = node.parent.properties.find((property) => property.key.name === "name");
-        if (!nameProperty) {
+        const nameProperty = parent.properties.find(
+          (property): property is Property =>
+            property.type === "Property" && property.key.type === "Identifier" && property.key.name === "name"
+        );
+        if (!nameProperty || nameProperty.value.type !== "Literal" || typeof nameProperty.value.value !== "string") {
           return;
         }
         const enumName = nameProperty.value.value;
@@ -58,7 +83,7 @@ linter.defineRule(RULE_NAME, {
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
           elements.forEach((elem) => {
-            if (elem.type === "Literal") {
+            if (elem.type === "Literal" && typeof elem.value === "string") {
               const value = elem.value || "";
               const upperCased = snakeCase(value).toUpperCase();
 
@@ -75,17 +100,25 @@ linter.defineRule(RULE_NAME, {
                 },
                 fix(fixer) {
                   if (autofixEnabled) {
-                    const [start, end] = elem.range;
+                    const [start, end] = elem.range || [0, 0];
                     return fixer.replaceTextRange([start + 1, end - 1], upperCased);
                   }
+                  return null;
                 },
               });
             }
 
             if (elem.type === "ObjectExpression") {
               const properties = elem.properties;
-              const nameProperty = properties.find((property) => property.key.name === "name");
-              if (!nameProperty || nameProperty.value.type !== "Literal") {
+              const nameProperty = properties.find(
+                (property): property is Property =>
+                  property.type === "Property" && property.key.type === "Identifier" && property.key.name === "name"
+              );
+              if (
+                !nameProperty ||
+                nameProperty.value.type !== "Literal" ||
+                typeof nameProperty.value.value !== "string"
+              ) {
                 return;
               }
 
@@ -105,9 +138,10 @@ linter.defineRule(RULE_NAME, {
                 },
                 fix(fixer) {
                   if (autofixEnabled) {
-                    const [start, end] = nameProperty.value.range;
+                    const [start, end] = nameProperty.value.range || [0, 0];
                     return fixer.replaceTextRange([start + 1, end - 1], upperCased);
                   }
+                  return null;
                 },
               });
             }
@@ -119,6 +153,10 @@ linter.defineRule(RULE_NAME, {
         if (node.value.type === "ObjectExpression") {
           const properties = node.value.properties;
           properties.forEach((property) => {
+            if (property.type !== "Property" || property.key.type !== "Identifier") {
+              return;
+            }
+
             const keyName = property.key.name || "";
             const upperCased = snakeCase(keyName).toUpperCase();
 
@@ -138,9 +176,10 @@ linter.defineRule(RULE_NAME, {
               },
               fix(fixer) {
                 if (autofixEnabled) {
-                  const [start, end] = property.key.range;
+                  const [start, end] = property.key.range || [0, 0];
                   return fixer.replaceTextRange([start, end], upperCased);
                 }
+                return null;
               },
             });
           });
@@ -151,12 +190,11 @@ linter.defineRule(RULE_NAME, {
         if (node.value.type === "Identifier") {
           const membersVariableName = node.value.name;
           const sourceCode = context.getSourceCode();
-          const tokensAndComments = sourceCode.tokensAndComments;
-          if (!Array.isArray(tokensAndComments)) {
+          if (!Array.isArray(allIdentifierTokens)) {
             return;
           }
 
-          const maybeToken = tokensAndComments.find(
+          const maybeToken = allIdentifierTokens.find(
             (token) => token.type === "Identifier" && token.value === membersVariableName
           );
           if (!maybeToken) {
@@ -169,7 +207,9 @@ linter.defineRule(RULE_NAME, {
             return;
           }
 
-          const parent = maybeNode.parent;
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          const parent: Node = maybeNode.parent;
           if (!parent || parent.type !== "VariableDeclarator" || !parent.init) {
             return;
           }
@@ -181,7 +221,7 @@ linter.defineRule(RULE_NAME, {
              */
             const elements = parent.init.elements;
             elements.forEach((elem) => {
-              if (elem.type !== "Literal") {
+              if (elem.type !== "Literal" || typeof elem.value !== "string") {
                 return;
               }
 
@@ -214,6 +254,10 @@ linter.defineRule(RULE_NAME, {
              */
             const properties = parent.init.properties;
             properties.forEach((property) => {
+              if (property.type !== "Property" || property.key.type !== "Identifier") {
+                return;
+              }
+
               const keyName = property.key.name || "";
               const upperCased = snakeCase(keyName).toUpperCase();
 
@@ -245,7 +289,4 @@ linter.defineRule(RULE_NAME, {
   },
 });
 
-module.exports = {
-  RULE_NAME,
-  RULE: linter.getRules().get(RULE_NAME),
-};
+export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;

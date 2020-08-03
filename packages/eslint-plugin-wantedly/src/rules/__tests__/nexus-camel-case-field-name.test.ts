@@ -1,14 +1,14 @@
-const RuleTester = require("eslint").RuleTester;
-const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const rule = require("../nexus-camel-case-field-name");
+import { RuleTester } from "eslint";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import ESLintConfigWantedly from "eslint-config-wantedly/without-react";
+import { RULE, RULE_NAME } from "../nexus-camel-case-field-name";
 
-RuleTester.setDefaultConfig({
+const ruleTester = new RuleTester({
   parser: require.resolve(ESLintConfigWantedly.parser),
   parserOptions: ESLintConfigWantedly.parserOptions,
 });
-
-const ruleTester = new RuleTester();
-ruleTester.run(rule.RULE_NAME, rule.RULE, {
+ruleTester.run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {

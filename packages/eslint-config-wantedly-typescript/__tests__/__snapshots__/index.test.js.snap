@@ -33,6 +33,7 @@ Object {
 
 exports[`eslint-config-wantedly-typescript should match snapshot for plugins 1`] = `
 Array [
+  "wantedly",
   "react-hooks",
   "react",
   "use-macros",
@@ -837,6 +838,9 @@ Object {
   ],
   "valid-typeof": Array [
     "error",
+  ],
+  "wantedly/graphql-operation-name": Array [
+    "warn",
   ],
   "wrap-iife": Array [
     "off",

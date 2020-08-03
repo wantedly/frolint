@@ -1,8 +1,9 @@
-const { Linter } = require("eslint");
-const { docsUrl } = require("./utils");
+import { AST, Linter, Rule } from "eslint";
+import type { ObjectExpression, Property, VariableDeclarator } from "estree";
+import { docsUrl } from "./utils";
 
 const linter = new Linter();
-const RULE_NAME = "nexus-enum-values-description";
+export const RULE_NAME = "nexus-enum-values-description";
 
 linter.defineRule(RULE_NAME, {
   meta: {
@@ -14,80 +15,84 @@ linter.defineRule(RULE_NAME, {
   },
   create(context) {
     let isNexusUsed = false;
+    let allIdentifierTokens: AST.Token[] = [];
 
     return {
+      Program(node) {
+        allIdentifierTokens = context
+          .getSourceCode()
+          .getTokens(node)
+          .filter((token) => token.type === "Identifier");
+      },
+
       ImportDeclaration(importDeclaration) {
+        if (importDeclaration.type !== "ImportDeclaration") return;
+
         if (
           importDeclaration.source &&
           importDeclaration.source.type === "Literal" &&
           importDeclaration.source.value === "nexus"
         ) {
           isNexusUsed = true;
-        } else {
-          return;
-        }
+        } else return;
       },
 
       Property(node) {
-        if (!isNexusUsed) {
-          return;
-        }
+        if (!isNexusUsed) return;
+        if (node.type !== "Property") return;
+        if (node.key.type !== "Identifier") return;
+        if (node.key.name !== "members") return;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const parent: ObjectExpression = node.parent;
+        if (!parent || parent.type !== "ObjectExpression") return;
 
-        if (node.key.name !== "members") {
-          return;
-        }
-
-        if (!node.parent) {
-          return;
-        }
-
-        const nameProperty = node.parent.properties.find((property) => property.key.name === "name");
-        if (!nameProperty) {
-          return;
-        }
-        const enumName = nameProperty.value.value;
+        const nameProperty = parent.properties
+          .filter((maybeProperty): maybeProperty is Property => maybeProperty.type === "Property")
+          .find((property) => property.key.type === "Identifier" && property.key.name === "name");
+        if (!nameProperty) return;
+        if (nameProperty.value.type !== "Literal") return; // TODO: Consider the variable
+        const enumName = nameProperty.value.value as string;
 
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
           elements.forEach((elem) => {
             if (elem.type === "Literal") {
-              if (!elem.value) {
-                return;
-              }
+              if (!elem.value) return;
 
               return context.report({
                 node: elem,
                 message: "The enum member `{{enumName}}.{{value}}` should have a description",
                 data: {
                   enumName,
-                  value: elem.value,
+                  value: elem.value as string,
                 },
               });
             }
 
             if (elem.type === "ObjectExpression") {
               const properties = elem.properties;
-              const nameProperty = properties.find((property) => property.key.name === "name");
-              if (!nameProperty) {
-                return;
-              }
+              const nameProperty = properties
+                .filter((maybeProperty): maybeProperty is Property => maybeProperty.type === "Property")
+                .find((property) => property.key.type === "Identifier" && property.key.name === "name");
+              if (!nameProperty) return;
+              if (nameProperty.value.type !== "Literal") return; // TODO: Consider the variable
 
-              const descriptionProperty = properties.find((property) => property.key.name === "description");
+              const descriptionProperty = properties
+                .filter((maybeProperty): maybeProperty is Property => maybeProperty.type === "Property")
+                .find((property) => property.key.type === "Identifier" && property.key.name === "description");
               if (!descriptionProperty) {
                 return context.report({
                   node: elem,
                   message: "The enum member `{{enumName}}.{{value}}` should have a description",
                   data: {
                     enumName,
-                    value: nameProperty.value.value,
+                    value: nameProperty.value.value as string,
                   },
                 });
               }
 
-              if (descriptionProperty.value.type !== "Literal") {
-                // We now support only string literal for description property
-                return;
-              }
+              if (descriptionProperty.value.type !== "Literal") return; // TODO: Consider the vairable
 
               const descriptionValue = descriptionProperty.value;
               if (
@@ -100,7 +105,7 @@ linter.defineRule(RULE_NAME, {
                   message: "The enum member `{{enumName}}.{{value}}` should have a description",
                   data: {
                     enumName,
-                    value: nameProperty.value.value,
+                    value: nameProperty.value.value as string,
                   },
                 });
               }
@@ -124,28 +129,23 @@ linter.defineRule(RULE_NAME, {
         if (node.value.type === "Identifier") {
           const membersVariableName = node.value.name;
           const sourceCode = context.getSourceCode();
-          const tokensAndComments = sourceCode.tokensAndComments;
-          if (!Array.isArray(tokensAndComments)) {
+          if (!Array.isArray(allIdentifierTokens)) {
             return;
           }
 
-          const maybeToken = tokensAndComments.find(
+          const maybeToken = allIdentifierTokens.find(
             (token) => token.type === "Identifier" && token.value === membersVariableName
           );
-          if (!maybeToken) {
-            return;
-          }
+          if (!maybeToken) return;
 
-          const tokenStartIndex = maybeToken.range[0];
+          const tokenStartIndex = maybeToken.range?.[0] ?? 0;
           const maybeNode = sourceCode.getNodeByRangeIndex(tokenStartIndex);
-          if (!maybeNode) {
-            return;
-          }
+          if (!maybeNode) return;
 
-          const parent = maybeNode.parent;
-          if (!parent || parent.type !== "VariableDeclarator" || !parent.init) {
-            return;
-          }
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          const parent: VariableDeclarator = maybeNode.parent;
+          if (!parent || parent.type !== "VariableDeclarator" || !parent.init) return;
 
           if (parent.init.type === "ArrayExpression") {
             /**
@@ -155,43 +155,40 @@ linter.defineRule(RULE_NAME, {
             const elements = parent.init.elements;
             elements.forEach((elem) => {
               if (elem.type === "Literal") {
-                if (!elem.value) {
-                  return;
-                }
+                if (!elem.value) return;
 
                 return context.report({
                   node: elem,
                   message: "The enum member `{{enumName}}.{{value}}` should have a description",
                   data: {
                     enumName,
-                    value: elem.value,
+                    value: elem.value as string,
                   },
                 });
               }
 
               if (elem.type === "ObjectExpression") {
                 const properties = elem.properties;
-                const nameProperty = properties.find((property) => property.key.name === "name");
-                if (!nameProperty) {
-                  return;
-                }
+                const nameProperty = properties
+                  .filter((maybeProperty): maybeProperty is Property => maybeProperty.type === "Property")
+                  .find((property) => property.key.type === "Identifier" && property.key.name === "name");
+                if (!nameProperty || nameProperty.value.type !== "Literal") return;
 
-                const descriptionProperty = properties.find((property) => property.key.name === "description");
+                const descriptionProperty = properties
+                  .filter((maybeProperty): maybeProperty is Property => maybeProperty.type === "Property")
+                  .find((property) => property.key.type === "Identifier" && property.key.name === "description");
                 if (!descriptionProperty) {
                   return context.report({
                     node: elem,
                     message: "The enum member `{{enumName}}.{{value}}` should have a description",
                     data: {
                       enumName,
-                      value: nameProperty.value.value,
+                      value: nameProperty.value.value as string,
                     },
                   });
                 }
 
-                if (descriptionProperty.value.type !== "Literal") {
-                  // We now support only string literal for description property
-                  return;
-                }
+                if (descriptionProperty.value.type !== "Literal") return; // TODO: Consider the variable
 
                 const descriptionValue = descriptionProperty.value;
                 if (
@@ -204,7 +201,7 @@ linter.defineRule(RULE_NAME, {
                     message: "The enum member `{{enumName}}.{{value}}` should have a description",
                     data: {
                       enumName,
-                      value: nameProperty.value.value,
+                      value: nameProperty.value.value as string,
                     },
                   });
                 }
@@ -234,7 +231,4 @@ linter.defineRule(RULE_NAME, {
   },
 });
 
-module.exports = {
-  RULE_NAME,
-  RULE: linter.getRules().get(RULE_NAME),
-};
+export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
