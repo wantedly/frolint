@@ -1,4 +1,23 @@
-## Unreleased (2020-07-27)
+## v2.1.4 (2020-07-30)
+
+#### Update dependencies
+
+- `frolint`
+  - [#558](https://github.com/wantedly/frolint/pull/558) Bump clipanion from 2.4.2 to 2.4.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- Other
+  - [#556](https://github.com/wantedly/frolint/pull/556) Bump ts-jest from 26.1.3 to 26.1.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-plugin-use-macros`
+  - [#555](https://github.com/wantedly/frolint/pull/555) Bump graphql-tag from 2.10.4 to 2.11.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#557](https://github.com/wantedly/frolint/pull/557) Bump eslint-plugin-react from 7.20.4 to 7.20.5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#554](https://github.com/wantedly/frolint/pull/554) Bump eslint-plugin-jest from 23.18.2 to 23.19.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`
+  - [#553](https://github.com/wantedly/frolint/pull/553) Bump @typescript-eslint/parser from 3.7.0 to 3.7.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#552](https://github.com/wantedly/frolint/pull/552) Bump @typescript-eslint/eslint-plugin from 3.7.0 to 3.7.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 0
+
+## v2.1.3 (2020-07-27)
 
 #### Update dependencies
 
