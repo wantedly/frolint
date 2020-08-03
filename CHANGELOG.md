@@ -1,3 +1,24 @@
+## v2.2.0 (2020-08-03)
+
+#### Update dependencies
+
+- Other
+  - [#561](https://github.com/wantedly/frolint/pull/561) Bump @types/jest from 26.0.7 to 26.0.8 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#559](https://github.com/wantedly/frolint/pull/559) Bump jest from 26.1.0 to 26.2.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#562](https://github.com/wantedly/frolint/pull/562) Bump eslint-plugin-jest from 23.19.0 to 23.20.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `frolint`
+  - [#560](https://github.com/wantedly/frolint/pull/560) Bump cosmiconfig from 6.0.0 to 7.0.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### New feature or improvement
+
+- `eslint-config-wantedly-typescript`, `eslint-plugin-wantedly`
+  - [#563](https://github.com/wantedly/frolint/pull/563) Refactor eslint-plugin-wantedly package ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Committers: 1
+
+- Yamada Yuki ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v2.1.4 (2020-07-30)
 
 #### Update dependencies
