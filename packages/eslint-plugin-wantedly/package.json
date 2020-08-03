@@ -10,7 +10,7 @@
     "eslintplugin"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "publishConfig": {
     "access": "public"
   },
