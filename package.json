@@ -4,7 +4,7 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^26.0.7",
+    "@types/jest": "^26.0.8",
     "jest": "^26.2.2",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
