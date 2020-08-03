@@ -38,6 +38,6 @@ module.exports = {
     "use-macros/styled-components": "error",
 
     // eslint-plugin-wantedly rules
-    "wantedly/graphql-operation-name": ["warn"],
+    "wantedly/graphql-operation-name": ["error"],
   },
 };
