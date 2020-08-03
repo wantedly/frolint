@@ -1,7 +1,7 @@
 import { Linter, Rule } from "eslint";
 import { Property } from "estree";
 import { snakeCase } from "snake-case";
-import { docsUrl } from "./utils";
+import { docsUrl, isNexusSchemaImported } from "./utils";
 
 const linter = new Linter();
 export const RULE_NAME = "nexus-type-description";
@@ -20,12 +20,7 @@ linter.defineRule(RULE_NAME, {
 
     return {
       ImportDeclaration(importDeclaration) {
-        if (
-          importDeclaration.type === "ImportDeclaration" &&
-          importDeclaration.source &&
-          importDeclaration.source.type === "Literal" &&
-          importDeclaration.source.value === "nexus"
-        ) {
+        if (isNexusSchemaImported(importDeclaration)) {
           isNexusUsed = true;
         } else {
           return;

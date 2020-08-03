@@ -5,7 +5,7 @@
 #### Valid
 
 ```js
-import { enumType } from "nexus";
+import { enumType } from "@nexus/schema";
 
 export const CountryCode = enumType({
   name: "CountryCode",
@@ -20,7 +20,7 @@ export const CountryCode = enumType({
 #### Invalid
 
 ```js
-import { enumType } from "nexus";
+import { enumType } from "@nexus/schema";
 
 export const CountryCode = enumType({
   name: "CountryCode",

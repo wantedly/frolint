@@ -12,7 +12,7 @@ ruleTester.run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 export const CountryCode = enumType({
   name: "CountryCode",
   members: [
@@ -31,7 +31,7 @@ export const CountryCode = enumType({
       ],
     },
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 export const CountryCode = enumType({
   name: "CountryCode",
   members: {
@@ -45,7 +45,7 @@ export const CountryCode = enumType({
     },
 
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const members = [
   { name: "JP", description: "This represents Japan" },
   { name: "US" },
@@ -65,7 +65,7 @@ export const CountryCode = enumType({
       ],
     },
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const members = { JP: 1, US: 2 };
 export const CountryCode = enumType({
   name: "CountryCode",

@@ -5,7 +5,7 @@
 #### Valid
 
 ```js
-import { objectType } from "nexus";
+import { objectType } from "@nexus/schema";
 
 const User = objectType({
   name: "User", // <- name should be PascalCase `User`
@@ -19,7 +19,7 @@ const User = objectType({
 #### Invalid
 
 ```js
-import { objectType } from "nexus";
+import { objectType } from "@nexus/schema";
 
 const User = objectType({
   name: "user", // <- name should be PascalCase `User`

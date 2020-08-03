@@ -11,7 +11,7 @@ new RuleTester({
   valid: [],
   invalid: [
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: ["newhope", "empire", "jedi"],
@@ -23,12 +23,12 @@ const Episode = enumType({
       ],
     },
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: ["newHope", "empire", "jedi"],
 });`,
-      output: `import { enumType } from "nexus";
+      output: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: ["NEW_HOPE", "EMPIRE", "JEDI"],
@@ -42,7 +42,7 @@ const Episode = enumType({
     },
 
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: [
@@ -58,7 +58,7 @@ const Episode = enumType({
       ],
     },
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: [
@@ -67,7 +67,7 @@ const Episode = enumType({
     { name: "jedi" },
   ],
 });`,
-      output: `import { enumType } from "nexus";
+      output: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: [
@@ -85,7 +85,7 @@ const Episode = enumType({
     },
 
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: { newhope: 1, empire: 2, jedi: 3 },
@@ -97,12 +97,12 @@ const Episode = enumType({
       ],
     },
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: { newhope: 1, empire: 2, jedi: 3 },
 });`,
-      output: `import { enumType } from "nexus";
+      output: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: { NEWHOPE: 1, EMPIRE: 2, JEDI: 3 },
@@ -116,7 +116,7 @@ const Episode = enumType({
     },
 
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const members = ["newhope", "empire", "jedi"];
 const Episode = enumType({
   name: "Episode",
@@ -130,7 +130,7 @@ const Episode = enumType({
     },
 
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const members = { newhope: 1, empire: 2, jedi: 3 };
 const Episode = enumType({
   name: "Episode",

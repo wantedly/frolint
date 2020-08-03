@@ -11,14 +11,14 @@ new RuleTester({
   valid: [],
   invalid: [
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "foo",
   definition(t) {
     t.string("foo", { nullable: true });
   },
 });`,
-      output: `import { objectType } from "nexus";
+      output: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
   definition(t) {
@@ -29,7 +29,7 @@ const Foo = objectType({
       options: [{ autofix: true }],
     },
     {
-      code: `import { unionType } from "nexus";
+      code: `import { unionType } from "@nexus/schema";
 const MediaType = unionType({
   name: "mediaType",
   description: "Any container type that can be rendered into the feed",
@@ -38,7 +38,7 @@ const MediaType = unionType({
     t.resolveType((item) => item.name);
   },
 });`,
-      output: `import { unionType } from "nexus";
+      output: `import { unionType } from "@nexus/schema";
 const MediaType = unionType({
   name: "MediaType",
   description: "Any container type that can be rendered into the feed",
@@ -51,7 +51,7 @@ const MediaType = unionType({
       options: [{ autofix: true }],
     },
     {
-      code: `import { scalarType } from "nexus";
+      code: `import { scalarType } from "@nexus/schema";
 const DateScalar = scalarType({
   name: "date",
   asNexusMethod: "date",
@@ -65,7 +65,7 @@ const DateScalar = scalarType({
     return null;
   },
 });`,
-      output: `import { scalarType } from "nexus";
+      output: `import { scalarType } from "@nexus/schema";
 const DateScalar = scalarType({
   name: "Date",
   asNexusMethod: "date",
@@ -83,14 +83,14 @@ const DateScalar = scalarType({
       options: [{ autofix: true }],
     },
     {
-      code: `import { interfaceType } from "nexus";
+      code: `import { interfaceType } from "@nexus/schema";
 const Node = interfaceType({
   name: "node",
   definition(t) {
     t.id("id", { description: "GUID for a resource" });
   },
 });`,
-      output: `import { interfaceType } from "nexus";
+      output: `import { interfaceType } from "@nexus/schema";
 const Node = interfaceType({
   name: "Node",
   definition(t) {
@@ -101,7 +101,7 @@ const Node = interfaceType({
       options: [{ autofix: true }],
     },
     {
-      code: `import { inputObjectType } from "nexus";
+      code: `import { inputObjectType } from "@nexus/schema";
 export const InputType = inputObjectType({
   name: "inputType",
   definition(t) {
@@ -109,7 +109,7 @@ export const InputType = inputObjectType({
     t.int("answer");
   },
 });`,
-      output: `import { inputObjectType } from "nexus";
+      output: `import { inputObjectType } from "@nexus/schema";
 export const InputType = inputObjectType({
   name: "InputType",
   definition(t) {
@@ -121,13 +121,13 @@ export const InputType = inputObjectType({
       options: [{ autofix: true }],
     },
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "episode",
   members: ["NEWHOPE", "EMPIRE", "JEDI"],
   description: "The first Star Wars episodes released",
 });`,
-      output: `import { enumType } from "nexus";
+      output: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
   members: ["NEWHOPE", "EMPIRE", "JEDI"],

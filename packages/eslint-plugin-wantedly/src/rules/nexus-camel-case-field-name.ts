@@ -1,7 +1,7 @@
 import { camelCase } from "camel-case";
 import { Linter, Rule } from "eslint";
 import type { Property } from "estree";
-import { docsUrl, getOptionWithDefault } from "./utils";
+import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 
 const linter = new Linter();
 export const RULE_NAME = "nexus-camel-case-field-name";
@@ -29,13 +29,7 @@ linter.defineRule(RULE_NAME, {
 
     return {
       ImportDeclaration(importDeclaration) {
-        if (importDeclaration.type !== "ImportDeclaration") return;
-
-        if (
-          importDeclaration.source &&
-          importDeclaration.source.type === "Literal" &&
-          importDeclaration.source.value === "nexus"
-        ) {
+        if (isNexusSchemaImported(importDeclaration)) {
           isNexusUsed = true;
         } else {
           return;

@@ -2,7 +2,7 @@ import { Linter, Rule } from "eslint";
 import { Property } from "estree";
 import { pascalCase } from "pascal-case";
 import { snakeCase } from "snake-case";
-import { docsUrl, getOptionWithDefault } from "./utils";
+import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 
 const linter = new Linter();
 export const RULE_NAME = "nexus-pascal-case-type-name";
@@ -29,10 +29,11 @@ linter.defineRule(RULE_NAME, {
 
     return {
       ImportDeclaration(importDeclaration) {
-        if (importDeclaration.type !== "ImportDeclaration") return;
-        if (importDeclaration.source.value !== "nexus") return;
-
-        isNexusUsed = true;
+        if (isNexusSchemaImported(importDeclaration)) {
+          isNexusUsed = true;
+        } else {
+          return;
+        }
       },
 
       CallExpression(callExpression) {

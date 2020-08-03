@@ -1,6 +1,6 @@
 import { Linter, Rule } from "eslint";
 import { Property } from "estree";
-import { docsUrl } from "./utils";
+import { docsUrl, isNexusSchemaImported } from "./utils";
 
 const linter = new Linter();
 export const RULE_NAME = "nexus-field-description";
@@ -21,13 +21,7 @@ linter.defineRule(RULE_NAME, {
 
     return {
       ImportDeclaration(importDeclaration) {
-        if (importDeclaration.type !== "ImportDeclaration") return;
-
-        if (
-          importDeclaration.source &&
-          importDeclaration.source.type === "Literal" &&
-          importDeclaration.source.value === "nexus"
-        ) {
+        if (isNexusSchemaImported(importDeclaration)) {
           isNexusUsed = true;
         } else return;
       },
