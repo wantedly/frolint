@@ -1,6 +1,6 @@
 import { AST, Linter, Rule } from "eslint";
 import type { ObjectExpression, Property, VariableDeclarator } from "estree";
-import { docsUrl } from "./utils";
+import { docsUrl, isNexusSchemaImported } from "./utils";
 
 const linter = new Linter();
 export const RULE_NAME = "nexus-enum-values-description";
@@ -26,13 +26,7 @@ linter.defineRule(RULE_NAME, {
       },
 
       ImportDeclaration(importDeclaration) {
-        if (importDeclaration.type !== "ImportDeclaration") return;
-
-        if (
-          importDeclaration.source &&
-          importDeclaration.source.type === "Literal" &&
-          importDeclaration.source.value === "nexus"
-        ) {
+        if (isNexusSchemaImported(importDeclaration)) {
           isNexusUsed = true;
         } else return;
       },

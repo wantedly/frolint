@@ -12,7 +12,7 @@ ruleTester.run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
 const User = objectType({
   name: "User",
   definition(t) {
@@ -36,7 +36,7 @@ const User = objectType({
       ],
     },
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
     const User = objectType({
       name: "User",
       definition(t) {
@@ -49,7 +49,7 @@ const User = objectType({
         t.list.field("Posts", { nullable: false });
       },
     });`,
-      output: `import { objectType } from "nexus";
+      output: `import { objectType } from "@nexus/schema";
     const User = objectType({
       name: "User",
       definition(t) {

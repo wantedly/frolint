@@ -1,7 +1,7 @@
 import { AST, Linter, Rule } from "eslint";
 import { Node, ObjectExpression, Property } from "estree";
 import { snakeCase } from "snake-case";
-import { docsUrl, getOptionWithDefault } from "./utils";
+import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 
 const linter = new Linter();
 export const RULE_NAME = "nexus-upper-case-enum-members";
@@ -34,12 +34,7 @@ linter.defineRule(RULE_NAME, {
       },
 
       ImportDeclaration(importDeclaration) {
-        if (
-          importDeclaration.type === "ImportDeclaration" &&
-          importDeclaration.source &&
-          importDeclaration.source.type === "Literal" &&
-          importDeclaration.source.value === "nexus"
-        ) {
+        if (isNexusSchemaImported(importDeclaration)) {
           isNexusUsed = true;
         } else {
           return;

@@ -10,7 +10,7 @@ new RuleTester({
 }).run(RULE_NAME, RULE, {
   valid: [
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
   definition(t) {
@@ -22,7 +22,7 @@ const Foo = objectType({
   ],
   invalid: [
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
   definition(t) {
@@ -33,7 +33,7 @@ const Foo = objectType({
       errors: ["The object type Foo should have a description"],
     },
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
   definition(t) {
@@ -43,7 +43,7 @@ const Foo = objectType({
       errors: ["The object type Foo should have a description"],
     },
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
   definition(t) { t.string("foo", { nullable: true }); },
@@ -52,7 +52,7 @@ const Foo = objectType({
     },
 
     {
-      code: `import { unionType } from "nexus";
+      code: `import { unionType } from "@nexus/schema";
 const Foo = unionType({
   name: "Foo",
   definition(t) { t.members("Bar", "Baz"); },
@@ -61,7 +61,7 @@ const Foo = unionType({
     },
 
     {
-      code: `import { scalarType } from "nexus";
+      code: `import { scalarType } from "@nexus/schema";
 const Foo = scalarType({
   name: "Foo",
   serialize(v) { return v; },
@@ -70,7 +70,7 @@ const Foo = scalarType({
     },
 
     {
-      code: `import { interfaceType } from "nexus";
+      code: `import { interfaceType } from "@nexus/schema";
 const Foo = interfaceType({
   name: "Foo",
   definition(t) { t.string("foo", { nullable: true }); },
@@ -79,7 +79,7 @@ const Foo = interfaceType({
     },
 
     {
-      code: `import { inputObjectType } from "nexus";
+      code: `import { inputObjectType } from "@nexus/schema";
 const Foo = inputObjectType({
   name: "Foo",
   definition(t) { t.string("foo", { nullable: true }); },
@@ -88,7 +88,7 @@ const Foo = inputObjectType({
     },
 
     {
-      code: `import { enumType } from "nexus";
+      code: `import { enumType } from "@nexus/schema";
 const Foo = enumType({
   name: "Foo",
   members: ["BAR", "BAZ"],

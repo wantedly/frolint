@@ -5,7 +5,7 @@
 #### Valid
 
 ```js
-import { enumType } from "nexus";
+import { enumType } from "@nexus/schema";
 
 // Array literal
 const Episode = enumType({
@@ -23,7 +23,7 @@ const Episode = enumType({
 #### Invalid
 
 ```js
-import { enumType } from "nexus";
+import { enumType } from "@nexus/schema";
 
 // Array literal
 const Episode = enumType({

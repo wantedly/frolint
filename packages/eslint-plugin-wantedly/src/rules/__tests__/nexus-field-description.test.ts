@@ -11,7 +11,7 @@ new RuleTester({
   valid: [],
   invalid: [
     {
-      code: `import { objectType } from "nexus";
+      code: `import { objectType } from "@nexus/schema";
 const User = objectType({
   name: "User",
   definition(t) {

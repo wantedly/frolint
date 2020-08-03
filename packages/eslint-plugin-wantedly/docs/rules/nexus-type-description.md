@@ -5,7 +5,7 @@
 #### Valid
 
 ```js
-import { objectType } from "nexus";
+import { objectType } from "@nexus/schema";
 
 const Foo = objectType({
   name: "Foo",
@@ -19,7 +19,7 @@ const Foo = objectType({
 #### Invalid
 
 ```js
-import { objectType } from "nexus";
+import { objectType } from "@nexus/schema";
 
 const Foo = objectType({
   name: "Foo",
