@@ -1,3 +1,14 @@
+## v2.2.1 (2020-08-03)
+
+#### Bug fix
+
+- `eslint-plugin-wantedly`
+  - [#564](https://github.com/wantedly/frolint/pull/564) Fix import source which is renamed from `nexus` to `@nexus/schema` ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Committers: 1
+
+- Yamada Yuki ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v2.2.0 (2020-08-03)
 
 #### Update dependencies
