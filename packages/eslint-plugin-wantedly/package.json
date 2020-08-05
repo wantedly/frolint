@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "camel-case": "^4.1.1",
+    "jsx-ast-utils": "^2.4.1",
     "pascal-case": "^3.1.1",
     "snake-case": "^3.0.3"
   },

@@ -2,6 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "baseUrl": "./src/@types",
+    "paths": {
+      "jsx-ast-utils": ["jsx-ast-utils.d.ts"]
+    }
   }
 }
