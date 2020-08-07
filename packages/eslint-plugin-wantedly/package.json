@@ -27,6 +27,7 @@
     "snake-case": "^3.0.3"
   },
   "devDependencies": {
+    "@types/estree-jsx": "^0.0.0",
     "eslint": "^7.6.0",
     "graphql": "^15.3.0"
   },
