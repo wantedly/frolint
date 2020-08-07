@@ -19,7 +19,7 @@ const Component = () => {
 ```jsx
 const Component = () => {
   return (
-    <div data-testid="foo">
+    <div data-testid="foo">     // <- data-testid must not be set as a prop
       Content
     </div>
   );
