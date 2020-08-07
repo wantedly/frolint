@@ -1,5 +1,6 @@
 import { Linter, Rule } from "eslint";
-import { getProp } from "jsx-ast-utils";
+import { JSXOpeningElement } from "estree-jsx";
+import { hasProp } from "jsx-ast-utils";
 import { docsUrl, getOptionWithDefault } from "./utils";
 
 const linter = new Linter();
@@ -17,15 +18,15 @@ linter.defineRule(RULE_NAME, {
       url: docsUrl(RULE_NAME),
     },
   },
+  /* @ts-ignore */
   create(context) {
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
     return {
-      JSXOpeningElement: (node: any) => {
+      JSXOpeningElement: (node: JSXOpeningElement) => {
         option.denyKeyList.forEach((key: string) => {
-          const props = getProp(node.attributes, key);
-          if (props) {
+          if (hasProp(node.attributes, key)) {
             context.report({
-              node,
+              loc: node.loc!,
               message: "Attribute {{key}} is not allowed.",
               data: {
                 key,

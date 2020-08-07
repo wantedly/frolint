@@ -28,5 +28,16 @@ new RuleTester({
       errors: ["Attribute data-testid1 is not allowed.", "Attribute data-testid2 is not allowed."],
       options: [{ denyKeyList: ["data-testid1", "data-testid2"] }],
     },
+    {
+      code: `
+        <div>
+          <div data-testid="foo">
+          </div>
+          <div data-testid="bar">
+          </div>
+        </div>
+      `,
+      errors: ["Attribute data-testid is not allowed.", "Attribute data-testid is not allowed."],
+    },
   ],
 });
