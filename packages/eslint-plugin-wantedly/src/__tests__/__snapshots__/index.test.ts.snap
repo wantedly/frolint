@@ -82,6 +82,16 @@ Object {
         "type": "suggestion",
       },
     },
+    "no-data-testid": Object {
+      "create": [Function],
+      "meta": Object {
+        "docs": Object {
+          "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/no-data-testid.md",
+        },
+        "fixable": "code",
+        "type": "suggestion",
+      },
+    },
   },
 }
 `;
