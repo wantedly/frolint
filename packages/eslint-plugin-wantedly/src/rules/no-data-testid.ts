@@ -18,6 +18,8 @@ linter.defineRule(RULE_NAME, {
       url: docsUrl(RULE_NAME),
     },
   },
+  // NOTE: { [key: string]: (node: JSXOpeningElement) => void } does not meet RuleModule.create type definition
+  // cf. https://github.com/DefinitelyTyped/DefinitelyTyped/blob/a0b66498155af79ddc7cdb52dba529eb5b04eae8/types/eslint/index.d.ts#L241-L266
   /* @ts-ignore */
   create(context) {
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
