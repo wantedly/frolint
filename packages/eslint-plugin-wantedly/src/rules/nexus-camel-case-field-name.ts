@@ -6,7 +6,7 @@ import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 const linter = new Linter();
 export const RULE_NAME = "nexus-camel-case-field-name";
 
-const WHITELIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
+const ALLOWLIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
 const FIELD_DEFINITION_METHODS = ["string", "int", "boolean", "id", "float", "field"];
 
 // Represents the default option and schema for nexus-camel-case-field-name option
@@ -41,7 +41,7 @@ linter.defineRule(RULE_NAME, {
         if (callExpression.type !== "CallExpression") return;
 
         const callee = callExpression.callee;
-        if (callee.type !== "Identifier" || !WHITELIST_FOR_TYPE_DEFINITION.includes(callee.name)) {
+        if (callee.type !== "Identifier" || !ALLOWLIST_FOR_TYPE_DEFINITION.includes(callee.name)) {
           return;
         }
 
@@ -75,8 +75,12 @@ linter.defineRule(RULE_NAME, {
           ) {
             return;
           }
-          if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) return;
-          if (!expressionStatement.expression || expressionStatement.expression.arguments.length === 0) return;
+          if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) {
+            return;
+          }
+          if (!expressionStatement.expression || expressionStatement.expression.arguments.length === 0) {
+            return;
+          }
 
           const fieldNameNode = expressionStatement.expression.arguments[0];
           if (!fieldNameNode || fieldNameNode.type !== "Literal") return;

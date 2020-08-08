@@ -7,7 +7,7 @@ import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 const linter = new Linter();
 export const RULE_NAME = "nexus-pascal-case-type-name";
 
-const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
+const FUNCTION_ALLOWLIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
 
 // Represents the default option and schema for nexus-pascal-case-type-name option
 const DEFAULT_OPTION = {
@@ -42,7 +42,7 @@ linter.defineRule(RULE_NAME, {
         if (callExpression.callee.type !== "Identifier") return;
 
         const functionName = callExpression.callee.name;
-        if (!FUNCTION_WHITELIST.includes(functionName)) return;
+        if (!FUNCTION_ALLOWLIST.includes(functionName)) return;
 
         const argumentDef = callExpression.arguments[0];
         if (argumentDef.type !== "ObjectExpression") return;

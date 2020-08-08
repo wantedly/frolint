@@ -5,7 +5,7 @@ import { docsUrl, isNexusSchemaImported } from "./utils";
 const linter = new Linter();
 export const RULE_NAME = "nexus-field-description";
 
-const WHITELIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
+const ALLOWLIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
 const FIELD_DEFINITION_METHODS = ["string", "int", "boolean", "id", "float", "field"];
 
 linter.defineRule(RULE_NAME, {
@@ -32,10 +32,14 @@ linter.defineRule(RULE_NAME, {
         if (callExpression.type !== "CallExpression") return;
 
         const callee = callExpression.callee;
-        if (callee.type !== "Identifier" || !WHITELIST_FOR_TYPE_DEFINITION.includes(callee.name)) return;
+        if (callee.type !== "Identifier" || !ALLOWLIST_FOR_TYPE_DEFINITION.includes(callee.name)) {
+          return;
+        }
 
         const argument = callExpression.arguments[0];
-        if (!argument || argument.type !== "ObjectExpression" || argument.properties.length <= 0) return;
+        if (!argument || argument.type !== "ObjectExpression" || argument.properties.length <= 0) {
+          return;
+        }
 
         const definitionProperty = argument.properties.find(
           (property): property is Property =>
@@ -51,10 +55,16 @@ linter.defineRule(RULE_NAME, {
         definitions.forEach((expressionStatement) => {
           if (expressionStatement.type !== "ExpressionStatement") return;
           if (expressionStatement.expression.type !== "CallExpression") return;
-          if (expressionStatement.expression.callee.type !== "MemberExpression") return;
-          if (expressionStatement.expression.callee.property.type !== "Identifier") return;
+          if (expressionStatement.expression.callee.type !== "MemberExpression") {
+            return;
+          }
+          if (expressionStatement.expression.callee.property.type !== "Identifier") {
+            return;
+          }
 
-          if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) return;
+          if (!FIELD_DEFINITION_METHODS.includes(expressionStatement.expression.callee.property.name)) {
+            return;
+          }
 
           const fieldNameNode = expressionStatement.expression.arguments[0];
           if (!fieldNameNode) return;

@@ -6,7 +6,7 @@ import { docsUrl, isNexusSchemaImported } from "./utils";
 const linter = new Linter();
 export const RULE_NAME = "nexus-type-description";
 
-const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
+const FUNCTION_ALLOWLIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
 
 linter.defineRule(RULE_NAME, {
   meta: {
@@ -37,7 +37,7 @@ linter.defineRule(RULE_NAME, {
         }
 
         const functionName = callExpression.callee.name;
-        if (!FUNCTION_WHITELIST.includes(functionName)) {
+        if (!FUNCTION_ALLOWLIST.includes(functionName)) {
           return;
         }
 
