@@ -13,7 +13,7 @@
     "lerna-changelog": "^1.0.1",
     "mock-fs": "^4.12.0",
     "pacote": "^11.1.11",
-    "scaffdog": "^0.2.3",
+    "scaffdog": "^0.3.0",
     "ts-jest": "^26.1.4",
     "typescript": "^3.9.7"
   },
