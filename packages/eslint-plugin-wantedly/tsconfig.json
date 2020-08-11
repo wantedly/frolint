@@ -3,9 +3,9 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./lib",
-    "baseUrl": "./src/@types",
+    "baseUrl": ".",
     "paths": {
-      "jsx-ast-utils": ["jsx-ast-utils.d.ts"]
+      "jsx-ast-utils": ["./src/@types/jsx-ast-utils.d.ts"]
     }
   }
 }
