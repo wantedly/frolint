@@ -4,7 +4,7 @@
   "version": "2.2.1",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
     "@typescript-eslint/parser": "^3.9.0",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
