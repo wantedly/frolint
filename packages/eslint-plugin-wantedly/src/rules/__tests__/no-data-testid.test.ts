@@ -1,10 +1,11 @@
-import { RuleTester } from "eslint";
+import { TSESLint } from "@typescript-eslint/experimental-utils";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ESLintConfigWantedly from "eslint-config-wantedly/without-react";
 import { RULE, RULE_NAME } from "../no-data-testid";
 
-new RuleTester({
+// new RuleTester({
+new TSESLint.RuleTester({
   parser: require.resolve(ESLintConfigWantedly.parser),
   parserOptions: ESLintConfigWantedly.parserOptions,
 }).run(RULE_NAME, RULE, {
@@ -16,16 +17,43 @@ new RuleTester({
   invalid: [
     {
       code: `<div data-testid="foo" />`,
-      errors: ["Attribute data-testid is not allowed."],
+      errors: [
+        {
+          messageId: "noDataTestId",
+          data: {
+            key: "data-testid"
+          }
+        }
+      ],
     },
     {
       code: `<div data-test-id="foo" />`,
-      errors: ["Attribute data-test-id is not allowed."],
+      errors: [
+        {
+          messageId: "noDataTestId",
+          data: {
+            key: "data-test-id"
+          }
+        }
+      ],
       options: [{ denyKeyList: ["data-test-id"] }],
     },
     {
       code: `<div data-testid1="foo" data-testid2="bar" />`,
-      errors: ["Attribute data-testid1 is not allowed.", "Attribute data-testid2 is not allowed."],
+      errors: [
+        {
+          messageId: "noDataTestId",
+          data: {
+            key: "data-testid1"
+          }
+        },
+        {
+          messageId: "noDataTestId",
+          data: {
+            key: "data-testid2"
+          }
+        }
+      ],
       options: [{ denyKeyList: ["data-testid1", "data-testid2"] }],
     },
     {
@@ -37,7 +65,20 @@ new RuleTester({
           </div>
         </div>
       `,
-      errors: ["Attribute data-testid is not allowed.", "Attribute data-testid is not allowed."],
+      errors: [
+        {
+          messageId: "noDataTestId",
+          data: {
+            key: "data-testid"
+          }
+        },
+        {
+          messageId: "noDataTestId",
+          data: {
+            key: "data-testid"
+          }
+        }
+      ],
     },
   ],
 });

@@ -1,9 +1,8 @@
-import { Linter, Rule } from "eslint";
-import { JSXOpeningElement } from "estree-jsx";
+import { TSESLint } from "@typescript-eslint/experimental-utils";
 import { hasProp } from "jsx-ast-utils";
 import { docsUrl, getOptionWithDefault } from "./utils";
 
-const linter = new Linter();
+const linter = new TSESLint.Linter();
 export const RULE_NAME = "no-data-testid";
 
 const DEFAULT_OPTION = {
@@ -15,21 +14,35 @@ linter.defineRule(RULE_NAME, {
     type: "suggestion",
     fixable: "code",
     docs: {
+      category: "Stylistic Issues",
+      description: "Disallow specific keys as jsx props",
+      recommended: "error",
       url: docsUrl(RULE_NAME),
     },
+    messages: {
+      noDataTestId: "Attribute {{key}} is not allowed.",
+    },
+    schema: [
+      {
+        type: "object",
+        properties: {
+          denyKeyList: {
+            type: "array",
+            default: ["data-testid"],
+          }
+        }
+      }
+    ],
   },
-  // NOTE: { [key: string]: (node: JSXOpeningElement) => void } does not meet RuleModule.create type definition
-  // cf. https://github.com/DefinitelyTyped/DefinitelyTyped/blob/a0b66498155af79ddc7cdb52dba529eb5b04eae8/types/eslint/index.d.ts#L241-L266
-  /* @ts-ignore */
   create(context) {
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
     return {
-      JSXOpeningElement: (node: JSXOpeningElement) => {
+      JSXOpeningElement: (node) => {
         option.denyKeyList.forEach((key: string) => {
           if (hasProp(node.attributes, key)) {
             context.report({
               loc: node.loc!,
-              message: "Attribute {{key}} is not allowed.",
+              messageId: "noDataTestId",
               data: {
                 key,
               },
@@ -42,4 +55,4 @@ linter.defineRule(RULE_NAME, {
   },
 });
 
-export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
+export const RULE = linter.getRules().get(RULE_NAME) as TSESLint.RuleModule<string, unknown[], TSESLint.RuleListener>;
