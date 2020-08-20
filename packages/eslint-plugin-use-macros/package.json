@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-use-macros",
   "description": "ESLint rules for libraries which supports the babel-macros",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "babel-plugin-macros": "^2.8.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "graphql-tag": "^2.11.0",
     "graphql.macro": "^1.4.2",
     "styled-components": "^5.1.1"

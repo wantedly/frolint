@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-wantedly",
   "description": "Opinionated ESLint plugin for Wantedly",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
@@ -28,7 +28,7 @@
   "devDependencies": {
     "@types/estree-jsx": "^0.0.0",
     "@typescript-eslint/experimental-utils": "^3.9.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "graphql": "^15.3.0"
   },
   "peerDependencies": {

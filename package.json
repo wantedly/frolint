@@ -7,14 +7,14 @@
     "@types/eslint": "^7.2.0",
     "@types/estree": "^0.0.45",
     "@types/graphql": "^14.5.0",
-    "@types/jest": "^26.0.8",
-    "jest": "^26.2.2",
+    "@types/jest": "^26.0.10",
+    "jest": "^26.4.0",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
     "mock-fs": "^4.12.0",
     "pacote": "^11.1.11",
-    "scaffdog": "^0.2.3",
-    "ts-jest": "^26.1.4",
+    "scaffdog": "^0.3.0",
+    "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
   },
   "workspaces": [
