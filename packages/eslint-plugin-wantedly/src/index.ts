@@ -6,6 +6,7 @@ import * as NEXUS_FIELD_DESCRIPTION from "./rules/nexus-field-description";
 import * as NEXUS_PASCAL_CASE_TYPE_NAME from "./rules/nexus-pascal-case-type-name";
 import * as NEXUS_TYPE_DESCRIPTION from "./rules/nexus-type-description";
 import * as NEXUS_UPPER_CASE_ENUM_MEMBERS from "./rules/nexus-upper-case-enum-members";
+import * as NO_DATA_TESTID from "./rules/no-data-testid";
 
 export const rules = {
   [GRAPHQL_OPERATION_NAME.RULE_NAME]: GRAPHQL_OPERATION_NAME.RULE,
@@ -16,4 +17,5 @@ export const rules = {
   [NEXUS_PASCAL_CASE_TYPE_NAME.RULE_NAME]: NEXUS_PASCAL_CASE_TYPE_NAME.RULE,
   [NEXUS_TYPE_DESCRIPTION.RULE_NAME]: NEXUS_TYPE_DESCRIPTION.RULE,
   [NEXUS_UPPER_CASE_ENUM_MEMBERS.RULE_NAME]: NEXUS_UPPER_CASE_ENUM_MEMBERS.RULE,
+  [NO_DATA_TESTID.RULE_NAME]: NO_DATA_TESTID.RULE,
 };
