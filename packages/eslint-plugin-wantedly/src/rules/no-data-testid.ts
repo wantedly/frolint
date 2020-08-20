@@ -1,5 +1,4 @@
 import { TSESLint } from "@typescript-eslint/experimental-utils";
-import { hasProp } from "jsx-ast-utils";
 import { docsUrl, getOptionWithDefault } from "./utils";
 
 const linter = new TSESLint.Linter();
@@ -37,19 +36,18 @@ linter.defineRule(RULE_NAME, {
   create(context) {
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
     return {
-      JSXOpeningElement: (node) => {
+      JSXAttribute: (node) => {
         option.denyKeyList.forEach((key: string) => {
-          if (hasProp(node.attributes, key)) {
+          if (key === node.name.name) {
             context.report({
-              loc: node.loc!,
+              loc: node.loc,
               messageId: "noDataTestId",
               data: {
-                key,
-              },
-            });
+                key
+              }
+            })
           }
-        });
-        return;
+        })
       },
     };
   },
