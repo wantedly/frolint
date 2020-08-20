@@ -8,7 +8,7 @@
     "@types/estree": "^0.0.45",
     "@types/graphql": "^14.5.0",
     "@types/jest": "^26.0.10",
-    "jest": "^26.4.0",
+    "jest": "^26.4.1",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
     "mock-fs": "^4.12.0",
