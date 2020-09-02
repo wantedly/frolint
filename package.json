@@ -7,7 +7,7 @@
     "@types/eslint": "^7.2.2",
     "@types/estree": "^0.0.45",
     "@types/graphql": "^14.5.0",
-    "@types/jest": "^26.0.12",
+    "@types/jest": "^26.0.13",
     "jest": "^26.4.2",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1",
