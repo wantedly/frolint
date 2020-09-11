@@ -1,3 +1,5 @@
+/* global NodeJS */
+
 import { Command } from "clipanion";
 import { accessSync, constants, writeFileSync } from "fs";
 import { resolve } from "path";
