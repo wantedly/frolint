@@ -2930,10 +2930,10 @@ cli-width@^3.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-3.0.0.tgz#a2f48437a2caa9a22436e794bf071ec9e61cedf6"
   integrity sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==
 
-clipanion@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/clipanion/-/clipanion-2.5.0.tgz#eb9c85a6b52a46979b7eb1e79534b23c44a52971"
-  integrity sha512-VYOMl0h/mZXQC2BWq7oBto1zY1SkPWUaJjt+cuIred1HrmrcX1I2N+LNyNoRy8Iwu9r6vUxJwS/tWLwhQW4tPw==
+clipanion@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/clipanion/-/clipanion-2.6.0.tgz#0324ba24ec8f20fca665070700102c2198352d75"
+  integrity sha512-INA0DNluCziYrpCbcn3f449W2nyhbL/7q67QI557A7Or1VoCRf1TK+RAMdwSPKi6fvLhWyKlZbqG+/OA2q3ezw==
 
 cliui@^5.0.0:
   version "5.0.0"
