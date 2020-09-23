@@ -4,7 +4,7 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/eslint": "^7.2.2",
+    "@types/eslint": "^7.2.3",
     "@types/estree": "^0.0.45",
     "@types/graphql": "^14.5.0",
     "@types/jest": "^26.0.14",
