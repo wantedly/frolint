@@ -12,7 +12,7 @@
     "eslint": "^7.9.0",
     "eslint-config-wantedly": "^2.2.2",
     "eslint-config-wantedly-typescript": "^2.2.2",
-    "prettier": "^2.1.1",
+    "prettier": "^2.1.2",
     "prettier-config-wantedly": "^2.2.2",
     "resolve": "^1.17.0"
   },
