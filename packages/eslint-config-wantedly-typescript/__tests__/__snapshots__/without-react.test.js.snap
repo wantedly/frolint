@@ -58,6 +58,9 @@ Object {
   "@typescript-eslint/brace-style": Array [
     "off",
   ],
+  "@typescript-eslint/comma-dangle": Array [
+    "off",
+  ],
   "@typescript-eslint/comma-spacing": Array [
     "off",
   ],
