@@ -1,3 +1,26 @@
+## 2.2.4 (2020-10-05)
+
+#### Update dependencies
+
+- Other
+  - [#632](https://github.com/wantedly/frolint/pull/632) Bump actions/setup-node from v2.1.1 to v2.1.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#631](https://github.com/wantedly/frolint/pull/631) Bump ts-jest from 26.4.0 to 26.4.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#633](https://github.com/wantedly/frolint/pull/633) Bump eslint-plugin-react from 7.21.2 to 7.21.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#630](https://github.com/wantedly/frolint/pull/630) Bump eslint-config-prettier from 6.11.0 to 6.12.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#628](https://github.com/wantedly/frolint/pull/628) Bump eslint-plugin-import from 2.22.0 to 2.22.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#624](https://github.com/wantedly/frolint/pull/624) Bump eslint-plugin-react from 7.20.6 to 7.21.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`
+  - [#627](https://github.com/wantedly/frolint/pull/627) Bump @typescript-eslint/eslint-plugin from 4.2.0 to 4.3.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#629](https://github.com/wantedly/frolint/pull/629) Bump @typescript-eslint/parser from 4.2.0 to 4.3.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#625](https://github.com/wantedly/frolint/pull/625) Bump eslint from 7.9.0 to 7.10.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `frolint`
+  - [#626](https://github.com/wantedly/frolint/pull/626) Bump clipanion from 2.6.1 to 2.6.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#621](https://github.com/wantedly/frolint/pull/621) Bump @types/eslint from 7.2.2 to 7.2.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 0
+
 ## v2.2.3 (2020-09-23)
 
 #### Update dependencies
