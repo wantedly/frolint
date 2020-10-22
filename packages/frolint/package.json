@@ -14,7 +14,7 @@
     "eslint-config-wantedly-typescript": "^2.2.5",
     "prettier": "^2.1.2",
     "prettier-config-wantedly": "^2.2.5",
-    "resolve": "^1.17.0"
+    "resolve": "^1.18.1"
   },
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
