@@ -9,7 +9,7 @@
     "clipanion": "^2.6.2",
     "command-exists": "^1.2.9",
     "cosmiconfig": "^7.0.0",
-    "eslint": "^7.11.0",
+    "eslint": "^7.12.0",
     "eslint-config-wantedly": "^2.2.5",
     "eslint-config-wantedly-typescript": "^2.2.5",
     "prettier": "^2.1.2",
@@ -54,7 +54,7 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.json"
+        "tsconfig": "tsconfig.json"
       }
     },
     "testEnvironment": "node"
