@@ -1,3 +1,32 @@
+## v2.2.6 (2020-10-27)
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`
+  - [#661](https://github.com/wantedly/frolint/pull/661) Bump @typescript-eslint/eslint-plugin from 4.5.0 to 4.6.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#663](https://github.com/wantedly/frolint/pull/663) Bump @typescript-eslint/parser from 4.5.0 to 4.6.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#652](https://github.com/wantedly/frolint/pull/652) Bump @typescript-eslint/eslint-plugin from 4.4.1 to 4.5.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#653](https://github.com/wantedly/frolint/pull/653) Bump @typescript-eslint/parser from 4.4.1 to 4.5.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-plugin-wantedly`
+  - [#662](https://github.com/wantedly/frolint/pull/662) Bump graphql from 15.3.0 to 15.4.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- Other
+  - [#664](https://github.com/wantedly/frolint/pull/664) Bump ts-jest from 26.4.2 to 26.4.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#658](https://github.com/wantedly/frolint/pull/658) Bump ts-jest from 26.4.1 to 26.4.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#659](https://github.com/wantedly/frolint/pull/659) Bump jest from 26.6.0 to 26.6.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#654](https://github.com/wantedly/frolint/pull/654) Bump @types/jest from 26.0.14 to 26.0.15 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#651](https://github.com/wantedly/frolint/pull/651) Bump jest from 26.5.3 to 26.6.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#665](https://github.com/wantedly/frolint/pull/665) Bump eslint-plugin-jsx-a11y from 6.3.1 to 6.4.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#656](https://github.com/wantedly/frolint/pull/656) Bump eslint-plugin-react from 7.21.4 to 7.21.5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#655](https://github.com/wantedly/frolint/pull/655) Bump eslint-plugin-react-hooks from 4.1.2 to 4.2.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#657](https://github.com/wantedly/frolint/pull/657) Bump eslint-config-prettier from 6.13.0 to 6.14.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#660](https://github.com/wantedly/frolint/pull/660) Bump eslint from 7.11.0 to 7.12.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `frolint`
+  - [#650](https://github.com/wantedly/frolint/pull/650) Bump resolve from 1.17.0 to 1.18.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 0
+
 ## 2.2.5 (2020-10-19)
 
 #### Update dependencies
