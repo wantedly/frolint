@@ -209,6 +209,8 @@ Object {
     "error",
     Object {
       "ignoreDestructuring": true,
+      "ignoreGlobals": false,
+      "ignoreImports": false,
       "properties": "never",
     },
   ],
@@ -341,6 +343,8 @@ Object {
     "error",
     Object {
       "capIsNew": false,
+      "newIsCap": true,
+      "properties": true,
     },
   ],
   "new-parens": Array [
