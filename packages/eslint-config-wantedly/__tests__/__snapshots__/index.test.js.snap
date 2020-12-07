@@ -506,9 +506,6 @@ Object {
   "padded-blocks": Array [
     "off",
   ],
-  "prefer-arrow-callback": Array [
-    0,
-  ],
   "prefer-const": Array [
     "warn",
   ],
