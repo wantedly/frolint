@@ -1,3 +1,38 @@
+## v2.2.8 (2020-12-07)
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#703](https://github.com/wantedly/frolint/pull/703) Bump eslint-config-prettier from 6.15.0 to 7.0.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#702](https://github.com/wantedly/frolint/pull/702) Bump eslint-plugin-prettier from 3.1.4 to 3.2.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-plugin-wantedly`
+  - [#700](https://github.com/wantedly/frolint/pull/700) Bump snake-case from 3.0.3 to 3.0.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#701](https://github.com/wantedly/frolint/pull/701) Bump camel-case from 4.1.1 to 4.1.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#704](https://github.com/wantedly/frolint/pull/704) Bump eslint from 7.14.0 to 7.15.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#690](https://github.com/wantedly/frolint/pull/690) Bump eslint from 7.13.0 to 7.14.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `frolint`
+  - [#699](https://github.com/wantedly/frolint/pull/699) Bump @types/eslint from 7.2.5 to 7.2.6 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#694](https://github.com/wantedly/frolint/pull/694) Bump prettier from 2.2.0 to 2.2.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#689](https://github.com/wantedly/frolint/pull/689) Bump prettier from 2.1.2 to 2.2.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#685](https://github.com/wantedly/frolint/pull/685) Bump @types/eslint from 7.2.4 to 7.2.5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- Other
+  - [#697](https://github.com/wantedly/frolint/pull/697) Bump @types/jest from 26.0.15 to 26.0.16 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#688](https://github.com/wantedly/frolint/pull/688) Bump typescript from 4.0.5 to 4.1.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`
+  - [#695](https://github.com/wantedly/frolint/pull/695) Bump @typescript-eslint/eslint-plugin from 4.8.2 to 4.9.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#696](https://github.com/wantedly/frolint/pull/696) Bump @typescript-eslint/parser from 4.8.2 to 4.9.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#691](https://github.com/wantedly/frolint/pull/691) Bump @typescript-eslint/eslint-plugin from 4.8.1 to 4.8.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#692](https://github.com/wantedly/frolint/pull/692) Bump @typescript-eslint/parser from 4.8.1 to 4.8.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#686](https://github.com/wantedly/frolint/pull/686) Bump @typescript-eslint/eslint-plugin from 4.8.0 to 4.8.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#687](https://github.com/wantedly/frolint/pull/687) Bump @typescript-eslint/parser from 4.8.0 to 4.8.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#683](https://github.com/wantedly/frolint/pull/683) Bump @typescript-eslint/parser from 4.7.0 to 4.8.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#684](https://github.com/wantedly/frolint/pull/684) Bump @typescript-eslint/eslint-plugin from 4.7.0 to 4.8.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-plugin-use-macros`
+  - [#693](https://github.com/wantedly/frolint/pull/693) Bump babel-plugin-macros from 2.8.0 to 3.0.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 0
+
 ## v2.2.7 (2020-11-16)
 
 #### Update dependencies
