@@ -21,7 +21,7 @@
     "build:watch": "tsc -b . --watch"
   },
   "dependencies": {
-    "camel-case": "^4.1.1",
+    "camel-case": "^4.1.2",
     "pascal-case": "^3.1.1",
     "snake-case": "^3.0.3"
   },
