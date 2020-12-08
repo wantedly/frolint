@@ -11,7 +11,7 @@ import { VersionCommand } from "./commands/VersionCommand";
 import type { FrolintConfig, FrolintContext } from "./Context";
 
 const binaryName = "frolint";
-const binaryVersion = "2.1.3";
+const binaryVersion = "2.3.0";
 
 const cli = new Cli<FrolintContext>({
   binaryLabel: "FROntend LINt Tool",
