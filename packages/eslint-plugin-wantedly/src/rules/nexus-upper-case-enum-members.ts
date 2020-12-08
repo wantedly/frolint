@@ -1,5 +1,6 @@
-import { AST, Linter, Rule } from "eslint";
-import { Node, ObjectExpression, Property } from "estree";
+import type { AST, Rule } from "eslint";
+import { Linter } from "eslint";
+import type { Node, ObjectExpression, Property } from "estree";
 import { snakeCase } from "snake-case";
 import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 

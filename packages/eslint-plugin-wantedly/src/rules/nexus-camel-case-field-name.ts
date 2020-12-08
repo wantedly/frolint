@@ -1,5 +1,6 @@
 import { camelCase } from "camel-case";
-import { Linter, Rule } from "eslint";
+import type { Rule } from "eslint";
+import { Linter } from "eslint";
 import type { Property } from "estree";
 import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 

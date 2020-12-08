@@ -1,5 +1,5 @@
 import { Command } from "clipanion";
-import { FrolintContext } from "../Context";
+import type { FrolintContext } from "../Context";
 
 export class VersionCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({

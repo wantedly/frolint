@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { CLIEngine } from "eslint";
+import type { CLIEngine } from "eslint";
 import { relative } from "path";
 import { getCLI } from "./eslint";
 

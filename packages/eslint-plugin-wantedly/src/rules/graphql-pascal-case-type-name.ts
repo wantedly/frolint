@@ -1,5 +1,7 @@
-import { Linter, Rule } from "eslint";
+import type { Rule } from "eslint";
+import { Linter } from "eslint";
 import type { TaggedTemplateExpression } from "estree";
+import type * as GraphQL from "graphql";
 import type {
   ASTNode,
   FragmentDefinitionNode,
@@ -87,7 +89,7 @@ linter.defineRule(RULE_NAME, {
 
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
     const autofixEnabled = option.autofix;
-    const graphql = require("graphql") as typeof import("graphql");
+    const graphql = require("graphql") as typeof GraphQL;
 
     return {
       TaggedTemplateExpression(node) {

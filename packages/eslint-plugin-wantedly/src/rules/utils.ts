@@ -1,4 +1,4 @@
-import { Node } from "estree";
+import type { Node } from "estree";
 
 export function getOptionWithDefault(context: any, defaultOption: any) {
   return context.options.reduce((acc: any, obj: any) => ({ ...acc, ...obj }), defaultOption);

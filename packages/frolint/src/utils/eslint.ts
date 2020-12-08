@@ -1,7 +1,7 @@
 import { CLIEngine } from "eslint";
 import { resolve } from "path";
 import { sync } from "resolve";
-import { FrolintConfig } from "../Context";
+import type { FrolintConfig } from "../Context";
 
 function detectReactVersion(basedir: string) {
   try {

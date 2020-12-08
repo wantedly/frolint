@@ -1,5 +1,5 @@
 import { Command } from "clipanion";
-import { FrolintContext } from "../Context";
+import type { FrolintContext } from "../Context";
 import { getCLI } from "../utils/eslint";
 
 export class PrintConfigCommand extends Command<FrolintContext> {

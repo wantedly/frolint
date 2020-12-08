@@ -1,5 +1,5 @@
 import { Command } from "clipanion";
-import { FrolintContext } from "../Context";
+import type { FrolintContext } from "../Context";
 import { DefaultCommand } from "./DefaultCommand";
 
 export class HelpCommand extends Command<FrolintContext> {

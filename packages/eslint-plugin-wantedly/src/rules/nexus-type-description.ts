@@ -1,5 +1,6 @@
-import { Linter, Rule } from "eslint";
-import { Property } from "estree";
+import type { Rule } from "eslint";
+import { Linter } from "eslint";
+import type { Property } from "estree";
 import { snakeCase } from "snake-case";
 import { docsUrl, isNexusSchemaImported } from "./utils";
 

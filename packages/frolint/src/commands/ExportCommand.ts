@@ -3,7 +3,7 @@
 import { Command } from "clipanion";
 import { accessSync, constants, writeFileSync } from "fs";
 import { resolve } from "path";
-import { FrolintContext } from "../Context";
+import type { FrolintContext } from "../Context";
 import { getGitRootDir } from "../utils/git";
 
 export class ExportCommand extends Command<FrolintContext> {

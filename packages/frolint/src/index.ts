@@ -8,7 +8,7 @@ import { PreCommitCommand } from "./commands/PreCommitCommand";
 import { PrintConfigCommand } from "./commands/PrintConfigCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
-import { FrolintConfig, FrolintContext } from "./Context";
+import type { FrolintConfig, FrolintContext } from "./Context";
 
 const binaryName = "frolint";
 const binaryVersion = "2.1.3";

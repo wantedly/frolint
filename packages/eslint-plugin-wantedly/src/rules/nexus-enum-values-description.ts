@@ -1,4 +1,5 @@
-import { AST, Linter, Rule } from "eslint";
+import type { AST, Rule } from "eslint";
+import { Linter } from "eslint";
 import type { ObjectExpression, Property, VariableDeclarator } from "estree";
 import { docsUrl, isNexusSchemaImported } from "./utils";
 
