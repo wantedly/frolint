@@ -1,8 +1,9 @@
 import { readFileSync } from "fs";
 import { extname, resolve } from "path";
-import prettier, { BuiltInParserName, ResolveConfigOptions } from "prettier";
+import type { BuiltInParserName, ResolveConfigOptions } from "prettier";
+import prettier from "prettier";
 import prettierConfigWantedly from "prettier-config-wantedly";
-import { FrolintConfig } from "../Context";
+import type { FrolintConfig } from "../Context";
 
 const supportedLanguages = [
   "JavaScript",

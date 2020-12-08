@@ -1,6 +1,6 @@
 import { Command } from "clipanion";
 import { accessSync, constants, readFileSync, writeFileSync } from "fs";
-import { FrolintContext } from "../Context";
+import type { FrolintContext } from "../Context";
 import { END_COMMENT, HOOKS_CATEGORY, START_COMMENT } from "../utils/constants";
 import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git";
 

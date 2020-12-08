@@ -1,4 +1,6 @@
-import { Linter, Rule } from "eslint";
+import type { Rule } from "eslint";
+import { Linter } from "eslint";
+import type * as GraphQL from "graphql";
 import { pascalCase } from "pascal-case";
 import { docsUrl, getOptionWithDefault } from "./utils";
 
@@ -34,7 +36,7 @@ linter.defineRule(RULE_NAME, {
 
     const option = getOptionWithDefault(context, DEFAULT_OPTION);
     const autofixEnabled = option.autofix;
-    const graphql = require("graphql") as typeof import("graphql");
+    const graphql = require("graphql") as typeof GraphQL;
 
     return {
       TaggedTemplateExpression(node) {
