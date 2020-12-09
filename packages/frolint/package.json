@@ -9,6 +9,7 @@
     "clipanion": "^2.6.2",
     "command-exists": "^1.2.9",
     "cosmiconfig": "^7.0.0",
+    "debug": "^4.3.1",
     "eslint": "^7.15.0",
     "eslint-config-wantedly": "^2.2.8",
     "eslint-config-wantedly-typescript": "^2.2.8",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@types/command-exists": "^1.2.0",
     "@types/cosmiconfig": "^6.0.0",
+    "@types/debug": "^4.1.5",
     "@types/eslint": "^7.2.6",
     "@types/mock-fs": "^4.13.0",
     "@types/prettier": "^2.1.5",
