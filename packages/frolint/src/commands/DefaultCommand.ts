@@ -67,16 +67,26 @@ export class DefaultCommand extends Command<FrolintContext> {
 
   @Command.Path()
   public async execute(): Promise<number> {
+    const log = this.context.debug("DefaultCommand");
+
+    log("Start to execute");
+
     const rootDir = getGitRootDir(this.context.cwd);
-    const isTypeScript = this.context.config.typescript || this.typescript;
+    const isTypeScript = this.context.config.typescript ?? this.typescript;
     const noGit = this.noGit || !isGitExist() || !isInsideGitRepository();
+
+    log("Command context: %o", { rootDir, isTypeScript, noGit });
 
     let files: string[] = [];
     let isFullyStaged = (_file: string) => true;
 
     if (noGit) {
+      log("Running no git situation");
+
       files = getAllFiles(isTypeScript, rootDir);
     } else if (this.context.preCommit) {
+      log("Running pre-commit situation");
+
       const staged = getStagedFiles(rootDir);
       const unstaged = getUnstagedFiles(rootDir);
       files = files.concat(Array.from(new Set([...staged, ...unstaged])));
@@ -85,12 +95,20 @@ export class DefaultCommand extends Command<FrolintContext> {
         return files.includes(relativeFilepath) && !unstaged.includes(relativeFilepath);
       };
     } else if (this.branch) {
+      log("Running branch specified situation");
+
       files = getChangedFilesFromBranch(this.branch, rootDir);
     } else {
+      log("Running all files situation");
+
       files = getAllFiles(isTypeScript, rootDir);
     }
 
+    log("Target Files: %O", files);
+
     const eslintConfigPackage = isTypeScript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
+
+    log("ESLint Config: %o", { eslintConfigPackage });
 
     /**
      * Resolve package.json from eslintConfigPackage
@@ -100,7 +118,7 @@ export class DefaultCommand extends Command<FrolintContext> {
      *   frolint/
      *     lib/
      *       commands/ <-- __dirname
-     *   `eslintConfigPckage`/
+     *   `eslintConfigPackage`/
      *     package.json
      */
     const pkg = require(resolve(__dirname, "..", "..", "..", eslintConfigPackage, "package.json"));
@@ -110,6 +128,7 @@ export class DefaultCommand extends Command<FrolintContext> {
 
     const shouldStageFiles = new Set<string>();
 
+    log("Start applying ESLint");
     /**
      * Apply ESLint step
      */
@@ -125,6 +144,7 @@ export class DefaultCommand extends Command<FrolintContext> {
       }
     });
 
+    log("Start applying Prettier");
     /**
      * Apply Prettier step
      */
@@ -144,6 +164,7 @@ export class DefaultCommand extends Command<FrolintContext> {
         }
       });
 
+    log("Start stagings files");
     /**
      * Stage files step
      */
@@ -151,6 +172,7 @@ export class DefaultCommand extends Command<FrolintContext> {
       stageFiles([...shouldStageFiles], rootDir);
     }
 
+    log("Start reporting results to console");
     const reported = reportToConsole(report, rootDir, this.context.config.formatter || this.formatter);
 
     if (!noGit && this.context.preCommit) {
@@ -159,6 +181,7 @@ export class DefaultCommand extends Command<FrolintContext> {
         .reduce((acc, { errorCount }) => acc + errorCount, 0);
 
       if (stagedErrorCount > 0) {
+        log("Exit CLI with non-zero status because the error remaining in staged files: %o", { stagedErrorCount });
         console.log("commit canceled with exit status 1. You have to fix ESLint errors.");
         return 1;
       }
@@ -167,16 +190,21 @@ export class DefaultCommand extends Command<FrolintContext> {
     if (this.expectNoErrors) {
       const errors = reported.reduce((acc, { errorCount }) => acc + errorCount, 0);
       if (errors > 0) {
+        log("Exit CLI with non-zero status because the errors exist but you expected no errors: %o", {
+          errors,
+        });
         return 1;
       }
     }
 
     if (this.expectNoDiff && hasChangedFiles(this.context.cwd)) {
+      log("Exit CLI with non-zero status because the files are changed");
       console.log(chalk.red(`You specified \`--expect-no-diff\` option but you have some changed files.`));
 
       return 1;
     }
 
+    log("Execution finished");
     return 0;
   }
 }

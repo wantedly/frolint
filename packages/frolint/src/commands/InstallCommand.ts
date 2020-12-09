@@ -15,23 +15,31 @@ export class InstallCommand extends Command<FrolintContext> {
 
   @Command.Path("install")
   public async execute() {
+    const log = this.context.debug("InstallCommand");
+
+    log("Start to execute");
+
     if (!isGitExist()) {
-      return;
+      log("Command `git` is not exist");
+      return 0;
     }
 
     if (!isInsideGitRepository(this.context.cwd)) {
-      return;
+      log("Current working directory is not a git project");
+      return 0;
     }
 
     if (isPreCommitHookInstalled()) {
+      log("pre-commit hook script is already installed");
       this.context.stdout.write("Installed\n");
-      return;
+      return 0;
     }
 
     try {
-      // Check the .git/hooks/pre-commit file is exists
+      log("Check the pre-commit hook file (%s) is exists", getPreCommitHookPath());
       accessSync(getPreCommitHookPath(), constants.W_OK | constants.X_OK);
 
+      log("Append code to pre-commit hook file (%s) for calling frolint", getPreCommitHookPath());
       // If the file exists, this command should append the content into the file
       writeFileSync(getPreCommitHookPath(), render({ append: true }), {
         flag: "a",
@@ -41,8 +49,10 @@ export class InstallCommand extends Command<FrolintContext> {
     } catch (err) {
       if (err) {
         if (err.code === "ENOENT") {
+          log("The pre-commit hook file (%s) is not exists", getPreCommitHookPath());
           // If the .git/hooks/pre-commit file is not exists
           try {
+            log("Create pre-commit hook file (%s)", getPreCommitHookPath());
             // This command should create the file including the content
             writeFileSync(getPreCommitHookPath(), render({ append: false }), {
               flag: "w",
@@ -50,17 +60,24 @@ export class InstallCommand extends Command<FrolintContext> {
               encoding: "utf8",
             });
           } catch (err) {
+            log("Cannot create pre-commit hook file");
             this.context.stderr.write(`Install failed: ${err.message}`);
             return 1;
           }
-          return;
+          return 0;
         }
 
+        log("Unknown error occurred...");
         // Unknown error
         this.context.stderr.write(`Install failed: ${err.message}`);
         return 1;
       }
     }
+
+    this.context.stdout.write("Installed\n");
+    log("Execution finished");
+
+    return 0;
   }
 }
 

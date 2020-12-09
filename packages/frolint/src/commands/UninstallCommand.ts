@@ -15,23 +15,31 @@ export class UninstallCommand extends Command<FrolintContext> {
 
   @Command.Path("uninstall")
   public async execute() {
+    const log = this.context.debug("UninstallCommand");
+
+    log("Start to execute");
+
     if (!isGitExist()) {
-      return;
+      log("Command `git` is not exist");
+      return 0;
     }
 
     if (!isInsideGitRepository(this.context.cwd)) {
-      return;
+      log("Current working directory is not a git project");
+      return 0;
     }
 
     if (!isPreCommitHookInstalled()) {
       this.context.stdout.write("Not installed");
-      return;
+      log("pre-commit hook script is already installed");
+      return 0;
     }
 
     try {
-      // Check the .git/hooks/pre-commit fiel is exists
+      log("Check the pre-commit hook file (%s) is exists", getPreCommitHookPath());
       accessSync(getPreCommitHookPath(), constants.R_OK | constants.W_OK | constants.X_OK);
 
+      log("Extract code running frolint");
       const content = readFileSync(getPreCommitHookPath(), "utf8");
       const newContent: string[] = [];
       const lines = content.split("\n");
@@ -50,12 +58,17 @@ export class UninstallCommand extends Command<FrolintContext> {
         }
       });
 
+      log("Remove code from pre-commit hook file (%s)", getPreCommitHookPath());
       writeFileSync(getPreCommitHookPath(), newContent.join("\n"), { flag: "w", mode: parseInt("0755", 8) });
     } catch (err) {
+      log("Unknown error occurred: %O", err);
       this.context.stderr.write(`Uninstall failed: ${err.message}`);
       return 1;
     }
 
-    this.context.stdout.write("Uninstall");
+    this.context.stdout.write("Uninstalled");
+    log("Execution finished");
+
+    return 0;
   }
 }

@@ -1,4 +1,5 @@
 import type { BaseContext } from "clipanion";
+import type { Debugger } from "debug";
 
 export type FrolintConfig = {
   typescript: boolean;
@@ -12,9 +13,10 @@ export type FrolintConfig = {
   };
 };
 
-export type FrolintContext = BaseContext & {
+export interface FrolintContext extends BaseContext {
   cwd: string;
   config: FrolintConfig;
   preCommit: boolean;
   version: string;
-};
+  debug: (namespace: string) => Debugger;
+}

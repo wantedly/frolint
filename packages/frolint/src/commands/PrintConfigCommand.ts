@@ -12,7 +12,18 @@ export class PrintConfigCommand extends Command<FrolintContext> {
 
   @Command.Path("print-config")
   public async execute() {
+    const log = this.context.debug("PrintConfigCommand");
+
+    log("Start to execute");
+    log("Print config context: %o", {
+      cwd: this.context.cwd,
+      eslintConfig: this.context.config.eslint,
+      filepath: this.filepath,
+    });
+
     const config = getCLI(this.context.cwd, undefined, this.context.config.eslint).getConfigForFile(this.filepath);
     console.log(JSON.stringify(config, null, "  "));
+
+    log("Exection finished");
   }
 }
