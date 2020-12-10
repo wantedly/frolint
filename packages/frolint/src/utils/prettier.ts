@@ -4,6 +4,9 @@ import type { BuiltInParserName, ResolveConfigOptions } from "prettier";
 import prettier from "prettier";
 import prettierConfigWantedly from "prettier-config-wantedly";
 import type { FrolintConfig } from "../Context";
+import { frolintDebug } from "./debug";
+
+const log = frolintDebug.extend("prettier");
 
 const supportedLanguages = [
   "JavaScript",
@@ -36,6 +39,9 @@ function isIgnoredForPrettier(file: string, prettierConfig: FrolintConfig["prett
 }
 
 export function applyPrettier(rootDir: string, files: string[], prettierConfig: FrolintConfig["prettier"]) {
+  log("Supported languages by Prettier: %O", { supportedLanguages, supportedExtensions });
+  log("Prettier config: %O", { prettierConfig });
+
   return files
     .filter((file) => isPrettierSupported(file))
     .filter((file) => !isIgnoredForPrettier(file, prettierConfig))

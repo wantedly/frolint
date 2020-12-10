@@ -136,9 +136,11 @@ export class DefaultCommand extends Command<FrolintContext> {
     report.results.forEach((result) => {
       const { filePath, output } = result;
       if (output) {
+        log("File (%s) has changed. Overwriting..", filePath);
         writeFileSync(filePath, output);
 
         if (!this.noStage && isFullyStaged(filePath)) {
+          log("File (%s) should be staged", filePath);
           shouldStageFiles.add(relative(rootDir, filePath));
         }
       }
@@ -156,9 +158,11 @@ export class DefaultCommand extends Command<FrolintContext> {
       }> => Boolean(result))
       .forEach(({ filePath, output }) => {
         if (output) {
+          log("File (%s) has changed. Overwriting..", filePath);
           writeFileSync(filePath, output);
 
           if (!this.noStage && isFullyStaged(filePath)) {
+            log("File (%s) should be staged", filePath);
             shouldStageFiles.add(relative(rootDir, filePath));
           }
         }
