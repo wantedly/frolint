@@ -35,7 +35,7 @@
     "lint:ci": "frolint --expect-no-errors",
     "changelog": "yarn --silent lerna-changelog | cat - CHANGELOG.md | yarn --silent prettier --stdin-filepath CHANGELOG.md > CHANGELOG_BACKUP.md; mv CHANGELOG_BACKUP.md CHANGELOG.md",
     "build": "lerna run build",
-    "build:watch": "lerna exec npm run build:watch",
+    "build:watch": "lerna run --parallel build:watch",
     "prerelease": "yarn install --force && yarn run build",
     "release": "lerna publish --force-publish --preid beta --pre-dist-tag beta"
   },

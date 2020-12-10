@@ -162,3 +162,19 @@ Now, `frolint` supports Prettier. So `frolint` command format the code automatic
   }
 }
 ```
+
+### Debugging
+
+If you want to watch debug log, you can use `DEBUG=frolint:*` environment variable to output debugging information to the console.
+
+```console
+> DEBUG=frolint:* yarn frolint
+...
+  frolint:DefaultCommand Start stagings files +552ms
+  frolint:DefaultCommand Start reporting results to console +4ms
+  frolint:report Start reporting using frolint format +0ms
+  frolint:report No errors and warnings +0ms
+No errors and warnings!
+  frolint:DefaultCommand Execution finished +1ms
+  frolint:main Linting and Formatting complete +1s
+```

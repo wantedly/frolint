@@ -9,24 +9,34 @@ import { PrintConfigCommand } from "./commands/PrintConfigCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
 import type { FrolintConfig, FrolintContext } from "./Context";
+import { frolintDebug } from "./utils/debug";
+
+const log = frolintDebug.extend("main");
 
 const binaryName = "frolint";
 const binaryVersion = "2.3.0";
 
-const cli = new Cli<FrolintContext>({
-  binaryLabel: "FROntend LINt Tool",
-  binaryName,
-  binaryVersion,
-});
+log("CLI config: %o", { binaryName, binaryVersion });
 
-cli.register(DefaultCommand);
-cli.register(ExportCommand);
-cli.register(HelpCommand);
-cli.register(InstallCommand);
-cli.register(PreCommitCommand);
-cli.register(PrintConfigCommand);
-cli.register(UninstallCommand);
-cli.register(VersionCommand);
+const cli = Cli.from<FrolintContext>(
+  [
+    DefaultCommand,
+    ExportCommand,
+    HelpCommand,
+    InstallCommand,
+    PreCommitCommand,
+    PrintConfigCommand,
+    UninstallCommand,
+    VersionCommand,
+  ],
+  {
+    binaryLabel: "FROntend LINt Tool",
+    binaryName,
+    binaryVersion,
+  }
+);
+
+log("Start to load config using cosmiconfig");
 
 const result = cosmiconfigSync(binaryName).search();
 
@@ -43,13 +53,19 @@ if (result && result.config) {
   };
 }
 
+log("Frolint config: %o", config);
+log("Start to run CLI");
+
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 cli.runExit(process.argv.slice(2), {
-  stdin: process.stdin,
-  stdout: process.stdout,
-  stderr: process.stderr,
+  ...Cli.defaultContext,
   cwd: process.cwd(),
   config,
   preCommit: false,
   version: binaryVersion,
+  debug: (namespace) => {
+    return frolintDebug.extend(namespace);
+  },
 });
+
+log("Linting and Formatting complete");
