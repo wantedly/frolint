@@ -42,9 +42,13 @@ export function applyPrettier(rootDir: string, files: string[], prettierConfig: 
   log("Supported languages by Prettier: %O", { supportedLanguages, supportedExtensions });
   log("Prettier config: %O", { prettierConfig });
 
-  return files
+  const targetFiles = files
     .filter((file) => isPrettierSupported(file))
-    .filter((file) => !isIgnoredForPrettier(file, prettierConfig))
+    .filter((file) => !isIgnoredForPrettier(file, prettierConfig));
+
+  log("Applying Prettier. target files: %O", targetFiles);
+
+  return targetFiles
     .map((file) => {
       const filePath = resolve(rootDir, file);
       const options = prettierConfig.config
