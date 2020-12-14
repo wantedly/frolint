@@ -21,7 +21,9 @@ export class PrintConfigCommand extends Command<FrolintContext> {
       filepath: this.filepath,
     });
 
-    const config = getCLI(this.context.cwd, undefined, this.context.config.eslint).getConfigForFile(this.filepath);
+    const config = await getCLI(this.context.cwd, undefined, this.context.config.eslint).calculateConfigForFile(
+      this.filepath
+    );
     console.log(JSON.stringify(config, null, "  "));
 
     log("Exection finished");

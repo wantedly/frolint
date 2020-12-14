@@ -132,8 +132,8 @@ export class DefaultCommand extends Command<FrolintContext> {
     /**
      * Apply ESLint step
      */
-    const report = applyEslint(rootDir, files, eslintConfigPackage, this.context.config.eslint);
-    report.results.forEach((result) => {
+    const results = await applyEslint(rootDir, files, eslintConfigPackage, this.context.config.eslint);
+    results.forEach((result) => {
       const { filePath, output } = result;
       if (output) {
         log("File (%s) has changed. Overwriting..", filePath);
@@ -150,8 +150,8 @@ export class DefaultCommand extends Command<FrolintContext> {
     /**
      * Apply Prettier step
      */
-    const results = applyPrettier(rootDir, files, this.context.config.prettier);
-    results
+    const prettierResults = applyPrettier(rootDir, files, this.context.config.prettier);
+    prettierResults
       .filter((result: { filePath: string; output: string } | null): result is Required<{
         filePath: string;
         output: string;
@@ -177,7 +177,7 @@ export class DefaultCommand extends Command<FrolintContext> {
     }
 
     log("Start reporting results to console");
-    const reported = reportToConsole(report, rootDir, this.context.config.formatter || this.formatter);
+    const reported = await reportToConsole(results, rootDir, this.context.config.formatter || this.formatter);
 
     if (!noGit && this.context.preCommit) {
       const stagedErrorCount = reported

@@ -56,16 +56,17 @@ if (result && result.config) {
 log("Frolint config: %o", config);
 log("Start to run CLI");
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-cli.runExit(process.argv.slice(2), {
-  ...Cli.defaultContext,
-  cwd: process.cwd(),
-  config,
-  preCommit: false,
-  version: binaryVersion,
-  debug: (namespace) => {
-    return frolintDebug.extend(namespace);
-  },
-});
-
-log("Linting and Formatting complete");
+void cli
+  .runExit(process.argv.slice(2), {
+    ...Cli.defaultContext,
+    cwd: process.cwd(),
+    config,
+    preCommit: false,
+    version: binaryVersion,
+    debug: (namespace) => {
+      return frolintDebug.extend(namespace);
+    },
+  })
+  .then(() => {
+    log("Linting and Formatting complete");
+  });

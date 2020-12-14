@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import type { CLIEngine } from "eslint";
+import type { ESLint } from "eslint";
 import { relative } from "path";
 import { frolintDebug } from "./debug";
 import { getCLI } from "./eslint";
@@ -11,9 +11,12 @@ function reportNoop() {
   console.log(green("No errors and warnings!"));
 }
 
-function reportWithFrolintFormat(report: CLIEngine.LintReport, rootDir: string) {
+function reportWithFrolintFormat(results: ESLint.LintResult[], rootDir: string) {
   log("Start reporting using frolint format");
-  const { results, errorCount, warningCount } = report;
+  const [errorCount, warningCount] = results.reduce(
+    ([ec, wc], result) => [ec + result.errorCount, wc + result.warningCount],
+    [0, 0]
+  );
 
   if (errorCount === 0 && warningCount === 0) {
     log("No errors and warnings");
@@ -47,7 +50,7 @@ function reportWithFrolintFormat(report: CLIEngine.LintReport, rootDir: string) 
   return reported;
 }
 
-function formatResults(results: CLIEngine.LintResult[], rootDir: string) {
+function formatResults(results: ESLint.LintResult[], rootDir: string) {
   log("Format ESLint error results");
 
   return results
@@ -60,17 +63,17 @@ function formatResults(results: CLIEngine.LintResult[], rootDir: string) {
     });
 }
 
-export function reportToConsole(report: CLIEngine.LintReport, rootDir: string, formatter?: string) {
+export async function reportToConsole(results: ESLint.LintResult[], rootDir: string, formatter?: string) {
   if (formatter) {
     log("Start reporting using ESLint provided format: %o", { formatter });
 
     const cli = getCLI(rootDir);
-    const format = cli.getFormatter(formatter);
+    const eslintFormatter = await cli.loadFormatter(formatter);
 
-    console.log(format(report.results));
+    console.log(eslintFormatter.format(results));
 
-    return formatResults(report.results, rootDir);
+    return formatResults(results, rootDir);
   }
 
-  return reportWithFrolintFormat(report, rootDir);
+  return reportWithFrolintFormat(results, rootDir);
 }
