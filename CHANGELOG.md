@@ -1,3 +1,33 @@
+## v2.3.0 (2020-12-15)
+
+#### New feature or improvement
+
+- `frolint`
+  - [#714](https://github.com/wantedly/frolint/pull/714) Use `ESLint` class instead of `CLIEngine` ([@yamadayuki](https://github.com/yamadayuki))
+  - [#709](https://github.com/wantedly/frolint/pull/709) Introduce debug log ([@yamadayuki](https://github.com/yamadayuki))
+- `eslint-plugin-wantedly`, `frolint`
+  - [#707](https://github.com/wantedly/frolint/pull/707) Use consistent type imports rule in this project ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`
+  - [#716](https://github.com/wantedly/frolint/pull/716) Bump @typescript-eslint/eslint-plugin from 4.9.1 to 4.10.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#717](https://github.com/wantedly/frolint/pull/717) Bump @typescript-eslint/parser from 4.9.1 to 4.10.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#705](https://github.com/wantedly/frolint/pull/705) Bump @typescript-eslint/parser from 4.9.0 to 4.9.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#706](https://github.com/wantedly/frolint/pull/706) Bump @typescript-eslint/eslint-plugin from 4.9.0 to 4.9.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#715](https://github.com/wantedly/frolint/pull/715) Bump eslint-plugin-prettier from 3.2.0 to 3.3.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- Other
+  - [#712](https://github.com/wantedly/frolint/pull/712) Bump @types/jest from 26.0.18 to 26.0.19 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#710](https://github.com/wantedly/frolint/pull/710) Bump actions/setup-node from v2.1.2 to v2.1.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#711](https://github.com/wantedly/frolint/pull/711) Bump ini from 1.3.5 to 1.3.7 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#713](https://github.com/wantedly/frolint/pull/713) Bump typescript from 4.1.2 to 4.1.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#708](https://github.com/wantedly/frolint/pull/708) Bump @types/jest from 26.0.16 to 26.0.18 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 1
+
+- Yamada Yuki ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v2.2.8 (2020-12-07)
 
 #### Update dependencies

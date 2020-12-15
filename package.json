@@ -42,10 +42,10 @@
   "changelog": {
     "repo": "wantedly/frolint",
     "labels": {
-      "dependencies": "Update dependencies",
       "enhancement": "New feature or improvement",
       "bug": "Bug fix",
-      "documentation": "Improve documentation"
+      "documentation": "Improve documentation",
+      "dependencies": "Update dependencies"
     },
     "cacheDir": ".changelog"
   }
