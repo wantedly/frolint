@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`eslint-config-wantedly/without-react should match snapshot for env 1`] = `
+exports[`eslint-config-wantedly/without-react should match snapshot for: env 1`] = `
 Object {
   "browser": true,
   "es6": true,
@@ -9,19 +9,19 @@ Object {
 }
 `;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for globals 1`] = `
+exports[`eslint-config-wantedly/without-react should match snapshot for: globals 1`] = `
 Object {
   "flushPromises": true,
 }
 `;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for ignorePatterns 1`] = `Array []`;
+exports[`eslint-config-wantedly/without-react should match snapshot for: ignorePatterns 1`] = `Array []`;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for noInlineConfig 1`] = `undefined`;
+exports[`eslint-config-wantedly/without-react should match snapshot for: noInlineConfig 1`] = `undefined`;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for parser 1`] = `"/babel-eslint/lib/index.js"`;
+exports[`eslint-config-wantedly/without-react should match snapshot for: parser 1`] = `"/babel-eslint/lib/index.js"`;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for parserOptions 1`] = `
+exports[`eslint-config-wantedly/without-react should match snapshot for: parserOptions 1`] = `
 Object {
   "ecmaFeatures": Object {
     "experimentalObjectRestSpread": true,
@@ -31,7 +31,7 @@ Object {
 }
 `;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for plugins 1`] = `
+exports[`eslint-config-wantedly/without-react should match snapshot for: plugins 1`] = `
 Array [
   "use-macros",
   "prettier",
@@ -41,9 +41,9 @@ Array [
 ]
 `;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for reportUnusedDisableDirectives 1`] = `undefined`;
+exports[`eslint-config-wantedly/without-react should match snapshot for: reportUnusedDisableDirectives 1`] = `undefined`;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for rules 1`] = `
+exports[`eslint-config-wantedly/without-react should match snapshot for: rules 1`] = `
 Object {
   "array-bracket-newline": Array [
     "off",
@@ -607,4 +607,4 @@ Object {
 }
 `;
 
-exports[`eslint-config-wantedly/without-react should match snapshot for settings 1`] = `Object {}`;
+exports[`eslint-config-wantedly/without-react should match snapshot for: settings 1`] = `Object {}`;
