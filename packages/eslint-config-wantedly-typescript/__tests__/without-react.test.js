@@ -1,21 +1,18 @@
-const path = require("path");
-const CLIEngine = require("eslint").CLIEngine;
-
-const ESLINT_CONFIG_FILE = path.resolve(__dirname, "..", "without-react.js");
-const engine = new CLIEngine({
-  configFile: ESLINT_CONFIG_FILE,
-  useEslintrc: false,
-});
+const ESLint = require("eslint").ESLint;
+const baseConfig = require("../without-react");
 
 const normalizePath = (path) => {
   return /node_modules/.test(path) ? path.split("node_modules")[1] : path;
 };
 
 describe("eslint-config-wantedly-typescript/without-react", () => {
-  const config = engine.getConfigForFile("test.ts");
-  const keys = Object.keys(config);
+  test("should match snapshot for", async () => {
+    const config = await new ESLint({
+      baseConfig,
+      useEslintrc: false,
+    }).calculateConfigForFile("test.ts");
+    const keys = Object.keys(config);
 
-  beforeAll(() => {
     const normalizeRequiredKeys = ["extends", "parser"];
     normalizeRequiredKeys.forEach((key) => {
       const newConfig = config[key];
@@ -26,11 +23,9 @@ describe("eslint-config-wantedly-typescript/without-react", () => {
         config[key] = normalizePath(newConfig);
       }
     });
-  });
 
-  keys.forEach((key) => {
-    test(`should match snapshot for ${key}`, () => {
-      expect(config[key]).toMatchSnapshot();
+    keys.forEach((key) => {
+      expect(config[key]).toMatchSnapshot(key);
     });
   });
 });
