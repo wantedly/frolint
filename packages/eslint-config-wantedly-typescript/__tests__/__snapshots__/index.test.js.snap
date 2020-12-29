@@ -698,7 +698,7 @@ Object {
     2,
   ],
   "react/jsx-uses-react": Array [
-    2,
+    "off",
   ],
   "react/jsx-uses-vars": Array [
     "error",
@@ -755,7 +755,7 @@ Object {
     "off",
   ],
   "react/react-in-jsx-scope": Array [
-    2,
+    "off",
   ],
   "react/require-default-props": Array [
     "off",
