@@ -114,7 +114,7 @@ module.exports = {
     "use-isnan": "error",
     "valid-typeof": "error",
     camelcase: ["error", { ignoreDestructuring: true, properties: "never" }],
-    eqeqeq: "error",
+    eqeqeq: ["error", "smart"],
     indent: "off",
     quotes: ["off"],
     semi: "off",
