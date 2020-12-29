@@ -19,6 +19,7 @@ module.exports = {
     "react/jsx-no-bind": ["warn", { allowArrowFunctions: true }],
     "react/jsx-no-duplicate-props": "error",
     "react/jsx-no-target-blank": "warn",
+    "react/jsx-uses-react": ["off"],
     "react/jsx-uses-vars": "error",
     "react/jsx-wrap-multilines": "warn",
     "react/no-array-index-key": "error",
@@ -28,6 +29,7 @@ module.exports = {
     "react/no-string-refs": "error",
     "react/no-unused-prop-types": "off",
     "react/prop-types": "off",
+    "react/react-in-jsx-scope": ["off"],
     "react/require-default-props": "off",
 
     // eslint-plugin-react-hooks rules
