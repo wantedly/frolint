@@ -124,6 +124,7 @@ Object {
   ],
   "eqeqeq": Array [
     "error",
+    "smart",
   ],
   "for-direction": Array [
     "error",
