@@ -1,3 +1,35 @@
+## v2.4.0 (2020-12-30)
+
+#### New feature or improvement
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#730](https://github.com/wantedly/frolint/pull/730) Prevent false positive when the user uses React 17 ([@yamadayuki](https://github.com/yamadayuki))
+  - [#729](https://github.com/wantedly/frolint/pull/729) Use eqeqeq rule smart option ([@yamadayuki](https://github.com/yamadayuki))
+  - [#718](https://github.com/wantedly/frolint/pull/718) Remove CLIEngine from tests in eslint-config-wantedly ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`
+  - [#727](https://github.com/wantedly/frolint/pull/727) Bump @typescript-eslint/parser from 4.11.0 to 4.11.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#728](https://github.com/wantedly/frolint/pull/728) Bump @typescript-eslint/eslint-plugin from 4.11.0 to 4.11.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#723](https://github.com/wantedly/frolint/pull/723) Bump @typescript-eslint/eslint-plugin from 4.10.0 to 4.11.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#725](https://github.com/wantedly/frolint/pull/725) Bump @typescript-eslint/parser from 4.10.0 to 4.11.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#724](https://github.com/wantedly/frolint/pull/724) Bump eslint from 7.15.0 to 7.16.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#721](https://github.com/wantedly/frolint/pull/721) Bump eslint-config-prettier from 7.0.0 to 7.1.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- Other
+  - [#719](https://github.com/wantedly/frolint/pull/719) Bump actions/setup-node from v2.1.3 to v2.1.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#722](https://github.com/wantedly/frolint/pull/722) Bump node-notifier from 8.0.0 to 8.0.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-plugin-use-macros`
+  - [#720](https://github.com/wantedly/frolint/pull/720) Bump babel-plugin-macros from 3.0.0 to 3.0.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `frolint`
+  - [#726](https://github.com/wantedly/frolint/pull/726) Bump @types/prettier from 2.1.5 to 2.1.6 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 1
+
+- Yamada Yuki ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v2.3.0 (2020-12-15)
 
 #### New feature or improvement
