@@ -37,7 +37,8 @@
     "build": "lerna run build",
     "build:watch": "lerna run --parallel build:watch",
     "prerelease": "yarn install --force && yarn run build",
-    "release": "lerna publish --force-publish --preid beta --pre-dist-tag beta"
+    "release": "lerna publish --force-publish --preid beta --pre-dist-tag beta",
+    "clean": "yarn lerna clean -y && rm -r packages/*/lib"
   },
   "changelog": {
     "repo": "wantedly/frolint",
