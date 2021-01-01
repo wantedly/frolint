@@ -1,22 +1,23 @@
 ---
 name: "eslint-plugin-wantedly-rule"
 description: "Template to create rule of eslint-plugin-wantedly"
-message: "Please enter rule name."
+message: "Please enter rule name with kebab-case."
 root: "packages/eslint-plugin-wantedly"
-output: "**/*"
-ignore: []
+output: "."
+ignore: ["**/*"]
 ---
 
-# `rules/{{ input }}.js`
+# `src/rules/{{ input }}.ts`
 
-```javascript
-const { Linter } = require("eslint");
-const { getOptionWithDefault, docsUrl } = require("./utils");
+```ts
+import type { Rule } from "eslint";
+import { Linter } from "eslint";
+import { docsUrl, getOptionWithDefault } from "./utils";
 
 const linter = new Linter();
-const RULE_NAME = "{{ input }}";
+export const RULE_NAME = "{{ input }}";
 
-// Represents the default option and schema for nexus-upper-case-enum-members option
+// Represents the default option and schema for {{ input }} option
 const DEFAULT_OPTION = {
   autofix: false,
 };
@@ -30,31 +31,28 @@ linter.defineRule(RULE_NAME, {
     },
   },
   create(context) {
-    // Code fun !!
-    return {};
+    return {
+      // TODO: Write the implementation for this rule.
+    };
   },
 });
 
-module.exports = {
-  RULE_NAME,
-  RULE: linter.getRules().get(RULE_NAME),
-};
+export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
 ```
 
 # `rules/__tests__/{{ input }}.test.js`
 
 ```javascript
-const RuleTester = require("eslint").RuleTester;
-const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
-const rule = require("../{{ input }}");
+import { RuleTester } from "eslint";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import ESLintConfigWantedly from "eslint-config-wantedly/without-react";
+import { RULE, RULE_NAME } from "../{{ input }}";
 
-RuleTester.setDefaultConfig({
+new RuleTester({
   parser: require.resolve(ESLintConfigWantedly.parser),
   parserOptions: ESLintConfigWantedly.parserOptions,
-});
-
-const ruleTester = new RuleTester();
-ruleTester.run(rule.RULE_NAME, rule.RULE, {
+}).run(RULE_NAME, RULE, {
   valid: [],
   invalid: [],
 });
