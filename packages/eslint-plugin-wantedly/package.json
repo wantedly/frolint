@@ -30,8 +30,8 @@
     "graphql": "^15.4.0"
   },
   "peerDependencies": {
-    "eslint": "^6.0.0",
-    "graphql": "^14.6.0"
+    "eslint": "^6.0.0 || ^7.0.0",
+    "graphql": "^14.6.0 || ^15.0.0"
   },
   "jest": {
     "roots": [
