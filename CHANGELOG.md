@@ -1,3 +1,46 @@
+## v2.5.0 (2021-01-19)
+
+#### Bug fix
+
+- `eslint-plugin-wantedly`
+  - [#735](https://github.com/wantedly/frolint/pull/735) Relax peerDependencies to eslint and graphql ([@izumin5210](https://github.com/izumin5210))
+- `eslint-config-wantedly-typescript`
+  - [#734](https://github.com/wantedly/frolint/pull/734) Relax peerDependencies to typescript ([@qnighy](https://github.com/qnighy))
+
+#### Improve documentation
+
+- [#732](https://github.com/wantedly/frolint/pull/732) Tweak scaffdog template ([@yamadayuki](https://github.com/yamadayuki))
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#749](https://github.com/wantedly/frolint/pull/749) Bump eslint-config-prettier from 7.1.0 to 7.2.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#738](https://github.com/wantedly/frolint/pull/738) Bump eslint-plugin-prettier from 3.3.0 to 3.3.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#731](https://github.com/wantedly/frolint/pull/731) Bump eslint-plugin-react from 7.21.5 to 7.22.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#747](https://github.com/wantedly/frolint/pull/747) Bump eslint from 7.17.0 to 7.18.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#733](https://github.com/wantedly/frolint/pull/733) Bump eslint from 7.16.0 to 7.17.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`
+  - [#748](https://github.com/wantedly/frolint/pull/748) Bump @typescript-eslint/eslint-plugin from 4.13.0 to 4.14.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#750](https://github.com/wantedly/frolint/pull/750) Bump @typescript-eslint/parser from 4.13.0 to 4.14.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#742](https://github.com/wantedly/frolint/pull/742) Bump @typescript-eslint/eslint-plugin from 4.12.0 to 4.13.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#743](https://github.com/wantedly/frolint/pull/743) Bump @typescript-eslint/parser from 4.12.0 to 4.13.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#736](https://github.com/wantedly/frolint/pull/736) Bump @typescript-eslint/parser from 4.11.1 to 4.12.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#737](https://github.com/wantedly/frolint/pull/737) Bump @typescript-eslint/eslint-plugin from 4.11.1 to 4.12.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-plugin-wantedly`
+  - [#744](https://github.com/wantedly/frolint/pull/744) Bump @types/estree from 0.0.45 to 0.0.46 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- Other
+  - [#746](https://github.com/wantedly/frolint/pull/746) Bump pacote from 11.1.14 to 11.2.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#745](https://github.com/wantedly/frolint/pull/745) Bump scaffdog from 0.3.0 to 1.0.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#740](https://github.com/wantedly/frolint/pull/740) Bump pacote from 11.1.13 to 11.1.14 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#741](https://github.com/wantedly/frolint/pull/741) Bump @types/jest from 26.0.19 to 26.0.20 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 3
+
+- Masaki Hara ([@qnighy](https://github.com/qnighy))
+- Masayuki Izumi ([@izumin5210](https://github.com/izumin5210))
+- Yamada Yuki ([@yamadayuki](https://github.com/yamadayuki))
+
 ## v2.4.0 (2020-12-30)
 
 #### New feature or improvement
