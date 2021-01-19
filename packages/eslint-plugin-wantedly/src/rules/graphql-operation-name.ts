@@ -51,6 +51,8 @@ linter.defineRule(RULE_NAME, {
 
         const invalid = node.quasi.quasis.some((elem, i) => {
           let chunk = elem.value.cooked;
+          if (!chunk) return false;
+
           const value = node.quasi.expressions[i];
 
           /**
