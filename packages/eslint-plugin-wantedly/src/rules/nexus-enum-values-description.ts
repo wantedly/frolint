@@ -52,6 +52,8 @@ linter.defineRule(RULE_NAME, {
         if (node.value.type === "ArrayExpression") {
           const elements = node.value.elements;
           elements.forEach((elem) => {
+            if (!elem) return;
+
             if (elem.type === "Literal") {
               if (!elem.value) return;
 
@@ -149,6 +151,8 @@ linter.defineRule(RULE_NAME, {
              */
             const elements = parent.init.elements;
             elements.forEach((elem) => {
+              if (!elem) return;
+
               if (elem.type === "Literal") {
                 if (!elem.value) return;
 
