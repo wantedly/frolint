@@ -8,7 +8,7 @@ module.exports = {
   globals: {
     flushPromises: true,
   },
-  extends: ["plugin:@typescript-eslint/recommended", "prettier", "prettier/@typescript-eslint"],
+  extends: ["plugin:@typescript-eslint/recommended", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
