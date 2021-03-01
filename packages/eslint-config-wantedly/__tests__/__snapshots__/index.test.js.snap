@@ -191,6 +191,9 @@ Object {
   "flowtype/generic-spacing": Array [
     "off",
   ],
+  "flowtype/object-type-curly-spacing": Array [
+    "off",
+  ],
   "flowtype/object-type-delimiter": Array [
     "off",
   ],
