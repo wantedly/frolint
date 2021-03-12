@@ -132,6 +132,9 @@ Object {
   "@typescript-eslint/no-non-null-assertion": Array [
     "warn",
   ],
+  "@typescript-eslint/no-redeclare": Array [
+    "error",
+  ],
   "@typescript-eslint/no-this-alias": Array [
     "error",
   ],
@@ -559,7 +562,7 @@ Object {
     },
   ],
   "no-redeclare": Array [
-    "error",
+    "off",
   ],
   "no-regex-spaces": Array [
     "error",

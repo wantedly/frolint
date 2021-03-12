@@ -89,7 +89,8 @@ module.exports = {
     "no-octal": "error",
     "no-param-reassign": "error",
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
-    "no-redeclare": "error",
+    // See @typescript-eslint/no-redeclare
+    "no-redeclare": "off",
     "no-regex-spaces": "error",
     "no-self-assign": "error",
     "no-shadow": "off",
@@ -131,6 +132,7 @@ module.exports = {
     "@typescript-eslint/no-array-constructor": "error",
     "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/no-floating-promises": ["error"],
+    "@typescript-eslint/no-redeclare": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
       { varsIgnorePattern: "^_", argsIgnorePattern: "^_", ignoreRestSiblings: true },
