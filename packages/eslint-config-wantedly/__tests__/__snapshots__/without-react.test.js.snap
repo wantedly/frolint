@@ -195,6 +195,9 @@ Object {
   "flowtype/object-type-delimiter": Array [
     "off",
   ],
+  "flowtype/quotes": Array [
+    "off",
+  ],
   "flowtype/semi": Array [
     "off",
   ],
