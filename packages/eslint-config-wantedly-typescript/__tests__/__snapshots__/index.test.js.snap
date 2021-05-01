@@ -49,6 +49,12 @@ exports[`eslint-config-wantedly-typescript should match snapshot for: reportUnus
 
 exports[`eslint-config-wantedly-typescript should match snapshot for: rules 1`] = `
 Object {
+  "@babel/object-curly-spacing": Array [
+    "off",
+  ],
+  "@babel/semi": Array [
+    "off",
+  ],
   "@typescript-eslint/adjacent-overload-signatures": Array [
     "error",
   ],

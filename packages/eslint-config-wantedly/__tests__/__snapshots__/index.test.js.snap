@@ -47,6 +47,12 @@ exports[`eslint-config-wantedly should match snapshot for: reportUnusedDisableDi
 
 exports[`eslint-config-wantedly should match snapshot for: rules 1`] = `
 Object {
+  "@babel/object-curly-spacing": Array [
+    "off",
+  ],
+  "@babel/semi": Array [
+    "off",
+  ],
   "@typescript-eslint/brace-style": Array [
     "off",
   ],

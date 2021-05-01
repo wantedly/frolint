@@ -45,6 +45,12 @@ exports[`eslint-config-wantedly/without-react should match snapshot for: reportU
 
 exports[`eslint-config-wantedly/without-react should match snapshot for: rules 1`] = `
 Object {
+  "@babel/object-curly-spacing": Array [
+    "off",
+  ],
+  "@babel/semi": Array [
+    "off",
+  ],
   "@typescript-eslint/brace-style": Array [
     "off",
   ],

@@ -46,6 +46,12 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
 
 exports[`eslint-config-wantedly-typescript/without-react should match snapshot for: rules 1`] = `
 Object {
+  "@babel/object-curly-spacing": Array [
+    "off",
+  ],
+  "@babel/semi": Array [
+    "off",
+  ],
   "@typescript-eslint/adjacent-overload-signatures": Array [
     "error",
   ],
