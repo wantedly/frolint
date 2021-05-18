@@ -141,5 +141,9 @@ module.exports = {
 
     // eslint-plugin-use-macros rules
     "use-macros/graphql-tag": "error",
+
+    // eslint-plugin-es rules
+    "es/no-regexp-lookbehind-assertions": "error",
+    "es/no-regexp-named-capture-groups": "error",
   },
 };

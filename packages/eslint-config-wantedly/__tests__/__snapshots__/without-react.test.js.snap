@@ -186,6 +186,12 @@ Object {
     "error",
     "smart",
   ],
+  "es/no-regexp-lookbehind-assertions": Array [
+    "error",
+  ],
+  "es/no-regexp-named-capture-groups": Array [
+    "error",
+  ],
   "flowtype/boolean-style": Array [
     "off",
   ],
