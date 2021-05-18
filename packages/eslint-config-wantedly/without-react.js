@@ -17,7 +17,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["import", "jsx-a11y", "jest", "prettier", "use-macros"],
+  plugins: ["import", "jsx-a11y", "jest", "prettier", "use-macros", "es"],
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
