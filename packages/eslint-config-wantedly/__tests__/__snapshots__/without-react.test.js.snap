@@ -33,6 +33,7 @@ Object {
 
 exports[`eslint-config-wantedly/without-react should match snapshot for: plugins 1`] = `
 Array [
+  "es",
   "use-macros",
   "prettier",
   "jest",
