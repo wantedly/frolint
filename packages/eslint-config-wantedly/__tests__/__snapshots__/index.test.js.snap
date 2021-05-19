@@ -35,6 +35,7 @@ exports[`eslint-config-wantedly should match snapshot for: plugins 1`] = `
 Array [
   "react-hooks",
   "react",
+  "es",
   "use-macros",
   "prettier",
   "jest",
@@ -187,6 +188,12 @@ Object {
   "eqeqeq": Array [
     "error",
     "smart",
+  ],
+  "es/no-regexp-lookbehind-assertions": Array [
+    "error",
+  ],
+  "es/no-regexp-named-capture-groups": Array [
+    "error",
   ],
   "flowtype/boolean-style": Array [
     "off",
