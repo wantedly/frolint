@@ -8,6 +8,12 @@ npm install --save frolint
 yarn add frolint
 ```
 
+And you should execute `frolint export` if you want to use prettier on your favorite editor.
+
+```
+yarn frolint export
+```
+
 ## Usage
 
 You can use this package only installing as dependency. If you want to configure the ESLint configuration, you should locate the `.eslintrc` for your root directory and you specify the file in config file.
