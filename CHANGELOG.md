@@ -1,3 +1,40 @@
+## 2.7.1 (2021-06-09)
+
+#### Improve documentation
+
+- `frolint`
+  - [#869](https://github.com/wantedly/frolint/pull/869) Add instruction `frolint export` ([@izumin5210](https://github.com/izumin5210))
+
+#### Update dependencies
+
+- Other
+  - [#886](https://github.com/wantedly/frolint/pull/886) Bump pacote from 11.3.3 to 11.3.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#885](https://github.com/wantedly/frolint/pull/885) Bump @types/estree from 0.0.47 to 0.0.48 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#872](https://github.com/wantedly/frolint/pull/872) Bump ws from 7.4.3 to 7.4.6 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#852](https://github.com/wantedly/frolint/pull/852) Bump ts-jest from 26.5.5 to 26.5.6 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#858](https://github.com/wantedly/frolint/pull/858) Bump actions/checkout from 2 to 2.3.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#866](https://github.com/wantedly/frolint/pull/866) Bump mock-fs from 4.14.0 to 5.0.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#870](https://github.com/wantedly/frolint/pull/870) Bump actions/cache from 2.1.5 to 2.1.6 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#882](https://github.com/wantedly/frolint/pull/882) Bump glob-parent from 5.1.1 to 5.1.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`
+  - [#884](https://github.com/wantedly/frolint/pull/884) Bump eslint-plugin-react from 7.23.2 to 7.24.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#873](https://github.com/wantedly/frolint/pull/873) Bump eslint-plugin-import from 2.23.2 to 2.23.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#880](https://github.com/wantedly/frolint/pull/880) Bump eslint from 7.25.0 to 7.28.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-config-wantedly-typescript`
+  - [#881](https://github.com/wantedly/frolint/pull/881) Bump @typescript-eslint/parser from 4.24.0 to 4.26.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `eslint-plugin-use-macros`
+  - [#851](https://github.com/wantedly/frolint/pull/851) Bump babel-plugin-macros from 3.0.1 to 3.1.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#848](https://github.com/wantedly/frolint/pull/848) Bump graphql-tag from 2.11.0 to 2.12.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#853](https://github.com/wantedly/frolint/pull/853) Bump styled-components from 5.2.3 to 5.3.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- `frolint`
+  - [#878](https://github.com/wantedly/frolint/pull/878) Bump @types/eslint from 7.2.10 to 7.2.13 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  - [#879](https://github.com/wantedly/frolint/pull/879) Bump prettier from 2.2.1 to 2.3.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 1
+
+- Masayuki Izumi ([@izumin5210](https://github.com/izumin5210))
+
 ## v2.7.0 (2021-05-19)
 
 #### New feature or improvement
