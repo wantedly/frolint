@@ -1,3 +1,14 @@
+## 2.8.0 (2021-09-22)
+
+#### Update dependencies
+
+- `eslint-config-wantedly-typescript`
+  - [#883](https://github.com/wantedly/frolint/pull/883) Bump @typescript-eslint/eslint-plugin from 4.24.0 to 4.26.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 1
+
+- Aubin De Traversay ([@prsdta](https://github.com/prsdta))
+
 ## 2.7.1 (2021-06-09)
 
 #### Improve documentation
