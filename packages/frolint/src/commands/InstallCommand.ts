@@ -3,6 +3,7 @@ import { accessSync, constants, writeFileSync } from "fs";
 import type { FrolintContext } from "../Context";
 import { END_COMMENT, HOOKS_CATEGORY, START_COMMENT } from "../utils/constants";
 import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git";
+import { isInstanceOfNodeError } from "../utils/isInstanceOfNodeError";
 
 export class InstallCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
@@ -47,7 +48,7 @@ export class InstallCommand extends Command<FrolintContext> {
         encoding: "utf8",
       });
     } catch (err) {
-      if (err) {
+      if (isInstanceOfNodeError(err)) {
         if (err.code === "ENOENT") {
           log("The pre-commit hook file (%s) is not exists", getPreCommitHookPath());
           // If the .git/hooks/pre-commit file is not exists
@@ -60,8 +61,10 @@ export class InstallCommand extends Command<FrolintContext> {
               encoding: "utf8",
             });
           } catch (err) {
-            log("Cannot create pre-commit hook file");
-            this.context.stderr.write(`Install failed: ${err.message}`);
+            if (isInstanceOfNodeError(err)) {
+              log("Cannot create pre-commit hook file");
+              this.context.stderr.write(`Install failed: ${err.message}`);
+            }
             return 1;
           }
           return 0;

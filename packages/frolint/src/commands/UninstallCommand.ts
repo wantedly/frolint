@@ -3,6 +3,7 @@ import { accessSync, constants, readFileSync, writeFileSync } from "fs";
 import type { FrolintContext } from "../Context";
 import { END_COMMENT, HOOKS_CATEGORY, START_COMMENT } from "../utils/constants";
 import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git";
+import { isInstanceOfNodeError } from "../utils/isInstanceOfNodeError";
 
 export class UninstallCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
@@ -61,8 +62,10 @@ export class UninstallCommand extends Command<FrolintContext> {
       log("Remove code from pre-commit hook file (%s)", getPreCommitHookPath());
       writeFileSync(getPreCommitHookPath(), newContent.join("\n"), { flag: "w", mode: parseInt("0755", 8) });
     } catch (err) {
-      log("Unknown error occurred: %O", err);
-      this.context.stderr.write(`Uninstall failed: ${err.message}`);
+      if (isInstanceOfNodeError(err)) {
+        log("Unknown error occurred: %O", err);
+        this.context.stderr.write(`Uninstall failed: ${err.message}`);
+      }
       return 1;
     }
 
