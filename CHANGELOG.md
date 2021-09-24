@@ -1,3 +1,14 @@
+## 2.8.2 (2021-09-22)
+
+#### Bug fix
+
+- `frolint`
+  - [#952](https://github.com/wantedly/frolint/pull/952) Set the `ignorePath` for prettier calls ([@prsdta](https://github.com/prsdta))
+
+#### Committers: 1
+
+- Aubin De Traversay ([@prsdta](https://github.com/prsdta))
+
 ## 2.8.0 (2021-09-22)
 
 #### Update dependencies
