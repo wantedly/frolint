@@ -1,33 +1,42 @@
 # frolint [![npm version](https://badge.fury.io/js/frolint.svg)](https://badge.fury.io/js/frolint)
 
-## Installation
+## Overview
+
+Install depending on your package manager:
+```sh
+yarn add -D frolint
+```
+```sh
+npm install -D frolint
+```
+
+And you should use the export command if you want to use prettier configuration with your favorite editor.
 
 ```sh
-npm install --save frolint
-# or
-yarn add frolint
-```
-
-And you should execute `frolint export` if you want to use prettier on your favorite editor.
-
-```
 yarn frolint export
 ```
 
 ## Usage
 
-You can use this package only installing as dependency. If you want to configure the ESLint configuration, you should locate the `.eslintrc` for your root directory and you specify the file in config file.
+You can use this package as a standalone dependency, it will use the default configurations.
 
-```sh-session
-$ yarn add -D frolint
-# or
-$ npm install -D frolint
+If you want to amend the ESLint configuration, you must add a `.eslintrc` at the root directory of your project. Then to still make use of our curated defaults, start by extending our configs. For example in a typescript project:
+
+``` javascript
+{
+  "extends": "wantedly-typescript",
+  // your config..
+}
 ```
 
-And then you intend to commit some files including JS / TS files, the `frolint` reports if the code has some ESLint errors and warnings. If the code has **ESLint errors**, the commit is canceled. If your changes include only **ESLint warnings**, the commit is allowed but you should resolve the warnings we think.
+### Git commit hook
 
-```sh-session
-$ git commit
+When you intend to commit some files including JS / TS files, the `frolint` reports if the code has some ESLint errors and warnings. If the code has **ESLint errors**, the commit is canceled. If your changes include only **ESLint warnings**, the commit is allowed but you should resolve the warnings as they will continue to appear.
+
+```sh
+git commit
+```
+``` 
 Detected 2 errors, 0 warnings
 ./foo.js: 2 errors, 0 warnings found.
   ./foo.js:1:7 'foo' is assigned a value but never used. Allowed unused vars must match /^_/. (no-unused-vars)
@@ -35,7 +44,15 @@ Detected 2 errors, 0 warnings
 commit canceled with exit status 1. You have to fix ESLint errors.
 ```
 
-And now the `frolint` supports Prettier formatter. So this command formats the ESLint auto-fixable errors and then it applies the `prettier`. We uses the `.prettierrc` as below:
+To setup this commit hook, run the `install command`:
+
+``` sh
+yarn exec frolint install
+```
+
+### Prettier
+
+Despite its name of linter, `frolint` also formats the code with the famous `prettier` tool. So applies the ESLint auto-fixable errors first, then applies the `prettier` formatting. We use a `.prettierrc` as below:
 
 ```json
 {
@@ -50,26 +67,78 @@ And now the `frolint` supports Prettier formatter. So this command formats the E
 }
 ```
 
+### Help
 If you want to know the options, `frolint --help` is helpful.
 
 ```
-$ yarn frolint --help
-yarn run v1.13.0
-$ /Users/yamadayuki/dev/src/github.com/wantedly/frolint/node_modules/.bin/frolint --help
+FROntend LINt Tool - 2.3.0
 
-frolint - FROntend LINT tool integrated into git pre-commit hook
+  $ frolint <command>
+
+Where <command> is one of:
+
+  frolint --version
+    print version
+
+  frolint [--typescript] [-b,--branch #0] [--expect-no-diff] [--expect-no-errors,--bail] [-f,--formatter #0] [--no-stage]
+    apply ESLint and Prettier
+
+  frolint export
+    export config files when the files are not exist
+
+  frolint print-config <filepath>
+    Print the configuration for the given file
+
+Around .git/hooks/pre-commit:
+
+  frolint install
+    install git pre-commit hook for frolint
+
+  frolint uninstall
+    uninstall git pre-commit hook for frolint
+
+You can also print more details about any of these commands by calling them 
+after adding the `-h,--help` flag right after the command name.
+Apply ESLint and Prettier
 
 Usage:
-  frolint [flags]
 
-Available Flags:
-  -h, --help        help for frolint
-  -f, --formatter   the ESLint formatter to print lint errors and warnings
-  -b, --branch      target branch to compare the file diff
-      --no-stage    frolint stages the files automatically if auto fixable
-                    errors are found. If you set this option as true,
-                    frolint does not stage the fixed files
-      --no-git      use frolint without git integrations
+$ frolint [--typescript] [-b,--branch #0] [--expect-no-diff] [--expect-no-errors,--bail] [-f,--formatter #0] [--no-stage]
+
+Details:
+
+Apply ESLint and Prettier. It infers the affected files which are changed from 
+base branch using git.
+
+Options:
+
+--typescript: Use @typescript-eslint/parser as ESLint parser
+
+-b,--branch <branch name>: Find the changed files from the specified branch
+
+--expect-no-diff: Fail when the changed files exist
+
+--expect-no-errors: Fail out on the error instead of tolerating it (previously 
+--bail option)
+
+-f,--formatter <format>: Print the report with specified format
+
+--no-stage: Do not stage the files which have the changes made by ESLint and 
+Prettier auto fix functionality
+
+Examples:
+
+Default usage
+  $ yarn frolint
+
+Diff with the specified branch
+  $ yarn frolint --branch master
+
+Print report as stylish
+  $ yarn frolint --formatter stylish
+
+Use with reviewdog
+  $ yarn frolint --formatter checkstyle | reviewdog -f=checkstyle -name="lint" -reporter=github-pr-review
 ```
 
 In non git project, help option provides specific helps as below:
@@ -92,17 +161,19 @@ Available Flags:
 
 ### `frolint` as CLI
 
-If you want to check all fiels in the repository, you can use the `frolint` as CLI.
+If you want to check all files in the repository, you can use the `frolint` as a binary.
 
-```sh-session
-$ yarn frolint
+```sh
+yarn exec frolint
+```
+```
 No errors and warnings!
 ✨  Done in 2.36s.
 ```
 
 #### `frolint export`
 
-Export the `.prettierrc` config with default config in `frolint`.
+Create the `.prettierrc` config file based on the default config in `frolint`.
 
 ## Configuration
 
@@ -130,7 +201,7 @@ You can specify the typescript property as boolean (default is `true`). This mea
 
 ### `formatter` property
 
-You can specify the ESLint formatter as string (default is `undefined`). If you don't specify the formatter, `frolint` reports the ESLint issues using original formatter. If you want to using ESLint formatter (e.g. checkstyle), you can specify the `formatter` property.
+You can specify the ESLint formatter as string (default is `undefined`). If you don't specify the formatter, `frolint` reports the ESLint issues using original formatter. If you want to using ESLint formatter (e.g. `checkstyle`), you can specify the `formatter` property.
 
 ```json
 {
@@ -140,7 +211,7 @@ You can specify the ESLint formatter as string (default is `undefined`). If you 
 }
 ```
 
-```sh-session
+```sh
 # Default original formatter
 $ git commit
 Detected 2 errors, 0 warnings
@@ -171,7 +242,7 @@ Now, `frolint` supports Prettier. So `frolint` command format the code automatic
 
 ### Debugging
 
-If you want to watch debug log, you can use `DEBUG=frolint:*` environment variable to output debugging information to the console.
+If you want to watch debug log, you can use `DEBUG=frolint:*` environment variable to output debugging information to the console via the `debug` package.
 
 ```console
 > DEBUG=frolint:* yarn frolint

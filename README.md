@@ -1,6 +1,10 @@
-# frolint
+# frolint - FROntend LINT
 
 ![Node CI](https://github.com/wantedly/frolint/workflows/Node%20CI/badge.svg)
+
+This is a monorepo that contains our common linting and formatting configurations for Wantedly's javascript projects.
+
+If you are looking for the `frolint` executable documentation, please see here: [frolint Readme](https://github.com/wantedly/frolint/tree/master/packages/frolint)
 
 ## Packages
 
@@ -24,24 +28,26 @@ end
 
 ## How to contribute
 
-PRs welcome 🎉
+PRs are welcome, see the current issues open.
 
-Developing:
+We are developing this project with [Lerna](https://github.com/lerna/lerna). 
 
+Clone the repository and run
+
+```sh
+yarn
 ```
-$ git clone https://github.com/wantedly/frolint
-$ cd /path/to/frolint
-$ yarn
-```
+
+This will also trigger the lerna bootstraping process.
 
 Running Tests:
 
-```
+```sh
 # Runs all unit tests
-$ yarn test
+yarn test
 
 # Runs all unit tests with updating snapshots
-$ yarn test:update
+yarn test:update
 ```
 
 ## License

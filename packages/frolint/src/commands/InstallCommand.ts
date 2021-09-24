@@ -21,7 +21,7 @@ export class InstallCommand extends Command<FrolintContext> {
     log("Start to execute");
 
     if (!isGitExist()) {
-      log("Command `git` is not exist");
+      log("Executable `git` is not found in the PATH");
       return 0;
     }
 
