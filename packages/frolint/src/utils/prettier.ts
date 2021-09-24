@@ -26,6 +26,18 @@ const supportedExtensions = prettier
   .languages.filter((lang) => supportedLanguages.includes(lang.name))
   .reduce((acc, lang) => acc.concat(lang.extensions || []), [] as string[]);
 
+/**
+ * Set the `ignorePath` config option if it has not been set before.
+ * This property should give the path to a `.gitignore` style file.
+ */
+function setIgnorePath(rootDir: string, prettierConfig: FrolintConfig["prettier"]) {
+  if (prettierConfig.ignorePath) {
+    return prettierConfig;
+  }
+
+  return { ignorePath: resolve(rootDir, ".prettierignore"), ...prettierConfig };
+}
+
 function isPrettierSupported(file: string) {
   return supportedExtensions.includes(extname(file));
 }
@@ -39,20 +51,21 @@ function isIgnoredForPrettier(file: string, prettierConfig: FrolintConfig["prett
 }
 
 export function applyPrettier(rootDir: string, files: string[], prettierConfig: FrolintConfig["prettier"]) {
+  const finalConfig = setIgnorePath(rootDir, prettierConfig);
   log("Supported languages by Prettier: %O", { supportedLanguages, supportedExtensions });
-  log("Prettier config: %O", { prettierConfig });
+  log("Prettier config: %O", { prettierConfig: finalConfig });
 
   const targetFiles = files
     .filter((file) => isPrettierSupported(file))
-    .filter((file) => !isIgnoredForPrettier(file, prettierConfig));
+    .filter((file) => !isIgnoredForPrettier(file, finalConfig));
 
   log("Applying Prettier. target files: %O", targetFiles);
 
   return targetFiles
     .map((file) => {
       const filePath = resolve(rootDir, file);
-      const options = prettierConfig.config
-        ? { config: resolve(rootDir, prettierConfig.config) }
+      const options = finalConfig.config
+        ? { config: resolve(rootDir, finalConfig.config) }
         : (prettierConfigWantedly as ResolveConfigOptions);
       const prettierOption = prettier.resolveConfig.sync(filePath, options);
 
