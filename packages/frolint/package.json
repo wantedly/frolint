@@ -38,7 +38,7 @@
     "@types/command-exists": "^1.2.0",
     "@types/cosmiconfig": "^6.0.0",
     "@types/debug": "^4.1.7",
-    "@types/eslint": "^7.2.13",
+    "@types/eslint": "^7.28.1",
     "@types/mock-fs": "^4.13.0",
     "@types/prettier": "^2.4.0",
     "@types/resolve": "^1.20.0"
