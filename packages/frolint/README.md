@@ -62,7 +62,7 @@ Despite its name of linter, `frolint` also formats the code with the famous `pre
   "singleQuote": false,
   "trailingComma": "es5",
   "bracketSpacing": true,
-  "jsxBracketSameLine": false,
+  "bracketSameLine": false,
   "endOfLine": "lf"
 }
 ```
