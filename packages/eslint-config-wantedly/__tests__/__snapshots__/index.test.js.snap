@@ -4,7 +4,6 @@ exports[`eslint-config-wantedly should match snapshot for: env 1`] = `
 Object {
   "browser": true,
   "es6": true,
-  "jest/globals": true,
   "node": true,
 }
 `;
@@ -38,7 +37,6 @@ Array [
   "es",
   "use-macros",
   "prettier",
-  "jest",
   "jsx-a11y",
   "import",
 ]
@@ -438,6 +436,9 @@ Object {
   "no-lonely-if": Array [
     "warn",
   ],
+  "no-loss-of-precision": Array [
+    "error",
+  ],
   "no-misleading-character-class": Array [
     "error",
   ],
@@ -475,6 +476,9 @@ Object {
     "off",
   ],
   "no-new-symbol": Array [
+    "error",
+  ],
+  "no-nonoctal-decimal-escape": Array [
     "error",
   ],
   "no-obj-calls": Array [
@@ -552,6 +556,9 @@ Object {
   "no-unsafe-negation": Array [
     "error",
   ],
+  "no-unsafe-optional-chaining": Array [
+    "error",
+  ],
   "no-unused-labels": Array [
     "error",
   ],
@@ -564,6 +571,9 @@ Object {
   ],
   "no-use-before-define": Array [
     "off",
+  ],
+  "no-useless-backreference": Array [
+    "error",
   ],
   "no-useless-catch": Array [
     "error",

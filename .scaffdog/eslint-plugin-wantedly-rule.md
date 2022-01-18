@@ -46,7 +46,7 @@ export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
 import { RuleTester } from "eslint";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import ESLintConfigWantedly from "eslint-config-wantedly/without-react";
+import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
 import { RULE, RULE_NAME } from "../{{ input }}";
 
 new RuleTester({

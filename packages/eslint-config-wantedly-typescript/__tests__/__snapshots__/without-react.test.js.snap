@@ -4,7 +4,6 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
 Object {
   "browser": true,
   "es6": true,
-  "jest/globals": true,
   "node": true,
 }
 `;
@@ -34,9 +33,7 @@ Object {
 exports[`eslint-config-wantedly-typescript/without-react should match snapshot for: plugins 1`] = `
 Array [
   "use-macros",
-  "@typescript-eslint",
   "prettier",
-  "jest",
   "jsx-a11y",
   "import",
 ]
@@ -51,15 +48,6 @@ Object {
   ],
   "@babel/semi": Array [
     "off",
-  ],
-  "@typescript-eslint/adjacent-overload-signatures": Array [
-    "error",
-  ],
-  "@typescript-eslint/ban-ts-comment": Array [
-    "error",
-  ],
-  "@typescript-eslint/ban-types": Array [
-    "error",
   ],
   "@typescript-eslint/brace-style": Array [
     "off",
@@ -102,17 +90,8 @@ Object {
   "@typescript-eslint/no-array-constructor": Array [
     "error",
   ],
-  "@typescript-eslint/no-empty-function": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-empty-interface": Array [
-    "error",
-  ],
   "@typescript-eslint/no-explicit-any": Array [
     "off",
-  ],
-  "@typescript-eslint/no-extra-non-null-assertion": Array [
-    "error",
   ],
   "@typescript-eslint/no-extra-parens": Array [
     "off",
@@ -123,25 +102,7 @@ Object {
   "@typescript-eslint/no-floating-promises": Array [
     "error",
   ],
-  "@typescript-eslint/no-inferrable-types": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-misused-new": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-namespace": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-non-null-asserted-optional-chain": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-non-null-assertion": Array [
-    "warn",
-  ],
   "@typescript-eslint/no-redeclare": Array [
-    "error",
-  ],
-  "@typescript-eslint/no-this-alias": Array [
     "error",
   ],
   "@typescript-eslint/no-unused-vars": Array [
@@ -158,17 +119,8 @@ Object {
   "@typescript-eslint/no-useless-constructor": Array [
     "off",
   ],
-  "@typescript-eslint/no-var-requires": Array [
-    "error",
-  ],
   "@typescript-eslint/object-curly-spacing": Array [
     "off",
-  ],
-  "@typescript-eslint/prefer-as-const": Array [
-    "error",
-  ],
-  "@typescript-eslint/prefer-namespace-keyword": Array [
-    "error",
   ],
   "@typescript-eslint/quotes": Array [
     0,
@@ -182,9 +134,6 @@ Object {
   ],
   "@typescript-eslint/space-infix-ops": Array [
     "off",
-  ],
-  "@typescript-eslint/triple-slash-reference": Array [
-    "error",
   ],
   "@typescript-eslint/type-annotation-spacing": Array [
     "off",
@@ -474,9 +423,6 @@ Object {
   "no-empty-character-class": Array [
     "error",
   ],
-  "no-empty-function": Array [
-    "off",
-  ],
   "no-empty-pattern": Array [
     "error",
   ],
@@ -503,9 +449,6 @@ Object {
   ],
   "no-global-assign": Array [
     "error",
-  ],
-  "no-import-assign": Array [
-    "off",
   ],
   "no-inner-declarations": Array [
     "error",
@@ -582,9 +525,6 @@ Object {
   "no-self-assign": Array [
     "error",
   ],
-  "no-setter-return": Array [
-    "off",
-  ],
   "no-shadow": Array [
     "off",
   ],
@@ -639,9 +579,6 @@ Object {
   "no-useless-escape": Array [
     "off",
   ],
-  "no-var": Array [
-    "error",
-  ],
   "no-whitespace-before-property": Array [
     "off",
   ],
@@ -674,12 +611,6 @@ Object {
   ],
   "prefer-const": Array [
     "warn",
-  ],
-  "prefer-rest-params": Array [
-    "error",
-  ],
-  "prefer-spread": Array [
-    "error",
   ],
   "prefer-template": Array [
     "warn",

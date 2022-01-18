@@ -2,7 +2,6 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    "jest/globals": true,
     node: true,
   },
   globals: {
@@ -17,7 +16,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["import", "jsx-a11y", "jest", "prettier", "@typescript-eslint", "use-macros"],
+  plugins: ["import", "jsx-a11y", "prettier", "@typescript-eslint", "use-macros"],
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],

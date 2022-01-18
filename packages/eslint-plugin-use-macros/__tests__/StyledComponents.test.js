@@ -1,5 +1,5 @@
 const RuleTester = require("eslint").RuleTester;
-const ESLintConfigWantedly = require("eslint-config-wantedly/without-react");
+const ESLintConfigWantedly = require("eslint-config-wantedly-typescript");
 const StyledComponentsRule = require("../rules/StyledComponents");
 
 RuleTester.setDefaultConfig({
