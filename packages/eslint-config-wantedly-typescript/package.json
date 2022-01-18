@@ -33,5 +33,11 @@
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly-typescript",
   "scripts": {
     "test": "jest"
+  },
+  "jest": {
+    "resolver": "./export_maps_resolver.js"
+  },
+  "devDependencies": {
+    "enhanced-resolve": "^5.8.3"
   }
 }
