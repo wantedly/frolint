@@ -4,6 +4,7 @@ exports[`eslint-config-wantedly should match snapshot for: env 1`] = `
 Object {
   "browser": true,
   "es6": true,
+  "jest": true,
   "node": true,
 }
 `;
@@ -36,6 +37,7 @@ Array [
   "react",
   "es",
   "use-macros",
+  "jest",
   "prettier",
   "jsx-a11y",
   "import",

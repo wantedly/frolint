@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    "jest/globals": true,
   },
   globals: {
     flushPromises: true,
@@ -16,7 +17,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["import", "jsx-a11y", "prettier", "@typescript-eslint", "use-macros"],
+  plugins: ["import", "jsx-a11y", "jest", "prettier", "@typescript-eslint", "use-macros"],
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
