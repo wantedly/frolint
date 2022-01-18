@@ -2,8 +2,8 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    "jest/globals": true,
     node: true,
-    jest: true,
   },
   globals: {
     flushPromises: true,
@@ -17,7 +17,7 @@ module.exports = {
     },
     sourceType: "module",
   },
-  plugins: ["import", "jsx-a11y", "prettier", "jest", "use-macros", "es"],
+  plugins: ["import", "jsx-a11y", "jest", "prettier", "use-macros", "es"],
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
