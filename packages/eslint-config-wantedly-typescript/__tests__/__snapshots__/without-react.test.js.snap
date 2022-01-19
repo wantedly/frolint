@@ -126,6 +126,9 @@ Object {
   "@typescript-eslint/no-inferrable-types": Array [
     "error",
   ],
+  "@typescript-eslint/no-loss-of-precision": Array [
+    "error",
+  ],
   "@typescript-eslint/no-misused-new": Array [
     "error",
   ],
@@ -142,6 +145,9 @@ Object {
     "error",
   ],
   "@typescript-eslint/no-this-alias": Array [
+    "error",
+  ],
+  "@typescript-eslint/no-unnecessary-type-constraint": Array [
     "error",
   ],
   "@typescript-eslint/no-unused-vars": Array [
@@ -518,6 +524,9 @@ Object {
   ],
   "no-lonely-if": Array [
     "warn",
+  ],
+  "no-loss-of-precision": Array [
+    "off",
   ],
   "no-mixed-operators": Array [
     "warn",
