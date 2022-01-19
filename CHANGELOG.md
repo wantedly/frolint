@@ -1,3 +1,14 @@
+## 3.0.0 (2022-01-19)
+
+#### New feature or improvement
+
+- `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  - [#992](https://github.com/wantedly/frolint/pull/992) Bump eslint version to v8 ([@kobayang](https://github.com/kobayang))
+
+#### Committers: 1
+
+- Naoki Kobayashi ([@kobayang](https://github.com/kobayang))
+
 ## 2.8.2 (2021-09-22)
 
 #### Bug fix
