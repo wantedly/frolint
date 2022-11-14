@@ -8,7 +8,7 @@
     "chalk": "^4.1.1",
     "clipanion": "^2.6.2",
     "command-exists": "^1.2.9",
-    "cosmiconfig": "^7.0.0",
+    "cosmiconfig": "^7.1.0",
     "debug": "^4.3.2",
     "eslint": "^8.7.0",
     "eslint-config-wantedly": "^3.0.0",
