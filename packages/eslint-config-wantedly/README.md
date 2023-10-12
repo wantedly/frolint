@@ -10,7 +10,6 @@ Using `babel-eslint`
 
 - eslint:recommended
 - [plugin:react/recommended](https://github.com/yannickcr/eslint-plugin-react#recommended)
-- [prettier](https://github.com/prettier/eslint-plugin-prettier#recommended-configuration)
 
 ### Plugins
 
@@ -18,7 +17,6 @@ Using `babel-eslint`
 - [import](https://github.com/benmosher/eslint-plugin-import)
 - [jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
 - [jest](https://github.com/jest-community/eslint-plugin-jest)
-- [prettier](https://github.com/prettier/eslint-plugin-prettier)
 
 ### Rules
 
