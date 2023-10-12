@@ -37,7 +37,6 @@ Array [
   "react",
   "es",
   "use-macros",
-  "prettier",
   "jest",
   "jsx-a11y",
   "import",

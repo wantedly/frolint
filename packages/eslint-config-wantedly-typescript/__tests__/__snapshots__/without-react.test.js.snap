@@ -35,7 +35,6 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
 Array [
   "use-macros",
   "@typescript-eslint",
-  "prettier",
   "jest",
   "jsx-a11y",
   "import",
