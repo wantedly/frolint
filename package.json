@@ -49,5 +49,6 @@
       "dependencies": "Update dependencies"
     },
     "cacheDir": ".changelog"
-  }
+  },
+  "version": "0.1.0"
 }
