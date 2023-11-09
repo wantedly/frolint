@@ -1,3 +1,14 @@
+## 3.1.0 (2023-11-09)
+
+#### New feature or improvement
+
+- `frolint`
+  - [#1101](https://github.com/wantedly/frolint/issues/1101) Separate ESLint and Prettier configurations ([@s-kawabe](https://github.com/s-kawabe))
+
+#### Committers: 1
+
+- Shintaro Kawabe ([@s-kawabe](https://github.com/s-kawabe))
+
 ## 3.0.0 (2022-01-19)
 
 #### New feature or improvement
