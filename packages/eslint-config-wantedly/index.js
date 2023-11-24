@@ -37,6 +37,6 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
 
     // eslint-plugin-use-macros rules
-    "use-macros/styled-components": "error",
+    "use-macros/styled-components": "off",
   },
 };
