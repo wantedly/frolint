@@ -37,7 +37,7 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
 
     // eslint-plugin-use-macros rules
-    "use-macros/styled-components": "error",
+    "use-macros/styled-components": "off",
 
     // eslint-plugin-wantedly rules
     "wantedly/graphql-operation-name": ["warn"],
