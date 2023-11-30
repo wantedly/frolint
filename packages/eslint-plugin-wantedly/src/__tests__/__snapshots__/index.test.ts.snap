@@ -1,81 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should match snapshot 1`] = `
-Object {
-  "rules": Object {
-    "graphql-operation-name": Object {
+{
+  "rules": {
+    "graphql-operation-name": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/graphql-operation-name.md",
         },
         "fixable": "code",
         "type": "suggestion",
       },
     },
-    "graphql-pascal-case-type-name": Object {
+    "graphql-pascal-case-type-name": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/graphql-pascal-case-type-name.md",
         },
         "fixable": "code",
         "type": "suggestion",
       },
     },
-    "nexus-camel-case-field-name": Object {
+    "nexus-camel-case-field-name": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-camel-case-field-name.md",
         },
         "fixable": "code",
         "type": "suggestion",
       },
     },
-    "nexus-enum-values-description": Object {
+    "nexus-enum-values-description": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-enum-values-description.md",
         },
         "fixable": "code",
         "type": "suggestion",
       },
     },
-    "nexus-field-description": Object {
+    "nexus-field-description": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-field-description.md",
         },
         "fixable": "code",
         "type": "suggestion",
       },
     },
-    "nexus-pascal-case-type-name": Object {
+    "nexus-pascal-case-type-name": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-pascal-case-type-name.md",
         },
         "fixable": "code",
         "type": "suggestion",
       },
     },
-    "nexus-type-description": Object {
+    "nexus-type-description": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-type-description.md",
         },
         "type": "suggestion",
       },
     },
-    "nexus-upper-case-enum-members": Object {
+    "nexus-upper-case-enum-members": {
       "create": [Function],
-      "meta": Object {
-        "docs": Object {
+      "meta": {
+        "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-upper-case-enum-members.md",
         },
         "fixable": "code",
