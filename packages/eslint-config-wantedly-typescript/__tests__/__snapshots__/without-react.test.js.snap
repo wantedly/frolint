@@ -51,9 +51,6 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
   "@babel/semi": [
     "off",
   ],
-  "@typescript-eslint/adjacent-overload-signatures": [
-    "error",
-  ],
   "@typescript-eslint/ban-ts-comment": [
     "error",
   ],
@@ -110,10 +107,7 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
   "@typescript-eslint/no-array-constructor": [
     "error",
   ],
-  "@typescript-eslint/no-empty-function": [
-    "error",
-  ],
-  "@typescript-eslint/no-empty-interface": [
+  "@typescript-eslint/no-duplicate-enum-values": [
     "error",
   ],
   "@typescript-eslint/no-explicit-any": [
@@ -131,9 +125,6 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
   "@typescript-eslint/no-floating-promises": [
     "error",
   ],
-  "@typescript-eslint/no-inferrable-types": [
-    "error",
-  ],
   "@typescript-eslint/no-loss-of-precision": [
     "error",
   ],
@@ -146,9 +137,6 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
   "@typescript-eslint/no-non-null-asserted-optional-chain": [
     "error",
   ],
-  "@typescript-eslint/no-non-null-assertion": [
-    "warn",
-  ],
   "@typescript-eslint/no-redeclare": [
     "error",
   ],
@@ -156,6 +144,9 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
     "error",
   ],
   "@typescript-eslint/no-unnecessary-type-constraint": [
+    "error",
+  ],
+  "@typescript-eslint/no-unsafe-declaration-merging": [
     "error",
   ],
   "@typescript-eslint/no-unused-vars": [
@@ -179,9 +170,6 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
     "off",
   ],
   "@typescript-eslint/prefer-as-const": [
-    "error",
-  ],
-  "@typescript-eslint/prefer-namespace-keyword": [
     "error",
   ],
   "@typescript-eslint/quotes": [
@@ -493,9 +481,6 @@ exports[`eslint-config-wantedly-typescript/without-react should match snapshot f
   ],
   "no-empty-character-class": [
     "error",
-  ],
-  "no-empty-function": [
-    "off",
   ],
   "no-empty-pattern": [
     "error",
