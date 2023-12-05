@@ -8,7 +8,7 @@ module.exports = {
   globals: {
     flushPromises: true,
   },
-  extends: ["plugin:@typescript-eslint/recommended", "prettier"],
+  extends: ["plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -140,6 +140,21 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-useless-constructor": "off",
     "@typescript-eslint/semi": ["error", "always"],
+    "no-extra-semi": "off",
+    "@typescript-eslint/no-extra-semi": "off",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-duplicate-enum-values": "error",
+    "@typescript-eslint/no-unsafe-declaration-merging": "error",
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/ban-tslint-comment": "off",
+    "@typescript-eslint/class-literal-property-style": "off",
+    "@typescript-eslint/consistent-generic-constructors": "off",
+    "@typescript-eslint/consistent-indexed-object-style": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-confusing-non-null-assertion": "off",
+    "@typescript-eslint/prefer-for-of": "off",
+    "@typescript-eslint/prefer-function-type": "off",
 
     // eslint-plugin-import rules
     "import/extensions": "off",
