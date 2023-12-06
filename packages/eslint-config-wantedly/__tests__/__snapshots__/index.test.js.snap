@@ -899,7 +899,7 @@ Object {
     "error",
   ],
   "use-macros/styled-components": Array [
-    "error",
+    "off",
   ],
   "valid-typeof": Array [
     "error",
