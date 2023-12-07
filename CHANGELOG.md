@@ -1,3 +1,19 @@
+## v3.2.0 (2023-12-07)
+
+#### Update dependencies
+* Other
+  * [#1121](https://github.com/wantedly/frolint/pull/1121) Bump actions/labeler from 3 to 5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1111](https://github.com/wantedly/frolint/pull/1111) Bump actions/cache from 2.1.6 to 3.3.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1110](https://github.com/wantedly/frolint/pull/1110) Bump actions/checkout from 2.3.4 to 4.1.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1109](https://github.com/wantedly/frolint/pull/1109) Bump actions/setup-node from 2.4.1 to 4.0.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1087](https://github.com/wantedly/frolint/pull/1087) Bump json5 from 1.0.1 to 1.0.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `eslint-config-wantedly-typescript`, `eslint-config-wantedly`, `eslint-plugin-use-macros`, `eslint-plugin-wantedly`, `frolint`
+  * [#1118](https://github.com/wantedly/frolint/pull/1118) Bump eslint and @types/eslint ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 2
+- Shintaro Kawabe ([@s-kawabe](https://github.com/s-kawabe))
+- Tsuyoshi HARA ([@chloe463](https://github.com/chloe463))
+
 ## 3.1.1 (2023-11-09)
 
 #### New feature or improvement
