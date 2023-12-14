@@ -3,8 +3,8 @@
 import { Command } from "clipanion";
 import { accessSync, constants, writeFileSync } from "fs";
 import { resolve } from "path";
-import type { FrolintContext } from "../Context";
-import { getGitRootDir } from "../utils/git";
+import type { FrolintContext } from "../Context.js";
+import { getGitRootDir } from "../utils/git.js";
 
 export class ExportCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({

@@ -1,5 +1,6 @@
+import { jest } from "@jest/globals";
 import { execSync } from "child_process";
-import { getPreCommitHookPath, isInsideGitRepository } from "../git";
+import { getPreCommitHookPath, isInsideGitRepository } from "../git.js";
 
 jest.mock("child_process");
 jest.mock("fs");
@@ -18,6 +19,8 @@ describe("git", () => {
 
   describe("isInsideGitRepository", () => {
     beforeEach(() => {
+      // eslint-disable-next-line
+      // @ts-ignore
       (execSync as jest.MockedFunction<typeof execSync>).mockImplementation((_command, options) => {
         if (options && options.cwd === "/") {
           return Buffer.from("true\n");
@@ -41,6 +44,8 @@ describe("git", () => {
 
   describe("getPreCommitHookPath", () => {
     it("should return pre-commit hook path", () => {
+      // eslint-disable-next-line
+      // @ts-ignore
       (execSync as jest.MockedFunction<typeof execSync>).mockImplementation((_command, _options) => {
         return Buffer.from(".git/hooks\n");
       });

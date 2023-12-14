@@ -1,8 +1,8 @@
 import chalk from "chalk";
 import type { ESLint } from "eslint";
 import { relative } from "path";
-import { frolintDebug } from "./debug";
-import { getCLI } from "./eslint";
+import { frolintDebug } from "./debug.js";
+import { getCLI } from "./eslint.js";
 
 const { green, red, yellow } = chalk;
 const log = frolintDebug.extend("report");

@@ -2,7 +2,7 @@ import { execSync } from "child_process";
 import { sync as commandExistsSync } from "command-exists";
 import { readFileSync } from "fs";
 import { resolve } from "path";
-import { END_COMMENT, START_COMMENT } from "./constants";
+import { END_COMMENT, START_COMMENT } from "./constants.js";
 
 export function isInsideGitRepository(cwd?: string) {
   try {

@@ -2,9 +2,9 @@ import { readFileSync } from "fs";
 import { extname, resolve } from "path";
 import type { BuiltInParserName, ResolveConfigOptions } from "prettier";
 import prettier from "prettier";
-import prettierConfigWantedly from "prettier-config-wantedly";
-import type { FrolintConfig } from "../Context";
-import { frolintDebug } from "./debug";
+import prettierConfigWantedly from "prettier-config-wantedly" assert { type: "json" };
+import type { FrolintConfig } from "../Context.js";
+import { frolintDebug } from "./debug.js";
 
 const log = frolintDebug.extend("prettier");
 

@@ -1,9 +1,13 @@
+// import { createRequire } from "node:module";
+// import { fileURLToPath } from "node:url";
+// import { dirname } from "node:path";
 import chalk from "chalk";
 import { Command } from "clipanion";
 import { writeFileSync } from "fs";
-import { relative, resolve } from "path";
-import type { FrolintContext } from "../Context";
-import { applyEslint } from "../utils/eslint";
+// import { relative, resolve } from "path";
+import { relative } from "path";
+import type { FrolintContext } from "../Context.js";
+import { applyEslint } from "../utils/eslint.js";
 import {
   getAllFiles,
   getChangedFilesFromBranch,
@@ -14,9 +18,12 @@ import {
   isGitExist,
   isInsideGitRepository,
   stageFiles,
-} from "../utils/git";
-import { applyPrettier } from "../utils/prettier";
-import { reportToConsole } from "../utils/report";
+} from "../utils/git.js";
+import { applyPrettier } from "../utils/prettier.js";
+import { reportToConsole } from "../utils/report.js";
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 export class DefaultCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
@@ -121,10 +128,11 @@ export class DefaultCommand extends Command<FrolintContext> {
      *   `eslintConfigPackage`/
      *     package.json
      */
-    const pkg = require(resolve(__dirname, "..", "..", "..", eslintConfigPackage, "package.json"));
-    Object.keys(pkg.dependencies).forEach((key) => {
-      module.paths.push(resolve(__dirname, "..", "..", "..", key, "node_modules"));
-    });
+    // const pkg = require(resolve(__dirname, "..", "..", "..", eslintConfigPackage, "package.json"));
+    // console.log({pkg})
+    // Object.keys(pkg.dependencies).forEach((key) => {
+    //   module.paths.push(resolve(__dirname, "..", "..", "..", key, "node_modules"));
+    // });
 
     const shouldStageFiles = new Set<string>();
 
@@ -152,10 +160,14 @@ export class DefaultCommand extends Command<FrolintContext> {
      */
     const prettierResults = applyPrettier(rootDir, files, this.context.config.prettier);
     prettierResults
-      .filter((result: { filePath: string; output: string } | null): result is Required<{
-        filePath: string;
-        output: string;
-      }> => Boolean(result))
+      .filter(
+        (
+          result: { filePath: string; output: string } | null
+        ): result is Required<{
+          filePath: string;
+          output: string;
+        }> => Boolean(result)
+      )
       .forEach(({ filePath, output }) => {
         if (output) {
           log("File (%s) has changed. Overwriting..", filePath);

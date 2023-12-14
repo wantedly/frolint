@@ -1,6 +1,6 @@
 import { Command } from "clipanion";
-import type { FrolintContext } from "../Context";
-import { getCLI } from "../utils/eslint";
+import type { FrolintContext } from "../Context.js";
+import { getCLI } from "../utils/eslint.js";
 
 export class PrintConfigCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({

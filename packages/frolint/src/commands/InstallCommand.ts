@@ -1,9 +1,9 @@
 import { Command } from "clipanion";
 import { accessSync, constants, writeFileSync } from "fs";
-import type { FrolintContext } from "../Context";
-import { END_COMMENT, HOOKS_CATEGORY, START_COMMENT } from "../utils/constants";
-import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git";
-import { isInstanceOfNodeError } from "../utils/isInstanceOfNodeError";
+import type { FrolintContext } from "../Context.js";
+import { END_COMMENT, HOOKS_CATEGORY, START_COMMENT } from "../utils/constants.js";
+import { getPreCommitHookPath, isGitExist, isInsideGitRepository, isPreCommitHookInstalled } from "../utils/git.js";
+import { isInstanceOfNodeError } from "../utils/isInstanceOfNodeError.js";
 
 export class InstallCommand extends Command<FrolintContext> {
   public static usage = Command.Usage({
