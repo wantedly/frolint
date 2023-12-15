@@ -4,13 +4,14 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
     "@types/eslint": "^8.44.8",
     "@types/estree": "^1.0.5",
     "@types/graphql": "^14.5.0",
     "@types/jest": "^27.4.0",
     "jest": "^29.7.0",
     "lerna": "^4.0.0",
-    "lerna-changelog": "^1.0.1",
     "mock-fs": "^5.0.0",
     "pacote": "^11.3.4",
     "scaffdog": "^1.0.1",
@@ -33,21 +34,10 @@
     "test:update": "lerna run --stream test -- -u",
     "lint": "frolint --branch master",
     "lint:ci": "frolint --expect-no-errors",
-    "changelog": "yarn --silent lerna-changelog | cat - CHANGELOG.md | yarn --silent prettier --stdin-filepath CHANGELOG.md > CHANGELOG_BACKUP.md; mv CHANGELOG_BACKUP.md CHANGELOG.md",
     "build": "lerna run build",
     "build:watch": "lerna run --parallel build:watch",
     "prerelease": "yarn install --force && yarn run build",
-    "release": "lerna publish --force-publish --preid beta --pre-dist-tag beta",
+    "release": "yarn changeset publish",
     "clean": "yarn lerna clean -y && rm -r packages/*/lib"
-  },
-  "changelog": {
-    "repo": "wantedly/frolint",
-    "labels": {
-      "enhancement": "New feature or improvement",
-      "bug": "Bug fix",
-      "documentation": "Improve documentation",
-      "dependencies": "Update dependencies"
-    },
-    "cacheDir": ".changelog"
   }
 }
