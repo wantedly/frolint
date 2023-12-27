@@ -14,7 +14,7 @@
     "lerna": "^4.0.0",
     "mock-fs": "^5.0.0",
     "pacote": "^11.3.4",
-    "scaffdog": "^1.0.1",
+    "scaffdog": "^3.0.0",
     "ts-jest": "^29.1.1",
     "typescript": "^5"
   },
