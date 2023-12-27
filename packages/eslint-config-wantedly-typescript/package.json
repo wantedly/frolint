@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-wantedly-typescript",
   "description": "ESLint configuration for Wantedly with TypeScript",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.13.1",
