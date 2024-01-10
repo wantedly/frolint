@@ -4,6 +4,7 @@
   "version": "3.2.2",
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "bin": "index.js",
+  "type": "module",
   "dependencies": {
     "chalk": "^4.1.1",
     "clipanion": "^2.6.2",
@@ -30,7 +31,7 @@
   "scripts": {
     "postinstall": "test lib/index.js && node index.js install || true",
     "preuninstall": "node index.js uninstall",
-    "test": "jest",
+    "test": "NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
     "build": "tsc -b .",
     "build:watch": "tsc -b . --watch"
   },
@@ -47,6 +48,8 @@
     "roots": [
       "<rootDir>/src"
     ],
+    "resolver": "ts-jest-resolver",
+    "preset": "ts-jest/presets/default-esm",
     "moduleFileExtensions": [
       "ts",
       "js"
@@ -55,10 +58,17 @@
       "^.+\\.ts$": [
         "ts-jest",
         {
-          "tsconfig": "tsconfig.json"
+          "tsconfig": "tsconfig.json",
+          "useESM": true
         }
       ]
     },
+    "extensionsToTreatAsEsm": [
+      ".jsx",
+      ".ts",
+      ".tsx",
+      ".mts"
+    ],
     "testEnvironment": "node"
   }
 }

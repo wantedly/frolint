@@ -1,5 +1,5 @@
 import { Command } from "clipanion";
-import type { FrolintContext } from "../Context";
+import type { FrolintContext } from "../Context.js";
 
 export class PreCommitCommand extends Command<FrolintContext> {
   @Command.Rest()

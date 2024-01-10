@@ -1,8 +1,15 @@
-import { execSync } from "child_process";
-import { getPreCommitHookPath, isInsideGitRepository } from "../git";
+import { jest } from "@jest/globals";
 
-jest.mock("child_process");
-jest.mock("fs");
+jest.unstable_mockModule("child_process", () => ({
+  execSync: (command: string, options: any) => {
+    if (command.includes("hook")) return Buffer.from(".git/hooks\n");
+    if (options && options.cwd === "/") {
+      return Buffer.from("true\n");
+    }
+    return Buffer.from("false\n");
+  },
+}));
+const { getPreCommitHookPath, isInsideGitRepository } = await import("../git.js");
 
 //   mock({
 //     "/.git": {},
@@ -17,22 +24,13 @@ describe("git", () => {
   });
 
   describe("isInsideGitRepository", () => {
-    beforeEach(() => {
-      (execSync as jest.MockedFunction<typeof execSync>).mockImplementation((_command, options) => {
-        if (options && options.cwd === "/") {
-          return Buffer.from("true\n");
-        }
-        return Buffer.from("false\n");
-      });
-    });
-
-    it("should return true", () => {
+    it("should return true", async () => {
       const expected = isInsideGitRepository("/");
 
       expect(expected).toBe(true);
     });
 
-    it("should return false", () => {
+    it("should return false", async () => {
       const expected = isInsideGitRepository("/outside");
 
       expect(expected).toBe(false);
@@ -40,11 +38,7 @@ describe("git", () => {
   });
 
   describe("getPreCommitHookPath", () => {
-    it("should return pre-commit hook path", () => {
-      (execSync as jest.MockedFunction<typeof execSync>).mockImplementation((_command, _options) => {
-        return Buffer.from(".git/hooks\n");
-      });
-
+    it("should return pre-commit hook path", async () => {
       expect(getPreCommitHookPath("/").endsWith(".git/hooks/pre-commit")).toBe(true);
       expect(getPreCommitHookPath().endsWith(".git/hooks/pre-commit")).toBe(true);
     });

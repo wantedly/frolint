@@ -2,7 +2,7 @@
   "extends": ["wantedly-typescript"],
   "settings": {
     "react": {
-      "version": "latest"
+      "version": "detect"
     }
   },
   "rules": {

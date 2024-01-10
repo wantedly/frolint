@@ -1,15 +1,15 @@
 import { Cli } from "clipanion";
 import { cosmiconfigSync } from "cosmiconfig";
-import { DefaultCommand } from "./commands/DefaultCommand";
-import { ExportCommand } from "./commands/ExportCommand";
-import { HelpCommand } from "./commands/HelpCommand";
-import { InstallCommand } from "./commands/InstallCommand";
-import { PreCommitCommand } from "./commands/PreCommitCommand";
-import { PrintConfigCommand } from "./commands/PrintConfigCommand";
-import { UninstallCommand } from "./commands/UninstallCommand";
-import { VersionCommand } from "./commands/VersionCommand";
-import type { FrolintConfig, FrolintContext } from "./Context";
-import { frolintDebug } from "./utils/debug";
+import { DefaultCommand } from "./commands/DefaultCommand.js";
+import { ExportCommand } from "./commands/ExportCommand.js";
+import { HelpCommand } from "./commands/HelpCommand.js";
+import { InstallCommand } from "./commands/InstallCommand.js";
+import { PreCommitCommand } from "./commands/PreCommitCommand.js";
+import { PrintConfigCommand } from "./commands/PrintConfigCommand.js";
+import { UninstallCommand } from "./commands/UninstallCommand.js";
+import { VersionCommand } from "./commands/VersionCommand.js";
+import type { FrolintConfig, FrolintContext } from "./Context.js";
+import { frolintDebug } from "./utils/debug.js";
 
 const log = frolintDebug.extend("main");
 

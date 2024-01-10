@@ -3,6 +3,7 @@
   "private": true,
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
@@ -16,6 +17,7 @@
     "pacote": "^11.3.4",
     "scaffdog": "^1.0.1",
     "ts-jest": "^29.1.1",
+    "ts-jest-resolver": "^2.0.1",
     "typescript": "^5"
   },
   "workspaces": [

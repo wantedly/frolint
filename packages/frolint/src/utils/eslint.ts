@@ -1,8 +1,11 @@
 import { ESLint } from "eslint";
 import { resolve } from "path";
-import { sync } from "resolve";
-import type { FrolintConfig } from "../Context";
-import { frolintDebug } from "./debug";
+// import { sync } from "resolve";
+import * as resolvePkg from "resolve";
+import type { FrolintConfig } from "../Context.js";
+import { frolintDebug } from "./debug.js";
+
+const { sync } = resolvePkg;
 
 const log = frolintDebug.extend("eslint");
 

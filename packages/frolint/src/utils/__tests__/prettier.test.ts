@@ -1,9 +1,14 @@
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
 import fs from "fs";
 import { resolve } from "path";
 
-import { applyPrettier } from "../prettier";
+import { applyPrettier } from "../prettier.js";
 
 const { writeFileSync, writeFile, unlinkSync } = fs;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 describe("prettier", () => {
   /** Temporary file for running tests */
