@@ -13,7 +13,7 @@
     "jest": "^29.7.0",
     "lerna": "^4.0.0",
     "mock-fs": "^5.0.0",
-    "pacote": "^11.3.4",
+    "pacote": "^17.0.6",
     "scaffdog": "^1.0.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5"
