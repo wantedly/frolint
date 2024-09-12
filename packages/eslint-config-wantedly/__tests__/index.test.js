@@ -9,7 +9,7 @@ describe("eslint-config-wantedly", () => {
   test("should match snapshot for", async () => {
     const config = await new ESLint({
       baseConfig,
-      useEslintrc: false,
+      overrideConfigFile: true,
     }).calculateConfigForFile("test.js");
     const keys = Object.keys(config);
 

@@ -5,7 +5,7 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.54.0",
+    "eslint": "^9.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-es": "^4.1.0",
     "eslint-plugin-import": "^2.25.4",
@@ -28,5 +28,11 @@
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly",
   "scripts": {
     "test": "jest"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.10.0",
+    "globals": "^15.9.0"
   }
 }
