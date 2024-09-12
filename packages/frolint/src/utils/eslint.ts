@@ -56,13 +56,13 @@ export function getCLI(
 
   const reactSettings = reactVersion
     ? {
-        react: {
-          version: reactVersion,
-        },
-      }
+      react: {
+        version: reactVersion,
+      },
+    }
     : {};
   const cacheLocation = resolve(rootDir, "node_modules", ".frolintcache");
-  const options: ESLint.Options = {
+  const options: ESLint.LegacyOptions = {
     baseConfig: { extends: [netEslintConfigPackage], settings: { ...reactSettings } },
     fix: true,
     cwd: rootDir,
@@ -73,7 +73,7 @@ export function getCLI(
 
   log("Create CLI instance with options: %O", options);
 
-  cliInstance = new ESLint(options);
+  cliInstance = new ESLint(options as ESLint.Options);
 
   return cliInstance;
 }
