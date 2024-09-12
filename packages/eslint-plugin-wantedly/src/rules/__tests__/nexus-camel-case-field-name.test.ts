@@ -1,17 +1,21 @@
 import { RuleTester } from "eslint";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
+// import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
 import { RULE, RULE_NAME } from "../nexus-camel-case-field-name";
 
 const ruleTester = new RuleTester({
-  parser: require.resolve(ESLintConfigWantedly.parser),
-  parserOptions: ESLintConfigWantedly.parserOptions,
+  languageOptions: {
+    ecmaVersion: "latest",
+    // parser: require.resolve(ESLintConfigWantedly.parser),
+    // parserOptions: ESLintConfigWantedly.parserOptions,
+  },
 });
 ruleTester.run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {
+      name: "All fields are Pascal case",
       code: `import { objectType } from "@nexus/schema";
 const User = objectType({
   name: "User",
@@ -34,8 +38,10 @@ const User = objectType({
         "The field Profile should be camelCase",
         "The field Posts should be camelCase",
       ],
+      options: ["error"],
     },
     {
+      name: "Auto fix enabled",
       code: `import { objectType } from "@nexus/schema";
     const User = objectType({
       name: "User",
@@ -71,7 +77,7 @@ const User = objectType({
         "The field Profile should be camelCase",
         "The field Posts should be camelCase",
       ],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
   ],
 });
