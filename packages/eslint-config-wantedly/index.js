@@ -4,8 +4,6 @@ const reactHooks = require("eslint-plugin-react-hooks");
 const js = require("@eslint/js");
 const { fixupPluginRules } = require("@eslint/compat");
 
-// const { env, globals, extends: extendOptions, parser, parserOptions, plugins, rules } = require("./without-react");
-// const { env, globals, extends: extendOptions, parser, parserOptions, plugins, rules } = require("./without-react");
 const baseConfig = require("./without-react");
 
 const compat = new FlatCompat({
