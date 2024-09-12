@@ -1,10 +1,8 @@
 import type { Rule } from "eslint";
-import { Linter } from "eslint";
 import type * as GraphQL from "graphql";
 import { pascalCase } from "pascal-case";
 import { docsUrl, getOptionWithDefault } from "./utils";
 
-const linter = new Linter();
 export const RULE_NAME = "graphql-operation-name";
 
 let GRAPHQL_INSTALLED = false;
@@ -21,10 +19,24 @@ const DEFAULT_OPTION = {
   autofix: false,
 };
 
-linter.defineRule(RULE_NAME, {
+export const RULE: Rule.RuleModule = {
   meta: {
     type: "suggestion",
     fixable: "code",
+    schema: [
+      {
+        enum: ["error", "warn", "off"],
+      },
+      {
+        type: "object",
+        properties: {
+          autofix: {
+            type: "boolean",
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },
@@ -138,6 +150,4 @@ linter.defineRule(RULE_NAME, {
       },
     };
   },
-});
-
-export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
+};
