@@ -1,11 +1,9 @@
 import type { Rule } from "eslint";
-import { Linter } from "eslint";
 import type { Property } from "estree";
 import { pascalCase } from "pascal-case";
 import { snakeCase } from "snake-case";
 import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 
-const linter = new Linter();
 export const RULE_NAME = "nexus-pascal-case-type-name";
 
 const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
@@ -15,10 +13,24 @@ const DEFAULT_OPTION = {
   autofix: false,
 };
 
-linter.defineRule(RULE_NAME, {
+export const RULE: Rule.RuleModule = {
   meta: {
     type: "suggestion",
     fixable: "code",
+    schema: [
+      {
+        enum: ["error", "warn", "off"],
+      },
+      {
+        type: "object",
+        properties: {
+          autofix: {
+            type: "boolean",
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },
@@ -78,6 +90,4 @@ linter.defineRule(RULE_NAME, {
       },
     };
   },
-});
-
-export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
+};
