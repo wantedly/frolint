@@ -5,8 +5,7 @@ const reactHooks = require("eslint-plugin-react-hooks");
 const js = require("@eslint/js");
 const { fixupPluginRules } = require("@eslint/compat");
 
-const eslintPluginWantedly = require("eslint-plugin-wantedly").default;
-const useMacros = require("eslint-plugin-use-macros");
+const eslintPluginWantedly = require("eslint-plugin-wantedly");
 
 const baseConfig = require("./without-react");
 

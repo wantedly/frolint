@@ -25,4 +25,4 @@ const plugins: ESLint.Plugin = {
   },
 };
 
-export default plugins;
+export = plugins;
