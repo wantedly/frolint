@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "babel-plugin-macros": "^3.1.0",
-    "eslint": "^8.54.0",
+    "eslint": "^9.0.0",
     "graphql-tag": "^2.12.5",
     "graphql.macro": "^1.4.2",
     "styled-components": "^5.3.0"
