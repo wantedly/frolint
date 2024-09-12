@@ -9,7 +9,7 @@ describe("eslint-config-wantedly-typescript/without-react", () => {
   test("should match snapshot for", async () => {
     const config = await new ESLint({
       baseConfig,
-      useEslintrc: false,
+      overrideConfigFile: true,
     }).calculateConfigForFile("test.ts");
     const keys = Object.keys(config);
 
