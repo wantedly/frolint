@@ -1,5 +1,4 @@
 import type { Rule } from "eslint";
-import { Linter } from "eslint";
 import type { TaggedTemplateExpression } from "estree";
 import type * as GraphQL from "graphql";
 import type {
@@ -13,7 +12,6 @@ import type { EnterLeave } from "graphql/language/visitor";
 import { pascalCase } from "pascal-case";
 import { docsUrl, getOptionWithDefault } from "./utils";
 
-const linter = new Linter();
 export const RULE_NAME = "graphql-pascal-case-type-name";
 
 let GRAPHQL_INSTALLED = false;
@@ -74,10 +72,24 @@ function createGraphQLCapitalizeTypeRule<
   };
 }
 
-linter.defineRule(RULE_NAME, {
+export const RULE: Rule.RuleModule = {
   meta: {
     type: "suggestion",
     fixable: "code",
+    schema: [
+      {
+        enum: ["error", "warn", "off"],
+      },
+      {
+        type: "object",
+        properties: {
+          autofix: {
+            type: "boolean",
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },
@@ -161,6 +173,4 @@ linter.defineRule(RULE_NAME, {
       },
     };
   },
-});
-
-export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
+};

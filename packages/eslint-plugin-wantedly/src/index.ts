@@ -1,5 +1,5 @@
 import * as GRAPHQL_OPERATION_NAME from "./rules/graphql-operation-name";
-// import * as GRAPHQL_PASCAL_CASE_TYPE_NAME from "./rules/graphql-pascal-case-type-name";
+import * as GRAPHQL_PASCAL_CASE_TYPE_NAME from "./rules/graphql-pascal-case-type-name";
 import * as NEXUS_CAMEL_CASE_FIELD_NAME from "./rules/nexus-camel-case-field-name";
 // import * as NEXUS_ENUM_VALUES_DESCRIPTION from "./rules/nexus-enum-values-description";
 // import * as NEXUS_FIELD_DESCRIPTION from "./rules/nexus-field-description";
@@ -27,5 +27,6 @@ export const plugins: ESLint.Plugin = {
   rules: {
     [NEXUS_CAMEL_CASE_FIELD_NAME.RULE_NAME]: NEXUS_CAMEL_CASE_FIELD_NAME.RULE,
     [GRAPHQL_OPERATION_NAME.RULE_NAME]: GRAPHQL_OPERATION_NAME.RULE,
+    [GRAPHQL_PASCAL_CASE_TYPE_NAME.RULE_NAME]: GRAPHQL_PASCAL_CASE_TYPE_NAME.RULE,
   },
 };
