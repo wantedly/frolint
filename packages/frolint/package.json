@@ -10,7 +10,7 @@
     "command-exists": "^1.2.9",
     "cosmiconfig": "^7.0.0",
     "debug": "^4.3.2",
-    "eslint": "^8.54.0",
+    "eslint": "^9.0.0",
     "eslint-config-wantedly": "^3.2.2",
     "eslint-config-wantedly-typescript": "^3.2.2",
     "prettier": "^2.4.1",
@@ -38,7 +38,7 @@
     "@types/command-exists": "^1.2.0",
     "@types/cosmiconfig": "^6.0.0",
     "@types/debug": "^4.1.7",
-    "@types/eslint": "^8.44.8",
+    "@types/eslint": "^8.56.0",
     "@types/mock-fs": "^4.13.0",
     "@types/prettier": "^2.4.0",
     "@types/resolve": "^1.20.0"
