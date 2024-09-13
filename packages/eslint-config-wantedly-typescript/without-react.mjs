@@ -15,7 +15,7 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-/** @type{import('eslint').Linter.Config } */
+/** @type{import('eslint').Linter.Config[]} */
 module.exports = [
   ...compat.extends("plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic", "prettier"),
   {
