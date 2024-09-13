@@ -1,6 +1,6 @@
 const { FlatCompat } = require("@eslint/eslintrc");
-const react = require("eslint-plugin-react");
-const reactHooks = require("eslint-plugin-react-hooks");
+const pluginReact = require("eslint-plugin-react");
+const pluginReactHooks = require("eslint-plugin-react-hooks");
 const js = require("@eslint/js");
 const { fixupPluginRules } = require("@eslint/compat");
 
@@ -19,8 +19,8 @@ module.exports = [
   {
     name: "wantedly/plugins",
     plugins: {
-      react,
-      "react-hooks": fixupPluginRules(reactHooks),
+      react: pluginReact,
+      "react-hooks": fixupPluginRules(pluginReactHooks),
     },
   },
   {

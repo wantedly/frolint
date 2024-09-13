@@ -1,7 +1,7 @@
-const _import = require("eslint-plugin-import");
-const jsxA11Y = require("eslint-plugin-jsx-a11y");
-const eslintPluginJest = require("eslint-plugin-jest");
-const useMacros = require("eslint-plugin-use-macros");
+const pluginImport = require("eslint-plugin-import");
+const pluginJsxA11Y = require("eslint-plugin-jsx-a11y");
+const pluginJest = require("eslint-plugin-jest");
+const pluginUseMacros = require("eslint-plugin-use-macros");
 const pluginESx = require("eslint-plugin-es-x");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
@@ -21,10 +21,10 @@ module.exports = [
   {
     name: "wantedly/base/plugins",
     plugins: {
-      import: fixupPluginRules(_import),
-      "jsx-a11y": jsxA11Y,
-      jest: eslintPluginJest,
-      "use-macros": useMacros,
+      import: fixupPluginRules(pluginImport),
+      "jsx-a11y": pluginJsxA11Y,
+      jest: pluginJest,
+      "use-macros": pluginUseMacros,
       "es-x": pluginESx,
     },
   },
@@ -33,7 +33,7 @@ module.exports = [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...eslintPluginJest.environments.globals.globals,
+        ...pluginJest.environments.globals.globals,
         ...globals.node,
         flushPromises: true,
       },

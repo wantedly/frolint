@@ -1,9 +1,9 @@
-const _import = require("eslint-plugin-import");
-const jsxA11Y = require("eslint-plugin-jsx-a11y");
-const eslintPluginJest = require("eslint-plugin-jest");
-const typescriptEslint = require("@typescript-eslint/eslint-plugin");
+const pluginImport = require("eslint-plugin-import");
+const pluginJsxA11y = require("eslint-plugin-jsx-a11y");
+const pluginJest = require("eslint-plugin-jest");
+const pluginTypeScript = require("@typescript-eslint/eslint-plugin");
 const pluginESx = require("eslint-plugin-es-x");
-const useMacros = require("eslint-plugin-use-macros");
+const pluginUseMacros = require("eslint-plugin-use-macros");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
 const tsParser = require("@typescript-eslint/parser");
@@ -25,11 +25,11 @@ module.exports = [
   {
     name: "wantedly-typescript/base/plugins",
     plugins: {
-      import: fixupPluginRules(_import),
-      "jsx-a11y": jsxA11Y,
-      jest: eslintPluginJest,
-      "@typescript-eslint": typescriptEslint,
-      "use-macros": useMacros,
+      import: fixupPluginRules(pluginImport),
+      "jsx-a11y": pluginJsxA11y,
+      jest: pluginJest,
+      "@typescript-eslint": pluginTypeScript,
+      "use-macros": pluginUseMacros,
       "es-x": pluginESx,
     },
   },
@@ -38,7 +38,7 @@ module.exports = [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...eslintPluginJest.environments.globals.globals,
+        ...pluginJest.environments.globals.globals,
         ...globals.node,
         flushPromises: true,
       },

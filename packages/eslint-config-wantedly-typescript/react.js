@@ -1,10 +1,10 @@
 const { FlatCompat } = require("@eslint/eslintrc");
-const react = require("eslint-plugin-react");
-const reactHooks = require("eslint-plugin-react-hooks");
+const pluginReact = require("eslint-plugin-react");
+const pluginReactHooks = require("eslint-plugin-react-hooks");
 const js = require("@eslint/js");
 const { fixupPluginRules } = require("@eslint/compat");
 
-const eslintPluginWantedly = require("eslint-plugin-wantedly");
+const pluginWantedly = require("eslint-plugin-wantedly");
 
 const baseConfig = require("./base");
 
@@ -21,9 +21,9 @@ module.exports = [
   {
     name: "wantedly-typescript/plugins",
     plugins: {
-      react,
-      "react-hooks": fixupPluginRules(reactHooks),
-      wantedly: eslintPluginWantedly,
+      react: pluginReact,
+      "react-hooks": fixupPluginRules(pluginReactHooks),
+      wantedly: pluginWantedly,
     },
   },
   {
