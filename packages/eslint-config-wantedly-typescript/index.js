@@ -29,6 +29,7 @@ module.exports = [
   },
   {
     name: "wantedly-typescript/rules",
+    files: ["*.tsx", "*.jsx"],
     rules: {
       // eslint-plugin-react rules
       "react/forbid-prop-types": "off",

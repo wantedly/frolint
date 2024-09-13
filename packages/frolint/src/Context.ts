@@ -4,9 +4,6 @@ import type { Debugger } from "debug";
 export type FrolintConfig = {
   typescript: boolean;
   formatter?: string;
-  eslint: {
-    ignorePath?: string;
-  };
   prettier: {
     config?: string;
     ignorePath?: string;

@@ -42,7 +42,6 @@ const result = cosmiconfigSync(binaryName).search();
 
 let config: FrolintConfig = {
   typescript: true,
-  eslint: {},
   prettier: {},
 };
 

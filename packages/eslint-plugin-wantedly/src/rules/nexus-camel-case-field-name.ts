@@ -29,7 +29,8 @@ export const RULE: Rule.RuleModule = {
           },
         },
         additionalProperties: false,
-      }],
+      },
+    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },

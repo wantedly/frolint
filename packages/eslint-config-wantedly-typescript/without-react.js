@@ -19,6 +19,9 @@ const compat = new FlatCompat({
 module.exports = [
   ...compat.extends("plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic", "prettier"),
   {
+    files: ["*.ts", "*.js", "*.cts", "*.cjs", "*.mts", "*.mjs"],
+  },
+  {
     name: "wantedly-typescript/without-react/plugins",
     plugins: {
       import: fixupPluginRules(_import),
