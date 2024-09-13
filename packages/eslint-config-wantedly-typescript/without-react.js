@@ -19,6 +19,7 @@ const compat = new FlatCompat({
 module.exports = [
   ...compat.extends("plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic", "prettier"),
   {
+    name: "wantedly-typescript/without-react/plugins",
     plugins: {
       import: fixupPluginRules(_import),
       "jsx-a11y": jsxA11Y,
@@ -26,7 +27,9 @@ module.exports = [
       "@typescript-eslint": typescriptEslint,
       "use-macros": useMacros,
     },
-
+  },
+  {
+    name: "wantedly-typescript/without-react/languageOptions",
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -46,7 +49,9 @@ module.exports = [
         },
       },
     },
-
+  },
+  {
+    name: "wantedly-typescript/without-react/rules",
     rules: {
       "array-callback-return": "off",
       "arrow-body-style": ["off"],

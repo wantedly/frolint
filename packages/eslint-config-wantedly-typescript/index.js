@@ -20,11 +20,15 @@ module.exports = [
   ...baseConfig,
   ...compat.extends("plugin:react/recommended"),
   {
+    name: "wantedly-typescript/plugins",
     plugins: {
       react,
       "react-hooks": fixupPluginRules(reactHooks),
       wantedly: eslintPluginWantedly,
     },
+  },
+  {
+    name: "wantedly-typescript/rules",
     rules: {
       // eslint-plugin-react rules
       "react/forbid-prop-types": "off",

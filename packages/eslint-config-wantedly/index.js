@@ -17,12 +17,14 @@ module.exports = [
   ...baseConfig,
   ...compat.extends("plugin:react/recommended"),
   {
+    name: "wantedly/plugins",
     plugins: {
       react,
       "react-hooks": fixupPluginRules(reactHooks),
     },
   },
   {
+    name: "wantedly/rules",
     rules: {
       // eslint-plugin-react rules
       "react/forbid-prop-types": "off",
