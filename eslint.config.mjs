@@ -1,4 +1,4 @@
-import eslintConfigWantedlyTs from "eslint-config-wantedly-typescript";
+import { base as eslintConfigWantedlyTs } from "eslint-config-wantedly-typescript";
 
 /** @type{import('eslint').Linter.Config[]} */
 export default [

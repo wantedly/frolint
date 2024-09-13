@@ -1,31 +1,24 @@
 const ESLint = require("eslint").ESLint;
-const baseConfig = require("../index");
-
-const normalizePath = (path) => {
-  return /node_modules/.test(path) ? path.split("node_modules")[1] : path;
-};
+const { base, react } = require("../index");
 
 describe("eslint-config-wantedly", () => {
-  test("should match snapshot for", async () => {
-    const config = await new ESLint({
-      baseConfig,
-      overrideConfigFile: true,
-    }).calculateConfigForFile("test.js");
-    const keys = Object.keys(config);
-
-    const normalizeRequiredKeys = ["extends", "parser"];
-    normalizeRequiredKeys.forEach((key) => {
-      const newConfig = config[key];
-
-      if (Array.isArray(newConfig)) {
-        config[key] = newConfig.map(normalizePath);
-      } else {
-        config[key] = normalizePath(newConfig);
-      }
+  describe("base", () => {
+    test("should match snapshot for", async () => {
+      const config = await new ESLint({
+        baseConfig: base,
+        overrideConfigFile: true,
+      }).calculateConfigForFile("test.js");
+      expect(config).toMatchSnapshot();
     });
+  });
 
-    keys.forEach((key) => {
-      expect(config[key]).toMatchSnapshot(key);
+  describe("react", () => {
+    test("should match snapshot for", async () => {
+      const config = await new ESLint({
+        baseConfig: react,
+        overrideConfigFile: true,
+      }).calculateConfigForFile("test.js");
+      expect(config).toMatchSnapshot();
     });
   });
 });

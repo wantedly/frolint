@@ -1,11 +1,11 @@
 const _import = require("eslint-plugin-import");
 const jsxA11Y = require("eslint-plugin-jsx-a11y");
 const eslintPluginJest = require("eslint-plugin-jest");
+const typescriptEslint = require("@typescript-eslint/eslint-plugin");
 const useMacros = require("eslint-plugin-use-macros");
-const es = require("eslint-plugin-es");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
-const babelEslintParser = require("@babel/eslint-parser");
+const tsParser = require("@typescript-eslint/parser");
 const js = require("@eslint/js");
 const { FlatCompat } = require("@eslint/eslintrc");
 
@@ -17,19 +17,22 @@ const compat = new FlatCompat({
 
 /** @type{import('eslint').Linter.Config[]} */
 module.exports = [
-  ...compat.extends("eslint:recommended", "prettier"),
+  ...compat.extends("plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic", "prettier"),
   {
-    name: "wantedly/without-react/plugins",
+    files: ["*.ts", "*.js", "*.cts", "*.cjs", "*.mts", "*.mjs"],
+  },
+  {
+    name: "wantedly-typescript/base/plugins",
     plugins: {
       import: fixupPluginRules(_import),
       "jsx-a11y": jsxA11Y,
       jest: eslintPluginJest,
+      "@typescript-eslint": typescriptEslint,
       "use-macros": useMacros,
-      es,
     },
   },
   {
-    name: "wantedly/without-react/languageOptions",
+    name: "wantedly-typescript/base/languageOptions",
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -38,7 +41,7 @@ module.exports = [
         flushPromises: true,
       },
 
-      parser: babelEslintParser,
+      parser: tsParser,
       ecmaVersion: 5,
       sourceType: "module",
 
@@ -47,17 +50,11 @@ module.exports = [
           experimentalObjectRestSpread: true,
           jsx: true,
         },
-        babelOptions: {
-          babelrc: false,
-          configFile: false,
-          // your babel options
-          // presets: ["@babel/preset-env"],
-        },
       },
     },
   },
   {
-    name: "wantedly/without-react/rules",
+    name: "wantedly-typescript/base/rules",
     rules: {
       "array-callback-return": "off",
       "arrow-body-style": ["off"],
@@ -94,7 +91,7 @@ module.exports = [
       ],
 
       "no-alert": "off",
-      "no-array-constructor": "error",
+      "no-array-constructor": "off",
       "no-case-declarations": "error",
       "no-class-assign": "error",
       "no-compare-neg-zero": "error",
@@ -147,7 +144,7 @@ module.exports = [
         },
       ],
 
-      "no-redeclare": "error",
+      "no-redeclare": "off",
       "no-regex-spaces": "error",
       "no-self-assign": "error",
       "no-shadow": "off",
@@ -159,15 +156,7 @@ module.exports = [
       "no-unsafe-finally": "error",
       "no-unsafe-negation": "error",
       "no-unused-labels": "error",
-
-      "no-unused-vars": [
-        "error",
-        {
-          varsIgnorePattern: "^_",
-          argsIgnorePattern: "^_",
-        },
-      ],
-
+      "no-unused-vars": "off",
       "no-use-before-define": "off",
       "no-useless-constructor": "off",
       "no-useless-escape": "off",
@@ -192,7 +181,7 @@ module.exports = [
       camelcase: [
         "error",
         {
-          ignoreDestructuring: false,
+          ignoreDestructuring: true,
           properties: "never",
         },
       ],
@@ -200,7 +189,55 @@ module.exports = [
       eqeqeq: ["error", "smart"],
       indent: "off",
       quotes: ["off"],
-      semi: ["error", "always"],
+      semi: "off",
+      "@typescript-eslint/explicit-function-return-type": ["off"],
+
+      "@typescript-eslint/explicit-member-accessibility": [
+        "error",
+        {
+          overrides: {
+            constructors: "no-public",
+            parameterProperties: "no-public",
+            accessors: "no-public",
+          },
+        },
+      ],
+
+      "@typescript-eslint/explicit-module-boundary-types": ["off"],
+      "@typescript-eslint/func-call-spacing": ["error", "never"],
+      "@typescript-eslint/indent": "off",
+      "@typescript-eslint/no-array-constructor": "error",
+      "@typescript-eslint/no-explicit-any": ["off"],
+      "@typescript-eslint/no-floating-promises": ["error"],
+      "@typescript-eslint/no-redeclare": "error",
+
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          varsIgnorePattern: "^_",
+          argsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
+        },
+      ],
+
+      "@typescript-eslint/no-use-before-define": "off",
+      "@typescript-eslint/no-useless-constructor": "off",
+      "@typescript-eslint/semi": ["error", "always"],
+      "no-extra-semi": "off",
+      "@typescript-eslint/no-extra-semi": "off",
+      "@typescript-eslint/no-non-null-assertion": "warn",
+      "@typescript-eslint/no-duplicate-enum-values": "error",
+      "@typescript-eslint/no-unsafe-declaration-merging": "error",
+      "@typescript-eslint/array-type": "off",
+      "@typescript-eslint/ban-tslint-comment": "off",
+      "@typescript-eslint/class-literal-property-style": "off",
+      "@typescript-eslint/consistent-generic-constructors": "off",
+      "@typescript-eslint/consistent-indexed-object-style": "off",
+      "@typescript-eslint/consistent-type-assertions": "off",
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/no-confusing-non-null-assertion": "off",
+      "@typescript-eslint/prefer-for-of": "off",
+      "@typescript-eslint/prefer-function-type": "off",
       "import/extensions": "off",
       "import/first": "warn",
       "import/no-extraneous-dependencies": ["off"],
@@ -211,8 +248,6 @@ module.exports = [
       "jsx-a11y/no-noninteractive-element-interactions": "off",
       "jsx-a11y/no-static-element-interactions": "off",
       "use-macros/graphql-tag": "error",
-      "es/no-regexp-lookbehind-assertions": "error",
-      "es/no-regexp-named-capture-groups": "error",
     },
   },
 ];
