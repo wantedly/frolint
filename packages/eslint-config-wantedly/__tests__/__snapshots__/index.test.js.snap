@@ -1173,7 +1173,7 @@ exports[`eslint-config-wantedly base should match snapshot for 1`] = `
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
     "jest",
     "use-macros:eslint-plugin-use-macros",
-    "es",
+    "es-x:eslint-plugin-es-x@8.0.0",
   ],
   "processor": undefined,
   "rules": {
@@ -1330,10 +1330,10 @@ exports[`eslint-config-wantedly base should match snapshot for 1`] = `
       2,
       "smart",
     ],
-    "es/no-regexp-lookbehind-assertions": [
+    "es-x/no-regexp-lookbehind-assertions": [
       2,
     ],
-    "es/no-regexp-named-capture-groups": [
+    "es-x/no-regexp-named-capture-groups": [
       2,
     ],
     "flowtype/boolean-style": [
@@ -3235,7 +3235,7 @@ exports[`eslint-config-wantedly react should match snapshot for 1`] = `
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
     "jest",
     "use-macros:eslint-plugin-use-macros",
-    "es",
+    "es-x:eslint-plugin-es-x@8.0.0",
     "react",
     "react-hooks",
   ],
@@ -3394,10 +3394,10 @@ exports[`eslint-config-wantedly react should match snapshot for 1`] = `
       2,
       "smart",
     ],
-    "es/no-regexp-lookbehind-assertions": [
+    "es-x/no-regexp-lookbehind-assertions": [
       2,
     ],
-    "es/no-regexp-named-capture-groups": [
+    "es-x/no-regexp-named-capture-groups": [
       2,
     ],
     "flowtype/boolean-style": [

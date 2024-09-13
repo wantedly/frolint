@@ -2,7 +2,7 @@ const _import = require("eslint-plugin-import");
 const jsxA11Y = require("eslint-plugin-jsx-a11y");
 const eslintPluginJest = require("eslint-plugin-jest");
 const useMacros = require("eslint-plugin-use-macros");
-const es = require("eslint-plugin-es");
+const pluginESx = require("eslint-plugin-es-x");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
 const babelEslintParser = require("@babel/eslint-parser");
@@ -25,7 +25,7 @@ module.exports = [
       "jsx-a11y": jsxA11Y,
       jest: eslintPluginJest,
       "use-macros": useMacros,
-      es,
+      "es-x": pluginESx,
     },
   },
   {
@@ -211,8 +211,8 @@ module.exports = [
       "jsx-a11y/no-noninteractive-element-interactions": "off",
       "jsx-a11y/no-static-element-interactions": "off",
       "use-macros/graphql-tag": "error",
-      "es/no-regexp-lookbehind-assertions": "error",
-      "es/no-regexp-named-capture-groups": "error",
+      "es-x/no-regexp-lookbehind-assertions": "error",
+      "es-x/no-regexp-named-capture-groups": "error",
     },
   },
 ];

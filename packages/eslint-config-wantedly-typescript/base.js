@@ -2,6 +2,7 @@ const _import = require("eslint-plugin-import");
 const jsxA11Y = require("eslint-plugin-jsx-a11y");
 const eslintPluginJest = require("eslint-plugin-jest");
 const typescriptEslint = require("@typescript-eslint/eslint-plugin");
+const pluginESx = require("eslint-plugin-es-x");
 const useMacros = require("eslint-plugin-use-macros");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
@@ -29,6 +30,7 @@ module.exports = [
       jest: eslintPluginJest,
       "@typescript-eslint": typescriptEslint,
       "use-macros": useMacros,
+      "es-x": pluginESx,
     },
   },
   {
@@ -248,6 +250,8 @@ module.exports = [
       "jsx-a11y/no-noninteractive-element-interactions": "off",
       "jsx-a11y/no-static-element-interactions": "off",
       "use-macros/graphql-tag": "error",
+      "es-x/no-regexp-lookbehind-assertions": "error",
+      "es-x/no-regexp-named-capture-groups": "error",
     },
   },
 ];

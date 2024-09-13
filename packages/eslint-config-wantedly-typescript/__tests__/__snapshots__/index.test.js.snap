@@ -1170,6 +1170,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
     "jest",
     "use-macros:eslint-plugin-use-macros",
+    "es-x:eslint-plugin-es-x@8.0.0",
   ],
   "processor": undefined,
   "rules": {
@@ -1459,6 +1460,12 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "eqeqeq": [
       2,
       "smart",
+    ],
+    "es-x/no-regexp-lookbehind-assertions": [
+      2,
+    ],
+    "es-x/no-regexp-named-capture-groups": [
+      2,
     ],
     "flowtype/boolean-style": [
       0,
@@ -3324,6 +3331,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
     "jest",
     "use-macros:eslint-plugin-use-macros",
+    "es-x:eslint-plugin-es-x@8.0.0",
     "react",
     "react-hooks",
     "wantedly:eslint-plugin-wantedly",
@@ -3616,6 +3624,12 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "eqeqeq": [
       2,
       "smart",
+    ],
+    "es-x/no-regexp-lookbehind-assertions": [
+      2,
+    ],
+    "es-x/no-regexp-named-capture-groups": [
+      2,
     ],
     "flowtype/boolean-style": [
       0,
