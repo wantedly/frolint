@@ -1460,9 +1460,12 @@ exports[`eslint-config-wantedly should match snapshot for: languageOptions 1`] =
     "xtest": false,
   },
   "parser": {
+    "meta": {
+      "name": "@babel/eslint-parser",
+      "version": "7.25.1",
+    },
     "parse": [Function],
     "parseForESLint": [Function],
-    "parseNoPatch": [Function],
   },
   "parserOptions": {
     "ecmaFeatures": {

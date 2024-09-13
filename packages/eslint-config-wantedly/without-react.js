@@ -5,7 +5,7 @@ const useMacros = require("eslint-plugin-use-macros");
 const es = require("eslint-plugin-es");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
-const babelParser = require("babel-eslint");
+const babelEslintParser = require("@babel/eslint-parser");
 const js = require("@eslint/js");
 const { FlatCompat } = require("@eslint/eslintrc");
 
@@ -38,7 +38,7 @@ module.exports = [
         flushPromises: true,
       },
 
-      parser: babelParser,
+      parser: babelEslintParser,
       ecmaVersion: 5,
       sourceType: "module",
 
@@ -46,6 +46,12 @@ module.exports = [
         ecmaFeatures: {
           experimentalObjectRestSpread: true,
           jsx: true,
+        },
+        babelOptions: {
+          babelrc: false,
+          configFile: false,
+          // your babel options
+          // presets: ["@babel/preset-env"],
         },
       },
     },

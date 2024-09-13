@@ -1460,9 +1460,12 @@ exports[`eslint-config-wantedly/without-react should match snapshot for: languag
     "xtest": false,
   },
   "parser": {
+    "meta": {
+      "name": "@babel/eslint-parser",
+      "version": "7.25.1",
+    },
     "parse": [Function],
     "parseForESLint": [Function],
-    "parseNoPatch": [Function],
   },
   "parserOptions": {
     "ecmaFeatures": {
