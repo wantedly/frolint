@@ -17,7 +17,7 @@ describe("eslint-config-wantedly", () => {
       const config = await new ESLint({
         baseConfig: react,
         overrideConfigFile: true,
-      }).calculateConfigForFile("test.js");
+      }).calculateConfigForFile("test.jsx");
       expect(config).toMatchSnapshot();
     });
   });

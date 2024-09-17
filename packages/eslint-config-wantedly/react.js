@@ -24,6 +24,7 @@ module.exports = [
     },
   },
   {
+    files: ["*.jsx"],
     name: "wantedly/rules",
     rules: {
       // eslint-plugin-react rules
