@@ -19,7 +19,7 @@ module.exports = [
   ...baseConfig,
   ...compat.extends("plugin:react/recommended"),
   {
-    name: "wantedly-typescript/plugins",
+    name: "wantedly-typescript/react/plugins",
     plugins: {
       react: pluginReact,
       "react-hooks": fixupPluginRules(pluginReactHooks),
@@ -27,7 +27,7 @@ module.exports = [
     },
   },
   {
-    name: "wantedly-typescript/rules",
+    name: "wantedly-typescript/react/rules",
     files: ["*.tsx", "*.jsx"],
     rules: {
       // eslint-plugin-react rules

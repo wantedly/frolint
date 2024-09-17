@@ -1,12 +1,6 @@
 # eslint-plugin-wantedly [![npm version](https://badge.fury.io/js/eslint-plugin-wantedly.svg)](https://badge.fury.io/js/eslint-plugin-wantedly)
 
-## Installation
-
-```sh
-npm install --save eslint-plugin-wantedly
-# or
-yarn add eslint-plugin-wantedly
-```
+## Rule details
 
 This plugin provides the opinionated rules in Wantedly.
 
@@ -24,3 +18,41 @@ This plugin provides the opinionated rules in Wantedly.
   - Check the enum members are UPPER_CASE if the code using `nexus`
 - [`wantedly/nexus-type-description`](./docs/rules/nexus-type-description.md)
   - Validate that the types have descriptions if the code using `nexus`
+
+## Installation
+
+```sh
+npm install --save eslint-plugin-wantedly
+# or
+yarn add eslint-plugin-wantedly
+```
+
+## Usage
+
+### With "Flat Config"
+
+```js
+import pluginWantedly from "eslint-plugin-wantedly";
+
+export default {
+  {
+    plugins: {
+      "wantedly": pluginWantedly,
+    },
+    rules: {
+      "wantedly/graphql-pascal-case-type-name": ["error", { "autofix": true }],
+    }
+  },
+}
+```
+
+### With "Legacy Config"
+
+```json
+{
+  "plugins": ["wantedly"],
+  "rules": {
+    "wantedly/graphql-pascal-case-type-name": ["error", { "autofix": true }]
+  }
+}
+```

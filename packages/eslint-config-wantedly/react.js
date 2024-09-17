@@ -17,7 +17,7 @@ module.exports = [
   ...baseConfig,
   ...compat.extends("plugin:react/recommended"),
   {
-    name: "wantedly/plugins",
+    name: "wantedly/react/plugins",
     plugins: {
       react: pluginReact,
       "react-hooks": fixupPluginRules(pluginReactHooks),
@@ -25,7 +25,7 @@ module.exports = [
   },
   {
     files: ["*.jsx"],
-    name: "wantedly/rules",
+    name: "wantedly/react/rules",
     rules: {
       // eslint-plugin-react rules
       "react/forbid-prop-types": "off",
