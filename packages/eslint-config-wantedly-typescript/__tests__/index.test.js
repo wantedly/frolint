@@ -17,7 +17,7 @@ describe("eslint-config-wantedly-typescript", () => {
       const config = await new ESLint({
         baseConfig: react,
         overrideConfigFile: true,
-      }).calculateConfigForFile("test.ts");
+      }).calculateConfigForFile("test.tsx");
       expect(config).toMatchSnapshot();
     });
   });

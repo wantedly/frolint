@@ -4052,14 +4052,23 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "quotes": [
       0,
     ],
+    "react-hooks/exhaustive-deps": [
+      1,
+    ],
+    "react-hooks/rules-of-hooks": [
+      2,
+    ],
     "react/display-name": [
       2,
+    ],
+    "react/forbid-prop-types": [
+      0,
     ],
     "react/jsx-child-element-spacing": [
       0,
     ],
     "react/jsx-closing-bracket-location": [
-      0,
+      1,
     ],
     "react/jsx-closing-tag-location": [
       0,
@@ -4073,14 +4082,25 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "react/jsx-equals-spacing": [
       0,
     ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".jsx",
+          ".tsx",
+        ],
+      },
+    ],
     "react/jsx-first-prop-new-line": [
       0,
     ],
     "react/jsx-indent": [
-      0,
+      1,
+      2,
     ],
     "react/jsx-indent-props": [
-      0,
+      1,
+      2,
     ],
     "react/jsx-key": [
       2,
@@ -4091,6 +4111,16 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "react/jsx-newline": [
       0,
     ],
+    "react/jsx-no-bind": [
+      1,
+      {
+        "allowArrowFunctions": true,
+        "allowBind": false,
+        "allowFunctions": false,
+        "ignoreDOMComponents": false,
+        "ignoreRefs": false,
+      },
+    ],
     "react/jsx-no-comment-textnodes": [
       2,
     ],
@@ -4098,7 +4128,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       2,
     ],
     "react/jsx-no-target-blank": [
-      2,
+      1,
     ],
     "react/jsx-no-undef": [
       2,
@@ -4116,13 +4146,16 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       0,
     ],
     "react/jsx-uses-react": [
-      2,
+      0,
     ],
     "react/jsx-uses-vars": [
       2,
     ],
     "react/jsx-wrap-multilines": [
-      0,
+      1,
+    ],
+    "react/no-array-index-key": [
+      2,
     ],
     "react/no-children-prop": [
       2,
@@ -4133,6 +4166,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "react/no-deprecated": [
       2,
     ],
+    "react/no-did-update-set-state": [
+      2,
+    ],
     "react/no-direct-mutation-state": [
       2,
     ],
@@ -4141,6 +4177,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "react/no-is-mounted": [
       2,
+    ],
+    "react/no-multi-comp": [
+      0,
     ],
     "react/no-render-return-value": [
       2,
@@ -4157,11 +4196,17 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "react/no-unsafe": [
       0,
     ],
+    "react/no-unused-prop-types": [
+      0,
+    ],
     "react/prop-types": [
-      2,
+      0,
     ],
     "react/react-in-jsx-scope": [
-      2,
+      0,
+    ],
+    "react/require-default-props": [
+      0,
     ],
     "react/require-render-return": [
       2,
@@ -4256,6 +4301,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       2,
     ],
     "use-macros/graphql-tag": [
+      2,
+    ],
+    "use-macros/styled-components": [
       2,
     ],
     "valid-typeof": [
@@ -4377,6 +4425,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "vue/template-curly-spacing": [
       0,
+    ],
+    "wantedly/graphql-operation-name": [
+      1,
     ],
     "wrap-iife": [
       0,
