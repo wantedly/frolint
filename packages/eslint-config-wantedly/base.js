@@ -7,17 +7,12 @@ const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
 const babelEslintParser = require("@babel/eslint-parser");
 const js = require("@eslint/js");
-const { FlatCompat } = require("@eslint/eslintrc");
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+const configPrettier = require("eslint-config-prettier");
 
 /** @type{import('eslint').Linter.Config[]} */
 module.exports = [
-  ...compat.extends("eslint:recommended", "prettier"),
+  js.configs.recommended,
+  configPrettier,
   {
     name: "wantedly/base/plugins",
     plugins: {

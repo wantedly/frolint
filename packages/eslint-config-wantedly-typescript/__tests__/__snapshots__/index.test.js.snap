@@ -1151,7 +1151,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "xit": false,
       "xtest": false,
     },
-    "parser": "typescript-eslint/parser@7.18.0",
+    "parser": "typescript-eslint/parser@8.6.0",
     "parserOptions": {
       "ecmaFeatures": {
         "experimentalObjectRestSpread": true,
@@ -1165,7 +1165,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
   },
   "plugins": [
     "@",
-    "@typescript-eslint:@typescript-eslint/eslint-plugin@7.18.0",
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.6.0",
     "import",
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
     "jest",
@@ -1191,9 +1191,6 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "@typescript-eslint/ban-tslint-comment": [
       0,
-    ],
-    "@typescript-eslint/ban-types": [
-      2,
     ],
     "@typescript-eslint/block-spacing": [
       0,
@@ -1239,8 +1236,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       0,
     ],
     "@typescript-eslint/func-call-spacing": [
-      2,
-      "never",
+      0,
     ],
     "@typescript-eslint/indent": [
       0,
@@ -1269,7 +1265,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "@typescript-eslint/no-empty-function": [
       2,
     ],
-    "@typescript-eslint/no-empty-interface": [
+    "@typescript-eslint/no-empty-object-type": [
       2,
     ],
     "@typescript-eslint/no-explicit-any": [
@@ -1290,9 +1286,6 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "@typescript-eslint/no-inferrable-types": [
       2,
     ],
-    "@typescript-eslint/no-loss-of-precision": [
-      2,
-    ],
     "@typescript-eslint/no-misused-new": [
       2,
     ],
@@ -1308,6 +1301,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "@typescript-eslint/no-redeclare": [
       2,
     ],
+    "@typescript-eslint/no-require-imports": [
+      2,
+    ],
     "@typescript-eslint/no-this-alias": [
       2,
     ],
@@ -1315,6 +1311,12 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       2,
     ],
     "@typescript-eslint/no-unsafe-declaration-merging": [
+      2,
+    ],
+    "@typescript-eslint/no-unsafe-function-type": [
+      2,
+    ],
+    "@typescript-eslint/no-unused-expressions": [
       2,
     ],
     "@typescript-eslint/no-unused-vars": [
@@ -1331,7 +1333,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "@typescript-eslint/no-useless-constructor": [
       0,
     ],
-    "@typescript-eslint/no-var-requires": [
+    "@typescript-eslint/no-wrapper-object-types": [
       2,
     ],
     "@typescript-eslint/object-curly-spacing": [
@@ -1353,8 +1355,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       0,
     ],
     "@typescript-eslint/semi": [
-      2,
-      "always",
+      0,
     ],
     "@typescript-eslint/space-before-blocks": [
       0,
@@ -1608,6 +1609,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "no-arrow-condition": [
       0,
     ],
+    "no-async-promise-executor": [
+      2,
+    ],
     "no-case-declarations": [
       2,
     ],
@@ -1632,6 +1636,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "no-const-assign": [
       2,
     ],
+    "no-constant-binary-expression": [
+      2,
+    ],
     "no-constant-condition": [
       2,
     ],
@@ -1648,6 +1655,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       2,
     ],
     "no-dupe-class-members": [
+      2,
+    ],
+    "no-dupe-else-if": [
       2,
     ],
     "no-dupe-keys": [
@@ -1669,6 +1679,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       0,
     ],
     "no-empty-pattern": [
+      2,
+    ],
+    "no-empty-static-block": [
       2,
     ],
     "no-ex-assign": [
@@ -1711,7 +1724,10 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       1,
     ],
     "no-loss-of-precision": [
-      0,
+      2,
+    ],
+    "no-misleading-character-class": [
+      2,
     ],
     "no-mixed-operators": [
       1,
@@ -1752,6 +1768,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "no-new-symbol": [
       2,
     ],
+    "no-nonoctal-decimal-escape": [
+      2,
+    ],
     "no-obj-calls": [
       2,
     ],
@@ -1766,6 +1785,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       {
         "allowForLoopAfterthoughts": true,
       },
+    ],
+    "no-prototype-builtins": [
+      2,
     ],
     "no-redeclare": [
       0,
@@ -1784,6 +1806,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-shadow": [
       0,
+    ],
+    "no-shadow-restricted-names": [
+      2,
     ],
     "no-space-before-semi": [
       0,
@@ -1821,7 +1846,16 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "no-unsafe-negation": [
       2,
     ],
+    "no-unsafe-optional-chaining": [
+      2,
+    ],
+    "no-unused-expressions": [
+      0,
+    ],
     "no-unused-labels": [
+      2,
+    ],
+    "no-unused-private-class-members": [
       2,
     ],
     "no-unused-vars": [
@@ -1829,6 +1863,12 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-use-before-define": [
       0,
+    ],
+    "no-useless-backreference": [
+      2,
+    ],
+    "no-useless-catch": [
+      2,
     ],
     "no-useless-constructor": [
       0,
@@ -1841,6 +1881,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-whitespace-before-property": [
       0,
+    ],
+    "no-with": [
+      2,
     ],
     "no-wrap-func": [
       0,
@@ -2010,9 +2053,6 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "template-tag-spacing": [
       0,
     ],
-    "unicode-bom": [
-      0,
-    ],
     "unicorn/empty-brace-spaces": [
       0,
     ],
@@ -2020,6 +2060,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       0,
     ],
     "unicorn/number-literal-case": [
+      0,
+    ],
+    "unicorn/template-indent": [
       0,
     ],
     "use-isnan": [
@@ -3312,7 +3355,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "xit": false,
       "xtest": false,
     },
-    "parser": "typescript-eslint/parser@7.18.0",
+    "parser": "typescript-eslint/parser@8.6.0",
     "parserOptions": {
       "ecmaFeatures": {
         "experimentalObjectRestSpread": true,
@@ -3326,7 +3369,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
   },
   "plugins": [
     "@",
-    "@typescript-eslint:@typescript-eslint/eslint-plugin@7.18.0",
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.6.0",
     "import",
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
     "jest",
@@ -3355,9 +3398,6 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "@typescript-eslint/ban-tslint-comment": [
       0,
-    ],
-    "@typescript-eslint/ban-types": [
-      2,
     ],
     "@typescript-eslint/block-spacing": [
       0,
@@ -3403,8 +3443,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       0,
     ],
     "@typescript-eslint/func-call-spacing": [
-      2,
-      "never",
+      0,
     ],
     "@typescript-eslint/indent": [
       0,
@@ -3433,7 +3472,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "@typescript-eslint/no-empty-function": [
       2,
     ],
-    "@typescript-eslint/no-empty-interface": [
+    "@typescript-eslint/no-empty-object-type": [
       2,
     ],
     "@typescript-eslint/no-explicit-any": [
@@ -3454,9 +3493,6 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "@typescript-eslint/no-inferrable-types": [
       2,
     ],
-    "@typescript-eslint/no-loss-of-precision": [
-      2,
-    ],
     "@typescript-eslint/no-misused-new": [
       2,
     ],
@@ -3472,6 +3508,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "@typescript-eslint/no-redeclare": [
       2,
     ],
+    "@typescript-eslint/no-require-imports": [
+      2,
+    ],
     "@typescript-eslint/no-this-alias": [
       2,
     ],
@@ -3479,6 +3518,12 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       2,
     ],
     "@typescript-eslint/no-unsafe-declaration-merging": [
+      2,
+    ],
+    "@typescript-eslint/no-unsafe-function-type": [
+      2,
+    ],
+    "@typescript-eslint/no-unused-expressions": [
       2,
     ],
     "@typescript-eslint/no-unused-vars": [
@@ -3495,7 +3540,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "@typescript-eslint/no-useless-constructor": [
       0,
     ],
-    "@typescript-eslint/no-var-requires": [
+    "@typescript-eslint/no-wrapper-object-types": [
       2,
     ],
     "@typescript-eslint/object-curly-spacing": [
@@ -3517,8 +3562,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       0,
     ],
     "@typescript-eslint/semi": [
-      2,
-      "always",
+      0,
     ],
     "@typescript-eslint/space-before-blocks": [
       0,
@@ -3772,6 +3816,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "no-arrow-condition": [
       0,
     ],
+    "no-async-promise-executor": [
+      2,
+    ],
     "no-case-declarations": [
       2,
     ],
@@ -3796,6 +3843,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "no-const-assign": [
       2,
     ],
+    "no-constant-binary-expression": [
+      2,
+    ],
     "no-constant-condition": [
       2,
     ],
@@ -3812,6 +3862,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       2,
     ],
     "no-dupe-class-members": [
+      2,
+    ],
+    "no-dupe-else-if": [
       2,
     ],
     "no-dupe-keys": [
@@ -3833,6 +3886,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       0,
     ],
     "no-empty-pattern": [
+      2,
+    ],
+    "no-empty-static-block": [
       2,
     ],
     "no-ex-assign": [
@@ -3875,7 +3931,10 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       1,
     ],
     "no-loss-of-precision": [
-      0,
+      2,
+    ],
+    "no-misleading-character-class": [
+      2,
     ],
     "no-mixed-operators": [
       1,
@@ -3916,6 +3975,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "no-new-symbol": [
       2,
     ],
+    "no-nonoctal-decimal-escape": [
+      2,
+    ],
     "no-obj-calls": [
       2,
     ],
@@ -3930,6 +3992,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       {
         "allowForLoopAfterthoughts": true,
       },
+    ],
+    "no-prototype-builtins": [
+      2,
     ],
     "no-redeclare": [
       0,
@@ -3948,6 +4013,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-shadow": [
       0,
+    ],
+    "no-shadow-restricted-names": [
+      2,
     ],
     "no-space-before-semi": [
       0,
@@ -3985,7 +4053,16 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "no-unsafe-negation": [
       2,
     ],
+    "no-unsafe-optional-chaining": [
+      2,
+    ],
+    "no-unused-expressions": [
+      0,
+    ],
     "no-unused-labels": [
+      2,
+    ],
+    "no-unused-private-class-members": [
       2,
     ],
     "no-unused-vars": [
@@ -3993,6 +4070,12 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-use-before-define": [
       0,
+    ],
+    "no-useless-backreference": [
+      2,
+    ],
+    "no-useless-catch": [
+      2,
     ],
     "no-useless-constructor": [
       0,
@@ -4005,6 +4088,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-whitespace-before-property": [
       0,
+    ],
+    "no-with": [
+      2,
     ],
     "no-wrap-func": [
       0,
@@ -4285,9 +4371,6 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "template-tag-spacing": [
       0,
     ],
-    "unicode-bom": [
-      0,
-    ],
     "unicorn/empty-brace-spaces": [
       0,
     ],
@@ -4295,6 +4378,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       0,
     ],
     "unicorn/number-literal-case": [
+      0,
+    ],
+    "unicorn/template-indent": [
       0,
     ],
     "use-isnan": [

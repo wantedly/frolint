@@ -1911,9 +1911,6 @@ exports[`eslint-config-wantedly base should match snapshot for 1`] = `
     "template-tag-spacing": [
       0,
     ],
-    "unicode-bom": [
-      0,
-    ],
     "unicorn/empty-brace-spaces": [
       0,
     ],
@@ -1921,6 +1918,9 @@ exports[`eslint-config-wantedly base should match snapshot for 1`] = `
       0,
     ],
     "unicorn/number-literal-case": [
+      0,
+    ],
+    "unicorn/template-indent": [
       0,
     ],
     "use-isnan": [
@@ -4086,9 +4086,6 @@ exports[`eslint-config-wantedly react should match snapshot for 1`] = `
     "template-tag-spacing": [
       0,
     ],
-    "unicode-bom": [
-      0,
-    ],
     "unicorn/empty-brace-spaces": [
       0,
     ],
@@ -4096,6 +4093,9 @@ exports[`eslint-config-wantedly react should match snapshot for 1`] = `
       0,
     ],
     "unicorn/number-literal-case": [
+      0,
+    ],
+    "unicorn/template-indent": [
       0,
     ],
     "use-isnan": [

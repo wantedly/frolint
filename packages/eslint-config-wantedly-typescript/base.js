@@ -1,24 +1,20 @@
 const pluginImport = require("eslint-plugin-import");
 const pluginJsxA11y = require("eslint-plugin-jsx-a11y");
 const pluginJest = require("eslint-plugin-jest");
-const pluginTypeScript = require("@typescript-eslint/eslint-plugin");
 const pluginESx = require("eslint-plugin-es-x");
 const pluginUseMacros = require("eslint-plugin-use-macros");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
-const tsParser = require("@typescript-eslint/parser");
-const js = require("@eslint/js");
-const { FlatCompat } = require("@eslint/eslintrc");
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
+const eslintJs = require("@eslint/js");
+const eslintTs = require("typescript-eslint");
+const configPrettier = require("eslint-config-prettier");
 
 /** @type{import('eslint').Linter.Config[]} */
 module.exports = [
-  ...compat.extends("plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic", "prettier"),
+  eslintJs.configs.recommended,
+  ...eslintTs.configs.recommended,
+  ...eslintTs.configs.stylistic,
+  configPrettier,
   {
     files: ["*.ts", "*.js", "*.cts", "*.cjs", "*.mts", "*.mjs"],
   },
@@ -28,7 +24,7 @@ module.exports = [
       import: fixupPluginRules(pluginImport),
       "jsx-a11y": pluginJsxA11y,
       jest: pluginJest,
-      "@typescript-eslint": pluginTypeScript,
+      "@typescript-eslint": eslintTs.plugin,
       "use-macros": pluginUseMacros,
       "es-x": pluginESx,
     },
@@ -43,7 +39,7 @@ module.exports = [
         flushPromises: true,
       },
 
-      parser: tsParser,
+      parser: eslintTs.parser,
       ecmaVersion: 5,
       sourceType: "module",
 
@@ -206,7 +202,6 @@ module.exports = [
       ],
 
       "@typescript-eslint/explicit-module-boundary-types": ["off"],
-      "@typescript-eslint/func-call-spacing": ["error", "never"],
       "@typescript-eslint/indent": "off",
       "@typescript-eslint/no-array-constructor": "error",
       "@typescript-eslint/no-explicit-any": ["off"],
@@ -224,7 +219,6 @@ module.exports = [
 
       "@typescript-eslint/no-use-before-define": "off",
       "@typescript-eslint/no-useless-constructor": "off",
-      "@typescript-eslint/semi": ["error", "always"],
       "no-extra-semi": "off",
       "@typescript-eslint/no-extra-semi": "off",
       "@typescript-eslint/no-non-null-assertion": "warn",
