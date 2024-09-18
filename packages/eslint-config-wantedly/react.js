@@ -1,8 +1,8 @@
+const { fixupPluginRules } = require("@eslint/compat");
 const { FlatCompat } = require("@eslint/eslintrc");
+const js = require("@eslint/js");
 const pluginReact = require("eslint-plugin-react");
 const pluginReactHooks = require("eslint-plugin-react-hooks");
-const js = require("@eslint/js");
-const { fixupPluginRules } = require("@eslint/compat");
 
 const baseConfig = require("./base");
 

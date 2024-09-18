@@ -5,7 +5,7 @@ export default [
   ...eslintConfigWantedlyTs,
   {
     name: "targets",
-    files: ["packages/**/*.ts"],
+    files: ["packages/**/*.{ts,js}"],
   },
   {
     languageOptions: {
@@ -22,6 +22,16 @@ export default [
         {
           prefer: "type-imports",
           disallowTypeAnnotations: true,
+        },
+      ],
+      "import/order": [
+        "error",
+        {
+          "newlines-between": "always",
+          groups: ["builtin", "external", "parent", "sibling", "index"],
+          alphabetize: {
+            order: "asc",
+          },
         },
       ],
     },

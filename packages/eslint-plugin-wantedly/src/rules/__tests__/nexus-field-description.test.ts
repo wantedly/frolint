@@ -1,4 +1,5 @@
 import { RuleTester } from "eslint";
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // import ESLintConfigWantedly from "eslint-config-wantedly-typescript";

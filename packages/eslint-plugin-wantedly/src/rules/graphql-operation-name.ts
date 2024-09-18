@@ -1,6 +1,7 @@
 import type { Rule } from "eslint";
 import type * as GraphQL from "graphql";
 import { pascalCase } from "pascal-case";
+
 import { docsUrl, getOptionWithDefault } from "./utils";
 
 export const RULE_NAME = "graphql-operation-name";

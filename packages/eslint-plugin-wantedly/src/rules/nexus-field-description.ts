@@ -1,5 +1,6 @@
 import type { Rule } from "eslint";
 import type { Property } from "estree";
+
 import { docsUrl, isNexusSchemaImported } from "./utils";
 
 export const RULE_NAME = "nexus-field-description";

@@ -2,6 +2,7 @@ import type { Rule } from "eslint";
 import type { Property } from "estree";
 import { pascalCase } from "pascal-case";
 import { snakeCase } from "snake-case";
+
 import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 
 export const RULE_NAME = "nexus-pascal-case-type-name";

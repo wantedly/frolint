@@ -1,4 +1,5 @@
 const RuleTester = require("eslint").RuleTester;
+
 const GraphQLTagRule = require("../rules/GraphQLTag");
 
 const ruleTester = new RuleTester({

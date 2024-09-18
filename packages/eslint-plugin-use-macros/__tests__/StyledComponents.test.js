@@ -1,4 +1,5 @@
 const RuleTester = require("eslint").RuleTester;
+
 const StyledComponentsRule = require("../rules/StyledComponents");
 
 const ruleTester = new RuleTester({

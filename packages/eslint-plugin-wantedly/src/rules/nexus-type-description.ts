@@ -1,6 +1,7 @@
 import type { Rule } from "eslint";
 import type { Property } from "estree";
 import { snakeCase } from "snake-case";
+
 import { docsUrl, isNexusSchemaImported } from "./utils";
 
 export const RULE_NAME = "nexus-type-description";

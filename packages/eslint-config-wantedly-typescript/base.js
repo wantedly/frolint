@@ -1,13 +1,13 @@
-const pluginImport = require("eslint-plugin-import");
-const pluginJsxA11y = require("eslint-plugin-jsx-a11y");
-const pluginJest = require("eslint-plugin-jest");
-const pluginESx = require("eslint-plugin-es-x");
-const pluginUseMacros = require("eslint-plugin-use-macros");
 const { fixupPluginRules } = require("@eslint/compat");
-const globals = require("globals");
 const eslintJs = require("@eslint/js");
-const eslintTs = require("typescript-eslint");
 const configPrettier = require("eslint-config-prettier");
+const pluginESx = require("eslint-plugin-es-x");
+const pluginImport = require("eslint-plugin-import");
+const pluginJest = require("eslint-plugin-jest");
+const pluginJsxA11y = require("eslint-plugin-jsx-a11y");
+const pluginUseMacros = require("eslint-plugin-use-macros");
+const globals = require("globals");
+const eslintTs = require("typescript-eslint");
 
 /** @type{import('eslint').Linter.Config[]} */
 module.exports = [

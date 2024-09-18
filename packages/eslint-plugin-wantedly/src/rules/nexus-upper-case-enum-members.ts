@@ -1,6 +1,7 @@
 import type { AST, Rule } from "eslint";
 import type { Node, ObjectExpression, Property } from "estree";
 import { snakeCase } from "snake-case";
+
 import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 
 export const RULE_NAME = "nexus-upper-case-enum-members";

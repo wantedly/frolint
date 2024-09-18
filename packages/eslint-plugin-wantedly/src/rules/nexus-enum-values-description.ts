@@ -1,5 +1,6 @@
 import type { AST, Rule } from "eslint";
 import type { ObjectExpression, Property, VariableDeclarator } from "estree";
+
 import { docsUrl, isNexusSchemaImported } from "./utils";
 
 export const RULE_NAME = "nexus-enum-values-description";

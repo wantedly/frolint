@@ -1,3 +1,5 @@
+import type { ESLint } from "eslint";
+
 import * as GRAPHQL_OPERATION_NAME from "./rules/graphql-operation-name";
 import * as GRAPHQL_PASCAL_CASE_TYPE_NAME from "./rules/graphql-pascal-case-type-name";
 import * as NEXUS_CAMEL_CASE_FIELD_NAME from "./rules/nexus-camel-case-field-name";
@@ -6,8 +8,6 @@ import * as NEXUS_FIELD_DESCRIPTION from "./rules/nexus-field-description";
 import * as NEXUS_PASCAL_CASE_TYPE_NAME from "./rules/nexus-pascal-case-type-name";
 import * as NEXUS_TYPE_DESCRIPTION from "./rules/nexus-type-description";
 import * as NEXUS_UPPER_CASE_ENUM_MEMBERS from "./rules/nexus-upper-case-enum-members";
-
-import type { ESLint } from "eslint";
 
 const plugins: ESLint.Plugin = {
   meta: {

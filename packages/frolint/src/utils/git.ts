@@ -1,7 +1,9 @@
 import { execSync } from "child_process";
-import { sync as commandExistsSync } from "command-exists";
 import { readFileSync } from "fs";
 import { resolve } from "path";
+
+import { sync as commandExistsSync } from "command-exists";
+
 import { END_COMMENT, START_COMMENT } from "./constants";
 
 export function isInsideGitRepository(cwd?: string) {

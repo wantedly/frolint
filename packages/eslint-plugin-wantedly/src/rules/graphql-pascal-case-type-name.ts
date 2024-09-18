@@ -10,6 +10,7 @@ import type {
 } from "graphql";
 import type { EnterLeave } from "graphql/language/visitor";
 import { pascalCase } from "pascal-case";
+
 import { docsUrl, getOptionWithDefault } from "./utils";
 
 export const RULE_NAME = "graphql-pascal-case-type-name";

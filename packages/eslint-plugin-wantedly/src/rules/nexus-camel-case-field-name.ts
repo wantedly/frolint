@@ -1,6 +1,7 @@
 import { camelCase } from "camel-case";
 import type { Rule } from "eslint";
 import type { Property } from "estree";
+
 import { docsUrl, getOptionWithDefault, isNexusSchemaImported } from "./utils";
 
 export const RULE_NAME = "nexus-camel-case-field-name";

@@ -1,4 +1,5 @@
 const ESLint = require("eslint").ESLint;
+
 const { base, react } = require("../index");
 
 describe("eslint-config-wantedly-typescript", () => {

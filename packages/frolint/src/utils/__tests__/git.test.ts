@@ -1,4 +1,5 @@
 import { execSync } from "child_process";
+
 import { getPreCommitHookPath, isInsideGitRepository } from "../git";
 
 jest.mock("child_process");
