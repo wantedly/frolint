@@ -4,14 +4,14 @@ import { base as eslintConfigWantedlyTs } from "eslint-config-wantedly-typescrip
 export default [
   ...eslintConfigWantedlyTs,
   {
-    name: "targets",
-    files: ["packages/**/*.{ts,js}"],
+    files: ["**/*.ts"],
+    ignores: ["**/*.js"],
   },
   {
     languageOptions: {
       ecmaVersion: "latest",
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.eslint.json",
       },
     },
     rules: {
