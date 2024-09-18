@@ -14,12 +14,6 @@ export default [
         project: "./tsconfig.json",
       },
     },
-    settings: {
-      react: {
-        version: "18.3",
-        // version: "detect",
-      },
-    },
     rules: {
       "no-console": "off",
       "@typescript-eslint/no-require-imports": "off",
