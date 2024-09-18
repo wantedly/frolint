@@ -158,8 +158,13 @@ module.exports = [
       "no-unused-vars": [
         "error",
         {
-          varsIgnorePattern: "^_",
+          args: "all",
           argsIgnorePattern: "^_",
+          caughtErrors: "all",
+          caughtErrorsIgnorePattern: "^_",
+          destructuredArrayIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          ignoreRestSiblings: true,
         },
       ],
 

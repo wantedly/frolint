@@ -1322,7 +1322,11 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "@typescript-eslint/no-unused-vars": [
       2,
       {
+        "args": "all",
         "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
         "ignoreRestSiblings": true,
         "varsIgnorePattern": "^_",
       },
@@ -3529,7 +3533,11 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "@typescript-eslint/no-unused-vars": [
       2,
       {
+        "args": "all",
         "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
         "ignoreRestSiblings": true,
         "varsIgnorePattern": "^_",
       },

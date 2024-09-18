@@ -1723,7 +1723,12 @@ exports[`eslint-config-wantedly base should match snapshot for 1`] = `
     "no-unused-vars": [
       2,
       {
+        "args": "all",
         "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "ignoreRestSiblings": true,
         "varsIgnorePattern": "^_",
       },
     ],
@@ -3787,7 +3792,12 @@ exports[`eslint-config-wantedly react should match snapshot for 1`] = `
     "no-unused-vars": [
       2,
       {
+        "args": "all",
         "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "ignoreRestSiblings": true,
         "varsIgnorePattern": "^_",
       },
     ],
