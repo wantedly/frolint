@@ -8,7 +8,7 @@ export function isInsideGitRepository(cwd?: string) {
   try {
     const res = execSync("git rev-parse --is-inside-work-tree", { cwd }).toString().trim();
     return res === "true";
-  } catch (err) {
+  } catch (_err) {
     return false;
   }
 }
@@ -37,7 +37,7 @@ export function getGitRootDir(cwd: string) {
 
   try {
     return resolve(cwd, execSync("git rev-parse --show-cdup").toString().trimRight());
-  } catch (err) {
+  } catch (_err) {
     return cwd;
   }
 }

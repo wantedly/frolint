@@ -19,7 +19,7 @@ function detectReactVersion(basedir: string) {
 
     log("Resolved react package version: %s", react.version);
     return react.version;
-  } catch (e) {
+  } catch (_e) {
     log("Cannot resolve react");
     return null;
   }
