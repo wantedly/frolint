@@ -4,10 +4,6 @@ import { base as eslintConfigWantedlyTs } from "eslint-config-wantedly-typescrip
 export default [
   ...eslintConfigWantedlyTs,
   {
-    files: ["**/*.ts"],
-    ignores: ["**/*.js"],
-  },
-  {
     languageOptions: {
       ecmaVersion: "latest",
       parserOptions: {

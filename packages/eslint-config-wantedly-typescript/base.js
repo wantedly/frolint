@@ -16,9 +16,6 @@ module.exports = [
   ...eslintTs.configs.stylistic,
   configPrettier,
   {
-    files: ["*.ts", "*.js", "*.cts", "*.cjs", "*.mts", "*.mjs"],
-  },
-  {
     name: "wantedly-typescript/base/plugins",
     plugins: {
       import: fixupPluginRules(pluginImport),
