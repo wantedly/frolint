@@ -5,15 +5,19 @@
   "author": "Yuki Yamada <yamada@wantedly.com>",
   "dependencies": {
     "@babel/eslint-parser": "^7.25.1",
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.10.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-es-x": "^8.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jest": "^25.7.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jest": "^28.8.3",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react": "^7.36.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-use-macros": "^3.2.2"
+    "eslint-plugin-use-macros": "^3.2.2",
+    "globals": "^15.9.0"
   },
   "homepage": "https://github.com/wantedly/frolint",
   "keywords": [
@@ -28,11 +32,5 @@
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly",
   "scripts": {
     "test": "jest"
-  },
-  "devDependencies": {
-    "@eslint/compat": "^1.1.1",
-    "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.10.0",
-    "globals": "^15.9.0"
   }
 }
