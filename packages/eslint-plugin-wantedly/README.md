@@ -34,16 +34,16 @@ yarn add eslint-plugin-wantedly
 ```js
 import pluginWantedly from "eslint-plugin-wantedly";
 
-export default {
+export default [
   {
     plugins: {
-      "wantedly": pluginWantedly,
+      wantedly: pluginWantedly,
     },
     rules: {
-      "wantedly/graphql-pascal-case-type-name": ["error", { "autofix": true }],
-    }
+      "wantedly/graphql-pascal-case-type-name": ["error", { autofix: true }],
+    },
   },
-}
+];
 ```
 
 ### With "Legacy Config"

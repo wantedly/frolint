@@ -13,14 +13,14 @@ It exports configurations as "Flat config".
 ```js
 import { base as configWantedlyTS } from "eslint-config-wantedly-typescript";
 
-export default {
+export default [
   ...configWantedlyTS,
   {
     rules: {
       // Your rules go here.
     }
   }
-};
+];
 ```
 
 ### Usage (version 3.x and under)

@@ -54,16 +54,16 @@ yarn add eslint-plugin-use-macros
 ```js
 import pluginUseMacros from "eslint-plugin-use-macros";
 
-export default {
+export default [
   {
     plugins: {
       "use-macros": pluginUseMacros,
     },
     rules: {
       "use-macros/styled-components": "error",
-    }
+    },
   },
-}
+];
 ```
 
 ### With "Legacy Config"
