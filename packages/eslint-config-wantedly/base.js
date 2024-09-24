@@ -14,7 +14,7 @@ module.exports = [
   js.configs.recommended,
   configPrettier,
   {
-    name: "wantedly/base/plugins",
+    name: "wantedly/base",
     plugins: {
       import: fixupPluginRules(pluginImport),
       "jsx-a11y": pluginJsxA11Y,
@@ -22,9 +22,6 @@ module.exports = [
       "use-macros": pluginUseMacros,
       "es-x": pluginESx,
     },
-  },
-  {
-    name: "wantedly/base/languageOptions",
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -34,10 +31,12 @@ module.exports = [
       },
 
       parser: babelEslintParser,
-      ecmaVersion: 5,
+      ecmaVersion: "latest",
       sourceType: "module",
 
       parserOptions: {
+        requireConfigFile: false,
+        ecmaVersion: "latest",
         ecmaFeatures: {
           experimentalObjectRestSpread: true,
           jsx: true,
@@ -50,9 +49,6 @@ module.exports = [
         },
       },
     },
-  },
-  {
-    name: "wantedly/base/rules",
     rules: {
       "array-callback-return": "off",
       "arrow-body-style": ["off"],
