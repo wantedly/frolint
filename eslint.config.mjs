@@ -6,6 +6,9 @@ export default [
   ...eslintConfigWantedly,
   ...eslintConfigWantedlyTs,
   {
+    ignores: ["packages/**/lib/*.js"],
+  },
+  {
     files: ["**/*.ts", "**/*.tsx"],
     rules: {
       "no-console": "off",
