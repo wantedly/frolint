@@ -4,7 +4,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
 {
   "language": "@/js",
   "languageOptions": {
-    "ecmaVersion": 5,
+    "ecmaVersion": "latest",
     "globals": {
       "AI": false,
       "AITextSession": false,
@@ -1153,10 +1153,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     },
     "parser": "typescript-eslint/parser@8.6.0",
     "parserOptions": {
-      "ecmaFeatures": {
-        "experimentalObjectRestSpread": true,
-        "jsx": true,
-      },
+      "projectService": true,
     },
     "sourceType": "module",
   },
@@ -2212,7 +2209,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
 {
   "language": "@/js",
   "languageOptions": {
-    "ecmaVersion": 5,
+    "ecmaVersion": "latest",
     "globals": {
       "AI": false,
       "AITextSession": false,
@@ -3362,9 +3359,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "parser": "typescript-eslint/parser@8.6.0",
     "parserOptions": {
       "ecmaFeatures": {
-        "experimentalObjectRestSpread": true,
         "jsx": true,
       },
+      "projectService": true,
     },
     "sourceType": "module",
   },

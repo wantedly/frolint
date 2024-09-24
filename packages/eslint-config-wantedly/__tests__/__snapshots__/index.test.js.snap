@@ -4,7 +4,7 @@ exports[`eslint-config-wantedly base should match snapshot for 1`] = `
 {
   "language": "@/js",
   "languageOptions": {
-    "ecmaVersion": 5,
+    "ecmaVersion": "latest",
     "globals": {
       "AI": false,
       "AITextSession": false,
@@ -1161,6 +1161,8 @@ exports[`eslint-config-wantedly base should match snapshot for 1`] = `
         "experimentalObjectRestSpread": true,
         "jsx": true,
       },
+      "ecmaVersion": "latest",
+      "requireConfigFile": false,
     },
     "sourceType": "module",
   },
@@ -2071,7 +2073,7 @@ exports[`eslint-config-wantedly react should match snapshot for 1`] = `
 {
   "language": "@/js",
   "languageOptions": {
-    "ecmaVersion": 5,
+    "ecmaVersion": "latest",
     "globals": {
       "AI": false,
       "AITextSession": false,
@@ -3228,6 +3230,8 @@ exports[`eslint-config-wantedly react should match snapshot for 1`] = `
         "experimentalObjectRestSpread": true,
         "jsx": true,
       },
+      "ecmaVersion": "latest",
+      "requireConfigFile": false,
     },
     "sourceType": "module",
   },
