@@ -1,7 +1,8 @@
-import { ESLint } from "eslint";
 import { resolve } from "path";
+
+import { ESLint } from "eslint";
 import { sync } from "resolve";
-import type { FrolintConfig } from "../Context";
+
 import { frolintDebug } from "./debug";
 
 const log = frolintDebug.extend("eslint");
@@ -20,7 +21,7 @@ function detectReactVersion(basedir: string) {
 
     log("Resolved react package version: %s", react.version);
     return react.version;
-  } catch (e) {
+  } catch (_e) {
     log("Cannot resolve react");
     return null;
   }
@@ -28,11 +29,7 @@ function detectReactVersion(basedir: string) {
 
 let cliInstance: ESLint | null = null;
 
-export function getCLI(
-  rootDir: string,
-  eslintConfigPackage = "eslint-config-wantedly-typescript",
-  eslintConfig: FrolintConfig["eslint"] = {}
-) {
+export function getCLI(rootDir: string) {
   log("Retrieve ESLint CLI instance");
 
   if (cliInstance) {
@@ -46,13 +43,7 @@ export function getCLI(
 
   log("This project has react version %o", { reactVersion });
 
-  const isReact = !!reactVersion;
-
   log("Resolve proper ESLint config");
-
-  const netEslintConfigPackage = eslintConfigPackage.replace("eslint-config-", "") + (isReact ? "" : "/without-react");
-
-  log("Proper ESLint config %o", { netEslintConfigPackage });
 
   const reactSettings = reactVersion
     ? {
@@ -62,11 +53,16 @@ export function getCLI(
       }
     : {};
   const cacheLocation = resolve(rootDir, "node_modules", ".frolintcache");
+
   const options: ESLint.Options = {
-    baseConfig: { extends: [netEslintConfigPackage], settings: { ...reactSettings } },
+    baseConfig: {
+      name: "frolint",
+      settings: {
+        ...reactSettings,
+      },
+    },
     fix: true,
     cwd: rootDir,
-    ignorePath: eslintConfig.ignorePath,
     cache: true,
     cacheLocation,
   };
@@ -82,13 +78,8 @@ function isSupportedExtension(file: string) {
   return /(jsx?|tsx?)$/.test(file);
 }
 
-export async function applyEslint(
-  rootDir: string,
-  files: string[],
-  eslintConfigPackage: string,
-  eslintConfig: FrolintConfig["eslint"]
-) {
-  const cli = getCLI(rootDir, eslintConfigPackage, eslintConfig);
+export async function applyEslint(rootDir: string, files: string[]) {
+  const cli = getCLI(rootDir);
   const targetFiles = files.filter(isSupportedExtension).filter(async (file) => !(await cli.isPathIgnored(file)));
 
   log("Applying ESLint linter and fixer. target files: %O", targetFiles);

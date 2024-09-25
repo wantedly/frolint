@@ -1,17 +1,22 @@
 import { RuleTester } from "eslint";
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
+// import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
 import { RULE, RULE_NAME } from "../nexus-enum-values-description";
 
 const ruleTester = new RuleTester({
-  parser: require.resolve(ESLintConfigWantedly.parser),
-  parserOptions: ESLintConfigWantedly.parserOptions,
+  languageOptions: {
+    ecmaVersion: "latest",
+    // parser: require.resolve(ESLintConfigWantedly.parser),
+    // parserOptions: ESLintConfigWantedly.parserOptions,
+  },
 });
 ruleTester.run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {
+      name: "Some members has no description",
       code: `import { enumType } from "@nexus/schema";
 export const CountryCode = enumType({
   name: "CountryCode",
@@ -31,6 +36,7 @@ export const CountryCode = enumType({
       ],
     },
     {
+      name: "Bad enum definition",
       code: `import { enumType } from "@nexus/schema";
 export const CountryCode = enumType({
   name: "CountryCode",
@@ -45,6 +51,7 @@ export const CountryCode = enumType({
     },
 
     {
+      name: "Some members has no description(member array is defined before enumType)",
       code: `import { enumType } from "@nexus/schema";
 const members = [
   { name: "JP", description: "This represents Japan" },
@@ -65,6 +72,7 @@ export const CountryCode = enumType({
       ],
     },
     {
+      name: "Bad member definition(member array is defined before enumType)",
       code: `import { enumType } from "@nexus/schema";
 const members = { JP: 1, US: 2 };
 export const CountryCode = enumType({

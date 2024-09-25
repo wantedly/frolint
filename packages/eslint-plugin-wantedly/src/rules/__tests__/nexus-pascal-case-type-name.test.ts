@@ -1,16 +1,21 @@
 import { RuleTester } from "eslint";
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
+// import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
 import { RULE, RULE_NAME } from "../nexus-pascal-case-type-name";
 
 new RuleTester({
-  parser: require.resolve(ESLintConfigWantedly.parser),
-  parserOptions: ESLintConfigWantedly.parserOptions,
+  languageOptions: {
+    ecmaVersion: "latest",
+    // parser: require.resolve(ESLintConfigWantedly.parser),
+    // parserOptions: ESLintConfigWantedly.parserOptions,
+  },
 }).run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {
+      name: "Object type name is not PascalCase",
       code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "foo",
@@ -26,9 +31,10 @@ const Foo = objectType({
   },
 });`,
       errors: ["The object type name foo should be PascalCase"],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
     {
+      name: "Union type name is not PascalCase",
       code: `import { unionType } from "@nexus/schema";
 const MediaType = unionType({
   name: "mediaType",
@@ -48,9 +54,10 @@ const MediaType = unionType({
   },
 });`,
       errors: ["The union type name mediaType should be PascalCase"],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
     {
+      name: "Scalar type name is not PascalCase",
       code: `import { scalarType } from "@nexus/schema";
 const DateScalar = scalarType({
   name: "date",
@@ -80,9 +87,10 @@ const DateScalar = scalarType({
   },
 });`,
       errors: ["The scalar type name date should be PascalCase"],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
     {
+      name: "Interface type name is not PascalCase",
       code: `import { interfaceType } from "@nexus/schema";
 const Node = interfaceType({
   name: "node",
@@ -98,9 +106,10 @@ const Node = interfaceType({
   },
 });`,
       errors: ["The interface type name node should be PascalCase"],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
     {
+      name: "Input type name is not PascalCase",
       code: `import { inputObjectType } from "@nexus/schema";
 export const InputType = inputObjectType({
   name: "inputType",
@@ -118,9 +127,10 @@ export const InputType = inputObjectType({
   },
 });`,
       errors: ["The input object type name inputType should be PascalCase"],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
     {
+      name: "Enum type is not Pascal case",
       code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "episode",
@@ -134,7 +144,7 @@ const Episode = enumType({
   description: "The first Star Wars episodes released",
 });`,
       errors: ["The enum type name episode should be PascalCase"],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
   ],
 });

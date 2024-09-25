@@ -2,9 +2,45 @@
 
 ESLint config for Wantedly. It focuses the JavaScript linting.
 
+## Version Compatibilities
+
+If you're using ESLint v8 and under, please use eslint-config-wantedly version 3.x. As of eslint-config-wantedly version 4.0, it has started exporting ESLint's flat config format.
+
+### Usage (version 4.0 and above)
+
+It exports configurations as "Flat config".
+
+```js
+import { base as configWantedly } from "eslint-config-wantedly";
+
+export default [
+  ...configWantedly,
+  {
+    rules: {
+      // Your rules go here.
+    }
+  }
+];
+```
+
+### Usage (version 3.x and under)
+
+It exports configurations as "Legacy" format.
+
+```json
+{
+  "extends": ["wantedly"],
+  "rules": {
+    // Your rules go here.
+  }
+}
+```
+
+## Configuration details
+
 ### Parser
 
-Using `babel-eslint`
+Using `@babel/eslint-parser`
 
 ### Extends
 

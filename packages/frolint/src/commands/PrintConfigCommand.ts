@@ -1,4 +1,5 @@
 import { Command } from "clipanion";
+
 import type { FrolintContext } from "../Context";
 import { getCLI } from "../utils/eslint";
 
@@ -17,13 +18,10 @@ export class PrintConfigCommand extends Command<FrolintContext> {
     log("Start to execute");
     log("Print config context: %o", {
       cwd: this.context.cwd,
-      eslintConfig: this.context.config.eslint,
       filepath: this.filepath,
     });
 
-    const config = await getCLI(this.context.cwd, undefined, this.context.config.eslint).calculateConfigForFile(
-      this.filepath
-    );
+    const config = await getCLI(this.context.cwd).calculateConfigForFile(this.filepath);
     console.log(JSON.stringify(config, null, "  "));
 
     log("Exection finished");

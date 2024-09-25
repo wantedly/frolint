@@ -1,9 +1,10 @@
 // @ts-check
 
 const { execSync } = require("child_process");
-const { manifest } = require("pacote");
-const { join } = require("path");
 const { promises } = require("fs");
+const { join } = require("path");
+
+const { manifest } = require("pacote");
 
 function getPackageJsonFiles() {
   return execSync("git ls-files | grep package.json")
@@ -61,6 +62,7 @@ function main() {
 try {
   main();
 } catch (err) {
+  // eslint-disable-next-line no-console
   console.error(err);
 
   process.exit(1);

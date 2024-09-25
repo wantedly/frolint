@@ -1,14 +1,16 @@
 import { execSync } from "child_process";
-import { sync as commandExistsSync } from "command-exists";
 import { readFileSync } from "fs";
 import { resolve } from "path";
+
+import { sync as commandExistsSync } from "command-exists";
+
 import { END_COMMENT, START_COMMENT } from "./constants";
 
 export function isInsideGitRepository(cwd?: string) {
   try {
     const res = execSync("git rev-parse --is-inside-work-tree", { cwd }).toString().trim();
     return res === "true";
-  } catch (err) {
+  } catch (_err) {
     return false;
   }
 }
@@ -37,7 +39,7 @@ export function getGitRootDir(cwd: string) {
 
   try {
     return resolve(cwd, execSync("git rev-parse --show-cdup").toString().trimRight());
-  } catch (err) {
+  } catch (_err) {
     return cwd;
   }
 }

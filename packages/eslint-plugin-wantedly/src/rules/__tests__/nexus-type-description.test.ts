@@ -1,15 +1,20 @@
 import { RuleTester } from "eslint";
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
+// import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
 import { RULE, RULE_NAME } from "../nexus-type-description";
 
 new RuleTester({
-  parser: require.resolve(ESLintConfigWantedly.parser),
-  parserOptions: ESLintConfigWantedly.parserOptions,
+  languageOptions: {
+    ecmaVersion: "latest",
+    // parser: require.resolve(ESLintConfigWantedly.parser),
+    // parserOptions: ESLintConfigWantedly.parserOptions,
+  },
 }).run(RULE_NAME, RULE, {
   valid: [
     {
+      name: "Object type def has description",
       code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
@@ -22,6 +27,7 @@ const Foo = objectType({
   ],
   invalid: [
     {
+      name: "Object type def has no description(empty string)",
       code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
@@ -33,6 +39,7 @@ const Foo = objectType({
       errors: ["The object type Foo should have a description"],
     },
     {
+      name: "Object type def has no description(field missing)",
       code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
@@ -43,6 +50,7 @@ const Foo = objectType({
       errors: ["The object type Foo should have a description"],
     },
     {
+      name: "Object type def has no description(field missing)",
       code: `import { objectType } from "@nexus/schema";
 const Foo = objectType({
   name: "Foo",
@@ -52,6 +60,7 @@ const Foo = objectType({
     },
 
     {
+      name: "Union type def has no description",
       code: `import { unionType } from "@nexus/schema";
 const Foo = unionType({
   name: "Foo",
@@ -61,6 +70,7 @@ const Foo = unionType({
     },
 
     {
+      name: "Scalar type def has no description",
       code: `import { scalarType } from "@nexus/schema";
 const Foo = scalarType({
   name: "Foo",
@@ -70,6 +80,7 @@ const Foo = scalarType({
     },
 
     {
+      name: "Interface type def has no description",
       code: `import { interfaceType } from "@nexus/schema";
 const Foo = interfaceType({
   name: "Foo",
@@ -79,6 +90,7 @@ const Foo = interfaceType({
     },
 
     {
+      name: "Input object type def has no description",
       code: `import { inputObjectType } from "@nexus/schema";
 const Foo = inputObjectType({
   name: "Foo",
@@ -88,6 +100,7 @@ const Foo = inputObjectType({
     },
 
     {
+      name: "Enum type def has no description",
       code: `import { enumType } from "@nexus/schema";
 const Foo = enumType({
   name: "Foo",

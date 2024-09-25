@@ -1,4 +1,5 @@
 import { Command } from "clipanion";
+
 import type { FrolintContext } from "../Context";
 
 export class PreCommitCommand extends Command<FrolintContext> {

@@ -1,17 +1,17 @@
 const RuleTester = require("eslint").RuleTester;
-const ESLintConfigWantedly = require("eslint-config-wantedly-typescript");
+
 const StyledComponentsRule = require("../rules/StyledComponents");
 
-RuleTester.setDefaultConfig({
-  parser: require.resolve(ESLintConfigWantedly.parser),
-  parserOptions: ESLintConfigWantedly.parserOptions,
+const ruleTester = new RuleTester({
+  languageOptions: {
+    ecmaVersion: "latest",
+  },
 });
-
-const ruleTester = new RuleTester();
 ruleTester.run("use-macros/styled-components", StyledComponentsRule, {
   valid: [
     {
       code: `import styled from "styled-components/macro";`,
+      options: ["error"],
     },
   ],
   invalid: [
@@ -19,6 +19,7 @@ ruleTester.run("use-macros/styled-components", StyledComponentsRule, {
       code: `import styled from "styled-components";`,
       output: `import styled from "styled-components/macro";`,
       errors: ['Please import from "styled-components/macro" instead of "styled-components"'],
+      options: ["error"],
     },
   ],
 });

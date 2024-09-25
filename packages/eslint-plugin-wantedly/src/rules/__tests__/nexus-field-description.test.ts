@@ -1,16 +1,21 @@
 import { RuleTester } from "eslint";
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
+// import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
 import { RULE, RULE_NAME } from "../nexus-field-description";
 
 new RuleTester({
-  parser: require.resolve(ESLintConfigWantedly.parser),
-  parserOptions: ESLintConfigWantedly.parserOptions,
+  languageOptions: {
+    ecmaVersion: "latest",
+    // parser: require.resolve(ESLintConfigWantedly.parser),
+    // parserOptions: ESLintConfigWantedly.parserOptions,
+  },
 }).run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {
+      name: "All fields have no description",
       code: `import { objectType } from "@nexus/schema";
 const User = objectType({
   name: "User",

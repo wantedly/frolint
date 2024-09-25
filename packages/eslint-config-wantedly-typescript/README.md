@@ -2,6 +2,42 @@
 
 ESLint config for Wantedly. It focuses the TypeScript linting.
 
+## Version Compatibilities
+
+If you're using ESLint v8 and under, please use eslint-config-wantedly-typescript version 3.x. As of eslint-config-wantedly-typescript version 4.0, it has started exporting ESLint's flat config format.
+
+### Usage (version 4.0 and above)
+
+It exports configurations as "Flat config".
+
+```js
+import { base as configWantedlyTS } from "eslint-config-wantedly-typescript";
+
+export default [
+  ...configWantedlyTS,
+  {
+    rules: {
+      // Your rules go here.
+    }
+  }
+];
+```
+
+### Usage (version 3.x and under)
+
+It exports configurations as "Legacy" format.
+
+```json
+{
+  "extends": ["wantedly-typescript"],
+  "rules": {
+    // Your rules go here.
+  }
+}
+```
+
+## Configuration details
+
 ### Parser
 
 Using `@typescript-eslint/parser`

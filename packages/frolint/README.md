@@ -1,11 +1,41 @@
 # frolint [![npm version](https://badge.fury.io/js/frolint.svg)](https://badge.fury.io/js/frolint)
 
+**IMPORTANT NOTICE: We plan to stop maintaining this package. As of v4, the frolint script supports ESLint v9, but we will not support v10 and later versions. We strongly recommend using husky and lint-staged to lint and format git-staged files during the pre-commit phase and/or in CI.**
+
+## Breaking changes in v4
+
+`frolint` v4 supports ESLint v9, so it uses flat config format.
+`frolint` v3 and earlier, it implicitly loads `eslint-config-wantedly` or `eslint-config-wantedly-typescript` as a base rule set, whereas v4 does not.
+If you want use `eslint-config-wantedly` or `eslint-config-wantedly-typescript` as a base rule set, you explicitly load them and put them into your root `eslint.config.js` like sample below.
+
+```javascript
+import configWantedlyTs from "eslint-config-wantedly-typescript";
+// Or if you use JavaScript only
+// import configWantedly from "eslint-config-wantedly";
+
+export default [
+  ...configWantedlyTs,
+  // ...configWantedly,
+  {
+    name: "Your rule name",
+    plugins: {
+      // Plugins you want to use...
+    },
+    rules: {
+      // Overrides.
+    },
+  },
+];
+```
+
 ## Overview
 
 Install depending on your package manager:
+
 ```sh
 yarn add -D frolint
 ```
+
 ```sh
 npm install -D frolint
 ```
@@ -22,7 +52,7 @@ You can use this package as a standalone dependency, it will use the default con
 
 If you want to amend the ESLint configuration, you must add a `.eslintrc` at the root directory of your project. Then to still make use of our curated defaults, start by extending our configs. For example in a typescript project:
 
-``` javascript
+```javascript
 {
   "extends": "wantedly-typescript",
   // your config..
@@ -36,7 +66,8 @@ When you intend to commit some files including JS / TS files, the `frolint` repo
 ```sh
 git commit
 ```
-``` 
+
+```
 Detected 2 errors, 0 warnings
 ./foo.js: 2 errors, 0 warnings found.
   ./foo.js:1:7 'foo' is assigned a value but never used. Allowed unused vars must match /^_/. (no-unused-vars)
@@ -46,7 +77,7 @@ commit canceled with exit status 1. You have to fix ESLint errors.
 
 To setup this commit hook, run the `install command`:
 
-``` sh
+```sh
 yarn exec frolint install
 ```
 
@@ -68,6 +99,7 @@ Despite its name of linter, `frolint` also formats the code with the famous `pre
 ```
 
 ### Help
+
 If you want to know the options, `frolint --help` is helpful.
 
 ```
@@ -97,7 +129,7 @@ Around .git/hooks/pre-commit:
   frolint uninstall
     uninstall git pre-commit hook for frolint
 
-You can also print more details about any of these commands by calling them 
+You can also print more details about any of these commands by calling them
 after adding the `-h,--help` flag right after the command name.
 Apply ESLint and Prettier
 
@@ -107,7 +139,7 @@ $ frolint [--typescript] [-b,--branch #0] [--expect-no-diff] [--expect-no-errors
 
 Details:
 
-Apply ESLint and Prettier. It infers the affected files which are changed from 
+Apply ESLint and Prettier. It infers the affected files which are changed from
 base branch using git.
 
 Options:
@@ -118,12 +150,12 @@ Options:
 
 --expect-no-diff: Fail when the changed files exist
 
---expect-no-errors: Fail out on the error instead of tolerating it (previously 
+--expect-no-errors: Fail out on the error instead of tolerating it (previously
 --bail option)
 
 -f,--formatter <format>: Print the report with specified format
 
---no-stage: Do not stage the files which have the changes made by ESLint and 
+--no-stage: Do not stage the files which have the changes made by ESLint and
 Prettier auto fix functionality
 
 Examples:
@@ -166,6 +198,7 @@ If you want to check all files in the repository, you can use the `frolint` as a
 ```sh
 yarn exec frolint
 ```
+
 ```
 No errors and warnings!
 ✨  Done in 2.36s.

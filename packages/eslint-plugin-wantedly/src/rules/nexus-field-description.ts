@@ -1,18 +1,22 @@
 import type { Rule } from "eslint";
-import { Linter } from "eslint";
 import type { Property } from "estree";
+
 import { docsUrl, isNexusSchemaImported } from "./utils";
 
-const linter = new Linter();
 export const RULE_NAME = "nexus-field-description";
 
 const WHITELIST_FOR_TYPE_DEFINITION = ["objectType", "interfaceType", "inputObjectType"];
 const FIELD_DEFINITION_METHODS = ["string", "int", "boolean", "id", "float", "field"];
 
-linter.defineRule(RULE_NAME, {
+export const RULE: Rule.RuleModule = {
   meta: {
     type: "suggestion",
     fixable: "code",
+    schema: [
+      {
+        enum: ["error", "warn", "off"],
+      },
+    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },
@@ -111,6 +115,4 @@ linter.defineRule(RULE_NAME, {
       },
     };
   },
-});
-
-export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
+};

@@ -1,16 +1,21 @@
 import { RuleTester } from "eslint";
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
+// import ESLintConfigWantedly from "eslint-config-wantedly-typescript";
 import { RULE, RULE_NAME } from "../nexus-upper-case-enum-members";
 
 new RuleTester({
-  parser: require.resolve(ESLintConfigWantedly.parser),
-  parserOptions: ESLintConfigWantedly.parserOptions,
+  languageOptions: {
+    ecmaVersion: "latest",
+    // parser: require.resolve(ESLintConfigWantedly.parser),
+    // parserOptions: ESLintConfigWantedly.parserOptions,
+  },
 }).run(RULE_NAME, RULE, {
   valid: [],
   invalid: [
     {
+      name: "Enum member is no UPPER_CASE (string array def)",
       code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
@@ -23,6 +28,7 @@ const Episode = enumType({
       ],
     },
     {
+      name: "Enum member is fixed to UPPER_CASE by plugin",
       code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
@@ -38,10 +44,11 @@ const Episode = enumType({
         "The enum member `Episode.empire` should be UPPER_CASE",
         "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
 
     {
+      name: "Enum member is not UPPER_CASE (object array def)",
       code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
@@ -58,6 +65,7 @@ const Episode = enumType({
       ],
     },
     {
+      name: "Enum member is fixed to UPPER_CASE by the plugin (object array def)",
       code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
@@ -81,10 +89,11 @@ const Episode = enumType({
         "The enum member `Episode.empire` should be UPPER_CASE",
         "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
 
     {
+      name: "Enum member is not UPPER_CASE (object def)",
       code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
@@ -97,6 +106,7 @@ const Episode = enumType({
       ],
     },
     {
+      name: "Enum member is fixed to UPPER_CASE by the plugin (object def)",
       code: `import { enumType } from "@nexus/schema";
 const Episode = enumType({
   name: "Episode",
@@ -112,10 +122,11 @@ const Episode = enumType({
         "The enum member `Episode.empire` should be UPPER_CASE",
         "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
-      options: [{ autofix: true }],
+      options: ["error", { autofix: true }],
     },
 
     {
+      name: "Enum member is not UPPER_CASE (array def is outside of enumType)",
       code: `import { enumType } from "@nexus/schema";
 const members = ["newhope", "empire", "jedi"];
 const Episode = enumType({
@@ -130,6 +141,7 @@ const Episode = enumType({
     },
 
     {
+      name: "Enum member is not UPPER_CASE (object def is outside of enumType)",
       code: `import { enumType } from "@nexus/schema";
 const members = { newhope: 1, empire: 2, jedi: 3 };
 const Episode = enumType({

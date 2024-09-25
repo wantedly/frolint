@@ -1,28 +1,48 @@
-module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-    "jest/globals": true,
-    node: true,
+const { fixupPluginRules } = require("@eslint/compat");
+const eslintJs = require("@eslint/js");
+const configPrettier = require("eslint-config-prettier");
+const pluginESx = require("eslint-plugin-es-x");
+const pluginImport = require("eslint-plugin-import");
+const pluginJest = require("eslint-plugin-jest");
+const pluginJsxA11y = require("eslint-plugin-jsx-a11y");
+const pluginUseMacros = require("eslint-plugin-use-macros");
+const globals = require("globals");
+const eslintTs = require("typescript-eslint");
+
+module.exports = eslintTs.config({
+  name: "wantedly/typescript/base",
+  files: ["**/*.ts", "**/*.tsx"],
+  extends: [
+    eslintJs.configs.recommended,
+    ...eslintTs.configs.recommended,
+    ...eslintTs.configs.stylistic,
+    configPrettier,
+  ],
+  plugins: {
+    import: fixupPluginRules(pluginImport),
+    "jsx-a11y": pluginJsxA11y,
+    jest: pluginJest,
+    "@typescript-eslint": eslintTs.plugin,
+    "use-macros": pluginUseMacros,
+    "es-x": pluginESx,
   },
-  globals: {
-    flushPromises: true,
-  },
-  extends: ["plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/stylistic", "prettier"],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaFeatures: {
-      experimentalObjectRestSpread: true,
-      jsx: true,
+  languageOptions: {
+    globals: {
+      ...globals.browser,
+      ...pluginJest.environments.globals.globals,
+      ...globals.node,
+      flushPromises: true,
     },
-    sourceType: "module",
+    parserOptions: {
+      projectService: true,
+    },
   },
-  plugins: ["import", "jsx-a11y", "jest", "@typescript-eslint", "use-macros"],
   rules: {
     "array-callback-return": "off",
     "arrow-body-style": ["off"],
     "arrow-parens": ["warn", "always"],
     "class-methods-use-this": "off",
+
     "comma-dangle": [
       "error",
       {
@@ -33,6 +53,7 @@ module.exports = {
         functions: "never",
       },
     ],
+
     "consistent-return": "off",
     "constructor-super": "error",
     "dot-notation": "warn",
@@ -43,7 +64,14 @@ module.exports = {
     "jsx-quotes": ["off"],
     "linebreak-style": ["error", "unix"],
     "max-len": ["off"],
-    "new-cap": ["error", { capIsNew: false }],
+
+    "new-cap": [
+      "error",
+      {
+        capIsNew: false,
+      },
+    ],
+
     "no-alert": "off",
     "no-array-constructor": "off",
     "no-case-declarations": "error",
@@ -73,6 +101,7 @@ module.exports = {
     "no-invalid-regexp": "error",
     "no-irregular-whitespace": "error",
     "no-lonely-if": "warn",
+
     "no-mixed-operators": [
       "warn",
       {
@@ -83,13 +112,20 @@ module.exports = {
         allowSamePrecedence: true,
       },
     ],
+
     "no-nested-ternary": "off",
     "no-new-symbol": "error",
     "no-obj-calls": "error",
     "no-octal": "error",
     "no-param-reassign": "error",
-    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
-    // See @typescript-eslint/no-redeclare
+
+    "no-plusplus": [
+      "error",
+      {
+        allowForLoopAfterthoughts: true,
+      },
+    ],
+
     "no-redeclare": "off",
     "no-regex-spaces": "error",
     "no-self-assign": "error",
@@ -111,35 +147,66 @@ module.exports = {
     "prefer-template": "warn",
     "quote-props": ["warn", "as-needed"],
     "require-yield": "error",
-    "space-before-function-paren": ["warn", { anonymous: "always", asyncArrow: "always", named: "never" }],
+
+    "space-before-function-paren": [
+      "warn",
+      {
+        anonymous: "always",
+        asyncArrow: "always",
+        named: "never",
+      },
+    ],
+
     "use-isnan": "error",
     "valid-typeof": "error",
-    camelcase: ["error", { ignoreDestructuring: true, properties: "never" }],
+
+    camelcase: [
+      "error",
+      {
+        ignoreDestructuring: true,
+        properties: "never",
+      },
+    ],
+
     eqeqeq: ["error", "smart"],
     indent: "off",
     quotes: ["off"],
     semi: "off",
-
-    // @typescript-eslint/eslint-plugin rules
     "@typescript-eslint/explicit-function-return-type": ["off"],
+
     "@typescript-eslint/explicit-member-accessibility": [
       "error",
-      { overrides: { constructors: "no-public", parameterProperties: "no-public", accessors: "no-public" } },
+      {
+        overrides: {
+          constructors: "no-public",
+          parameterProperties: "no-public",
+          accessors: "no-public",
+        },
+      },
     ],
+
     "@typescript-eslint/explicit-module-boundary-types": ["off"],
-    "@typescript-eslint/func-call-spacing": ["error", "never"],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-array-constructor": "error",
     "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/no-floating-promises": ["error"],
     "@typescript-eslint/no-redeclare": "error",
+
     "@typescript-eslint/no-unused-vars": [
       "error",
-      { varsIgnorePattern: "^_", argsIgnorePattern: "^_", ignoreRestSiblings: true },
+      {
+        args: "all",
+        argsIgnorePattern: "^_",
+        caughtErrors: "all",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
+      },
     ],
+
     "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-useless-constructor": "off",
-    "@typescript-eslint/semi": ["error", "always"],
     "no-extra-semi": "off",
     "@typescript-eslint/no-extra-semi": "off",
     "@typescript-eslint/no-non-null-assertion": "warn",
@@ -155,21 +222,17 @@ module.exports = {
     "@typescript-eslint/no-confusing-non-null-assertion": "off",
     "@typescript-eslint/prefer-for-of": "off",
     "@typescript-eslint/prefer-function-type": "off",
-
-    // eslint-plugin-import rules
     "import/extensions": "off",
     "import/first": "warn",
     "import/no-extraneous-dependencies": ["off"],
     "import/no-unresolved": ["off"],
     "import/prefer-default-export": "off",
-
-    // eslint-plugin-jsx-a11y rules
     "jsx-a11y/alt-text": "off",
     "jsx-a11y/label-has-for": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "jsx-a11y/no-static-element-interactions": "off",
-
-    // eslint-plugin-use-macros rules
     "use-macros/graphql-tag": "error",
+    "es-x/no-regexp-lookbehind-assertions": "error",
+    "es-x/no-regexp-named-capture-groups": "error",
   },
-};
+});

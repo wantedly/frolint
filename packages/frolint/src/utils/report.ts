@@ -1,6 +1,8 @@
+import { relative } from "path";
+
 import chalk from "chalk";
 import type { ESLint } from "eslint";
-import { relative } from "path";
+
 import { frolintDebug } from "./debug";
 import { getCLI } from "./eslint";
 

@@ -1,7 +1,9 @@
-import chalk from "chalk";
-import { Command } from "clipanion";
 import { writeFileSync } from "fs";
 import { relative, resolve } from "path";
+
+import chalk from "chalk";
+import { Command } from "clipanion";
+
 import type { FrolintContext } from "../Context";
 import { applyEslint } from "../utils/eslint";
 import {
@@ -132,7 +134,7 @@ export class DefaultCommand extends Command<FrolintContext> {
     /**
      * Apply ESLint step
      */
-    const results = await applyEslint(rootDir, files, eslintConfigPackage, this.context.config.eslint);
+    const results = await applyEslint(rootDir, files);
     results.forEach((result) => {
       const { filePath, output } = result;
       if (output) {
@@ -152,10 +154,14 @@ export class DefaultCommand extends Command<FrolintContext> {
      */
     const prettierResults = applyPrettier(rootDir, files, this.context.config.prettier);
     prettierResults
-      .filter((result: { filePath: string; output: string } | null): result is Required<{
-        filePath: string;
-        output: string;
-      }> => Boolean(result))
+      .filter(
+        (
+          result: { filePath: string; output: string } | null
+        ): result is Required<{
+          filePath: string;
+          output: string;
+        }> => Boolean(result)
+      )
       .forEach(({ filePath, output }) => {
         if (output) {
           log("File (%s) has changed. Overwriting..", filePath);

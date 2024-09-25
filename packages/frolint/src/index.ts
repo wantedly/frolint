@@ -1,5 +1,7 @@
 import { Cli } from "clipanion";
 import { cosmiconfigSync } from "cosmiconfig";
+
+import type { FrolintConfig, FrolintContext } from "./Context";
 import { DefaultCommand } from "./commands/DefaultCommand";
 import { ExportCommand } from "./commands/ExportCommand";
 import { HelpCommand } from "./commands/HelpCommand";
@@ -8,7 +10,6 @@ import { PreCommitCommand } from "./commands/PreCommitCommand";
 import { PrintConfigCommand } from "./commands/PrintConfigCommand";
 import { UninstallCommand } from "./commands/UninstallCommand";
 import { VersionCommand } from "./commands/VersionCommand";
-import type { FrolintConfig, FrolintContext } from "./Context";
 import { frolintDebug } from "./utils/debug";
 
 const log = frolintDebug.extend("main");
@@ -42,7 +43,6 @@ const result = cosmiconfigSync(binaryName).search();
 
 let config: FrolintConfig = {
   typescript: true,
-  eslint: {},
   prettier: {},
 };
 

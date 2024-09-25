@@ -1,17 +1,21 @@
 import type { Rule } from "eslint";
-import { Linter } from "eslint";
 import type { Property } from "estree";
 import { snakeCase } from "snake-case";
+
 import { docsUrl, isNexusSchemaImported } from "./utils";
 
-const linter = new Linter();
 export const RULE_NAME = "nexus-type-description";
 
 const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceType", "inputObjectType", "enumType"];
 
-linter.defineRule(RULE_NAME, {
+export const RULE: Rule.RuleModule = {
   meta: {
     type: "suggestion",
+    schema: [
+      {
+        enum: ["error", "warn", "off"],
+      },
+    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },
@@ -95,6 +99,4 @@ linter.defineRule(RULE_NAME, {
       },
     };
   },
-});
-
-export const RULE = linter.getRules().get(RULE_NAME) as Rule.RuleModule;
+};
