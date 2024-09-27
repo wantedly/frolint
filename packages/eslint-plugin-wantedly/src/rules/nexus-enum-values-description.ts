@@ -9,11 +9,6 @@ export const RULE: Rule.RuleModule = {
   meta: {
     type: "suggestion",
     fixable: "code",
-    schema: [
-      {
-        enum: ["error", "warn", "off"],
-      },
-    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },

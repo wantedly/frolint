@@ -61,7 +61,7 @@ gql\`
   }
 \`;`,
       errors: ["The operation name getProject should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "No operation name is specified for a query",

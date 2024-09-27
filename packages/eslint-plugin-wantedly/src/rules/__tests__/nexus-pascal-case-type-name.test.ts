@@ -31,7 +31,7 @@ const Foo = objectType({
   },
 });`,
       errors: ["The object type name foo should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Union type name is not PascalCase",
@@ -54,7 +54,7 @@ const MediaType = unionType({
   },
 });`,
       errors: ["The union type name mediaType should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Scalar type name is not PascalCase",
@@ -87,7 +87,7 @@ const DateScalar = scalarType({
   },
 });`,
       errors: ["The scalar type name date should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Interface type name is not PascalCase",
@@ -106,7 +106,7 @@ const Node = interfaceType({
   },
 });`,
       errors: ["The interface type name node should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Input type name is not PascalCase",
@@ -127,7 +127,7 @@ export const InputType = inputObjectType({
   },
 });`,
       errors: ["The input object type name inputType should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Enum type is not Pascal case",
@@ -144,7 +144,7 @@ const Episode = enumType({
   description: "The first Star Wars episodes released",
 });`,
       errors: ["The enum type name episode should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
   ],
 });

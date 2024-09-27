@@ -11,7 +11,6 @@ ruleTester.run("use-macros/graphql-tag", GraphQLTagRule, {
   valid: [
     {
       code: `import { gql } from "graphql.macro";`,
-      options: ["error"],
     },
   ],
   invalid: [
@@ -19,7 +18,6 @@ ruleTester.run("use-macros/graphql-tag", GraphQLTagRule, {
       code: `import gql from "graphql-tag";`,
       output: `import { gql } from "graphql.macro";`,
       errors: ['Please import from "graphql.macro" instead of "graphql-tag"'],
-      options: ["error"],
     },
   ],
 });
