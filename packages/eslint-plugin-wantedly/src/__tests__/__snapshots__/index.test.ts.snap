@@ -16,13 +16,6 @@ exports[`should match snapshot 1`] = `
           "fixable": "code",
           "schema": [
             {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
-            {
               "additionalProperties": false,
               "properties": {
                 "autofix": {
@@ -43,13 +36,6 @@ exports[`should match snapshot 1`] = `
           },
           "fixable": "code",
           "schema": [
-            {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
             {
               "additionalProperties": false,
               "properties": {
@@ -72,13 +58,6 @@ exports[`should match snapshot 1`] = `
           "fixable": "code",
           "schema": [
             {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
-            {
               "additionalProperties": false,
               "properties": {
                 "autofix": {
@@ -98,15 +77,6 @@ exports[`should match snapshot 1`] = `
             "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-enum-values-description.md",
           },
           "fixable": "code",
-          "schema": [
-            {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
-          ],
           "type": "suggestion",
         },
       },
@@ -117,15 +87,6 @@ exports[`should match snapshot 1`] = `
             "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-field-description.md",
           },
           "fixable": "code",
-          "schema": [
-            {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
-          ],
           "type": "suggestion",
         },
       },
@@ -137,13 +98,6 @@ exports[`should match snapshot 1`] = `
           },
           "fixable": "code",
           "schema": [
-            {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
             {
               "additionalProperties": false,
               "properties": {
@@ -163,15 +117,6 @@ exports[`should match snapshot 1`] = `
           "docs": {
             "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-type-description.md",
           },
-          "schema": [
-            {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
-          ],
           "type": "suggestion",
         },
       },
@@ -183,13 +128,6 @@ exports[`should match snapshot 1`] = `
           },
           "fixable": "code",
           "schema": [
-            {
-              "enum": [
-                "error",
-                "warn",
-                "off",
-              ],
-            },
             {
               "additionalProperties": false,
               "properties": {
@@ -218,13 +156,6 @@ exports[`should match snapshot 1`] = `
         "fixable": "code",
         "schema": [
           {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
-          {
             "additionalProperties": false,
             "properties": {
               "autofix": {
@@ -245,13 +176,6 @@ exports[`should match snapshot 1`] = `
         },
         "fixable": "code",
         "schema": [
-          {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
           {
             "additionalProperties": false,
             "properties": {
@@ -274,13 +198,6 @@ exports[`should match snapshot 1`] = `
         "fixable": "code",
         "schema": [
           {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
-          {
             "additionalProperties": false,
             "properties": {
               "autofix": {
@@ -300,15 +217,6 @@ exports[`should match snapshot 1`] = `
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-enum-values-description.md",
         },
         "fixable": "code",
-        "schema": [
-          {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
-        ],
         "type": "suggestion",
       },
     },
@@ -319,15 +227,6 @@ exports[`should match snapshot 1`] = `
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-field-description.md",
         },
         "fixable": "code",
-        "schema": [
-          {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
-        ],
         "type": "suggestion",
       },
     },
@@ -339,13 +238,6 @@ exports[`should match snapshot 1`] = `
         },
         "fixable": "code",
         "schema": [
-          {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
           {
             "additionalProperties": false,
             "properties": {
@@ -365,15 +257,6 @@ exports[`should match snapshot 1`] = `
         "docs": {
           "url": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly/docs/rules/nexus-type-description.md",
         },
-        "schema": [
-          {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
-        ],
         "type": "suggestion",
       },
     },
@@ -385,13 +268,6 @@ exports[`should match snapshot 1`] = `
         },
         "fixable": "code",
         "schema": [
-          {
-            "enum": [
-              "error",
-              "warn",
-              "off",
-            ],
-          },
           {
             "additionalProperties": false,
             "properties": {

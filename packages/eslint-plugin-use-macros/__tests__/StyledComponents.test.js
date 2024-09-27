@@ -11,7 +11,6 @@ ruleTester.run("use-macros/styled-components", StyledComponentsRule, {
   valid: [
     {
       code: `import styled from "styled-components/macro";`,
-      options: ["error"],
     },
   ],
   invalid: [
@@ -19,7 +18,6 @@ ruleTester.run("use-macros/styled-components", StyledComponentsRule, {
       code: `import styled from "styled-components";`,
       output: `import styled from "styled-components/macro";`,
       errors: ['Please import from "styled-components/macro" instead of "styled-components"'],
-      options: ["error"],
     },
   ],
 });

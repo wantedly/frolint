@@ -5,11 +5,6 @@ module.exports = {
   meta: {
     type: "suggestion",
     fixable: "code",
-    schema: [
-      {
-        enum: ["error", "warn", "off"],
-      },
-    ],
   },
   create(context) {
     return {

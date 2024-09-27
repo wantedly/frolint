@@ -11,11 +11,6 @@ const FUNCTION_WHITELIST = ["objectType", "unionType", "scalarType", "interfaceT
 export const RULE: Rule.RuleModule = {
   meta: {
     type: "suggestion",
-    schema: [
-      {
-        enum: ["error", "warn", "off"],
-      },
-    ],
     docs: {
       url: docsUrl(RULE_NAME),
     },

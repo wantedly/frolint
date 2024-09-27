@@ -44,7 +44,7 @@ const Episode = enumType({
         "The enum member `Episode.empire` should be UPPER_CASE",
         "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
 
     {
@@ -89,7 +89,7 @@ const Episode = enumType({
         "The enum member `Episode.empire` should be UPPER_CASE",
         "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
 
     {
@@ -122,7 +122,7 @@ const Episode = enumType({
         "The enum member `Episode.empire` should be UPPER_CASE",
         "The enum member `Episode.jedi` should be UPPER_CASE",
       ],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
 
     {

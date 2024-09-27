@@ -26,9 +26,6 @@ export const RULE: Rule.RuleModule = {
     fixable: "code",
     schema: [
       {
-        enum: ["error", "warn", "off"],
-      },
-      {
         type: "object",
         properties: {
           autofix: {

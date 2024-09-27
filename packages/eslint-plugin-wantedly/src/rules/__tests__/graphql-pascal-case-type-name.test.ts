@@ -83,7 +83,7 @@ ruleTester.run(RULE_NAME, RULE, {
   }
 \`;`,
       errors: ["The interface type node should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Type name is fixed by plugin",
@@ -100,7 +100,7 @@ ruleTester.run(RULE_NAME, RULE, {
   }
 \`;`,
       errors: ["The object type foo should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Fragment name is fixed by plugin",
@@ -115,7 +115,7 @@ ruleTester.run(RULE_NAME, RULE, {
   }
 \`;`,
       errors: ["The fragment fooFragment should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Nested fragment name is fixed by plugin",
@@ -132,7 +132,7 @@ ruleTester.run(RULE_NAME, RULE, {
   \$\{BarFragment\}
 \`;`,
       errors: ["The fragment fooFragment should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
     {
       name: "Nested fragment name is fixed by plugin 2",
@@ -149,7 +149,7 @@ ruleTester.run(RULE_NAME, RULE, {
   }
 \`;`,
       errors: ["The fragment fooFragment should be PascalCase"],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
   ],
 });

@@ -39,7 +39,6 @@ const User = objectType({
         "The field Profile should be camelCase",
         "The field Posts should be camelCase",
       ],
-      options: ["error"],
     },
     {
       name: "Auto fix enabled",
@@ -78,7 +77,7 @@ const User = objectType({
         "The field Profile should be camelCase",
         "The field Posts should be camelCase",
       ],
-      options: ["error", { autofix: true }],
+      options: [{ autofix: true }],
     },
   ],
 });
