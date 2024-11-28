@@ -1,3 +1,4 @@
+// @ts-check
 import { base as eslintConfigWantedly } from "eslint-config-wantedly";
 import { base as eslintConfigWantedlyTs } from "eslint-config-wantedly-typescript";
 
@@ -9,6 +10,7 @@ export default [
     ignores: ["packages/**/lib/*.js"],
   },
   {
+    name: "overrides",
     files: ["**/*.ts", "**/*.tsx"],
     rules: {
       "no-console": "off",
@@ -18,16 +20,6 @@ export default [
         {
           prefer: "type-imports",
           disallowTypeAnnotations: true,
-        },
-      ],
-      "import/order": [
-        "error",
-        {
-          "newlines-between": "always",
-          groups: ["builtin", "external", "parent", "sibling", "index"],
-          alphabetize: {
-            order: "asc",
-          },
         },
       ],
     },
