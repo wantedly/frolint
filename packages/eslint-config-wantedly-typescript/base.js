@@ -1,4 +1,4 @@
-const { fixupPluginRules } = require("@eslint/compat");
+// @ts-check
 const eslintJs = require("@eslint/js");
 const configPrettier = require("eslint-config-prettier");
 const pluginESx = require("eslint-plugin-es-x");
@@ -19,7 +19,7 @@ module.exports = eslintTs.config({
     configPrettier,
   ],
   plugins: {
-    import: fixupPluginRules(pluginImport),
+    import: pluginImport,
     "jsx-a11y": pluginJsxA11y,
     jest: pluginJest,
     "@typescript-eslint": eslintTs.plugin,
@@ -226,6 +226,16 @@ module.exports = eslintTs.config({
     "import/first": "warn",
     "import/no-extraneous-dependencies": ["off"],
     "import/no-unresolved": ["off"],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        groups: ["builtin", "external", "parent", "sibling", "index"],
+        alphabetize: {
+          order: "asc",
+        },
+      },
+    ],
     "import/prefer-default-export": "off",
     "jsx-a11y/alt-text": "off",
     "jsx-a11y/label-has-for": "off",
