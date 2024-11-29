@@ -1,4 +1,3 @@
-// @ts-check
 const babelEslintParser = require("@babel/eslint-parser");
 const js = require("@eslint/js");
 const configPrettier = require("eslint-config-prettier");

@@ -1,4 +1,3 @@
-// @ts-check
 import { base as eslintConfigWantedly } from "eslint-config-wantedly";
 import { base as eslintConfigWantedlyTs } from "eslint-config-wantedly-typescript";
 

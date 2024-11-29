@@ -1,4 +1,3 @@
-// @ts-check
 const eslintJs = require("@eslint/js");
 const configPrettier = require("eslint-config-prettier");
 const pluginESx = require("eslint-plugin-es-x");
