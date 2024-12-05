@@ -17,8 +17,7 @@
     "pacote": "^11.3.4",
     "scaffdog": "^1.0.1",
     "ts-jest": "^29.1.1",
-    "typescript": "^5",
-    "zx": "^8.2.4"
+    "typescript": "^5"
   },
   "workspaces": [
     "packages/*"
