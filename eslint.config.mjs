@@ -6,7 +6,7 @@ export default [
   ...eslintConfigWantedly,
   ...eslintConfigWantedlyTs,
   {
-    ignores: ["packages/**/lib/*.js"],
+    ignores: ["packages/**/lib/**/*.js"],
   },
   {
     name: "overrides",
