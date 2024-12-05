@@ -9,8 +9,10 @@
     "@types/estree": "^1.0.6",
     "@types/graphql": "^14.5.0",
     "@types/jest": "^27.4.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "lerna": "^4.0.0",
+    "lint-staged": "^15.2.10",
     "mock-fs": "^5.0.0",
     "pacote": "^11.3.4",
     "scaffdog": "^1.0.1",
@@ -20,10 +22,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "frolint": {
-    "prettier": {
-      "config": "./.prettierrc"
-    }
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs}": [
+      "yarn format",
+      "yarn lint"
+    ],
+    "*.json": "yarn format"
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
@@ -31,12 +35,13 @@
     "test:watch": "FORCE_COLOR=1 lerna exec --stream --ignore prettier-config-wantedly -- npm run test -- --watch",
     "test:watch:frolint": "lerna exec \"npm run test -- --watch\" --scope frolint",
     "test:update": "lerna run --stream test -- -u",
-    "lint": "frolint --branch master",
-    "lint:ci": "frolint --expect-no-errors",
+    "format": "prettier --write",
+    "lint": "eslint --cache",
     "build": "lerna run build",
     "build:watch": "lerna run --parallel build:watch",
     "prerelease": "yarn install --force && yarn run build",
     "release": "yarn changeset publish",
-    "clean": "yarn lerna clean -y && rm -r packages/*/lib"
+    "clean": "yarn lerna clean -y && rm -r packages/*/lib",
+    "prepare": "husky"
   }
 }

@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4.0.0
@@ -40,8 +42,11 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Lint
-        run: yarn lint:ci
+      - name: Run ESLint
+        run: |
+          BASE_BRANCH=${GITHUB_BASE_REF:-master}
+          BASE_COMMIT=$(git merge-base HEAD origin/${BASE_BRANCH})
+          yarn lint-staged --concurrent=false --diff="${BASE_COMMIT}..HEAD" --verbose
 
       - name: Test
         run: yarn test
