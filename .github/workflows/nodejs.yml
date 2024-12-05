@@ -46,7 +46,7 @@ jobs:
         run: |
           BASE_BRANCH=${GITHUB_BASE_REF:-master}
           BASE_COMMIT=$(git merge-base HEAD origin/${BASE_BRANCH})
-          yarn lint-staged --concurrent=false --diff="${BASE_COMMIT}..HEAD"
+          yarn lint-staged --concurrent=false --diff="${BASE_COMMIT}..HEAD" --verbose
 
       - name: Test
         run: yarn test
