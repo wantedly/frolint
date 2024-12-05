@@ -1538,6 +1538,26 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "import/no-unresolved": [
       0,
     ],
+    "import/order": [
+      2,
+      {
+        "alphabetize": {
+          "caseInsensitive": false,
+          "order": "asc",
+          "orderImportKind": "ignore",
+        },
+        "distinctGroup": true,
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+        ],
+        "newlines-between": "always",
+        "warnOnUnassignedImports": false,
+      },
+    ],
     "import/prefer-default-export": [
       0,
     ],
@@ -3748,6 +3768,26 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "import/no-unresolved": [
       0,
+    ],
+    "import/order": [
+      2,
+      {
+        "alphabetize": {
+          "caseInsensitive": false,
+          "order": "asc",
+          "orderImportKind": "ignore",
+        },
+        "distinctGroup": true,
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+        ],
+        "newlines-between": "always",
+        "warnOnUnassignedImports": false,
+      },
     ],
     "import/prefer-default-export": [
       0,

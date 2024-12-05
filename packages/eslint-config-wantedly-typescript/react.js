@@ -1,4 +1,3 @@
-const { fixupPluginRules } = require("@eslint/compat");
 const pluginReact = require("eslint-plugin-react");
 const pluginReactHooks = require("eslint-plugin-react-hooks");
 const pluginWantedly = require("eslint-plugin-wantedly");
@@ -13,7 +12,7 @@ module.exports = eslintTs.config({
   extends: [...baseConfig, pluginReact.configs.flat.recommended],
   plugins: {
     react: pluginReact,
-    "react-hooks": fixupPluginRules(pluginReactHooks),
+    "react-hooks": pluginReactHooks,
     wantedly: pluginWantedly,
   },
   rules: {

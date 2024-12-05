@@ -1,26 +1,17 @@
-const { fixupPluginRules } = require("@eslint/compat");
-const { FlatCompat } = require("@eslint/eslintrc");
-const js = require("@eslint/js");
 const pluginReact = require("eslint-plugin-react");
 const pluginReactHooks = require("eslint-plugin-react-hooks");
 
 const baseConfig = require("./base");
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
-
 /** @type{import('eslint').Linter.Config[]} */
 module.exports = [
   ...baseConfig,
-  ...compat.extends("plugin:react/recommended"),
+  pluginReact.configs.flat.recommended,
   {
     name: "wantedly/react",
     plugins: {
       react: pluginReact,
-      "react-hooks": fixupPluginRules(pluginReactHooks),
+      "react-hooks": pluginReactHooks,
     },
     files: ["**/*.js", "**/*.jsx"],
     rules: {
