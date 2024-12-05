@@ -40,8 +40,8 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Lint
-        run: yarn lint:ci
+      - name: Run ESLint
+        run: node script/ci-eslint.mjs
 
       - name: Test
         run: yarn test
