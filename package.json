@@ -31,6 +31,7 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
+    "pretest": "yarn build",
     "test": "FORCE_COLOR=1 lerna run --stream test",
     "test:watch": "FORCE_COLOR=1 lerna exec --stream --ignore prettier-config-wantedly -- npm run test -- --watch",
     "test:watch:frolint": "lerna exec \"npm run test -- --watch\" --scope frolint",
