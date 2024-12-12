@@ -1,0 +1,26 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    # inputs:
+    #   config-path:
+    #     required: true
+    #     type: string
+    # secrets:
+    #   token:
+    #     required: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
+          cache: "yarn"
+      - name: Run ESLint
+        run: |
+          BASE_BRANCH=${GITHUB_BASE_REF:-master}
+          BASE_COMMIT=$(git merge-base HEAD origin/${BASE_BRANCH})
+          yarn lint-staged --concurrent=false --diff="${BASE_COMMIT}..HEAD" --verbose
