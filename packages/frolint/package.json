@@ -1,5 +1,5 @@
 {
-  "name": "frolint",
+  "name": "@wantedly/frolint",
   "description": "git commit hook linter",
   "version": "4.0.0",
   "author": "Yuki Yamada <yamada@wantedly.com>",
@@ -11,10 +11,10 @@
     "cosmiconfig": "^7.0.0",
     "debug": "^4.3.2",
     "eslint": "^9.0.0",
-    "eslint-config-wantedly": "^4.0.0",
-    "eslint-config-wantedly-typescript": "^4.0.0",
+    "@wantedly/eslint-config-wantedly": "^4.0.0",
+    "@wantedly/eslint-config-wantedly-typescript": "^4.0.0",
     "prettier": "^2.4.1",
-    "prettier-config-wantedly": "^3.2.2",
+    "@wantedly/prettier-config-wantedly": "^3.2.2",
     "resolve": "^1.20.0"
   },
   "homepage": "https://github.com/wantedly/frolint",
@@ -24,6 +24,7 @@
   ],
   "license": "MIT",
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/frolint",

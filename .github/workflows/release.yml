@@ -10,7 +10,7 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }} // TODO: 移行したら削除するs
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }} // TODO 移行後削除する
   GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
@@ -21,10 +21,10 @@ jobs:
       published: ${{ steps.changesets.outputs.published }}
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js 18.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
 
@@ -32,23 +32,23 @@ jobs:
       - run: yarn lerna bootstrap
       - run: yarn build
 
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create Release Pull Request or Publish to GitHub Packages
         id: changesets
         uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
         with:
           publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # Publish to GitHub Packages with @wantedly scope
-  release-to-github-packages:
+  # Publish to npm without @wantedly scope
+  release-to-npm:
     runs-on: ubuntu-latest
     needs: create-release-pr
     if: needs.create-release-pr.outputs.published == 'true'
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: master
           fetch-depth: 0
@@ -56,12 +56,11 @@ jobs:
       - name: Pull latest changes
         run: git pull origin master
 
-      - name: Setup Node.js 18.x for GitHub Packages
-        uses: actions/setup-node@v2
+      - name: Setup Node.js 18.x for npm
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          registry-url: https://npm.pkg.github.com
-          scope: '@wantedly'
+          registry-url: https://registry.npmjs.org
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
@@ -72,17 +71,23 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Update package names for GitHub Packages
+      - name: Update package names for npm
         run: |
           for file in packages/*/package.json; do
-            jq '.name = "@wantedly/" + (.name | gsub("^@wantedly/"; ""))' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+            jq '
+              .name = (.name | gsub("^@wantedly/"; "")) |
+              if .dependencies then
+                .dependencies = (.dependencies | with_entries(.key = (.key | gsub("^@wantedly/"; ""))))
+              else . end |
+              .publishConfig.registry = "https://registry.npmjs.org"
+            ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
           done
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add packages/*/package.json
-          git commit -m "temp: change package names for GitHub Packages"
+          git commit -m "temp: change package names for npm"
 
-      - name: Publish to GitHub Packages
+      - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn lerna publish from-package --yes --no-verify-access

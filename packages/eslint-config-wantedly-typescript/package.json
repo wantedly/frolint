@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-wantedly-typescript",
+  "name": "@wantedly/eslint-config-wantedly-typescript",
   "description": "ESLint configuration for Wantedly with TypeScript",
   "version": "4.0.0",
   "author": "Yuki Yamada <yamada@wantedly.com>",
@@ -14,8 +14,8 @@
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react": "^7.37.0",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-use-macros": "^4.0.0",
-    "eslint-plugin-wantedly": "^4.0.0",
+    "@wantedly/eslint-plugin-use-macros": "^4.0.0",
+    "@wantedly/eslint-plugin-wantedly": "^4.0.0",
     "globals": "^15.9.0",
     "typescript-eslint": "^8.6.0"
   },
@@ -30,6 +30,7 @@
   "main": "index.js",
   "private": false,
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly-typescript",
