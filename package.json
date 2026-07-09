@@ -43,6 +43,8 @@
     "prerelease": "yarn install --force && yarn run build",
     "release": "yarn changeset publish",
     "clean": "yarn lerna clean -y && rm -r packages/*/lib",
-    "prepare": "husky"
+    "prepare": "husky",
+    "link": "node script/link-package.js link",
+    "unlink": "node script/link-package.js unlink"
   }
 }
