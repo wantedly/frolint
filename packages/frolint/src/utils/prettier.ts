@@ -1,9 +1,9 @@
 import { readFileSync } from "fs";
 import { extname, resolve } from "path";
 
+import prettierConfigWantedly from "@wantedly/prettier-config-wantedly";
 import type { BuiltInParserName, ResolveConfigOptions } from "prettier";
 import prettier from "prettier";
-import prettierConfigWantedly from "prettier-config-wantedly";
 
 import type { FrolintConfig } from "../Context";
 

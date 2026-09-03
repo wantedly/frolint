@@ -1,6 +1,6 @@
 ---
-"eslint-config-wantedly-typescript": minor
-"eslint-config-wantedly": minor
+"@wantedly/eslint-config-wantedly-typescript": minor
+"@wantedly/eslint-config-wantedly": minor
 ---
 
 refactor(eslint-config-wantedly): Refactor rule set
