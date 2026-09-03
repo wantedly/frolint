@@ -9,10 +9,6 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }} // TODO 移行後削除する
-  GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   create-release-pr:
     name: Create Release PR
@@ -31,6 +27,15 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn lerna bootstrap
       - run: yarn build
+
+      # Point the registry at GitHub Packages only for publishing. Doing it before
+      # the install above would resolve the public dependencies from there as well.
+      - name: Setup Node.js 18.x for GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          registry-url: https://npm.pkg.github.com
+          scope: "@wantedly"
 
       - name: Create Release Pull Request or Publish to GitHub Packages
         id: changesets
@@ -71,20 +76,19 @@ jobs:
       - name: Build
         run: yarn build
 
+      # Strip the @wantedly scope everywhere it appears, not just from the package
+      # names: the built output and the shipped configs require each other by name.
       - name: Update package names for npm
         run: |
+          grep -rl '@wantedly/' packages \
+            --include='*.js' --include='*.d.ts' --include='*.json' --exclude-dir=node_modules |
+            xargs -r sed -i 's|@wantedly/||g'
           for file in packages/*/package.json; do
-            jq '
-              .name = (.name | gsub("^@wantedly/"; "")) |
-              if .dependencies then
-                .dependencies = (.dependencies | with_entries(.key = (.key | gsub("^@wantedly/"; ""))))
-              else . end |
-              .publishConfig.registry = "https://registry.npmjs.org"
-            ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+            jq '.publishConfig.registry = "https://registry.npmjs.org"' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
           done
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add packages/*/package.json
+          git add -A
           git commit -m "temp: change package names for npm"
 
       - name: Publish to npm
