@@ -28,8 +28,8 @@ jobs:
       - run: yarn lerna bootstrap
       - run: yarn build
 
-      # Point the registry at GitHub Packages only for publishing. Doing it before
-      # the install above would resolve the public dependencies from there as well.
+      # setup-node writes the //npm.pkg.github.com/:_authToken line the publish
+      # below needs. The repository has no .npmrc of its own to hold it.
       - name: Setup Node.js 18.x for GitHub Packages
         uses: actions/setup-node@v4
         with:
@@ -80,8 +80,9 @@ jobs:
       # names: the built output and the shipped configs require each other by name.
       - name: Update package names for npm
         run: |
+          set -euo pipefail
           grep -rl '@wantedly/' packages \
-            --include='*.js' --include='*.d.ts' --include='*.json' --exclude-dir=node_modules |
+            --include='*.js' --include='*.ts' --include='*.d.ts' --include='*.json' --exclude-dir=node_modules |
             xargs -r sed -i 's|@wantedly/||g'
           for file in packages/*/package.json; do
             jq '.publishConfig.registry = "https://registry.npmjs.org"' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
@@ -89,7 +90,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "temp: change package names for npm"
+          # --no-verify: the pre-commit hook lints the tree, and the sources have
+          # just been rewritten to names that only exist on npm, not in node_modules.
+          git commit --no-verify -m "temp: change package names for npm"
 
       - name: Publish to npm
         env:
