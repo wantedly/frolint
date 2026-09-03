@@ -21,7 +21,7 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Restore cache for yarn and lerna
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@v4
         id: yarn-cache
         with:
           path: |
@@ -34,6 +34,11 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
+      # The shared ESLint config pulls in eslint-plugin-wantedly, whose main entry
+      # is its build output, so ESLint cannot load without building first.
+      - name: Build
+        run: yarn build
 
       - name: Run ESLint
         run: |
@@ -61,7 +66,7 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Restore cache for yarn and lerna
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@v4
         id: yarn-cache
         with:
           path: |
@@ -101,7 +106,7 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Restore cache for yarn and lerna
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@v4
         id: yarn-cache
         with:
           path: |
