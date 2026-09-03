@@ -35,6 +35,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      # The shared ESLint config pulls in eslint-plugin-wantedly, whose main entry
+      # is its build output, so ESLint cannot load without building first.
+      - name: Build
+        run: yarn build
+
       - name: Run ESLint
         run: |
           BASE_BRANCH=${GITHUB_BASE_REF:-master}
