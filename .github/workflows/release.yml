@@ -30,10 +30,9 @@ jobs:
 
       # setup-node writes the //npm.pkg.github.com/:_authToken line the publish
       # below needs. The repository has no .npmrc of its own to hold it.
-      - name: Setup Node.js 18.x for GitHub Packages
+      - name: Setup the GitHub Packages registry
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
           registry-url: https://npm.pkg.github.com
           scope: "@wantedly"
 
