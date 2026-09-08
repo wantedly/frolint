@@ -11,7 +11,7 @@ import * as NEXUS_UPPER_CASE_ENUM_MEMBERS from "./rules/nexus-upper-case-enum-me
 
 const plugins: ESLint.Plugin = {
   meta: {
-    name: "eslint-plugin-wantedly",
+    name: "@wantedly/eslint-plugin-wantedly",
   },
   rules: {
     [GRAPHQL_OPERATION_NAME.RULE_NAME]: GRAPHQL_OPERATION_NAME.RULE,

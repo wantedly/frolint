@@ -89,7 +89,7 @@ export class InstallCommand extends Command<FrolintContext> {
 function render({ append }: { append: boolean }) {
   return `${append ? "" : "#!/bin/sh\n"}${START_COMMENT}
 
-scriptPath="node_modules/frolint/index.js"
+scriptPath="node_modules/@wantedly/frolint/index.js"
 hookName="pre-commit"
 gitParams="$*"
 

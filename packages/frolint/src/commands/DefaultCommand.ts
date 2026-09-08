@@ -1,5 +1,5 @@
 import { writeFileSync } from "fs";
-import { relative, resolve } from "path";
+import { relative } from "path";
 
 import chalk from "chalk";
 import { Command } from "clipanion";
@@ -107,26 +107,6 @@ export class DefaultCommand extends Command<FrolintContext> {
     }
 
     log("Target Files: %O", files);
-
-    const eslintConfigPackage = isTypeScript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
-
-    log("ESLint Config: %o", { eslintConfigPackage });
-
-    /**
-     * Resolve package.json from eslintConfigPackage
-     * node_modules/frolint/lib/commands -> node_modules/`eslintConfigPackage`/package.json
-     *
-     * node_modules/
-     *   frolint/
-     *     lib/
-     *       commands/ <-- __dirname
-     *   `eslintConfigPackage`/
-     *     package.json
-     */
-    const pkg = require(resolve(__dirname, "..", "..", "..", eslintConfigPackage, "package.json"));
-    Object.keys(pkg.dependencies).forEach((key) => {
-      module.paths.push(resolve(__dirname, "..", "..", "..", key, "node_modules"));
-    });
 
     const shouldStageFiles = new Set<string>();
 

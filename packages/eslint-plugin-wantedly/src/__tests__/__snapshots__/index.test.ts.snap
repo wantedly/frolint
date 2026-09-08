@@ -4,7 +4,7 @@ exports[`should match snapshot 1`] = `
 {
   "default": {
     "meta": {
-      "name": "eslint-plugin-wantedly",
+      "name": "@wantedly/eslint-plugin-wantedly",
     },
     "rules": {
       "graphql-operation-name": {
@@ -144,7 +144,7 @@ exports[`should match snapshot 1`] = `
     },
   },
   "meta": {
-    "name": "eslint-plugin-wantedly",
+    "name": "@wantedly/eslint-plugin-wantedly",
   },
   "rules": {
     "graphql-operation-name": {
