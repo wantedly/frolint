@@ -13,12 +13,14 @@ jobs:
   create-release-pr:
     name: Create Release PR
     runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js 18.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
 
@@ -26,11 +28,73 @@ jobs:
       - run: yarn lerna bootstrap
       - run: yarn build
 
-      - name: Create Release Pull Request or Publish to npm
+      # setup-node writes the //npm.pkg.github.com/:_authToken line the publish
+      # below needs. The repository has no .npmrc of its own to hold it.
+      - name: Setup Node.js 18.x for GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          registry-url: https://npm.pkg.github.com
+          scope: "@wantedly"
+
+      - name: Create Release Pull Request or Publish to GitHub Packages
         id: changesets
         uses: changesets/action@v1
         with:
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Publish to npm without @wantedly scope
+  release-to-npm:
+    runs-on: ubuntu-latest
+    needs: create-release-pr
+    if: needs.create-release-pr.outputs.published == 'true'
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Pull latest changes
+        run: git pull origin master
+
+      - name: Setup Node.js 18.x for npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          registry-url: https://registry.npmjs.org
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Bootstrap
+        run: yarn lerna bootstrap
+
+      - name: Build
+        run: yarn build
+
+      # Strip the @wantedly scope everywhere it appears, not just from the package
+      # names: the built output and the shipped configs require each other by name.
+      - name: Update package names for npm
+        run: |
+          set -euo pipefail
+          grep -rl '@wantedly/' packages \
+            --include='*.js' --include='*.ts' --include='*.d.ts' --include='*.json' --exclude-dir=node_modules |
+            xargs -r sed -i 's|@wantedly/||g'
+          for file in packages/*/package.json; do
+            jq '.publishConfig.registry = "https://registry.npmjs.org"' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+          done
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          # --no-verify: the pre-commit hook lints the tree, and the sources have
+          # just been rewritten to names that only exist on npm, not in node_modules.
+          git commit --no-verify -m "temp: change package names for npm"
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn lerna publish from-package --yes --no-verify-access
