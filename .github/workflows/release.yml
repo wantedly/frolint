@@ -13,6 +13,8 @@ jobs:
   create-release-pr:
     name: Create Release PR
     runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v7
@@ -33,3 +35,63 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  release-to-github-packages:
+    name: Publish to GitHub Packages
+    runs-on: ubuntu-latest
+    needs: create-release-pr
+    if: needs.create-release-pr.outputs.published == 'true'
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js 20.x
+        uses: actions/setup-node@v7
+        with:
+          node-version: 20.x
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+
+      # Writes the //npm.pkg.github.com/:_authToken line the publish needs.
+      # Runs after the install so that the public dependencies are still resolved from npm.
+      # No node-version here on purpose: without it the step only writes .npmrc and
+      # leaves the runtime installed by the step above in place.
+      - name: Setup the GitHub Packages registry
+        uses: actions/setup-node@v7
+        with:
+          registry-url: https://npm.pkg.github.com
+          scope: "@wantedly"
+
+      # GitHub Packages requires the owner scope on the name, and links a package to a
+      # repository through the repository field. Neither is true in the tree, and neither
+      # may become true: consumers resolve the unscoped names from npm. Only the name is
+      # scoped -- dependencies stay unscoped so that they keep resolving from npm.
+      - name: Scope the manifests for GitHub Packages
+        run: |
+          set -euo pipefail
+          for file in packages/*/package.json; do
+            dir="$(dirname "$file")"
+            jq --arg dir "$dir" '
+              .name = "@wantedly/" + .name
+              | .publishConfig.registry = "https://npm.pkg.github.com"
+              | .repository = {
+                  type: "git",
+                  url: "https://github.com/wantedly/frolint.git",
+                  directory: $dir
+                }
+            ' "$file" > "$file.tmp"
+            mv "$file.tmp" "$file"
+          done
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add packages/*/package.json
+          # lerna refuses to publish from a dirty tree. The commit stays in the runner.
+          # --no-verify: the husky pre-commit hook has nothing to do with this rewrite.
+          git commit --no-verify -m "temp: scope the package names for GitHub Packages"
+
+      - name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # --no-verify-access is required until lerna is above 5.2.0.
+        run: yarn lerna publish from-package --yes --no-verify-access
