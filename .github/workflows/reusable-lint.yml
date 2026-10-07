@@ -1,0 +1,42 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    inputs:
+      default-base-branch:
+        required: true
+        type: string
+    secrets:
+      NPM_TOKEN:
+        required: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4.0.0
+        with:
+          node-version-file: ".node-version"
+          cache: "yarn"
+
+      - name: cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run ESLint
+        run: |
+          BASE_BRANCH=${GITHUB_BASE_REF:-${{ inputs.default-base-branch }}}
+          BASE_COMMIT=$(git merge-base HEAD origin/${BASE_BRANCH})
+          yarn lint-staged --concurrent=false --diff="${BASE_COMMIT}..HEAD" --verbose
