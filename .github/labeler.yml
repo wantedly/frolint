@@ -1,22 +1,30 @@
 repo:
-  - "!packages/**/*"
-  - "!package.json"
-  - "!yarn.lock"
+- changed-files:
+  - any-glob-to-any-file:
+    - "!packages/**/*"
+    - "!package.json"
+    - "!yarn.lock"
 
 eslint-config-wantedly-typescript:
-  - packages/eslint-config-wantedly-typescript/**/*
+- changed-files:
+  - any-glob-to-any-file: packages/eslint-config-wantedly-typescript/**/*
 
 eslint-config-wantedly:
-  - packages/eslint-config-wantedly/**/*
+- changed-files:
+  - any-glob-to-any-file: packages/eslint-config-wantedly/**/*
 
 eslint-plugin-use-macros:
-  - packages/eslint-plugin-use-macros/**/*
+- changed-files:
+  - any-glob-to-any-file: packages/eslint-plugin-use-macros/**/*
 
 eslint-plugin-wantedly:
-  - packages/eslint-plugin-wantedly/**/*
+- changed-files:
+  - any-glob-to-any-file: packages/eslint-plugin-wantedly/**/*
 
 frolint:
-  - packages/frolint/**/*
+- changed-files:
+  - any-glob-to-any-file: packages/frolint/**/*
 
 prettier-config-wantedly:
-  - packages/prettier-config-wantedly/**/*
+- changed-files:
+  - any-glob-to-any-file: packages/prettier-config-wantedly/**/*
