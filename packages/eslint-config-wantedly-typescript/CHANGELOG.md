@@ -1,5 +1,11 @@
 # eslint-config-wantedly-typescript
 
+## 4.1.1
+
+### Patch Changes
+
+- 48e5a16: Remove the unused `@eslint/eslintrc` dependency. The configs are flat configs and never load it.
+
 ## 4.1.0
 
 ### Minor Changes
