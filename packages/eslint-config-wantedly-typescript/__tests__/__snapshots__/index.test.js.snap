@@ -1159,7 +1159,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "xit": false,
       "xtest": false,
     },
-    "parser": "typescript-eslint/parser@8.72.2",
+    "parser": "typescript-eslint/parser@8.73.0",
     "parserOptions": {
       "projectService": true,
     },
@@ -1170,7 +1170,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
   },
   "plugins": [
     "@",
-    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.72.2",
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.73.0",
     "import",
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.2",
     "jest:eslint-plugin-jest@28.14.0",
@@ -3546,7 +3546,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "xit": false,
       "xtest": false,
     },
-    "parser": "typescript-eslint/parser@8.72.2",
+    "parser": "typescript-eslint/parser@8.73.0",
     "parserOptions": {
       "ecmaFeatures": {
         "jsx": true,
@@ -3560,7 +3560,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
   },
   "plugins": [
     "@",
-    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.72.2",
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.73.0",
     "import",
     "jsx-a11y:eslint-plugin-jsx-a11y@6.10.2",
     "jest:eslint-plugin-jest@28.14.0",
