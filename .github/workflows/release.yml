@@ -24,10 +24,10 @@ jobs:
 
       # registry-url / scope write the //npm.pkg.github.com/:_authToken line and the
       # @wantedly scope mapping that `changeset publish` needs.
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js 24.x
         uses: actions/setup-node@v7
         with:
-          node-version: 20.x
+          node-version: 24.x
           registry-url: https://npm.pkg.github.com
           scope: "@wantedly"
 
