@@ -20,7 +20,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
-      - name: Restore cache for yarn and lerna
+      - name: Restore cache for yarn
         uses: actions/cache@v6
         id: yarn-cache
         with:
@@ -60,7 +60,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
-      - name: Restore cache for yarn and lerna
+      - name: Restore cache for yarn
         uses: actions/cache@v6
         id: yarn-cache
         with:
@@ -100,7 +100,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
-      - name: Restore cache for yarn and lerna
+      - name: Restore cache for yarn
         uses: actions/cache@v6
         id: yarn-cache
         with:

@@ -86,8 +86,6 @@ typings/
 
 # End of https://www.gitignore.io/api/node
 
-# lerna-changelog cache directory
-.changelog/
 
 packages/eslint-plugin-wantedly/lib
 *.tsbuildinfo
