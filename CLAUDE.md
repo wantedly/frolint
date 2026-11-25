@@ -10,12 +10,11 @@ Monorepo of Wantedly's shared JavaScript/TypeScript linting and formatting packa
 
 ```sh
 yarn                     # install; postinstall runs `lerna bootstrap`
-yarn build               # tsc -b for TS packages (frolint, eslint-plugin-wantedly)
+yarn build               # tsc -b for the TS package (eslint-plugin-wantedly)
 yarn build:watch
 yarn test                # pretest runs `yarn build` first, then lerna run test
 yarn test:update         # update jest snapshots across packages
 yarn test:watch          # watch all packages except prettier-config-wantedly
-yarn test:watch:frolint
 yarn lint                # eslint --cache (expects file args; lint-staged supplies them)
 yarn format              # prettier --write (same; expects file args)
 yarn clean               # lerna clean + remove packages/*/lib
@@ -28,7 +27,7 @@ cd packages/eslint-plugin-wantedly
 yarn jest src/rules/__tests__/graphql-operation-name.test.ts -t "Operation name"
 ```
 
-`yarn build` must run before testing `frolint` or `eslint-plugin-wantedly` — both compile `src/` to `lib/`, and `main`/`bin` point at `lib/`.
+`yarn build` must run before testing `eslint-plugin-wantedly` — it compiles `src/` to `lib/`, and `main` points at `lib/`.
 
 Lint/format is enforced through husky `pre-commit` → `lint-staged` (`yarn format` + `yarn lint` on staged `*.{ts,tsx,js,mjs}`), and CI reruns lint-staged over the PR diff range.
 
@@ -44,13 +43,14 @@ Pushing to `master` opens/updates a release PR (`.github/workflows/release.yml`)
 
 ## Architecture
 
-Six packages, layered — a change to a lower layer ripples upward:
+Five packages, layered — a change to a lower layer ripples upward:
 
 - `prettier-config-wantedly` — `index.json`, the Prettier config. No build, no tests.
 - `eslint-plugin-use-macros` (plain JS) — rules forcing `.macro` imports for `graphql-tag` / `styled-components`. Rules built by a shared `createUseMacro.js` factory.
 - `eslint-plugin-wantedly` (TypeScript) — opinionated GraphQL/Nexus rules.
 - `eslint-config-wantedly` / `eslint-config-wantedly-typescript` (plain JS) — flat-config rule sets consuming the two plugins above.
-- `frolint` (TypeScript) — the CLI, consuming the configs. **Deprecated**: v4 supports ESLint 9 but v10+ will not be supported; the README steers users to husky + lint-staged instead.
+
+The `frolint` CLI package was deprecated and removed; its last version is the `frolint@4.0.0` tag. The repository keeps the name.
 
 ### ESLint configs
 
@@ -78,11 +78,3 @@ yarn scaffdog generate eslint-plugin-wantedly-rule
 ```
 
 ⚠️ The scaffdog template (`.scaffdog/eslint-plugin-wantedly-rule.md`) is stale — it emits `new Linter().defineRule(...)` and legacy `RuleTester` parser options, which ESLint 9 dropped. Fix the generated output to match an existing rule such as `src/rules/graphql-operation-name.ts`. A new rule also needs a manual entry in `src/index.ts` and the package README's rule list.
-
-### frolint CLI
-
-`src/index.ts` builds a clipanion `Cli`, loads config with cosmiconfig (`.frolintrc`, etc.), and injects a `FrolintContext` (`src/Context.ts`: `cwd`, `config`, `preCommit`, `version`, `debug`) into every command. Commands live in `src/commands/` — `DefaultCommand` holds the real pipeline; `PreCommitCommand` sets `preCommit` and delegates.
-
-`DefaultCommand` flow: resolve git root → select target files (staged+unstaged in pre-commit mode, diff vs `--branch`, or all files) → `applyEslint` → write fixes → `applyPrettier` → write fixes → re-stage fully-staged files → report. Exit code 1 when errors remain in staged files, or per `--expect-no-errors` / `--expect-no-diff`.
-
-Note `DefaultCommand` mutates `module.paths` to resolve plugins out of the sibling `@wantedly/eslint-config-wantedly*` package's dependencies — it assumes a flat `node_modules/` layout with frolint installed at `node_modules/@wantedly/frolint`. Debug logging is namespaced via `debug` (`this.context.debug("Name")`); run with `DEBUG=frolint:*`.
