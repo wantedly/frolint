@@ -19,10 +19,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v7
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js 24.x
         uses: actions/setup-node@v7
         with:
-          node-version: 20.x
+          node-version: 24.x
 
       - run: yarn install --frozen-lockfile
       - run: yarn build
@@ -45,10 +45,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v7
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js 24.x
         uses: actions/setup-node@v7
         with:
-          node-version: 20.x
+          node-version: 24.x
 
       - run: yarn install --frozen-lockfile
       - run: yarn build
