@@ -4,7 +4,7 @@
 
 This is a monorepo that contains our common linting and formatting configurations for Wantedly's javascript projects.
 
-If you are looking for the `frolint` executable documentation, please see here: [frolint Readme](https://github.com/wantedly/frolint/tree/master/packages/frolint)
+The `frolint` CLI is deprecated and has been removed from this repository. Its last version is [4.0.0](https://github.com/wantedly/frolint/tree/frolint%404.0.0/packages/frolint). Use [husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/lint-staged/lint-staged) with the ESLint and Prettier configs below instead.
 
 ## Packages
 
@@ -12,7 +12,6 @@ If you are looking for the `frolint` executable documentation, please see here: 
 - [eslint-config-wantedly](https://github.com/wantedly/frolint/tree/master/packages/eslint-config-wantedly) [![npm version](https://badge.fury.io/js/eslint-config-wantedly.svg)](https://badge.fury.io/js/eslint-config-wantedly)
 - [eslint-plugin-use-macros](https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-use-macros) [![npm version](https://badge.fury.io/js/eslint-plugin-use-macros.svg)](https://badge.fury.io/js/eslint-plugin-use-macros)
 - [eslint-plugin-wantedly](https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly) [![npm version](https://badge.fury.io/js/eslint-plugin-wantedly.svg)](https://badge.fury.io/js/eslint-plugin-wantedly)
-- [frolint](https://github.com/wantedly/frolint/tree/master/packages/frolint) [![npm version](https://badge.fury.io/js/frolint.svg)](https://badge.fury.io/js/frolint)
 - [prettier-config-wantedly](https://github.com/wantedly/frolint/tree/master/packages/prettier-config-wantedly) [![npm version](https://badge.fury.io/js/prettier-config-wantedly.svg)](https://badge.fury.io/js/prettier-config-wantedly)
 
 <details>
