@@ -4,7 +4,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
 {
   "language": "@/js",
   "languageOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 2026,
     "globals": {
       "AI": false,
       "AITextSession": false,
@@ -46,6 +46,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "BackgroundFetchRecord": false,
       "BackgroundFetchRegistration": false,
       "BarProp": false,
+      "BarcodeDetector": false,
       "BaseAudioContext": false,
       "BatteryManager": false,
       "BeforeUnloadEvent": false,
@@ -81,6 +82,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "CSSKeywordValue": false,
       "CSSLayerBlockRule": false,
       "CSSLayerStatementRule": false,
+      "CSSMarginRule": false,
       "CSSMathClamp": false,
       "CSSMathInvert": false,
       "CSSMathMax": false,
@@ -92,6 +94,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "CSSMatrixComponent": false,
       "CSSMediaRule": false,
       "CSSNamespaceRule": false,
+      "CSSNestedDeclarations": false,
       "CSSNumericArray": false,
       "CSSNumericValue": false,
       "CSSPageDescriptors": false,
@@ -403,7 +406,6 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "InputEvent": false,
       "IntersectionObserver": false,
       "IntersectionObserverEntry": false,
-      "Iterator": false,
       "Keyboard": false,
       "KeyboardEvent": false,
       "KeyboardLayoutMap": false,
@@ -717,6 +719,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "SharedStorage": false,
       "SharedStorageWorklet": false,
       "SharedWorker": false,
+      "SnapEvent": false,
       "SourceBuffer": false,
       "SourceBufferList": false,
       "SpeechSynthesis": false,
@@ -864,12 +867,15 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "XRDOMOverlayState": false,
       "XRDepthInformation": false,
       "XRFrame": false,
+      "XRHand": false,
       "XRHitTestResult": false,
       "XRHitTestSource": false,
       "XRInputSource": false,
       "XRInputSourceArray": false,
       "XRInputSourceEvent": false,
       "XRInputSourcesChangeEvent": false,
+      "XRJointPose": false,
+      "XRJointSpace": false,
       "XRLayer": false,
       "XRLightEstimate": false,
       "XRLightProbe": false,
@@ -1065,6 +1071,8 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "onresize": true,
       "onscroll": true,
       "onscrollend": true,
+      "onscrollsnapchange": true,
+      "onscrollsnapchanging": true,
       "onsearch": true,
       "onsecuritypolicyviolation": true,
       "onseeked": true,
@@ -1151,7 +1159,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       "xit": false,
       "xtest": false,
     },
-    "parser": "typescript-eslint/parser@8.6.0",
+    "parser": "typescript-eslint/parser@8.72.2",
     "parserOptions": {
       "projectService": true,
     },
@@ -1162,12 +1170,12 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
   },
   "plugins": [
     "@",
-    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.6.0",
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.72.2",
     "import",
-    "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
-    "jest:eslint-plugin-jest@28.8.3",
+    "jsx-a11y:eslint-plugin-jsx-a11y@6.10.2",
+    "jest:eslint-plugin-jest@28.14.0",
     "use-macros:eslint-plugin-use-macros",
-    "es-x:eslint-plugin-es-x@8.0.0",
+    "es-x:eslint-plugin-es-x@8.7.0",
   ],
   "processor": undefined,
   "rules": {
@@ -1261,6 +1269,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "@typescript-eslint/no-empty-function": [
       2,
+      {
+        "allow": [],
+      },
     ],
     "@typescript-eslint/no-empty-object-type": [
       2,
@@ -1315,6 +1326,11 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "@typescript-eslint/no-unused-expressions": [
       2,
+      {
+        "allowShortCircuit": false,
+        "allowTaggedTemplates": false,
+        "allowTernary": false,
+      },
     ],
     "@typescript-eslint/no-unused-vars": [
       2,
@@ -1381,12 +1397,18 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "array-callback-return": [
       0,
+      {
+        "allowImplicit": false,
+        "allowVoid": false,
+        "checkForEach": false,
+      },
     ],
     "array-element-newline": [
       0,
     ],
     "arrow-body-style": [
       0,
+      "as-needed",
     ],
     "arrow-parens": [
       1,
@@ -1413,6 +1435,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     "camelcase": [
       2,
       {
+        "allow": [],
         "ignoreDestructuring": true,
         "ignoreGlobals": false,
         "ignoreImports": false,
@@ -1421,6 +1444,11 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "class-methods-use-this": [
       0,
+      {
+        "enforceForClassFields": true,
+        "exceptMethods": [],
+        "ignoreOverrideMethods": false,
+      },
     ],
     "comma-dangle": [
       2,
@@ -1443,18 +1471,26 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "consistent-return": [
       0,
+      {
+        "treatUndefinedAsUnspecified": false,
+      },
     ],
     "constructor-super": [
       2,
     ],
     "curly": [
       0,
+      "all",
     ],
     "dot-location": [
       0,
     ],
     "dot-notation": [
       1,
+      {
+        "allowKeywords": true,
+        "allowPattern": "",
+      },
     ],
     "eol-last": [
       0,
@@ -1522,6 +1558,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "getter-return": [
       2,
+      {
+        "allowImplicit": false,
+      },
     ],
     "implicit-arrow-linebreak": [
       0,
@@ -1554,7 +1593,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
           "sibling",
           "index",
         ],
+        "named": false,
         "newlines-between": "always",
+        "sortTypesGroup": false,
         "warnOnUnassignedImports": false,
       },
     ],
@@ -1611,7 +1652,21 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       2,
       {
         "capIsNew": false,
+        "capIsNewExceptions": [
+          "Array",
+          "Boolean",
+          "Date",
+          "Error",
+          "Function",
+          "Number",
+          "Object",
+          "RegExp",
+          "String",
+          "Symbol",
+          "BigInt",
+        ],
         "newIsCap": true,
+        "newIsCapExceptions": [],
         "properties": true,
       },
     ],
@@ -1647,12 +1702,14 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-cond-assign": [
       1,
+      "except-parens",
     ],
     "no-confusing-arrow": [
       0,
     ],
     "no-console": [
       2,
+      {},
     ],
     "no-const-assign": [
       2,
@@ -1662,6 +1719,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-constant-condition": [
       2,
+      {
+        "checkLoops": "allExceptWhileTrue",
+      },
     ],
     "no-control-regex": [
       2,
@@ -1689,18 +1749,30 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-else-return": [
       1,
+      {
+        "allowElseIf": true,
+      },
     ],
     "no-empty": [
       2,
+      {
+        "allowEmptyCatch": false,
+      },
     ],
     "no-empty-character-class": [
       2,
     ],
     "no-empty-function": [
       0,
+      {
+        "allow": [],
+      },
     ],
     "no-empty-pattern": [
       2,
+      {
+        "allowObjectPatternsAsParameters": false,
+      },
     ],
     "no-empty-static-block": [
       2,
@@ -1710,6 +1782,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-extra-boolean-cast": [
       1,
+      {},
     ],
     "no-extra-parens": [
       0,
@@ -1719,6 +1792,10 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-fallthrough": [
       2,
+      {
+        "allowEmptyCase": false,
+        "reportUnusedFallthroughComment": false,
+      },
     ],
     "no-floating-decimal": [
       0,
@@ -1728,18 +1805,33 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-global-assign": [
       2,
+      {
+        "exceptions": [],
+      },
     ],
     "no-import-assign": [
       0,
     ],
     "no-inner-declarations": [
       2,
+      "functions",
+      {
+        "blockScopedFunctions": "allow",
+      },
     ],
     "no-invalid-regexp": [
       2,
+      {},
     ],
     "no-irregular-whitespace": [
       2,
+      {
+        "skipComments": false,
+        "skipJSXText": false,
+        "skipRegExps": false,
+        "skipStrings": true,
+        "skipTemplates": false,
+      },
     ],
     "no-lonely-if": [
       1,
@@ -1749,6 +1841,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-misleading-character-class": [
       2,
+      {
+        "allowEscape": false,
+      },
     ],
     "no-mixed-operators": [
       1,
@@ -1812,6 +1907,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-redeclare": [
       0,
+      {
+        "builtinGlobals": true,
+      },
     ],
     "no-regex-spaces": [
       2,
@@ -1821,15 +1919,29 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-self-assign": [
       2,
+      {
+        "props": true,
+      },
     ],
     "no-setter-return": [
       0,
     ],
     "no-shadow": [
       0,
+      {
+        "allow": [],
+        "builtinGlobals": false,
+        "hoist": "functions",
+        "ignoreFunctionTypeParameterNameValueShadow": true,
+        "ignoreOnInitialization": false,
+        "ignoreTypeValueShadow": true,
+      },
     ],
     "no-shadow-restricted-names": [
       2,
+      {
+        "reportGlobalThis": false,
+      },
     ],
     "no-space-before-semi": [
       0,
@@ -1851,9 +1963,23 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-undef": [
       2,
+      {
+        "typeof": false,
+      },
     ],
     "no-underscore-dangle": [
       0,
+      {
+        "allow": [],
+        "allowAfterSuper": false,
+        "allowAfterThis": false,
+        "allowAfterThisConstructor": false,
+        "allowFunctionParams": true,
+        "allowInArrayDestructuring": true,
+        "allowInObjectDestructuring": true,
+        "enforceInClassFields": false,
+        "enforceInMethodNames": false,
+      },
     ],
     "no-unexpected-multiline": [
       0,
@@ -1866,12 +1992,25 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-unsafe-negation": [
       2,
+      {
+        "enforceForOrderingRelations": false,
+      },
     ],
     "no-unsafe-optional-chaining": [
       2,
+      {
+        "disallowArithmeticOperators": false,
+      },
     ],
     "no-unused-expressions": [
       0,
+      {
+        "allowShortCircuit": false,
+        "allowTaggedTemplates": false,
+        "allowTernary": false,
+        "enforceForJSX": false,
+        "ignoreDirectives": false,
+      },
     ],
     "no-unused-labels": [
       2,
@@ -1884,6 +2023,15 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-use-before-define": [
       0,
+      {
+        "allowNamedExports": false,
+        "classes": true,
+        "enums": true,
+        "functions": true,
+        "ignoreTypeReferences": true,
+        "typedefs": true,
+        "variables": true,
+      },
     ],
     "no-useless-backreference": [
       2,
@@ -1896,6 +2044,9 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "no-useless-escape": [
       0,
+      {
+        "allowRegexCharacters": [],
+      },
     ],
     "no-var": [
       2,
@@ -1904,7 +2055,7 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
       0,
     ],
     "no-with": [
-      2,
+      0,
     ],
     "no-wrap-func": [
       0,
@@ -1935,6 +2086,10 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "prefer-const": [
       1,
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false,
+      },
     ],
     "prefer-rest-params": [
       2,
@@ -2088,12 +2243,19 @@ exports[`eslint-config-wantedly-typescript base should match snapshot for 1`] = 
     ],
     "use-isnan": [
       2,
+      {
+        "enforceForIndexOf": false,
+        "enforceForSwitchCase": true,
+      },
     ],
     "use-macros/graphql-tag": [
       2,
     ],
     "valid-typeof": [
       2,
+      {
+        "requireStringLiterals": false,
+      },
     ],
     "vue/array-bracket-newline": [
       0,
@@ -2229,7 +2391,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
 {
   "language": "@/js",
   "languageOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 2026,
     "globals": {
       "AI": false,
       "AITextSession": false,
@@ -2271,6 +2433,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "BackgroundFetchRecord": false,
       "BackgroundFetchRegistration": false,
       "BarProp": false,
+      "BarcodeDetector": false,
       "BaseAudioContext": false,
       "BatteryManager": false,
       "BeforeUnloadEvent": false,
@@ -2306,6 +2469,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "CSSKeywordValue": false,
       "CSSLayerBlockRule": false,
       "CSSLayerStatementRule": false,
+      "CSSMarginRule": false,
       "CSSMathClamp": false,
       "CSSMathInvert": false,
       "CSSMathMax": false,
@@ -2317,6 +2481,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "CSSMatrixComponent": false,
       "CSSMediaRule": false,
       "CSSNamespaceRule": false,
+      "CSSNestedDeclarations": false,
       "CSSNumericArray": false,
       "CSSNumericValue": false,
       "CSSPageDescriptors": false,
@@ -2628,7 +2793,6 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "InputEvent": false,
       "IntersectionObserver": false,
       "IntersectionObserverEntry": false,
-      "Iterator": false,
       "Keyboard": false,
       "KeyboardEvent": false,
       "KeyboardLayoutMap": false,
@@ -2942,6 +3106,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "SharedStorage": false,
       "SharedStorageWorklet": false,
       "SharedWorker": false,
+      "SnapEvent": false,
       "SourceBuffer": false,
       "SourceBufferList": false,
       "SpeechSynthesis": false,
@@ -3089,12 +3254,15 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "XRDOMOverlayState": false,
       "XRDepthInformation": false,
       "XRFrame": false,
+      "XRHand": false,
       "XRHitTestResult": false,
       "XRHitTestSource": false,
       "XRInputSource": false,
       "XRInputSourceArray": false,
       "XRInputSourceEvent": false,
       "XRInputSourcesChangeEvent": false,
+      "XRJointPose": false,
+      "XRJointSpace": false,
       "XRLayer": false,
       "XRLightEstimate": false,
       "XRLightProbe": false,
@@ -3290,6 +3458,8 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "onresize": true,
       "onscroll": true,
       "onscrollend": true,
+      "onscrollsnapchange": true,
+      "onscrollsnapchanging": true,
       "onsearch": true,
       "onsecuritypolicyviolation": true,
       "onseeked": true,
@@ -3376,7 +3546,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       "xit": false,
       "xtest": false,
     },
-    "parser": "typescript-eslint/parser@8.6.0",
+    "parser": "typescript-eslint/parser@8.72.2",
     "parserOptions": {
       "ecmaFeatures": {
         "jsx": true,
@@ -3390,14 +3560,14 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
   },
   "plugins": [
     "@",
-    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.6.0",
+    "@typescript-eslint:@typescript-eslint/eslint-plugin@8.72.2",
     "import",
-    "jsx-a11y:eslint-plugin-jsx-a11y@6.10.0",
-    "jest:eslint-plugin-jest@28.8.3",
+    "jsx-a11y:eslint-plugin-jsx-a11y@6.10.2",
+    "jest:eslint-plugin-jest@28.14.0",
     "use-macros:eslint-plugin-use-macros",
-    "es-x:eslint-plugin-es-x@8.0.0",
+    "es-x:eslint-plugin-es-x@8.7.0",
     "react",
-    "react-hooks",
+    "react-hooks:eslint-plugin-react-hooks",
     "wantedly:eslint-plugin-wantedly",
   ],
   "processor": undefined,
@@ -3492,6 +3662,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "@typescript-eslint/no-empty-function": [
       2,
+      {
+        "allow": [],
+      },
     ],
     "@typescript-eslint/no-empty-object-type": [
       2,
@@ -3546,6 +3719,11 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "@typescript-eslint/no-unused-expressions": [
       2,
+      {
+        "allowShortCircuit": false,
+        "allowTaggedTemplates": false,
+        "allowTernary": false,
+      },
     ],
     "@typescript-eslint/no-unused-vars": [
       2,
@@ -3612,12 +3790,18 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "array-callback-return": [
       0,
+      {
+        "allowImplicit": false,
+        "allowVoid": false,
+        "checkForEach": false,
+      },
     ],
     "array-element-newline": [
       0,
     ],
     "arrow-body-style": [
       0,
+      "as-needed",
     ],
     "arrow-parens": [
       1,
@@ -3644,6 +3828,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     "camelcase": [
       2,
       {
+        "allow": [],
         "ignoreDestructuring": true,
         "ignoreGlobals": false,
         "ignoreImports": false,
@@ -3652,6 +3837,11 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "class-methods-use-this": [
       0,
+      {
+        "enforceForClassFields": true,
+        "exceptMethods": [],
+        "ignoreOverrideMethods": false,
+      },
     ],
     "comma-dangle": [
       2,
@@ -3674,18 +3864,26 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "consistent-return": [
       0,
+      {
+        "treatUndefinedAsUnspecified": false,
+      },
     ],
     "constructor-super": [
       2,
     ],
     "curly": [
       0,
+      "all",
     ],
     "dot-location": [
       0,
     ],
     "dot-notation": [
       1,
+      {
+        "allowKeywords": true,
+        "allowPattern": "",
+      },
     ],
     "eol-last": [
       0,
@@ -3753,6 +3951,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "getter-return": [
       2,
+      {
+        "allowImplicit": false,
+      },
     ],
     "implicit-arrow-linebreak": [
       0,
@@ -3785,7 +3986,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
           "sibling",
           "index",
         ],
+        "named": false,
         "newlines-between": "always",
+        "sortTypesGroup": false,
         "warnOnUnassignedImports": false,
       },
     ],
@@ -3842,7 +4045,21 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       2,
       {
         "capIsNew": false,
+        "capIsNewExceptions": [
+          "Array",
+          "Boolean",
+          "Date",
+          "Error",
+          "Function",
+          "Number",
+          "Object",
+          "RegExp",
+          "String",
+          "Symbol",
+          "BigInt",
+        ],
         "newIsCap": true,
+        "newIsCapExceptions": [],
         "properties": true,
       },
     ],
@@ -3878,12 +4095,14 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-cond-assign": [
       1,
+      "except-parens",
     ],
     "no-confusing-arrow": [
       0,
     ],
     "no-console": [
       2,
+      {},
     ],
     "no-const-assign": [
       2,
@@ -3893,6 +4112,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-constant-condition": [
       2,
+      {
+        "checkLoops": "allExceptWhileTrue",
+      },
     ],
     "no-control-regex": [
       2,
@@ -3920,18 +4142,30 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-else-return": [
       1,
+      {
+        "allowElseIf": true,
+      },
     ],
     "no-empty": [
       2,
+      {
+        "allowEmptyCatch": false,
+      },
     ],
     "no-empty-character-class": [
       2,
     ],
     "no-empty-function": [
       0,
+      {
+        "allow": [],
+      },
     ],
     "no-empty-pattern": [
       2,
+      {
+        "allowObjectPatternsAsParameters": false,
+      },
     ],
     "no-empty-static-block": [
       2,
@@ -3941,6 +4175,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-extra-boolean-cast": [
       1,
+      {},
     ],
     "no-extra-parens": [
       0,
@@ -3950,6 +4185,10 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-fallthrough": [
       2,
+      {
+        "allowEmptyCase": false,
+        "reportUnusedFallthroughComment": false,
+      },
     ],
     "no-floating-decimal": [
       0,
@@ -3959,18 +4198,33 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-global-assign": [
       2,
+      {
+        "exceptions": [],
+      },
     ],
     "no-import-assign": [
       0,
     ],
     "no-inner-declarations": [
       2,
+      "functions",
+      {
+        "blockScopedFunctions": "allow",
+      },
     ],
     "no-invalid-regexp": [
       2,
+      {},
     ],
     "no-irregular-whitespace": [
       2,
+      {
+        "skipComments": false,
+        "skipJSXText": false,
+        "skipRegExps": false,
+        "skipStrings": true,
+        "skipTemplates": false,
+      },
     ],
     "no-lonely-if": [
       1,
@@ -3980,6 +4234,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-misleading-character-class": [
       2,
+      {
+        "allowEscape": false,
+      },
     ],
     "no-mixed-operators": [
       1,
@@ -4043,6 +4300,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-redeclare": [
       0,
+      {
+        "builtinGlobals": true,
+      },
     ],
     "no-regex-spaces": [
       2,
@@ -4052,15 +4312,29 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-self-assign": [
       2,
+      {
+        "props": true,
+      },
     ],
     "no-setter-return": [
       0,
     ],
     "no-shadow": [
       0,
+      {
+        "allow": [],
+        "builtinGlobals": false,
+        "hoist": "functions",
+        "ignoreFunctionTypeParameterNameValueShadow": true,
+        "ignoreOnInitialization": false,
+        "ignoreTypeValueShadow": true,
+      },
     ],
     "no-shadow-restricted-names": [
       2,
+      {
+        "reportGlobalThis": false,
+      },
     ],
     "no-space-before-semi": [
       0,
@@ -4082,9 +4356,23 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-undef": [
       2,
+      {
+        "typeof": false,
+      },
     ],
     "no-underscore-dangle": [
       0,
+      {
+        "allow": [],
+        "allowAfterSuper": false,
+        "allowAfterThis": false,
+        "allowAfterThisConstructor": false,
+        "allowFunctionParams": true,
+        "allowInArrayDestructuring": true,
+        "allowInObjectDestructuring": true,
+        "enforceInClassFields": false,
+        "enforceInMethodNames": false,
+      },
     ],
     "no-unexpected-multiline": [
       0,
@@ -4097,12 +4385,25 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-unsafe-negation": [
       2,
+      {
+        "enforceForOrderingRelations": false,
+      },
     ],
     "no-unsafe-optional-chaining": [
       2,
+      {
+        "disallowArithmeticOperators": false,
+      },
     ],
     "no-unused-expressions": [
       0,
+      {
+        "allowShortCircuit": false,
+        "allowTaggedTemplates": false,
+        "allowTernary": false,
+        "enforceForJSX": false,
+        "ignoreDirectives": false,
+      },
     ],
     "no-unused-labels": [
       2,
@@ -4115,6 +4416,15 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-use-before-define": [
       0,
+      {
+        "allowNamedExports": false,
+        "classes": true,
+        "enums": true,
+        "functions": true,
+        "ignoreTypeReferences": true,
+        "typedefs": true,
+        "variables": true,
+      },
     ],
     "no-useless-backreference": [
       2,
@@ -4127,6 +4437,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "no-useless-escape": [
       0,
+      {
+        "allowRegexCharacters": [],
+      },
     ],
     "no-var": [
       2,
@@ -4135,7 +4448,7 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
       0,
     ],
     "no-with": [
-      2,
+      0,
     ],
     "no-wrap-func": [
       0,
@@ -4166,6 +4479,10 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "prefer-const": [
       1,
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false,
+      },
     ],
     "prefer-rest-params": [
       2,
@@ -4430,6 +4747,10 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "use-isnan": [
       2,
+      {
+        "enforceForIndexOf": false,
+        "enforceForSwitchCase": true,
+      },
     ],
     "use-macros/graphql-tag": [
       2,
@@ -4439,6 +4760,9 @@ exports[`eslint-config-wantedly-typescript react should match snapshot for 1`] =
     ],
     "valid-typeof": [
       2,
+      {
+        "requireStringLiterals": false,
+      },
     ],
     "vue/array-bracket-newline": [
       0,
