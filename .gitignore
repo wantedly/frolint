@@ -91,3 +91,4 @@ typings/
 
 packages/eslint-plugin-wantedly/lib
 packages/frolint/lib
+*.tsbuildinfo

@@ -43,7 +43,6 @@
   },
   "devDependencies": {
     "@types/command-exists": "^1.2.0",
-    "@types/cosmiconfig": "^6.0.0",
     "@types/debug": "^4.1.7",
     "@types/mock-fs": "^4.13.0",
     "@types/prettier": "^2.4.0",
