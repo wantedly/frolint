@@ -1,4 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>wantedly/renovate-config:base", "local>wantedly/renovate-config:js-lib"]
+  "extends": ["config:recommended"],
+  "minimumReleaseAge": "7 days",
+  "internalChecksFilter": "strict",
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "timezone": "Asia/Tokyo",
+  "packageRules": [
+    {
+      "description": "Widen ranges instead of bumping them, so in-range updates only touch yarn.lock",
+      "matchCategories": ["js"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "description": "Use only even (LTS) major versions of Node.js",
+      "matchDatasources": ["node-version"],
+      "matchPackageNames": ["node"],
+      "allowedVersions": "/^\\d*[02468]\\./"
+    },
+    {
+      "matchDepTypes": ["action"],
+      "pinDigests": false
+    }
+  ]
 }
