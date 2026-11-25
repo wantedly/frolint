@@ -83,15 +83,10 @@ jobs:
             ' "$file" > "$file.tmp"
             mv "$file.tmp" "$file"
           done
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add packages/*/package.json
-          # lerna refuses to publish from a dirty tree. The commit stays in the runner.
-          # --no-verify: the husky pre-commit hook has nothing to do with this rewrite.
-          git commit --no-verify -m "temp: scope the package names for GitHub Packages"
 
+      # Publishes every package whose version is not on GitHub Packages yet. The
+      # registry comes from publishConfig.registry, which the step above sets.
       - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # --no-verify-access is required until lerna is above 5.2.0.
-        run: yarn lerna publish from-package --yes --no-verify-access
+        run: yarn changeset publish
