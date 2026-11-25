@@ -44,7 +44,10 @@
   },
   "jest": {
     "projects": [
-      "<rootDir>/packages/*"
+      "<rootDir>/packages/eslint-config-wantedly",
+      "<rootDir>/packages/eslint-config-wantedly-typescript",
+      "<rootDir>/packages/eslint-plugin-use-macros",
+      "<rootDir>/packages/eslint-plugin-wantedly"
     ]
   }
 }
