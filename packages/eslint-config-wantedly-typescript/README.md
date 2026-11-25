@@ -1,4 +1,12 @@
-# eslint-config-wantedly-typescript [![npm version](https://badge.fury.io/js/eslint-config-wantedly-typescript.svg)](https://badge.fury.io/js/eslint-config-wantedly-typescript)
+# @wantedly/eslint-config-wantedly-typescript
+
+> [!NOTE]
+> This package is published to [GitHub Packages](https://github.com/wantedly/frolint/pkgs/npm/eslint-config-wantedly-typescript) only (not npm) as `@wantedly/eslint-config-wantedly-typescript`.
+> Add the following line to `.npmrc` in your project, and authenticate to GitHub Packages with a token that has the `read:packages` scope.
+>
+> ```
+> @wantedly:registry=https://npm.pkg.github.com
+> ```
 
 ESLint config for Wantedly. It focuses the TypeScript linting.
 
@@ -11,7 +19,7 @@ If you're using ESLint v8 and under, please use eslint-config-wantedly-typescrip
 It exports configurations as "Flat config".
 
 ```js
-import { base as configWantedlyTS } from "eslint-config-wantedly-typescript";
+import { base as configWantedlyTS } from "@wantedly/eslint-config-wantedly-typescript";
 
 export default [
   ...configWantedlyTS,

@@ -33,7 +33,7 @@ export class ExportCommand extends Command<FrolintContext> {
 
       if (err && (err as NodeJS.ErrnoException).code === "ENOENT") {
         const eslintrcContent = `{
-  "extends": ["wantedly-typescript"],
+  "extends": ["@wantedly/wantedly-typescript"],
   "parserOptions": {
     "project": ["./tsconfig.json"]
   }
@@ -57,7 +57,7 @@ export class ExportCommand extends Command<FrolintContext> {
       log("Prettier config file not found");
 
       if (err && (err as NodeJS.ErrnoException).code === "ENOENT") {
-        const prettierrcContent = `"prettier-config-wantedly"\n`;
+        const prettierrcContent = `"@wantedly/prettier-config-wantedly"\n`;
 
         log("Export Prettier config file");
 

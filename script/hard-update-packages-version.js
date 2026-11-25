@@ -23,8 +23,10 @@ async function updatePackageJson(pkgJsonFilepath) {
     return;
   }
 
-  const targetDeps = Object.keys(pkgJson.dependencies || {});
-  const targetDevDeps = Object.keys(pkgJson.devDependencies || {});
+  // Packages in this monorepo are published to GitHub Packages, not npm. Their versions are managed by changesets.
+  const isExternal = (packageName) => !packageName.startsWith("@wantedly/");
+  const targetDeps = Object.keys(pkgJson.dependencies || {}).filter(isExternal);
+  const targetDevDeps = Object.keys(pkgJson.devDependencies || {}).filter(isExternal);
 
   const depsPromises = targetDeps.map((packageName) => manifest(packageName));
   const devDepsPromises = targetDevDeps.map((packageName) => manifest(packageName));

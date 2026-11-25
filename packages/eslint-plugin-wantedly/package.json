@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-wantedly",
+  "name": "@wantedly/eslint-plugin-wantedly",
   "description": "Opinionated ESLint plugin for Wantedly",
   "version": "4.0.1",
   "author": "Yuki Yamada <yamada@wantedly.com>",
@@ -12,9 +12,14 @@
   "license": "MIT",
   "main": "lib/index.js",
   "publishConfig": {
-    "access": "public"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   },
-  "repository": "https://github.com/wantedly/frolint/tree/master/packages/eslint-plugin-wantedly",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wantedly/frolint.git",
+    "directory": "packages/eslint-plugin-wantedly"
+  },
   "scripts": {
     "test": "jest",
     "build": "tsc -b .",

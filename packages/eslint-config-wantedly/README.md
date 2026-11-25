@@ -1,4 +1,12 @@
-# eslint-config-wantedly [![npm version](https://badge.fury.io/js/eslint-config-wantedly.svg)](https://badge.fury.io/js/eslint-config-wantedly)
+# @wantedly/eslint-config-wantedly
+
+> [!NOTE]
+> This package is published to [GitHub Packages](https://github.com/wantedly/frolint/pkgs/npm/eslint-config-wantedly) only (not npm) as `@wantedly/eslint-config-wantedly`.
+> Add the following line to `.npmrc` in your project, and authenticate to GitHub Packages with a token that has the `read:packages` scope.
+>
+> ```
+> @wantedly:registry=https://npm.pkg.github.com
+> ```
 
 ESLint config for Wantedly. It focuses the JavaScript linting.
 
@@ -11,7 +19,7 @@ If you're using ESLint v8 and under, please use eslint-config-wantedly version 3
 It exports configurations as "Flat config".
 
 ```js
-import { base as configWantedly } from "eslint-config-wantedly";
+import { base as configWantedly } from "@wantedly/eslint-config-wantedly";
 
 export default [
   ...configWantedly,

@@ -1,4 +1,12 @@
-# frolint [![npm version](https://badge.fury.io/js/frolint.svg)](https://badge.fury.io/js/frolint)
+# @wantedly/frolint
+
+> [!NOTE]
+> This package is published to [GitHub Packages](https://github.com/wantedly/frolint/pkgs/npm/frolint) only (not npm) as `@wantedly/frolint`.
+> Add the following line to `.npmrc` in your project, and authenticate to GitHub Packages with a token that has the `read:packages` scope.
+>
+> ```
+> @wantedly:registry=https://npm.pkg.github.com
+> ```
 
 **IMPORTANT NOTICE: We plan to stop maintaining this package. As of v4, the frolint script supports ESLint v9, but we will not support v10 and later versions. We strongly recommend using husky and lint-staged to lint and format git-staged files during the pre-commit phase and/or in CI.**
 
@@ -9,9 +17,9 @@
 If you want use `eslint-config-wantedly` or `eslint-config-wantedly-typescript` as a base rule set, you explicitly load them and put them into your root `eslint.config.js` like sample below.
 
 ```javascript
-import configWantedlyTs from "eslint-config-wantedly-typescript";
+import configWantedlyTs from "@wantedly/eslint-config-wantedly-typescript";
 // Or if you use JavaScript only
-// import configWantedly from "eslint-config-wantedly";
+// import configWantedly from "@wantedly/eslint-config-wantedly";
 
 export default [
   ...configWantedlyTs,
@@ -33,11 +41,11 @@ export default [
 Install depending on your package manager:
 
 ```sh
-yarn add -D frolint
+yarn add -D @wantedly/frolint
 ```
 
 ```sh
-npm install -D frolint
+npm install -D @wantedly/frolint
 ```
 
 And you should use the export command if you want to use prettier configuration with your favorite editor.

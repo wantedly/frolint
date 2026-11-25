@@ -108,24 +108,28 @@ export class DefaultCommand extends Command<FrolintContext> {
 
     log("Target Files: %O", files);
 
-    const eslintConfigPackage = isTypeScript ? "eslint-config-wantedly-typescript" : "eslint-config-wantedly";
+    const eslintConfigPackage = isTypeScript
+      ? "@wantedly/eslint-config-wantedly-typescript"
+      : "@wantedly/eslint-config-wantedly";
 
     log("ESLint Config: %o", { eslintConfigPackage });
 
     /**
      * Resolve package.json from eslintConfigPackage
-     * node_modules/frolint/lib/commands -> node_modules/`eslintConfigPackage`/package.json
+     * node_modules/@wantedly/frolint/lib/commands -> node_modules/`eslintConfigPackage`/package.json
      *
-     * node_modules/
-     *   frolint/
-     *     lib/
-     *       commands/ <-- __dirname
-     *   `eslintConfigPackage`/
-     *     package.json
+     * node_modules/ <-- nodeModulesDir
+     *   @wantedly/
+     *     frolint/
+     *       lib/
+     *         commands/ <-- __dirname
+     *     eslint-config-wantedly(-typescript)/
+     *       package.json
      */
-    const pkg = require(resolve(__dirname, "..", "..", "..", eslintConfigPackage, "package.json"));
+    const nodeModulesDir = resolve(__dirname, "..", "..", "..", "..");
+    const pkg = require(resolve(nodeModulesDir, eslintConfigPackage, "package.json"));
     Object.keys(pkg.dependencies).forEach((key) => {
-      module.paths.push(resolve(__dirname, "..", "..", "..", key, "node_modules"));
+      module.paths.push(resolve(nodeModulesDir, key, "node_modules"));
     });
 
     const shouldStageFiles = new Set<string>();

@@ -1,10 +1,10 @@
 const eslintJs = require("@eslint/js");
+const pluginUseMacros = require("@wantedly/eslint-plugin-use-macros");
 const configPrettier = require("eslint-config-prettier");
 const pluginESx = require("eslint-plugin-es-x");
 const pluginImport = require("eslint-plugin-import");
 const pluginJest = require("eslint-plugin-jest");
 const pluginJsxA11y = require("eslint-plugin-jsx-a11y");
-const pluginUseMacros = require("eslint-plugin-use-macros");
 const globals = require("globals");
 const eslintTs = require("typescript-eslint");
 

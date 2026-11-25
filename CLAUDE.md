@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Monorepo of Wantedly's shared JavaScript/TypeScript linting and formatting packages, published to npm. Managed with Yarn workspaces + Lerna (`version: independent`), released via Changesets.
+Monorepo of Wantedly's shared JavaScript/TypeScript linting and formatting packages, published to GitHub Packages (not npm) under the `@wantedly` scope — each `packages/<dir>` is published as `@wantedly/<dir>`, and internal dependencies reference the scoped names. Managed with Yarn workspaces + Lerna (`version: independent`), released via Changesets.
 
 ## Commands
 
@@ -40,7 +40,7 @@ Changesets, not manual version bumps. Add a changeset for any user-visible chang
 yarn changeset
 ```
 
-Pushing to `master` opens/updates a release PR (`.github/workflows/release.yml`); merging it publishes to npm.
+Pushing to `master` opens/updates a release PR (`.github/workflows/release.yml`); merging it publishes to GitHub Packages (`publishConfig.registry` in each `package.json` points at `https://npm.pkg.github.com`).
 
 ## Architecture
 
@@ -85,4 +85,4 @@ yarn scaffdog generate eslint-plugin-wantedly-rule
 
 `DefaultCommand` flow: resolve git root → select target files (staged+unstaged in pre-commit mode, diff vs `--branch`, or all files) → `applyEslint` → write fixes → `applyPrettier` → write fixes → re-stage fully-staged files → report. Exit code 1 when errors remain in staged files, or per `--expect-no-errors` / `--expect-no-diff`.
 
-Note `DefaultCommand` mutates `module.paths` to resolve plugins out of the sibling `eslint-config-wantedly*` package's dependencies — it assumes a flat `node_modules/` layout. Debug logging is namespaced via `debug` (`this.context.debug("Name")`); run with `DEBUG=frolint:*`.
+Note `DefaultCommand` mutates `module.paths` to resolve plugins out of the sibling `@wantedly/eslint-config-wantedly*` package's dependencies — it assumes a flat `node_modules/` layout with frolint installed at `node_modules/@wantedly/frolint`. Debug logging is namespaced via `debug` (`this.context.debug("Name")`); run with `DEBUG=frolint:*`.
