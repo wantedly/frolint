@@ -9,15 +9,15 @@ Monorepo of Wantedly's shared JavaScript/TypeScript linting and formatting packa
 ## Commands
 
 ```sh
-yarn                     # install; postinstall runs `lerna bootstrap`
+yarn                     # install (yarn workspaces)
 yarn build               # tsc -b for the TS package (eslint-plugin-wantedly)
 yarn build:watch
-yarn test                # pretest runs `yarn build` first, then lerna run test
-yarn test:update         # update jest snapshots across packages
-yarn test:watch          # watch all packages except prettier-config-wantedly
+yarn test                # pretest runs `yarn build` first, then one jest run over all packages (root `jest.projects`)
+yarn test:update         # update jest snapshots across packages (does not build first)
+yarn test:watch          # watch all packages
 yarn lint                # eslint --cache (expects file args; lint-staged supplies them)
 yarn format              # prettier --write (same; expects file args)
-yarn clean               # lerna clean + remove packages/*/lib
+yarn clean               # remove packages/*/node_modules, lib, and tsbuildinfo
 ```
 
 Run a single package's tests from its directory (jest is hoisted to the root):
