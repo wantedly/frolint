@@ -18,7 +18,7 @@ The `frolint` CLI is deprecated and has been removed from this repository. Its l
 
 ```fish
 # Create above list with fish shell script
-for package in (yarn -s lerna ls --loglevel silent)
+for package in (ls packages)
     echo "- [$package](https://github.com/wantedly/frolint/tree/master/packages/$package) [![npm version](https://badge.fury.io/js/$package.svg)](https://badge.fury.io/js/$package)"
 end
 ```
@@ -29,15 +29,13 @@ end
 
 PRs are welcome, see the current issues open.
 
-We are developing this project with [Lerna](https://github.com/lerna/lerna). 
+This is a [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) monorepo, and releases are managed with [Changesets](https://github.com/changesets/changesets).
 
 Clone the repository and run
 
 ```sh
 yarn
 ```
-
-This will also trigger the lerna bootstraping process.
 
 Running Tests:
 

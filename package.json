@@ -29,18 +29,25 @@
     "*.json": "yarn format"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap",
     "pretest": "yarn build",
-    "test": "FORCE_COLOR=1 lerna run --stream test",
-    "test:watch": "FORCE_COLOR=1 lerna exec --stream --ignore prettier-config-wantedly -- npm run test -- --watch",
-    "test:update": "lerna run --stream test -- -u",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:update": "jest -u",
     "format": "prettier --write",
     "lint": "eslint --cache",
-    "build": "lerna run build",
-    "build:watch": "lerna run --parallel build:watch",
+    "build": "tsc -b packages/eslint-plugin-wantedly",
+    "build:watch": "tsc -b packages/eslint-plugin-wantedly --watch",
     "prerelease": "yarn install --force && yarn run build",
     "release": "yarn changeset publish",
-    "clean": "yarn lerna clean -y && rm -r packages/*/lib",
+    "clean": "rm -rf packages/*/node_modules packages/*/lib packages/*/tsconfig.tsbuildinfo",
     "prepare": "husky"
+  },
+  "jest": {
+    "projects": [
+      "<rootDir>/packages/eslint-config-wantedly",
+      "<rootDir>/packages/eslint-config-wantedly-typescript",
+      "<rootDir>/packages/eslint-plugin-use-macros",
+      "<rootDir>/packages/eslint-plugin-wantedly"
+    ]
   }
 }
