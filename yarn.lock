@@ -7195,7 +7195,7 @@ package-manager-detector@^0.2.0:
   dependencies:
     quansync "^0.2.7"
 
-pacote@^11.2.6, pacote@^11.3.4:
+pacote@^11.2.6:
   version "11.3.5"
   resolved "https://registry.yarnpkg.com/pacote/-/pacote-11.3.5.tgz#73cf1fc3772b533f575e39efa96c50be8c3dc9d2"
   integrity sha512-fT375Yczn4zi+6Hkk2TBe1x1sP8FgFsEIZ2/iWaXY2r/NkhDJfxbcn5paz1+RTFCyNf+dPnaoBDJoAxXSU8Bkg==
