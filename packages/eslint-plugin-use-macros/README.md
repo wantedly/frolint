@@ -1,4 +1,12 @@
-# eslint-plugin-use-macros [![npm version](https://badge.fury.io/js/eslint-plugin-use-macros.svg)](https://badge.fury.io/js/eslint-plugin-use-macros)
+# @wantedly/eslint-plugin-use-macros
+
+> [!NOTE]
+> This package is published to [GitHub Packages](https://github.com/wantedly/frolint/pkgs/npm/eslint-plugin-use-macros) only (not npm) as `@wantedly/eslint-plugin-use-macros`.
+> Add the following line to `.npmrc` in your project, and authenticate to GitHub Packages with a token that has the `read:packages` scope.
+>
+> ```
+> @wantedly:registry=https://npm.pkg.github.com
+> ```
 
 ## Rule details
 
@@ -42,9 +50,9 @@ const QUERY = gql`
 ## Installation
 
 ```sh
-npm install --save eslint-plugin-use-macros
+npm install --save @wantedly/eslint-plugin-use-macros
 # or
-yarn add eslint-plugin-use-macros
+yarn add @wantedly/eslint-plugin-use-macros
 ```
 
 ## Usage
@@ -52,7 +60,7 @@ yarn add eslint-plugin-use-macros
 ### With "Flat Config"
 
 ```js
-import pluginUseMacros from "eslint-plugin-use-macros";
+import pluginUseMacros from "@wantedly/eslint-plugin-use-macros";
 
 export default [
   {

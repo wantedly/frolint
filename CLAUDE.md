@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Monorepo of Wantedly's shared JavaScript/TypeScript linting and formatting packages, published to npm. Managed with Yarn workspaces + Lerna (`version: independent`), released via Changesets.
+Monorepo of Wantedly's shared JavaScript/TypeScript linting and formatting packages, published to GitHub Packages (not npm) under the `@wantedly` scope — each `packages/<dir>` is published as `@wantedly/<dir>`, and internal dependencies reference the scoped names. Managed with Yarn workspaces + Lerna (`version: independent`), released via Changesets.
 
 ## Commands
 
@@ -39,7 +39,7 @@ Changesets, not manual version bumps. Add a changeset for any user-visible chang
 yarn changeset
 ```
 
-Pushing to `master` opens/updates a release PR (`.github/workflows/release.yml`); merging it publishes to npm.
+Pushing to `master` opens/updates a release PR (`.github/workflows/release.yml`); merging it publishes to GitHub Packages (`publishConfig.registry` in each `package.json` points at `https://npm.pkg.github.com`).
 
 ## Architecture
 

@@ -1,6 +1,6 @@
+const pluginWantedly = require("@wantedly/eslint-plugin-wantedly");
 const pluginReact = require("eslint-plugin-react");
 const pluginReactHooks = require("eslint-plugin-react-hooks");
-const pluginWantedly = require("eslint-plugin-wantedly");
 const eslintTs = require("typescript-eslint");
 
 const baseConfig = require("./base");

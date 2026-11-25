@@ -1,4 +1,12 @@
-# eslint-plugin-wantedly [![npm version](https://badge.fury.io/js/eslint-plugin-wantedly.svg)](https://badge.fury.io/js/eslint-plugin-wantedly)
+# @wantedly/eslint-plugin-wantedly
+
+> [!NOTE]
+> This package is published to [GitHub Packages](https://github.com/wantedly/frolint/pkgs/npm/eslint-plugin-wantedly) only (not npm) as `@wantedly/eslint-plugin-wantedly`.
+> Add the following line to `.npmrc` in your project, and authenticate to GitHub Packages with a token that has the `read:packages` scope.
+>
+> ```
+> @wantedly:registry=https://npm.pkg.github.com
+> ```
 
 ## Rule details
 
@@ -22,9 +30,9 @@ This plugin provides the opinionated rules in Wantedly.
 ## Installation
 
 ```sh
-npm install --save eslint-plugin-wantedly
+npm install --save @wantedly/eslint-plugin-wantedly
 # or
-yarn add eslint-plugin-wantedly
+yarn add @wantedly/eslint-plugin-wantedly
 ```
 
 ## Usage
@@ -32,7 +40,7 @@ yarn add eslint-plugin-wantedly
 ### With "Flat Config"
 
 ```js
-import pluginWantedly from "eslint-plugin-wantedly";
+import pluginWantedly from "@wantedly/eslint-plugin-wantedly";
 
 export default [
   {

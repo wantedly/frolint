@@ -32,7 +32,7 @@
     "postinstall": "lerna bootstrap",
     "pretest": "yarn build",
     "test": "FORCE_COLOR=1 lerna run --stream test",
-    "test:watch": "FORCE_COLOR=1 lerna exec --stream --ignore prettier-config-wantedly -- npm run test -- --watch",
+    "test:watch": "FORCE_COLOR=1 lerna exec --stream --ignore @wantedly/prettier-config-wantedly -- npm run test -- --watch",
     "test:update": "lerna run --stream test -- -u",
     "format": "prettier --write",
     "lint": "eslint --cache",
